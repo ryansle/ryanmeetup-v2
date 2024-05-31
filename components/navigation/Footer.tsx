@@ -38,7 +38,7 @@ const Footer = () => {
               <Heading ignoreColorMode>RYAN MEETUP</Heading>
             </NextLink>
 
-            <Text className='mt-[2px]' ignoreColorMode>No Bryans Allowed!</Text>
+            <Heading className='mt-[2px] uppercase' size='xs' ignoreColorMode>No Bryans Allowed</Heading>
             <div className='flex items-center mt-6'>
               <NextImage
                 src='/ryanrecords.png'

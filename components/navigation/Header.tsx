@@ -1,0 +1,141 @@
+// Components
+import { Heading } from '@/components/global';
+import {
+  FaInstagram as Instagram,
+  FaMeetup as Meetup,
+  FaDiscord as Discord,
+  FaYoutube as YouTube,
+  FaMoneyBillWave as Donate,
+  FaPhotoVideo as Gallery,
+  FaTrophy as Trophy,
+  FaRegNewspaper as News,
+  FaMapMarkedAlt as Map
+} from 'react-icons/fa';
+import {
+  FaPeopleGroup as Community,
+  FaHandshakeSimple as Handshake,
+  FaShirt as Shirt,
+  FaChevronDown as ChevronDown,
+} from 'react-icons/fa6';
+import {
+  IoCalendarNumber as Calendar,
+  IoPersonAdd as Socials
+} from 'react-icons/io5';
+import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
+import { HiOutlineMail as Email } from 'react-icons/hi';
+import NextLink from 'next/link';
+
+const Header = () => {
+  const routes = [
+    {
+      icon: <Community />,
+      text: 'Community',
+      href: '',
+      subroutes: [
+        {
+          icon: <Calendar />,
+          text: 'Events',
+          href: '/events',
+        },
+        {
+          icon: <Gallery />,
+          text: 'Gallery',
+          href: '/gallery',
+        },
+        {
+          icon: <Trophy />,
+          text: 'Awards',
+          href: '/awards',
+        },
+      ],
+    },
+    {
+      icon: <Shirt />,
+      text: 'Merch',
+      href: 'https://ryanmeetup.etsy.com',
+    },
+    {
+      icon: <Handshake />,
+      text: 'Support',
+      href: '',
+      subroutes: [
+        {
+          icon: <Flyer />,
+          text: 'Posters',
+          href: '/posters',
+        },
+        {
+          icon: <Donate />,
+          text: 'Donate',
+          href: '/donate',
+        },
+      ],
+    },
+    {
+      icon: <Map />,
+      text: 'Map',
+      href: '/map',
+    },
+    {
+      icon: <News />,
+      text: 'Press',
+      href: '/press',
+    },
+    {
+      icon: <Email />,
+      text: 'Contact Us',
+      href: '/contact',
+    },
+    {
+      icon: <Socials />,
+      text: 'Social Media',
+      href: '',
+      subroutes: [
+        {
+          icon: <Instagram />,
+          text: 'Instagram',
+          href: 'https://www.instagram.com/ryanmeetup/',
+        },
+        {
+          icon: <Meetup />,
+          text: 'Meetup',
+          href: 'https://www.meetup.com/ryanmeetup/',
+        },
+        {
+          icon: <Discord />,
+          text: 'Discord',
+          href: 'https://discord.gg/HDugzYSHKC',
+        },
+        {
+          icon: <YouTube />,
+          text: 'YouTube',
+          href: 'https://www.youtube.com/@ryanmeetup',
+        },
+      ],
+    },
+  ];
+
+  return (
+    <header className='flex justify-between items-center py-5 px-4 border-b border-gray-400 dark:border-gray-700 bg-white dark:bg-black sticky relative top-0 right-0 left-0 z-50 lg:px-32 2xl:px-72 3xl:px-[400px] 4xl:px-[650px]'>
+      <div className='relative w-[128px] h-[33px] text-black dark:text-white transition ease-in-out duration-300 hover:scale-105'>
+        <NextLink href='/'>
+          <Heading>RYAN</Heading>
+        </NextLink>
+      </div>
+
+      <div className='flex space-x-4'>
+        {routes.map((route) => (
+          <NextLink
+            key={route.text}
+            className='flex items-center font-semibold rounded tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700'
+            href={route.href}
+          >
+            {route.icon} {route.text} {route.subroutes && <ChevronDown className='h-3 w-3 fill-gray-600' />}
+          </NextLink>
+        ))}
+      </div>
+    </header>
+  )
+};
+
+export { Header };
