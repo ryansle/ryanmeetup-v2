@@ -15,7 +15,6 @@ import {
   FaPeopleGroup as Community,
   FaHandshakeSimple as Handshake,
   FaShirt as Shirt,
-  FaChevronDown as ChevronDown,
 } from 'react-icons/fa6';
 import {
   IoCalendarNumber as Calendar,
@@ -23,6 +22,7 @@ import {
 } from 'react-icons/io5';
 import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
 import { HiOutlineMail as Email } from 'react-icons/hi';
+import { RouteMenu } from '@/components/navigation';
 import NextLink from 'next/link';
 
 const Header = () => {
@@ -123,15 +123,21 @@ const Header = () => {
         </NextLink>
       </div>
 
-      <div className='flex space-x-4'>
-        {routes.map((route) => (
+      <div className='flex space-x-4 overflow-y-scroll'>
+        {routes.map((route) => !route.subroutes ? (
           <NextLink
             key={route.text}
             className='flex items-center font-semibold rounded tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700'
             href={route.href}
           >
-            {route.icon} {route.text} {route.subroutes && <ChevronDown className='h-3 w-3 fill-gray-600' />}
+            {route.icon} {route.text}
           </NextLink>
+        ) : (
+          <RouteMenu
+            icon={route.icon}
+            title={route.text}
+            routes={route.subroutes}
+          />
         ))}
       </div>
     </header>

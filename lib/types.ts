@@ -1,3 +1,6 @@
+// Types
+import type { ReactNode } from 'react';
+
 // #region Contentful Types
 type ContentfulSys = {
   id: string;
@@ -161,6 +164,12 @@ type MailerParams = {
 };
 // #endregion
 
+type Route = {
+  icon: ReactNode;
+  text: string;
+  href: string;
+};
+
 export type {
   RyanEvent,
   TravelingRyan,
@@ -173,4 +182,5 @@ export type {
   Location,
   MailerParams,
   ContentfulImage,
+  Route,
 };
