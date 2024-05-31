@@ -134,6 +134,7 @@ const Header = () => {
           </NextLink>
         ) : (
           <RouteMenu
+            key={route.text}
             icon={route.icon}
             title={route.text}
             routes={route.subroutes}
