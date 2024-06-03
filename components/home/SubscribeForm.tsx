@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 
 // Components
 import { Input } from '@/components/global';
+import toast, { Toaster } from 'react-hot-toast';
+import { IoCloseSharp as Close } from 'react-icons/io5';
+import { FaCheckCircle as Check } from 'react-icons/fa';
 
 // Utilities
 import { validateEmail } from '@/utils/validate';
@@ -30,6 +33,7 @@ const SubscribeForm = (props: SubscribeFormProps) => {
     subscribeToEmails(email);
 
     setEmail('');
+    sendSuccessAlert();
 
     handler();
   };
@@ -38,8 +42,32 @@ const SubscribeForm = (props: SubscribeFormProps) => {
     checkEmail(email);
   }, [email]);
 
+  const sendSuccessAlert = () => toast.custom((t) => (
+    <div
+      className={`${t.visible ? 'animate-enter' : 'animate-leave'
+        } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5 text-black grid grid-cols-12 p-4 -pb-1`}
+    >
+      <div className='col-span-1 flex items-center justify-center'>
+        <Check className='h-8 w-8 fill-green-500 shrink-0' />
+      </div>
+      <div className='col-span-10 pl-4 pr-6'>
+        <h1 className='text-lg text-semibold font-cooper'>Thanks for subscribing!</h1>
+        <p className='text-sm tracking-wide'>
+          We promise we&apos;ll only ever send you Ryan Meetup news and information.
+        </p>
+      </div>
+      <div className='col-span-1 flex items-center'>
+        <button onClick={() => toast.dismiss(t.id)}>
+          <span className='sr-only'>Close</span>
+          <Close className='w-8 h-8 shrink-0' />
+        </button>
+      </div>
+    </div>
+  ));
+
   return (
     <div className='mt-[6px] w-full'>
+      <Toaster position='bottom-center' />
       <div className='grid grid-cols-12 gap-x-2 mt-1 flex'>
         <div className='col-span-8'>
           <Input
