@@ -51,7 +51,7 @@ const Landing = () => {
                 Join the Ryan Meetup
               </Button.Link>
             </div>
-            <SubscribeForm />
+            <SubscribeForm label='Join our Ryan mailing list' />
           </div>
         </div>
         <div className='col-span-12 order-first mb-4 xl:col-span-5 xl:order-last xl:mb-0'>

@@ -39,7 +39,7 @@ const Footer = () => {
             </NextLink>
 
             <Heading className='mt-[2px] uppercase' size='xs' ignoreColorMode>No Bryans Allowed</Heading>
-            <SubscribeForm />
+            <SubscribeForm label='Join our Ryan mailing list' />
           </div>
 
           {/* Resources & Follow Us */}

@@ -3,11 +3,11 @@ import { Layout } from '@/components/navigation';
 import { Landing, FAQ } from '@/components/home';
 import { Divider } from '@/components/global';
 
-// Utilities
-import { fetchFAQs } from '@/actions/fetchContent';
-
 // Types
 import type { FrequentlyAskedQuestion } from '@/lib/types';
+
+// Utilities
+import { fetchFAQs } from '@/actions/fetchContent';
 
 const fetchData = async () => {
   const res = await fetchFAQs();
