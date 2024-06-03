@@ -1,3 +1,6 @@
+// Components
+import { BryanChecker } from '@/components/global';
+
 // Types
 import type { Metadata } from 'next';
 
@@ -18,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-
     <html lang='en'>
       <body className={inter.className}>
+        <BryanChecker />
         {children}
       </body>
     </html>

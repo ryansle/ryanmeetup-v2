@@ -4,3 +4,7 @@ export * from './Button';
 export * from './Divider';
 export * from './Input';
 export * from './Textarea';
+export * from './Modal';
+export * from './404';
+export * from './BryanChecker';
+export * from './BryanModal';

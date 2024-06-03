@@ -1,6 +1,6 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { PageNotFound } from '@/components';
+import { PageNotFound } from '@/components/global';
 
 const NotFoundPage = () => {
   return (
