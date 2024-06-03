@@ -134,7 +134,7 @@ const Header = () => {
         {routes.map((route) => !route.subroutes ? (
           <NextLink
             key={route.text}
-            className={`${route.href.includes(pathname) && 'bg-gray-900'} flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700`}
+            className={`${route.href.includes(pathname) && pathname !== '/' && 'bg-gray-900'} flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700`}
             href={route.href}
           >
             {route.icon} {route.text}
