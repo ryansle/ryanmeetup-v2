@@ -86,30 +86,6 @@ type MediaEvent = {
   googleDriveLink: string;
 };
 
-type RyanPhoto = {
-  fields: {
-    file: ContentfulFile;
-    title: string;
-  };
-  metaData: {
-    tags: string[];
-  };
-  sys: {
-    createdAt: Date;
-    environment: {
-      sys: ContentfulSys;
-    };
-    id: string;
-    locale: string;
-    revision: number;
-    space: {
-      sys: ContentfulSys
-    };
-    type: string;
-    updatedAt: Date;
-  };
-};
-
 type Location = {
   locationName: string;
   coordinates: {
@@ -178,7 +154,6 @@ export type {
   FrequentlyAskedQuestion,
   Article,
   MediaEvent,
-  RyanPhoto,
   Location,
   MailerParams,
   ContentfulImage,

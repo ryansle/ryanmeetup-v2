@@ -9,14 +9,8 @@ import type { FrequentlyAskedQuestion } from '@/lib/types';
 // Utilities
 import { fetchFAQs } from '@/actions/fetchContent';
 
-const fetchData = async () => {
-  const res = await fetchFAQs();
-
-  return res;
-};
-
 const HomePage = async () => {
-  const faqs = await fetchData();
+  const faqs = await fetchFAQs();
 
   return (
     <Layout>

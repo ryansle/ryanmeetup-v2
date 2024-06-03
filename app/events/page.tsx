@@ -11,14 +11,8 @@ import type { RyanEvent } from '@/lib/types';
 // Utilities
 import { fetchEvents } from '@/actions/fetchContent';
 
-const fetchData = async () => {
-  const res = await fetchEvents();
-
-  return res;
-};
-
 const EventsPage = async () => {
-  const events = await fetchData();
+  const events = await fetchEvents();
 
   return (
     <Layout>
