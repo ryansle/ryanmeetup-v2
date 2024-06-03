@@ -3,23 +3,25 @@ import { forwardRef } from 'react';
 // Types
 import type { ChangeEvent } from 'react';
 
-type InputProps = {
+type TextareaProps = {
+  id: string;
   label: string;
   name: string;
-  type?: 'text' | 'email' | 'url' | 'number';
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
   required?: boolean;
+  rows?: number;
 };
 
-const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref) => {
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props: TextareaProps, ref) => {
   const {
+    id,
     label,
     name,
-    type = 'text',
     onChange,
     placeholder,
-    required = false,
+    required,
+    rows = 5,
     ...rest
   } = props;
 
@@ -31,14 +33,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref) 
       >
         {label} {required && <span className='text-red-500'>*</span>}
       </label>
-      <input
-        className='border bg-white dark:bg-black border-gray-700 dark:text-white text-black text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 ring-inset placeholder-gray-700'
-        id={name}
-        name={name}
+      <textarea
+        className='border bg-white dark:bg-black border-gray-700 text-black dark:text-white text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 ring-inset placeholder-gray-700'
+        id={id}
+        name={id}
         placeholder={placeholder}
         onChange={onChange}
         required={required}
-        type={type}
+        rows={rows}
         {...rest}
         ref={ref}
       />
@@ -46,4 +48,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref) 
   );
 });
 
-export { Input };
+export { Textarea };

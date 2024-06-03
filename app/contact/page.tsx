@@ -1,11 +1,18 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Heading } from '@/components/global';
+import { Heading, Text } from '@/components/global';
+import { ContactForm } from '@/components/contact';
 
 const ContactPage = () => {
   return (
-    <Layout>
-      <Heading className='mb-6'>Contact the Ryans</Heading>
+    <Layout className='space-y-6'>
+      <Heading>Contact the Ryans</Heading>
+
+      <Text size='lg'>
+        One of our Ryans will get back to you as soon as we can.
+      </Text>
+
+      <ContactForm />
     </Layout>
   );
 };

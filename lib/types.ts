@@ -151,6 +151,14 @@ type Route = {
   href: string;
 };
 
+type ContactFormFields = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
 export type {
   RyanEvent,
   TravelingRyan,
@@ -164,4 +172,5 @@ export type {
   ContentfulImage,
   Route,
   Flyer,
+  ContactFormFields,
 };

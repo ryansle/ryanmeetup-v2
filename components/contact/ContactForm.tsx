@@ -1,0 +1,172 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
+// Components
+import { Input, Text, Textarea, Button } from '@/components/global';
+import { BiMailSend as Send } from 'react-icons/bi';
+import { Loader } from '@/components/contact';
+import toast, { Toaster } from 'react-hot-toast';
+import { IoCloseSharp as Close } from 'react-icons/io5';
+import { FaCheckCircle as Check } from 'react-icons/fa';
+
+// Types
+import type { ReactNode } from 'react';
+
+// Utilities
+import { useForm } from 'react-hook-form';
+import { validateEmail } from '@/utils/validate';
+import { sendEmail } from '@/actions/sendEmail';
+import { ContactFormFields } from '@/lib/types';
+
+const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+    setError,
+    clearErrors,
+  } = useForm();
+
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const send = (form: ContactFormFields) => {
+    setLoading(true);
+
+    setTimeout(() => {
+      sendEmail(form);
+
+      sendSuccessAlert();
+      setLoading(false);
+      reset();
+    }, 2000);
+  };
+
+  const checkEmail = (email: string) => {
+    const valid = validateEmail(email);
+
+    if (valid) clearErrors('email');
+    else setError('email', { message: 'Error: invalid email address' });
+  };
+
+  const toggleErrorFlags = () => {
+    setError('firstName', { message: 'Error: must provide a first name' });
+    setError('lastName', { message: 'Error: must provide a last name' });
+    setError('subject', { message: 'Error: must provide a subject' });
+    setError('message', { message: 'Error: must provide a message' });
+  };
+
+  useEffect(() => {
+    toggleErrorFlags();
+  }, []);
+
+  useEffect(() => {
+    toggleErrorFlags();
+  }, [errors]);
+
+  const sendSuccessAlert = () => toast.custom((t) => (
+    <div
+      className={`${t.visible ? 'animate-enter' : 'animate-leave'
+        } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5 text-black grid grid-cols-12 p-4 -pb-1`}
+    >
+      <div className='col-span-1 flex items-center justify-center'>
+        <Check className='h-8 w-8 fill-green-500 shrink-0' />
+      </div>
+      <div className='col-span-10 pl-4 pr-6'>
+        <h1 className='text-lg text-semibold font-cooper'>Email sent!</h1>
+        <p className='text-sm tracking-wide'>
+          Expect an email back from theryanmeetup@gmail.com soon!
+        </p>
+      </div>
+      <div className='col-span-1 flex items-center'>
+        <button onClick={() => toast.dismiss(t.id)}>
+          <span className='sr-only'>Close</span>
+          <Close className='w-8 h-8 shrink-0' />
+        </button>
+      </div>
+    </div>
+  ));
+
+  return (
+    <form className='w-full grid grid-cols-2 gap-x-4 gap-y-4 mb-4'>
+      <div className='col-span-1'>
+        <Input
+          label='First Name'
+          placeholder='Ryan'
+          required
+          {...register('firstName', {
+            onBlur: (event) => event.target.value === '' ?
+              setError('firstName', { message: 'Error: must provide a first name' }) : clearErrors('firstName')
+          })}
+        />
+      </div>
+
+      <div className='col-span-1'>
+        <Input
+          label='Last Name'
+          placeholder='Smith'
+          required
+          {...register('lastName', {
+            onBlur: (event) => event.target.value === '' ?
+              setError('lastName', { message: 'Error: must provide a last name' }) : clearErrors('lastName')
+          })}
+        />
+      </div>
+
+      <div className='col-span-2 sm:col-span-1'>
+        <Input
+          label='Email Address'
+          placeholder='ryan@ryanmeetup.com'
+          type='text'
+          required
+          {...register('email', {
+            onBlur: (event) => checkEmail(event.target.value)
+          })}
+        />
+        {errors.email && (
+          <Text className='mt-2 text-red-500' size='xs'>
+            {errors.email.message as ReactNode}
+          </Text>
+        )}
+      </div>
+
+      <div className='col-span-2 sm:col-span-1'>
+        <Input
+          label='Subject'
+          placeholder='Official Ryan Business'
+          required
+          {...register('subject', {
+            onBlur: (event) => event.target.value === '' ?
+              setError('subject', { message: 'Error: must provide a subject' }) : clearErrors('subject')
+          })}
+        />
+      </div>
+
+      <div className='col-span-2'>
+        <Textarea
+          id='message'
+          label='Message'
+          required
+          {...register('message', {
+            onBlur: (event) => event.target.value === '' ?
+              setError('message', { message: 'Error: must provide a message' }) : clearErrors('message')
+          })}
+        />
+      </div>
+
+      <div className='col-span-2'>
+        <Button
+          className='w-full'
+          leftIcon={loading ? <Loader /> : <Send />}
+          onClick={handleSubmit((data) => send(data as ContactFormFields))}
+          disabled={Object.keys(errors).length !== 0}
+        >
+          {loading ? 'Sending...' : 'Send'}
+        </Button>
+      </div>
+    </form>
+  );
+};
+
+export { ContactForm };
