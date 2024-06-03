@@ -12,13 +12,7 @@ import { FaCheckCircle as Check } from 'react-icons/fa';
 import { validateEmail } from '@/utils/validate';
 import { subscribeToEmails } from '@/actions/subscribe';
 
-type SubscribeFormProps = {
-  handler: () => void;
-};
-
-const SubscribeForm = (props: SubscribeFormProps) => {
-  const { handler } = props;
-
+const SubscribeForm = () => {
   const [email, setEmail] = useState<string>('');
   const [disabled, setDisabled] = useState<boolean>(true);
 
@@ -34,8 +28,6 @@ const SubscribeForm = (props: SubscribeFormProps) => {
 
     setEmail('');
     sendSuccessAlert();
-
-    handler();
   };
 
   useEffect(() => {
@@ -71,7 +63,7 @@ const SubscribeForm = (props: SubscribeFormProps) => {
       <div className='grid grid-cols-12 gap-x-2 mt-1 flex'>
         <div className='col-span-8'>
           <Input
-            label='Subscribe for Ryan Meetup event emails'
+            label='Join our Ryan mailing list'
             name='subscribe'
             onChange={(event) => setEmail(event.target.value)}
             value={email}

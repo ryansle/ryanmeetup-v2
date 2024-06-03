@@ -1,13 +1,13 @@
 // Components
-import { Heading, Text } from '@/components/global';
+import { Heading } from '@/components/global';
 import NextLink from 'next/link';
-import NextImage from 'next/image';
 import {
   FaInstagram as Instagram,
   FaMeetup as Meetup,
   FaDiscord as Discord,
   FaYoutube as YouTube,
 } from 'react-icons/fa';
+import { SubscribeForm } from '@/components/home';
 
 const socials = [
   {
@@ -39,18 +39,7 @@ const Footer = () => {
             </NextLink>
 
             <Heading className='mt-[2px] uppercase' size='xs' ignoreColorMode>No Bryans Allowed</Heading>
-            <div className='flex items-center mt-6'>
-              <NextImage
-                src='/ryanrecords.png'
-                width={25}
-                height={25}
-                alt='Ryan Records Music'
-              />
-              <Text className='ml-4' ignoreColorMode>
-                Also check out <NextLink className='font-semibold text-blue-500 hover:underline' href='https://ryan-records.vercel.app'>Ryan Records Music</NextLink>!
-              </Text>
-            </div>
-
+            <SubscribeForm />
           </div>
 
           {/* Resources & Follow Us */}

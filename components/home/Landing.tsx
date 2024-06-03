@@ -1,26 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-
 // Components
 import NextImage from 'next/image';
 import NextLink from 'next/link';
-import { Button, Heading, Toast } from '@/components/global';
+import { Button, Heading } from '@/components/global';
 import { FaMeetup as Meetup } from 'react-icons/fa';
 import { Transition } from '@headlessui/react';
 import { SubscribeForm } from '@/components/home';
 
 const Landing = () => {
-  const [openAlert, setOpenAlert] = useState<boolean>(false);
-
-  const showAlert = () => {
-    setOpenAlert(true);
-
-    setTimeout(() => {
-      setOpenAlert(false);
-    }, 5000);
-  };
-
   return (
     <div className='relative'>
       <div className='grid grid-cols-12 h-full flex items-center'>
@@ -63,9 +51,7 @@ const Landing = () => {
                 Join the Ryan Meetup
               </Button.Link>
             </div>
-            <SubscribeForm
-              handler={showAlert}
-            />
+            <SubscribeForm />
           </div>
         </div>
         <div className='col-span-12 order-first mb-4 xl:col-span-5 xl:order-last xl:mb-0'>
@@ -87,16 +73,6 @@ const Landing = () => {
             </div>
           </Transition>
         </div>
-      </div>
-
-      <div className='absolute -bottom-10 md:-bottom-40 left-0 right-0 grid place-items-center'>
-        <Toast
-          open={openAlert}
-          setOpen={setOpenAlert}
-          title='Thanks for subscribing!'
-        >
-          We promise we&apos;ll only ever send you Ryan Meetup news and information.
-        </Toast>
       </div>
     </div>
   );
