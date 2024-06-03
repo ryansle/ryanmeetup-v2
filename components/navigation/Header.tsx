@@ -26,6 +26,7 @@ import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
 import { HiOutlineMail as Email } from 'react-icons/hi';
 import { RouteMenu } from '@/components/navigation';
 import NextLink from 'next/link';
+import { MobileMenu } from '@/components/navigation';
 
 // Utilities
 import { usePathname } from 'next/navigation';
@@ -123,18 +124,18 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header className='flex justify-between items-center py-5 px-4 border-b border-gray-400 dark:border-gray-700 bg-white dark:bg-black sticky relative top-0 right-0 left-0 z-50 lg:px-32 2xl:px-72 3xl:px-[400px] 4xl:px-[650px]'>
+    <header className='flex justify-between items-center py-5 px-4 border-b border-gray-400 dark:border-gray-700 bg-white dark:bg-black sticky relative top-0 right-0 left-0 z-50 lg:px-32 2xl:px-56 3xl:px-[400px] 4xl:px-[500px]'>
       <div className='relative w-[128px] h-[33px] text-black dark:text-white transition ease-in-out duration-300 hover:scale-105'>
         <NextLink href='/'>
           <Heading>RYAN</Heading>
         </NextLink>
       </div>
 
-      <div className='flex space-x-4 overflow-y-scroll'>
+      <div className='hidden xl:flex space-x-4 overflow-y-scroll'>
         {routes.map((route) => !route.subroutes ? (
           <NextLink
             key={route.text}
-            className={`${route.href.includes(pathname) && pathname !== '/' && 'bg-gray-900'} flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700`}
+            className={`${route.href.includes(pathname) && pathname !== '/' && 'bg-gray-900'} text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base`}
             href={route.href}
           >
             {route.icon} {route.text}
@@ -149,8 +150,12 @@ const Header = () => {
           />
         ))}
       </div>
+
+      <div className='block xl:hidden'>
+        <MobileMenu content={routes} />
+      </div>
     </header>
-  )
+  );
 };
 
 export { Header };

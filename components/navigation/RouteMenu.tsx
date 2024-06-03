@@ -33,7 +33,7 @@ const RouteMenu = (props: RouteMenuProps) => {
 
   return (
     <Popover className='relative'>
-      <PopoverButton className={`${isSelected(pathname)} flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700`}>
+      <PopoverButton className={`${isSelected(pathname)} text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base`}>
         {icon} {title} <ChevronDown className='h-3 w-3 fill-gray-600' />
       </PopoverButton>
 
