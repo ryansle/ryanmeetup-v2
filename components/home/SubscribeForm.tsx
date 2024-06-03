@@ -73,7 +73,6 @@ const SubscribeForm = (props: SubscribeFormProps) => {
             label={label}
             name='subscribe'
             onChange={(event) => setEmail(event.target.value)}
-            value={email}
             placeholder='ryan@ryanmeetup.com'
           />
         </div>

@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Input, Text, Textarea, Button } from '@/components/global';
 import { BiMailSend as Send } from 'react-icons/bi';
 import { Loader } from '@/components/contact';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { IoCloseSharp as Close } from 'react-icons/io5';
 import { FaCheckCircle as Check } from 'react-icons/fa';
 
@@ -16,7 +16,7 @@ import type { ReactNode } from 'react';
 // Utilities
 import { useForm } from 'react-hook-form';
 import { validateEmail } from '@/utils/validate';
-import { sendEmail } from '@/actions/sendEmail';
+import emailjs from '@emailjs/browser';
 import { ContactFormFields } from '@/lib/types';
 
 const ContactForm = () => {
@@ -35,7 +35,11 @@ const ContactForm = () => {
     setLoading(true);
 
     setTimeout(() => {
-      sendEmail(form);
+      const templateId = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID;
+      const userId = process.env.NEXT_PUBLIC_EMAIL_USER_ID;
+      const serviceId = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID;
+
+      emailjs.send(serviceId as string, templateId as string, form, userId);
 
       sendSuccessAlert();
       setLoading(false);
