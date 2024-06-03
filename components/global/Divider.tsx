@@ -2,11 +2,12 @@
 import clsx from 'clsx';
 
 type DividerProps = {
+  className?: string;
   margins?: 'sm' | 'md' | 'lg' | 'xl';
 };
 
 const Divider = (props: DividerProps) => {
-  const { margins = 'lg' } = props;
+  const { className = '', margins = 'lg' } = props;
 
   const renderMargin = (margins: string) => {
     return clsx([
@@ -18,7 +19,7 @@ const Divider = (props: DividerProps) => {
   };
 
   return (
-    <div className={`${renderMargin(margins)} h-[1px] border-t border-gray-400 dark:border-gray-700`} />
+    <div className={`${className} ${renderMargin(margins)} h-[1px] border-t border-gray-400 dark:border-gray-700`} />
   );
 };
 
