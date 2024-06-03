@@ -6,21 +6,23 @@ import { Divider } from '@/components/global';
 // Utilities
 import { fetchFAQs } from '@/data/fetch';
 
-async function fetchData() {
+// Types
+import type { FrequentlyAskedQuestion } from '@/lib/types';
+
+const fetchData = async () => {
   const res = await fetchFAQs();
-  console.log(res);
 
   return res;
 };
 
-const HomePage = () => {
-  const faqs = fetchFAQs();
+const HomePage = async () => {
+  const faqs = await fetchData();
 
   return (
     <Layout>
       <Landing />
       <Divider margins='xl' />
-      {/* <FAQ /> */}
+      <FAQ data={faqs as FrequentlyAskedQuestion[]} />
     </Layout>
   );
 };

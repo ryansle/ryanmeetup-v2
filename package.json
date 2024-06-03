@@ -12,6 +12,7 @@
     "@emailjs/browser": "^4.3.3",
     "@headlessui/react": "^2.0.4",
     "@mailerlite/mailerlite-nodejs": "^1.2.2",
+    "@tanstack/react-query": "^5.40.0",
     "contentful": "^10.11.7",
     "next": "14.2.3",
     "react": "^18",
