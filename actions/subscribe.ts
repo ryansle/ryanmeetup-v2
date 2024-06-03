@@ -1,7 +1,11 @@
 'use server';
 
-import mailerlite from '@/data/mailerlite';
+import MailerLite from '@mailerlite/mailerlite-nodejs';
 import type { MailerParams } from '@/lib/types';
+
+const mailerlite = new MailerLite({
+  api_key: process.env.MAILER_API_TOKEN as string
+});
 
 export async function subscribeToEmails(email: string) {
   let date = new Date();
