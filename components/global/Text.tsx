@@ -7,10 +7,10 @@ import type { ReactNode } from 'react';
 type TextProps = {
   className?: string;
   children: ReactNode;
-  size?: 'xs' | 'sm' | 'md' | 'lg';
+  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
   color?: 'black' | 'white' | 'primary' | 'secondary';
   ignoreColorMode?: boolean;
-}
+};
 
 const getVariantClasses = (size = 'md', color: string, ignoreColorMode: boolean) => {
   const styles = 'tracking-wide font-medium';
@@ -20,6 +20,7 @@ const getVariantClasses = (size = 'md', color: string, ignoreColorMode: boolean)
     size === 'md' && 'text-lg',
     size === 'sm' && 'text-base',
     size === 'xs' && 'text-sm',
+    size === 'xxs' && 'text-xs',
   ]);
 
   const fontColor = clsx([

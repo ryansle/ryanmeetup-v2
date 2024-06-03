@@ -96,7 +96,7 @@ type Location = {
   eventDate: Date;
   image: ContentfulImage;
   city: string;
-  locationType: 'Previous Event' | 'Future Event' | 'Ryan Hub' | 'Community Event';
+  locationType: 'Event Location' | 'Ryan Hub' | 'Community Event';
 };
 
 type TravelingRyan = {
