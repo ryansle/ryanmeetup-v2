@@ -129,6 +129,11 @@ type RepeatRyan = {
   basedIn: string;
   eventsAttended: string[];
 };
+
+type Flyer = {
+  title: string;
+  src: string;
+};
 // #endregion
 
 // #region Mailerlite Types
@@ -158,4 +163,5 @@ export type {
   MailerParams,
   ContentfulImage,
   Route,
+  Flyer,
 };
