@@ -69,7 +69,7 @@ const Leaderboard = (props: LeaderboardProps) => {
                     </Text>
                   </div>
                   <div className='block md:hidden'>
-                    <Text size='xs'>
+                    <Text size='xxs'>
                       {ryan.fullName}
                     </Text>
                   </div>
@@ -81,7 +81,7 @@ const Leaderboard = (props: LeaderboardProps) => {
                     </Text>
                   </div>
                   <div className='block md:hidden'>
-                    <Text size='xs'>
+                    <Text size='xxs'>
                       {ryan.basedIn}
                     </Text>
                   </div>

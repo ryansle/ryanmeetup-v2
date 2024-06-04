@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RyanMeetup.com
 
-## Getting Started
+Wanna meet other Ryans? Join the Ryan Meetup!
 
-First, run the development server:
+RyanMeetup.com is the official home of the Ryan Meetup. Keep up to date with current Ryan affairs by checking out our website, following our [Instagram](https://www.instagram.com/ryanmeetup/), and joining us on [Meetup!](https://www.ryanmeetup.com/join).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The ultimate goal of the Ryan Meetup is gathering as many Ryans as possible in order to break the world record for [largest same name gathering (first name only)](https://www.guinnessworldrecords.com/world-records/largest-same-name-gathering-first-name).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Description
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+As the Ryan Meetup has grown exponentially since its inception in early February, it became necessary for it to have its own website to capitalize on the internet traffic we were bringing in by (initially) hanging up posters on the street in various cities around the world. Some of these cities have included, but are not limited to:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* New York, NY
+* Los Angeles, CA
+* Austin, TX
+* New Orleans, LA
+* Omaha, NE
+* Chicago, IL
+* Miami, FL
+* Houston, TX
+* Washington, DC
+* Rome, Italy
+* Amsterdam, Netherlands
+* Athens, Greece
+* Berlin, Germany
+* Mexico City, Mexico
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+* Keep up to date with upcoming Ryan Meetup events
+* Support the Ryan Meetup by purchasing merchandise through our Etsy store
+* View our gallery of photos from previous Ryan Meetups
+* Download our poster pack in order to spread the word throughout your own city
+* Check out our Ryan Meetup World Map for real-time info of Ryans around the world, and where previous events have happened
+* Stay up to date with Ryan Meetup in the news
+* Dark and light mode
+* Get in contact with the Ryans behind the Ryan Meetup
+* Sign up for our mailing list to never miss out on the latest Ryan Meetup news
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Built With
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* React.js
+* Tailwind CSS
+* Next.js
+* Headless UI
+* TypeScript
+* Vercel
+* Email.js
+* Contentful
+* React-Query
+* React-Hook-Form
+* React Icons
+* Mailerlite
 
-## Deploy on Vercel
+## Credits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* [Matt Sichterman](https://www.msich.dev/) - buying the original domain, scaffolding a basic application
+* [Ryan Le](https://ryanle.dev/) - design & development of the website 
+* [Lorena Pereira](https://lorenapereira.com/) - home page redesign

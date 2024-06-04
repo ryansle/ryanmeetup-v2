@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Components
 import { Heading, Text, Button } from '@/components/global';
@@ -9,6 +9,9 @@ import { BiZoomIn as ZoomIn, BiZoomOut as ZoomOut } from 'react-icons/bi';
 
 // Types
 import type { ContentfulImage, MediaEvent } from '@/lib/types';
+
+// Utilities
+import useScreenSize from '@/hooks/useScreenSize';
 
 type MediaContainerProps = {
   media: MediaEvent;
@@ -25,6 +28,16 @@ const MediaContainer = (props: MediaContainerProps) => {
 
   const [zoom, setZoom] = useState<number>(3);
 
+  const screenSize = useScreenSize();
+
+  useEffect(() => {
+    if (screenSize.width < 660) {
+      setZoom(1);
+    } else if (screenSize.width >= 660 && screenSize.width < 968) {
+      setZoom(2);
+    }
+  }, [screenSize.width]);
+
   return (
     <div>
       <div className='flex justify-between'>
@@ -37,7 +50,7 @@ const MediaContainer = (props: MediaContainerProps) => {
           </Heading>
         </div>
 
-        <div className='space-x-4'>
+        <div className='hidden md:block md:space-x-4'>
           <ZoomButton
             rightIcon={<ZoomOut />}
             onClick={() => setZoom(zoom + 1)}

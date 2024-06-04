@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Buy official Ryan Meetup merchandise!',
   openGraph: {
     url: 'https://ryanmeetup.etsy.com',
-    title: 'Ryan Meetup - Merch>',
+    title: 'Ryan Meetup - Merch',
     description: 'Buy official Ryan Meetup merchandise!',
     siteName: 'Ryan Meetup',
     images: '/ryankickoff.png',
