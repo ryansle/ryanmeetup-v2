@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Contact Us',
   description: 'Get in contact with one of the Ryans here.',
-  keywords: ['contact ryan', 'contact ryan meetup', 'ryan meetup email address', 'official ryan business', 'big and important ryan topics', 'ryan', 'ryan meetup',]
+  keywords: ['contact ryan', 'contact ryan meetup', 'ryan meetup email address', 'official ryan business', 'big and important ryan topics', 'ryan', 'ryan meetup'],
   openGraph: {
     url: 'https://ryanmeetup.com/contact',
     title: 'Ryan Meetup - Contact Us',
