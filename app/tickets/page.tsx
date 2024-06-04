@@ -44,7 +44,7 @@ const TicketPage = async () => {
 
         <div className='space-y-4'>
           <Text>
-            Join us for a <span className='font-bold'>private showing</span> of Marvel Studio's{' '}
+            Join us for a <span className='font-bold'>private showing</span> of Marvel Studio&apos;s{' '}
             <NextLink className={hrefStyle} href='https://www.youtube.com/watch?v=73_1biulkYk' target='_blank'>Deadpool &amp; Wolverine</NextLink> on Saturday, July 27th, in New York City at the{' '}
             <NextLink className={hrefStyle} href='https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25' target='_blank'>Empire AMC 25</NextLink>.
           </Text>

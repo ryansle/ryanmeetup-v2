@@ -38,11 +38,11 @@ const routes = [
     text: 'Community',
     href: '',
     subroutes: [
-      {
-        icon: <Ticket />,
-        text: 'Buy Tickets',
-        href: '/tickets'
-      },
+      // {
+      //   icon: <Ticket />,
+      //   text: 'Buy Tickets',
+      //   href: '/tickets'
+      // },
       {
         icon: <Calendar />,
         text: 'Events',

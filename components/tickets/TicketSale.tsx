@@ -81,7 +81,7 @@ const TicketSale = (props: TicketSaleProps) => {
 
         <div className='mt-4 min-h-72'>
           <Heading size='sm' className='mb-1'>
-            What's Included
+            What&apos;s Included
           </Heading>
           <List
             content={inclusions}
