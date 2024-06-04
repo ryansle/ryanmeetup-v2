@@ -34,7 +34,7 @@ const Champion = (props: ChampionProps) => {
       <div className='relative w-80 h-80 mb-4'>
         <NextImage
           className='rounded-full shadow-xl'
-          src={imageUrl ?? '/trophy.webp'}
+          src={imageUrl ?? '/trophy.png'}
           fill={true}
           alt={fullName}
           style={{ objectFit: 'cover' }}

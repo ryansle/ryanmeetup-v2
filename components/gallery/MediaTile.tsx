@@ -24,7 +24,7 @@ const MediaTile = (props: MediaTileProps) => {
         <div className='relative w-full flex items-center justify-center rounded-xl h-80 overflow-hidden bg-center'>
           <div className='w-full h-full brightness-30'>
             <NextImage
-              src={convertImageUrl(bgImage) ?? '/trophy.webp'}
+              src={convertImageUrl(bgImage) ?? '/trophy.png'}
               alt={title}
               fill
               style={{ objectFit: 'cover' }}

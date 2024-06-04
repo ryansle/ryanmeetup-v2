@@ -55,7 +55,7 @@ const Leaderboard = (props: LeaderboardProps) => {
                   <div className='relative w-10 h-10 md:w-12 md:h-12'>
                     <NextImage
                       className='rounded-full'
-                      src={convertImageUrl(ryan.headshot) ?? '/trophy.webp'}
+                      src={convertImageUrl(ryan.headshot) ?? '/trophy.png'}
                       fill
                       style={{ objectFit: 'cover' }}
                       alt={ryan.fullName}

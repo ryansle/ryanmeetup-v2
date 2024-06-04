@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Donate',
     description: 'Consider donating to the Ryan Meetup in order to fund our events.',
     siteName: 'Ryan Meetup',
-    images: ['/donate.webp'],
+    images: '/donate.png',
     locale: 'en_US',
     type: 'website',
   },

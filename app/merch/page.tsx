@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Merch>',
     description: 'Buy official Ryan Meetup merchandise!',
     siteName: 'Ryan Meetup',
-    images: ['/ryankickoff.png'],
+    images: '/ryankickoff.png',
     locale: 'en_US',
     type: 'website',
   },

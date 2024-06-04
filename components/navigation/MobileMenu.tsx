@@ -66,8 +66,8 @@ const MobileMenu = (props: MobileMenuProps) => {
                     {row.subroutes.map((route) => (
                       <NextLink
                         key={route.text}
-                        className='text-gray-900 flex items-center w-full px-4 py-2 gap-x-2 text-sm leading-5 text-left'
-                        href={row.href}
+                        className='text-gray-900 flex items-center w-full px-4 py-2 gap-x-2 text-sm leading-5 text-left hover:bg-gray-200 hover:rounded'
+                        href={route.href}
                       >
                         {route.icon} {route.text}
                       </NextLink>

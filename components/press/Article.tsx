@@ -56,7 +56,7 @@ const Article = (props: ArticleProps) => {
         <div className='grid grid-cols-5'>
           <div className='col-span-5 xl:col-span-2'>
             <ArticleImage
-              imageSrc={imageUrl ?? '/trophy.webp'}
+              imageSrc={imageUrl ?? '/trophy.png'}
               title={title}
             />
           </div>

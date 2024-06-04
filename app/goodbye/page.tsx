@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - No Bryans Allowed!',
     description: 'No Bryans allowed at the Ryan Meetup!',
     siteName: 'Ryan Meetup',
-    images: ['/ryanroundup.png'],
+    images: '/ryanroundup.png',
     locale: 'en_US',
     type: 'website',
   },

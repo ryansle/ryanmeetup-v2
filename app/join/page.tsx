@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Join',
     description: 'Wanna meet other Ryans?',
     siteName: 'Ryan Meetup',
-    images: ['/ryankickoff.png'],
+    images: '/ryankickoff.png',
     locale: 'en_US',
     type: 'website',
   },

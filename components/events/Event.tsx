@@ -44,7 +44,7 @@ const Event = (props: EventProps) => {
         <div className='w-full max-h-[450px] aspect-w-2 aspect-h-1 overflow-hidden'>
           <NextImage
             className='rounded-t-3xl border-b border-gray-400 dark:border-gray-700'
-            src={imageUrl ?? '/trophy.webp'}
+            src={imageUrl ?? '/trophy.png'}
             fill={true}
             alt={title}
             style={{ objectFit: 'cover' }}
