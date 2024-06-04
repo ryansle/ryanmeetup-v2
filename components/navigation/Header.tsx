@@ -17,6 +17,7 @@ import {
   FaPeopleGroup as Community,
   FaHandshakeSimple as Handshake,
   FaShirt as Shirt,
+  FaTicket as Ticket,
 } from 'react-icons/fa6';
 import {
   IoCalendarNumber as Calendar,
@@ -37,6 +38,11 @@ const routes = [
     text: 'Community',
     href: '',
     subroutes: [
+      {
+        icon: <Ticket />,
+        text: 'Buy Tickets',
+        href: '/tickets'
+      },
       {
         icon: <Calendar />,
         text: 'Events',

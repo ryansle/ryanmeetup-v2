@@ -27,7 +27,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
   const { children, className, leftIcon, rightIcon, disabled = false, href } = props;
 
   return (
-    <NextLink className={`${className} w-full`} href={href} >
+    <NextLink className={`${className} w-full`} href={href} target='_blank'>
       <Button
         className={className}
         leftIcon={leftIcon}

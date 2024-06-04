@@ -24,7 +24,7 @@ const RouteMenu = (props: RouteMenuProps) => {
   const { icon, title, routes, pathname } = props;
 
   const isSelected = (pathname: string) => {
-    if ((pathname === '/events' || pathname === '/gallery' || pathname === '/awards') && title === 'Community') {
+    if ((pathname === '/events' || pathname === '/gallery' || pathname === '/awards' || pathname === '/tickets') && title === 'Community') {
       return 'bg-gray-900';
     } else if ((pathname === '/posters' || pathname === '/contribute') && title === 'Support') {
       return 'bg-gray-900';

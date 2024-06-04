@@ -1,6 +1,8 @@
 // Components
 import { Text } from '@/components/global';
-import { FaHandshake as Handshake } from 'react-icons/fa';
+
+// Types
+import type { ReactNode } from 'react';
 
 type Content = {
   main: string;
@@ -13,20 +15,24 @@ type ListProps = {
     sub?: string;
   }[];
   className?: string;
+  icon: ReactNode;
+  fontSize?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
 };
 
 type ListItemProps = {
   main: string;
   sub?: string;
+  icon: ReactNode;
+  fontSize?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
 };
 
 const ListItem = (props: ListItemProps) => {
-  const { main, sub } = props;
+  const { main, sub, icon, fontSize } = props;
 
   return (
     <li className='flex'>
-      <Handshake className='fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />
-      <Text>
+      {icon}
+      <Text size={fontSize}>
         {main} <span className='font-light'>{sub}</span>
       </Text>
     </li>
@@ -34,7 +40,7 @@ const ListItem = (props: ListItemProps) => {
 };
 
 const List = (props: ListProps) => {
-  const { content, className } = props;
+  const { content, className, icon, fontSize } = props;
 
   return (
     <ul className={`${className} space-y-2`}>
@@ -43,6 +49,8 @@ const List = (props: ListProps) => {
           key={item.main}
           main={item.main}
           sub={item.sub}
+          icon={icon}
+          fontSize={fontSize}
         />
       ))}
     </ul>

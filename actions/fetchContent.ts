@@ -66,6 +66,20 @@ const fetchRepeatRyans = async () => {
   return data.items.map((entry) => entry.fields);
 };
 
+const fetchRyanTickets = async () => {
+  // @ts-ignore
+  const data = await client.getEntries(({ content_type: 'ryanTickets' }));
+
+  return data.items.map((entry) => entry.fields)[0];
+};
+
+const fetchHughTickets = async () => {
+  // @ts-ignore
+  const data = await client.getEntries(({ content_type: 'hughTickets' }));
+
+  return data.items.map((entry) => entry.fields)[0];
+};
+
 export {
   fetchEvents,
   fetchFAQs,
@@ -75,5 +89,7 @@ export {
   fetchLocations,
   fetchFarthestRyans,
   fetchChampionRyans,
-  fetchRepeatRyans
+  fetchRepeatRyans,
+  fetchRyanTickets,
+  fetchHughTickets,
 };

@@ -4,6 +4,7 @@ import { Heading, Text, List } from '@/components/global';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import QRCode from 'react-qr-code';
+import { FaHandshake as Handshake } from 'react-icons/fa';
 
 // Types
 import type { Metadata } from 'next';
@@ -65,7 +66,10 @@ const ContributePage = () => {
         </Heading>
         <div className='grid grid-cols-12 flex items-center'>
           <div className='col-span-12 space-y-4 xl:col-span-9'>
-            <List content={waysToSupport} />
+            <List
+              icon={<Handshake className='fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />}
+              content={waysToSupport}
+            />
           </div>
           <div className='col-span-0 xl:col-span-1' />
           <div className='col-span-12 flex flex-col items-center mt-10 xl:mt-0 xl:col-span-2'>
