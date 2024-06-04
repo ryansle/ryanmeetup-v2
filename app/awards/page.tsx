@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Awards',
     description: 'The Hall of Ryans honors farthest traveling Ryans, Ryan Meetup champions, and more.',
     siteName: 'Ryan Meetup - Awards',
-    images: '/trophy.webp',
+    images: ['/trophy.webp'],
     locale: 'en_US',
     type: 'website',
   },

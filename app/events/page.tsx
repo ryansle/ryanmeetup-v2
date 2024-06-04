@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Events',
     description: 'Keep up to date with Ryan Meetups near you!',
     siteName: 'Ryan Meetup',
-    images: '/stryan.webp',
+    images: ['/stryan.webp'],
     locale: 'en_US',
     type: 'website',
   },

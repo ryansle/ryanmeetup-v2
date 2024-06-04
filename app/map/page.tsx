@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Map',
     description: 'Ryan Meetup around the world.',
     siteName: 'Ryan Meetup',
-    images: '/map.png',
+    images: ['/map.png'],
     locale: 'en_US',
     type: 'website',
   },

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Posters',
     description: 'Download our official Ryan Meetup posters here and help bring the Ryan Meetup to your city!',
     siteName: 'Ryan Meetup',
-    images: '/ryankickoff.png',
+    images: ['/ryankickoff.png'],
     locale: 'en_US',
     type: 'website',
   },
