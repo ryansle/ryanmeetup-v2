@@ -12,6 +12,7 @@ import { fetchLocations } from '@/actions/fetchContent';
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Map',
   description: 'Ryan Meetup around the world.',
+  keywords: ['ryan meetup world map', 'ryan meetup worldwide', 'ryan meetup world', 'ryan meetup us', 'ryan meetup england', 'ryan meetup germany', 'ryan meetup canada', 'ryan meetup australia', 'ryan meetup america'],
   openGraph: {
     url: 'https://ryanmeetup.com/map',
     title: 'Ryan Meetup - Map',

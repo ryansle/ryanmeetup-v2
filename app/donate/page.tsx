@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Donate',
   description: 'Consider donating to the Ryan Meetup in order to fund our events.',
+  keywords: ['donate to the ryan meetup', 'ryan meetup venmo', 'ryan meetup zelle', 'ryan meetup money', 'contribute to ryan meetup'],
   openGraph: {
     url: 'https://ryanmeetup.com/donate',
     title: 'Ryan Meetup - Donate',

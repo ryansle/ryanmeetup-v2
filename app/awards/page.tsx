@@ -13,6 +13,7 @@ import { fetchFarthestRyans, fetchChampionRyans, fetchRepeatRyans } from '@/acti
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Awards',
   description: 'The Hall of Ryans honors farthest traveling Ryans, Ryan Meetup champions, and more.',
+  keywords: ['award winners', 'hall of ryans', 'farthest traveling ryans', 'who won at the ryan meetup', 'ryan meetup tournament', 'rytoberfest champion', 'little kings', 'little king of St. Ryans Day', 'mr ryami', 'ms. ryami'],
   openGraph: {
     url: 'https://ryanmeetup.com/awards',
     title: 'Ryan Meetup - Awards',

@@ -15,6 +15,7 @@ import { fetchMedia } from '@/actions/fetchContent';
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Gallery',
   description: 'View photos from previous Ryan Meetups.',
+  keywords: ['ryan meetup', 'ryan meetup gallery', 'ryan meetup photos', 'ryan meetup media', 'pictures of ryan meetup', 'ryan photos', 'ryans'],
   openGraph: {
     url: 'https://ryanmeetup.com/gallery',
     title: 'Ryan Meetup - Gallery',

@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Posters',
   description: 'Download our official Ryan Meetup posters here and help bring the Ryan Meetup to your city!',
+  keywords: ['ryan meetup', 'ryan meetup posters', 'is your name ryan', 'wanna meet other ryans', 'join the ryan meetup', 'ryan meet up', 'first name must be ryan', 'no bryans allowed', 'tell them to join the ryan meetup', 'we want you to join the ryan meetup', 'wanna change your name to ryan', 'no brians allowed', 'do you know a ryan', 'meet other ryans', 'absolutely no bryans'],
   openGraph: {
     url: 'https://ryanmeetup.com/posters',
     title: 'Ryan Meetup - Posters',
