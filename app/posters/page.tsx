@@ -3,6 +3,23 @@ import { Layout } from '@/components/navigation';
 import { Divider } from '@/components/global';
 import { PosterContainer } from '@/components/posters';
 
+// Types
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Posters',
+  description: 'Download our official Ryan Meetup posters here and help bring the Ryan Meetup to your city!',
+  openGraph: {
+    url: 'https://ryanmeetup.com/posters',
+    title: 'Ryan Meetup - Posters',
+    description: 'Download our official Ryan Meetup posters here and help bring the Ryan Meetup to your city!',
+    siteName: 'Ryan Meetup',
+    images: '/ryankickoff.png',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
+
 const posters = [
   { title: 'OG Ryan Meetup Poster', src: '/posters/ogposter.png' },
   { title: 'Variant Poster', src: '/posters/isyournameryan.jpg' },

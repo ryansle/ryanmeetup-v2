@@ -7,9 +7,24 @@ import NextLink from 'next/link';
 
 // Types
 import type { RyanEvent } from '@/lib/types';
+import type { Metadata } from 'next';
 
 // Utilities
 import { fetchEvents } from '@/actions/fetchContent';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Events',
+  description: 'Keep up to date with Ryan Meetups near you!',
+  openGraph: {
+    url: 'https://ryanmeetup.com/events',
+    title: 'Ryan Meetup - Events',
+    description: 'Keep up to date with Ryan Meetups near you!',
+    siteName: 'Ryan Meetup',
+    images: '/stryan.webp',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 const EventsPage = async () => {
   const events = await fetchEvents();

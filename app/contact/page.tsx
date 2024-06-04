@@ -3,6 +3,23 @@ import { Layout } from '@/components/navigation';
 import { Heading, Text } from '@/components/global';
 import { ContactForm } from '@/components/contact';
 
+// Types
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Contact Us',
+  description: 'Get in contact with one of the Ryans here.',
+  openGraph: {
+    url: 'https://ryanmeetup.com/contact',
+    title: 'Ryan Meetup - Contact Us',
+    description: 'Get in contact with one of the Ryans here.',
+    siteName: 'Ryan Meetup - Awards',
+    images: '/ryankickoff.png',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
+
 const ContactPage = () => {
   return (
     <Layout className='space-y-6'>

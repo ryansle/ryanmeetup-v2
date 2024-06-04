@@ -5,9 +5,24 @@ import { FarthestRyan, Champion, Leaderboard } from '@/components/awards';
 
 // Types
 import type { TravelingRyan, ChampionRyan, RepeatRyan } from '@/lib/types';
+import type { Metadata } from 'next';
 
 // Utilities
 import { fetchFarthestRyans, fetchChampionRyans, fetchRepeatRyans } from '@/actions/fetchContent';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Awards',
+  description: 'The Hall of Ryans honors farthest traveling Ryans, Ryan Meetup champions, and more.',
+  openGraph: {
+    url: 'https://ryanmeetup.com/awards',
+    title: 'Ryan Meetup - Awards',
+    description: 'The Hall of Ryans honors farthest traveling Ryans, Ryan Meetup champions, and more.',
+    siteName: 'Ryan Meetup - Awards',
+    images: '/trophy.webp',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 const AwardsPage = async () => {
   const farthest = await fetchFarthestRyans();

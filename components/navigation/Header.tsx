@@ -124,7 +124,7 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header className='flex justify-between items-center py-5 px-4 border-b border-gray-400 dark:border-gray-700 bg-white dark:bg-black sticky relative top-0 right-0 left-0 z-50 lg:px-32 2xl:px-56 3xl:px-[400px] 4xl:px-[500px]'>
+    <header className='flex justify-between items-center py-5 px-4 border-b border-gray-400 dark:border-gray-700 bg-white dark:bg-black sticky relative top-0 right-0 left-0 z-20 lg:px-32 2xl:px-56 3xl:px-[400px] 4xl:px-[500px]'>
       <div className='relative w-[128px] h-[33px] text-black dark:text-white transition ease-in-out duration-300 hover:scale-105'>
         <NextLink href='/'>
           <Heading>RYAN</Heading>

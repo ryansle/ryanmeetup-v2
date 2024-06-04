@@ -2,9 +2,23 @@
 import { Heading } from '@/components/global';
 
 // Types
-import type { NextPage } from 'next';
+import type { Metadata } from 'next';
 
-const GoodbyePage: NextPage = () => {
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - No Bryans Allowed!',
+  description: 'No Bryans allowed at the Ryan Meetup!',
+  openGraph: {
+    url: 'https://ryanmeetup.com/goodbye',
+    title: 'Ryan Meetup - No Bryans Allowed!',
+    description: 'No Bryans allowed at the Ryan Meetup!',
+    siteName: 'Ryan Meetup',
+    images: '/ryanroundup.png',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
+
+const GoodbyePage = () => {
   return (
     <div className='text-center flex flex-col justify-center items-center h-screen space-y-8 bg-white dark:bg-black'>
       <div className='block space-y-20 md:hidden'>

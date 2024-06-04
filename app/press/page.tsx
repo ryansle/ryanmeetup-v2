@@ -5,9 +5,24 @@ import { Article } from '@/components/press';
 
 // Types
 import type { Article as RyanArticle } from '@/lib/types';
+import type { Metadata } from 'next';
 
 // Utilities
 import { fetchArticles } from '@/actions/fetchContent';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Press',
+  description: 'Read all about the Ryan Meetup in the news.',
+  openGraph: {
+    url: 'https://ryanmeetup.com/press',
+    title: 'Ryan Meetup - Gallery',
+    description: 'Read all about the Ryan Meetup in the news.',
+    siteName: 'Ryan Meetup',
+    images: '/ryanroundup.png',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 const PressPage = async () => {
   const articles = await fetchArticles();

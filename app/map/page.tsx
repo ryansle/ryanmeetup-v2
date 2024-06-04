@@ -4,9 +4,24 @@ import { Mapbox, Info } from '@/components/map';
 
 // Types
 import type { Location } from '@/lib/types';
+import type { Metadata } from 'next';
 
 // Utilities
 import { fetchLocations } from '@/actions/fetchContent';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Map',
+  description: 'Ryan Meetup around the world.',
+  openGraph: {
+    url: 'https://ryanmeetup.com/map',
+    title: 'Ryan Meetup - Map',
+    description: 'Ryan Meetup around the world.',
+    siteName: 'Ryan Meetup',
+    images: '/map.png',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 const MapPage = async () => {
   const locations = await fetchLocations();

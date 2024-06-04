@@ -7,9 +7,24 @@ import NextLink from 'next/link';
 
 // Types
 import type { MediaEvent } from '@/lib/types';
+import type { Metadata } from 'next';
 
 // Utilities
 import { fetchMedia } from '@/actions/fetchContent';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Gallery',
+  description: 'View photos from previous Ryan Meetups.',
+  openGraph: {
+    url: 'https://ryanmeetup.com/gallery',
+    title: 'Ryan Meetup - Gallery',
+    description: 'View photos from previous Ryan Meetups.',
+    siteName: 'Ryan Meetup',
+    images: '/ryanroundup.png',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 const GalleryPage = async () => {
   const media = await fetchMedia();
