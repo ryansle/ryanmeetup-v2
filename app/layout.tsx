@@ -11,6 +11,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://v2.ryanmeetup.com'),
   title: 'Ryan Meetup',
   description: 'Wanna meet other Ryans? Join the Ryan Meetup!',
   openGraph: {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup',
     description: 'Wanna meet other Ryans? Join the Ryan Meetup!',
     siteName: 'Ryan Meetup',
-    images: ['/ryanroundup.png'],
+    images: '/ryanroundup.png',
     locale: 'en_US',
     type: 'website',
   },
