@@ -67,7 +67,7 @@ const TicketPage = async () => {
   return (
     <Layout>
       <div className='px-0 xl:px-32 space-y-6'>
-        <div className='relative w-full h-60 md:h-[340px]'>
+        <div className='relative w-full h-40 md:h-[340px]'>
           <NextImage
             className='rounded-xl border border-black items-center shadow-xl'
             src='/deadpools.png'

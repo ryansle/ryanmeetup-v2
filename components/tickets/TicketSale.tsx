@@ -103,7 +103,7 @@ const TicketSale = (props: TicketSaleProps) => {
         </div>
 
         <div className='mt-4 min-h-96'>
-          <Heading size='sm' className='mb-1 text-center transition ease-in-out duration-300 hover:scale-102 hover:border hover:border-gray-700 hover:bg-gray-600 hover:rounded'>
+          <Heading size='sm' className='mb-1 text-center'>
             What&apos;s Included?
           </Heading>
           <List

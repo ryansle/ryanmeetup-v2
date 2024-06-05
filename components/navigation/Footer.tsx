@@ -12,19 +12,23 @@ import { SubscribeForm } from '@/components/home';
 const socials = [
   {
     href: 'https://www.instagram.com/ryanmeetup/',
-    icon: <Instagram className='h-5 w-5' color='gray' />
+    icon: <Instagram className='h-5 w-5' color='gray' />,
+    name: 'Instagram',
   },
   {
     href: 'https://www.meetup.com/ryanmeetup/',
     icon: <Meetup className='h-5 w-5' color='gray' />,
+    name: 'Meetup',
   },
   {
     href: 'https://discord.gg/HDugzYSHKC',
     icon: <Discord className='h-5 w-5' color='gray' />,
+    name: 'Discord',
   },
   {
     href: 'https://www.youtube.com/@ryanmeetup',
     icon: <YouTube className='h-5 w-5' color='gray' />,
+    name: 'YouTube',
   }
 ];
 
@@ -47,15 +51,13 @@ const Footer = () => {
             <div className='col-span-1'>
               <h2 className='mb-6 text-xs font-semibold text-gray-900 uppercase text-white sm:text-sm'>Follow us</h2>
               <ul className='text-gray-600 font-medium space-y-2'>
-                <li>
-                  <NextLink href='https://www.instagram.com/ryanmeetup/' className='hover:underline'>Instagram</NextLink>
-                </li>
-                <li>
-                  <NextLink href='https://www.meetup.com/ryanmeetup/' className='hover:underline'>Meetup</NextLink>
-                </li>
-                <li>
-                  <NextLink href='https://www.youtube.com/@ryanmeetup' className='hover:underline'>YouTube</NextLink>
-                </li>
+                {socials.map((social) => (
+                  <li key={social.name}>
+                    <NextLink href='https://www.instagram.com/ryanmeetup/' className='hover:underline'>
+                      {social.name}
+                    </NextLink>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className='col-span-3'>
@@ -64,7 +66,10 @@ const Footer = () => {
                 <div className='col-span-1'>
                   <ul className='text-gray-600 font-medium'>
                     <li className='mb-2'>
-                      <NextLink href='https://nextjs.org/' className='hover:underline'>Next.js</NextLink>
+                      <NextLink href='https://vercel.com' className='hover:underline'>Vercel</NextLink>
+                    </li>
+                    <li className='mb-2'>
+                      <NextLink href='https://nextjs.org/' className='hover:underline'>Next.js 14</NextLink>
                     </li>
                     <li className='mb-2'>
                       <NextLink href='https://react.dev/' className='hover:underline'>React.js</NextLink>
@@ -77,13 +82,13 @@ const Footer = () => {
                 <div className='col-span-1'>
                   <ul className='text-gray-600 font-medium'>
                     <li className='mb-2'>
-                      <NextLink href='https://flowbite.com/' className='hover:underline'>Flowbite</NextLink>
-                    </li>
-                    <li className='mb-2'>
                       <NextLink href='https://headlessui.com/' className='hover:underline'>Headless UI</NextLink>
                     </li>
                     <li className='mb-2'>
                       <NextLink href='https://www.contentful.com/' className='hover:underline'>Contentful</NextLink>
+                    </li>
+                    <li className='mb-2'>
+                      <NextLink href='https://www.mapbox.com/' className='hover:underline'>Mapbox</NextLink>
                     </li>
                   </ul>
                 </div>
