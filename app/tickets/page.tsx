@@ -1,11 +1,12 @@
 // Components
 import { Layout } from '@/components/navigation';
 import { Heading, Text, Divider, List } from '@/components/global';
-import { TicketSale } from '@/components/tickets';
+import { TicketSale, NYCMap } from '@/components/tickets';
 import NextLink from 'next/link';
 import { GiKatana as Katana, GiWolverineClaws as Wolverine } from 'react-icons/gi';
 import { FaClock as Clock } from 'react-icons/fa';
 import NextImage from 'next/image';
+import { MdEmojiTransportation as Transit } from 'react-icons/md';
 
 // Types
 import type { Metadata } from 'next';
@@ -33,14 +34,16 @@ const TicketPage = async () => {
   const hughTickets = await fetchHughTickets();
 
   const ryanTicket = [
+    { main: 'Ryan Nametag:', sub: 'Classic red name tag so everyone knows that you are Ryan' },
     { main: 'VIR Access:', sub: 'Priority access to the Ryan Red Carpet event' },
-    { main: 'Commemorative Deadpool Mask:', sub: 'A Deadpool mask to remember the event by' },
+    { main: 'Commemorative Deadpool Mask' },
     { main: 'First Come First Serve Seating:', sub: 'First picks on seats in the theater during the premiere' },
     { main: 'After Party Entry:', sub: 'Access to the Ryan Meetup after party following the premiere' },
     { main: 'Meet & Greet with Ryans:', sub: 'Photo opportunities with Ryan, Ryan, and Ryan, of course' },
   ];
 
   const hughTicket = [
+    { main: 'Yellow Hugh Nametag:', sub: 'So that nobody mistakes you for Ryan, since you are definitely not one of us' },
     { main: 'Commemorative Wolverine Mask:', sub: 'It may or may not be made out of an old paper plate' },
     { main: 'Front Row Seats:', sub: 'Sit at the very front of the theater and stare up at the screen the whole time' },
     { main: 'Access to Name Change Paperwork:', sub: 'Legally become a Ryan by filling out the necessary paperwork' },
@@ -52,13 +55,19 @@ const TicketPage = async () => {
     { main: '10:30 PM:', sub: 'Ryan Meetup After Party @ Slate' },
   ];
 
+  const transit = [
+    { main: 'Transit:', sub: 'Board the F/M trains at 42nd St—Bryant Park and ride it southbound two stops to 23rd St' },
+    { main: 'Ridesharing:', sub: 'About a 15-20 minute drive via Uber, Lyft, or cab services' },
+    { main: 'Walking:', sub: '~30 minute walk south, 1.3 milesI adde' },
+  ];
+
   const hrefStyle = 'text-blue-500 font-bold underline';
   const iconStyle = 'fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0';
 
   return (
     <Layout>
       <div className='px-0 xl:px-32 space-y-6'>
-        <div className='relative w-full h-[450px]'>
+        <div className='relative w-full h-60 md:h-[340px]'>
           <NextImage
             className='rounded-xl border border-black items-center shadow-xl'
             src='/deadpools.png'
@@ -73,7 +82,7 @@ const TicketPage = async () => {
         </Text>
 
         <div className='grid grid-cols-11 space-y-10 md:space-y-0'>
-          <div className='col-span-9 md:col-span-5'>
+          <div className='col-span-11 md:col-span-5'>
             <TicketSale
               name='Ryan'
               price='$40'
@@ -124,6 +133,18 @@ const TicketPage = async () => {
           icon={<Clock className={iconStyle} />}
           content={schedule}
         />
+
+        <Divider />
+
+        <Heading size='md'>
+          Transportation Options
+        </Heading>
+        <List
+          icon={<Transit className={iconStyle} />}
+          content={transit}
+        />
+
+        <NYCMap />
       </div>
     </Layout>
   );

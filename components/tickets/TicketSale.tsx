@@ -4,7 +4,6 @@
 import NextImage from 'next/image';
 import { Button, Heading, Text, List } from '@/components/global';
 import { FaTicket as Ticket } from 'react-icons/fa6';
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 
 // Types
 import type { ReactNode } from 'react';
@@ -16,7 +15,7 @@ type TicketSaleProps = {
   remaining: number;
   inclusions: {
     main: string;
-    sub: string;
+    sub?: string;
   }[];
   icon: ReactNode;
   earlyBird?: boolean;
@@ -103,7 +102,7 @@ const TicketSale = (props: TicketSaleProps) => {
           )}
         </div>
 
-        <div className='mt-4 min-h-80'>
+        <div className='mt-4 min-h-96'>
           <Heading size='sm' className='mb-1 text-center transition ease-in-out duration-300 hover:scale-102 hover:border hover:border-gray-700 hover:bg-gray-600 hover:rounded'>
             What&apos;s Included?
           </Heading>
