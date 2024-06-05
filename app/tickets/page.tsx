@@ -5,9 +5,28 @@ import { TicketSale } from '@/components/tickets';
 import NextLink from 'next/link';
 import { GiKatana as Katana, GiWolverineClaws as Wolverine } from 'react-icons/gi';
 import { FaClock as Clock } from 'react-icons/fa';
+import NextImage from 'next/image';
+
+// Types
+import type { Metadata } from 'next';
 
 // Utilities
 import { fetchRyanTickets, fetchHughTickets } from '@/actions/fetchContent';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Tickets',
+  description: 'Purchase tickets to 150 Deadpools & Wolverine, also known as the Ryan Red Carpet event in New York City on July 27th.',
+  keywords: ['ryan red carpet', 'ryanpool', 'deadpool 3', 'ryanpool & wolverine', 'ryanpool and wolverine', 'deadpool and wolverine', '150 deadpools and wolverine', 'ryan gala', 'ryan movie', 'ryancon trailer', 'ryan meetup trailer', 'ryan meetup deadpool', 'ryan reynolds ryan meetup', 'ryan meetup new york', 'ryan meetup amc 25', 'ryan meetup slate', 'ryan meetup marvel', 'ryan meetup marvel studios', 'ryan meetup disney'],
+  openGraph: {
+    url: 'https://ryanmeetup.com/tickets',
+    title: 'Ryan Meetup - Tickets',
+    description: 'Purchase tickets to 150 Deadpools & Wolverine, also known as the Ryan Red Carpet event in New York City on July 27th.',
+    siteName: 'Ryan Meetup',
+    images: '/deadpool.png',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 const TicketPage = async () => {
   const ryanTickets = await fetchRyanTickets();
@@ -16,8 +35,9 @@ const TicketPage = async () => {
   const ryanTicket = [
     { main: 'VIR Access:', sub: 'Priority access to the Ryan Red Carpet event' },
     { main: 'Commemorative Deadpool Mask:', sub: 'A Deadpool mask to remember the event by' },
-    { main: 'Priority Seating:', sub: 'First picks on seats in the theater during the premiere' },
+    { main: 'First Come First Serve Seating:', sub: 'First picks on seats in the theater during the premiere' },
     { main: 'After Party Entry:', sub: 'Access to the Ryan Meetup after party following the premiere' },
+    { main: 'Meet & Greet with Ryans:', sub: 'Photo opportunities with Ryan, Ryan, and Ryan, of course' },
   ];
 
   const hughTicket = [
@@ -27,7 +47,7 @@ const TicketPage = async () => {
   ];
 
   const schedule = [
-    { main: '6:30 PM:', sub: 'Ryan Red Carpet' },
+    { main: '6:30 PM:', sub: 'Ryan Red Carpet @ AMC Empire 25' },
     { main: '7:30 PM:', sub: '150 Deadpools & Wolverine Premiere' },
     { main: '10:30 PM:', sub: 'Ryan Meetup After Party @ Slate' },
   ];
@@ -38,43 +58,37 @@ const TicketPage = async () => {
   return (
     <Layout>
       <div className='px-0 xl:px-32 space-y-6'>
-        <Heading>
-          Buy Tickets
-        </Heading>
-
-        <div className='space-y-4'>
-          <Text>
-            Join us for a <span className='font-bold'>private showing</span> of Marvel Studio&apos;s{' '}
-            <NextLink className={hrefStyle} href='https://www.youtube.com/watch?v=73_1biulkYk' target='_blank'>Deadpool &amp; Wolverine</NextLink> on Saturday, July 27th, in New York City at the{' '}
-            <NextLink className={hrefStyle} href='https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25' target='_blank'>Empire AMC 25</NextLink>.
-          </Text>
-          <Text>
-            There will be a Ryan Red Carpet event prior to the showing, as well as an after party hosted by{' '}<NextLink href='https://www.slate-ny.com' className={hrefStyle} target='_blank'>Slate</NextLink> in Chelsea. You can RSVP to the after party <NextLink href='/rsvp' className={hrefStyle} target='_blank'>here</NextLink>.
-          </Text>
-          <Heading size='md'>
-            Event Schedule
-          </Heading>
-          <List
-            icon={<Clock className={iconStyle} />}
-            content={schedule}
+        <div className='relative w-full h-[450px]'>
+          <NextImage
+            className='rounded-xl border border-black items-center shadow-xl'
+            src='/deadpools.png'
+            alt='150 Deadpools & Wolverine'
+            style={{ objectFit: 'cover' }}
+            fill
           />
         </div>
 
-        <div className='grid grid-cols-9 space-y-10 md:space-y-0'>
-          <div className='col-span-9 md:col-span-4'>
+        <Text className='italic mb-10 text-center'>
+          <span className='font-semibold text-blue-500'>*</span>Early bird pricing ends on July 1st, 2024.
+        </Text>
+
+        <div className='grid grid-cols-11 space-y-10 md:space-y-0'>
+          <div className='col-span-9 md:col-span-5'>
             <TicketSale
               name='Ryan'
-              price='$35'
+              price='$40'
               href='https://buy.stripe.com/8wMaGTeLC51Rg36bIK'
               remaining={ryanTickets.ticketsRemaining as number}
               icon={<Katana className={iconStyle} />}
               inclusions={ryanTicket}
+              earlyBird
+              earlyBirdPrice='$35'
             />
           </div>
-          <div className='col-span-9 md:col-span-1'>
+          <div className='col-span-11 md:col-span-1'>
             <Divider className='block md:hidden' margins='sm' />
           </div>
-          <div className='col-span-9 md:col-span-4'>
+          <div className='col-span-11 md:col-span-5'>
             <TicketSale
               name='Hugh'
               price='$1,000'
@@ -85,6 +99,31 @@ const TicketPage = async () => {
             />
           </div>
         </div>
+
+        <Divider />
+
+        <Heading>
+          Event Details
+        </Heading>
+
+        <div className='space-y-4'>
+          <Text>
+            Join us for a private showing of{' '}
+            <NextLink className={hrefStyle} href='https://www.youtube.com/watch?v=73_1biulkYk' target='_blank'>Deadpool &amp; Wolverine</NextLink> on Saturday, July 27th, in New York City at the{' '}
+            <NextLink className={hrefStyle} href='https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25' target='_blank'>Empire AMC 25</NextLink>, where you&apos;ll meet 149 other Ryans dressed up as Deadpool - and maybe one singular, lonesome, Hugh.
+          </Text>
+          <Text>
+            There will be a Ryan Red Carpet event prior to the showing, as well as an after party hosted by{' '}<NextLink href='https://www.slate-ny.com' className={hrefStyle} target='_blank'>Slate</NextLink> in Chelsea. You can RSVP to the after party <NextLink href='/rsvp' className={hrefStyle} target='_blank'>here</NextLink>.
+          </Text>
+        </div>
+
+        <Heading size='md'>
+          Event Schedule
+        </Heading>
+        <List
+          icon={<Clock className={iconStyle} />}
+          content={schedule}
+        />
       </div>
     </Layout>
   );

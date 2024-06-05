@@ -3,27 +3,18 @@
 // Components
 import { Heading, Text, Button } from '@/components/global';
 
-// Types
-import type { ReactNode } from 'react';
-
-type PageNotFoundProps = {
-  children?: ReactNode;
-};
-
-const PageNotFound = (props: PageNotFoundProps) => {
-  const { children } = props;
-
+const PageNotFound = () => {
   return (
     <div className='flex items-center justify-center flex-col space-y-5'>
       <Heading size='3xl'>
         404
       </Heading>
 
-      <Heading size='xl'>
+      <Heading size='xl' className='text-center'>
         Ryan Not Found
       </Heading>
 
-      <Text size='lg'>
+      <Text size='lg' className='text-center'>
         Maybe you meant to access one of our other pages?
       </Text>
 

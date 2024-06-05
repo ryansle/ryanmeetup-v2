@@ -3,6 +3,8 @@
 // Components
 import NextImage from 'next/image';
 import { Button, Heading, Text, List } from '@/components/global';
+import { FaTicket as Ticket } from 'react-icons/fa6';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 
 // Types
 import type { ReactNode } from 'react';
@@ -17,6 +19,8 @@ type TicketSaleProps = {
     sub: string;
   }[];
   icon: ReactNode;
+  earlyBird?: boolean;
+  earlyBirdPrice?: string;
 };
 
 const TicketSale = (props: TicketSaleProps) => {
@@ -27,6 +31,8 @@ const TicketSale = (props: TicketSaleProps) => {
     remaining,
     inclusions,
     icon,
+    earlyBird = false,
+    earlyBirdPrice = '',
   } = props;
 
   const supportedPaymentMethods = [
@@ -57,8 +63,15 @@ const TicketSale = (props: TicketSaleProps) => {
         Tickets for {name}s
       </Heading>
 
-      <div className='border rounded-lg w-full p-4 border-gray-700'>
-        <div className='flex justify-center'>
+      <div className='border rounded-lg w-full p-4 border-gray-700 relative overflow-hidden'>
+        {earlyBird && (
+          <div className='absolute -rotate-45 z-10 -left-[60px] top-[45px]'>
+            <div className='px-2 text-md text-center rounded-lg font-semibold uppercase w-[240px] h-6 flex items-center justify-center bg-red-500 text-sm'>
+              Early Bird Pricing
+            </div>
+          </div>
+        )}
+        {/* <div className='flex justify-center'>
           <div className='relative w-1/2 h-32'>
             <NextImage
               className='rounded-xl border border-black items-center shadow-xl'
@@ -68,20 +81,31 @@ const TicketSale = (props: TicketSaleProps) => {
               fill
             />
           </div>
-        </div>
+        </div> */}
 
         <div className='my-2'>
-          <Text className='text-center'>
-            150 Deadpools &amp; Wolverine Premiere
-          </Text>
-          <Heading className='text-center uppercase' size='xl'>
-            {price}
-          </Heading>
+          {earlyBirdPrice && (
+            <div className='flex justify-center items-end space-x-4'>
+              <Heading size='md' className='line-through'>
+                {price}
+              </Heading>
+
+              <Heading className='text-center uppercase' size='xl'>
+                {earlyBirdPrice}
+              </Heading>
+            </div>
+          )}
+
+          {earlyBirdPrice === '' && (
+            <Heading className='text-center uppercase' size='xl'>
+              {price}
+            </Heading>
+          )}
         </div>
 
-        <div className='mt-4 min-h-72'>
-          <Heading size='sm' className='mb-1'>
-            What&apos;s Included
+        <div className='mt-4 min-h-80'>
+          <Heading size='sm' className='mb-1 text-center transition ease-in-out duration-300 hover:scale-102 hover:border hover:border-gray-700 hover:bg-gray-600 hover:rounded'>
+            What&apos;s Included?
           </Heading>
           <List
             content={inclusions}
@@ -90,7 +114,11 @@ const TicketSale = (props: TicketSaleProps) => {
           />
         </div>
 
-        <Button.Link className='mt-4' href={href}>
+        <Button.Link
+          className='mt-4'
+          href={href}
+          leftIcon={<Ticket />}
+        >
           Buy Ticket
         </Button.Link>
 
