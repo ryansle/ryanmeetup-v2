@@ -19,7 +19,7 @@ const EventsSection = (props: EventsSectionProps) => {
         {title}
       </Heading>
 
-      <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-3 4xl:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3 4xl:grid-cols-3'>
         {events?.map((event, index) => (
           <Event
             key={index}

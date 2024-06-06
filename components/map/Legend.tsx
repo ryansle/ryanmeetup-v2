@@ -21,83 +21,62 @@ const Legend = (props: LegendProps) => {
     setShowCommunityEvents,
   } = props;
 
+  const options = [
+    {
+      checked: showMeetups,
+      handler: () => setShowMeetups(!showMeetups),
+      text: 'Ryan Meetup',
+      alt: 'Past or future Ryan Meetup location.',
+      icon: '/icons/meetup-icon.webp',
+    },
+    {
+      checked: showRyans,
+      handler: () => setShowRyans(!showRyans),
+      text: 'Ryan lives here',
+      alt: 'There\'s at least one of the Ryans that lives here.',
+      icon: '/icons/ryanicon.png',
+    },
+    {
+      checked: showCommunityEvents,
+      handler: () => setShowCommunityEvents(!showCommunityEvents),
+      text: 'Community Event',
+      alt: 'There has been a Ryan Meetup community event here.',
+      icon: '/icons/emoji.png',
+    },
+  ];
+
   return (
     <div className='absolute bottom-2 right-2 bg-white p-3 rounded-md shadow-md text-black w-48 font-semibold lg:bottom-8 lg:right-8'>
       <Heading size='xs' className='font-semibold mb-2' ignoreColorMode>
         Legend
       </Heading>
-      <div className='flex justify-between'>
-        <div className='flex'>
-          <input
-            type='checkbox'
-            checked={showMeetups}
-            onClick={() => setShowMeetups(!showMeetups)}
-          />
+      {options.map((option) => (
+        <div className='flex justify-between' key={option.text}>
+          <div className='flex'>
+            <input
+              type='checkbox'
+              className='w-4 h-4'
+              checked={option.checked}
+              onClick={option.handler}
+            />
 
-          <Text
-            className='ml-2'
-            color='black'
-            size='xxs'
-          >
-            Ryan Meetup
-          </Text>
-        </div>
-        <NextImage
-          className='shrink-0'
-          src='/icons/meetup-icon.webp'
-          width={20}
-          height={20}
-          alt='Ryans have met up in this city before'
-        />
-      </div>
-      <div className='flex justify-between'>
-        <div className='flex'>
-          <input
-            type='checkbox'
-            checked={showRyans}
-            onClick={() => setShowRyans(!showRyans)}
+            <Text
+              className='ml-2'
+              color='black'
+              size='xxs'
+            >
+              {option.text}
+            </Text>
+          </div>
+          <NextImage
+            className='shrink-0'
+            src={option.icon}
+            width={20}
+            height={20}
+            alt='Ryans have met up in this city before'
           />
-
-          <Text
-            className='ml-2'
-            color='black'
-            size='xxs'
-          >
-            Ryan lives here
-          </Text>
         </div>
-        <NextImage
-          className='shrink-0'
-          src='/icons/ryanicon.png'
-          width={20}
-          height={20}
-          alt='Ryans have met up in this city before'
-        />
-      </div>
-      <div className='flex justify-between'>
-        <div className='flex'>
-          <input
-            type='checkbox'
-            checked={showCommunityEvents}
-            onClick={() => setShowCommunityEvents(!showCommunityEvents)}
-          />
-
-          <Text
-            className='ml-2'
-            color='black'
-            size='xxs'
-          >
-            Community Event
-          </Text>
-        </div>
-        <NextImage
-          className='shrink-0'
-          src='/icons/emoji.png'
-          width={20}
-          height={20}
-          alt='Ryans have met up in this city before'
-        />
-      </div>
+      ))}
     </div>
   );
 };

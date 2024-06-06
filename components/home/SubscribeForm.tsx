@@ -15,10 +15,11 @@ import { subscribeToEmails } from '@/actions/subscribe';
 
 type SubscribeFormProps = {
   label: string;
+  name: string;
 };
 
 const SubscribeForm = (props: SubscribeFormProps) => {
-  const { label } = props;
+  const { label, name } = props;
 
   const [email, setEmail] = useState<string>('');
   const [disabled, setDisabled] = useState<boolean>(true);
@@ -71,7 +72,7 @@ const SubscribeForm = (props: SubscribeFormProps) => {
         <div className='col-span-8'>
           <Input
             label={label}
-            name='subscribe'
+            name={name}
             onChange={(event) => setEmail(event.target.value)}
             placeholder='ryan@ryanmeetup.com'
           />

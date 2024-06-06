@@ -14,19 +14,21 @@ type LeaderboardProps = {
 
 const TableHeader = () => (
   <thead className='uppercase tracking-widest text-xs xl:text-md text-black dark:text-white'>
-    <th scope='col' className='w-16' />
-    <th scope='col' className='w-48'>
-      Name
-    </th>
-    <th scope='col' className='w-48'>
-      Based in
-    </th>
-    <th scope='col' className='w-32'>
-      # Attended
-    </th>
-    <th scope='col' className='hidden md:block'>
-      Events Attended
-    </th>
+    <tr>
+      <th scope='col' className='w-16' />
+      <th scope='col' className='w-48'>
+        Name
+      </th>
+      <th scope='col' className='w-48'>
+        Based in
+      </th>
+      <th scope='col' className='w-32'>
+        # Attended
+      </th>
+      <th scope='col' className='hidden md:block'>
+        Events Attended
+      </th>
+    </tr>
   </thead>
 );
 

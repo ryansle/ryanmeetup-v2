@@ -42,8 +42,8 @@ const Footer = () => {
               <Heading ignoreColorMode>RYAN MEETUP</Heading>
             </NextLink>
 
-            <Heading className='mt-[2px] uppercase' size='xs' ignoreColorMode>No Bryans Allowed</Heading>
-            <SubscribeForm label='Join our Ryan mailing list' />
+            <h2 className='mt-[2px] uppercase font-cooper text-lg'>No Bryans Allowed</h2>
+            <SubscribeForm label='Join our Ryan mailing list' name='subscribe-footer' />
           </div>
 
           {/* Resources & Follow Us */}
@@ -53,7 +53,7 @@ const Footer = () => {
               <ul className='text-gray-600 font-medium space-y-2'>
                 {socials.map((social) => (
                   <li key={social.name}>
-                    <NextLink href='https://www.instagram.com/ryanmeetup/' className='hover:underline'>
+                    <NextLink href={social.href} className='hover:underline'>
                       {social.name}
                     </NextLink>
                   </li>
@@ -99,13 +99,17 @@ const Footer = () => {
         <hr className='my-6 border-gray-200 sm:mx-auto border-gray-700 lg:my-8' />
         <div className='sm:flex sm:items-center sm:justify-between'>
           <span className='text-sm text-gray-600 sm:text-center'>
-            Website designed and developed by <NextLink href='https://ryanle.dev/' className='font-bold underline hover:text-white'>Ryan</NextLink>. All Rights Reserved.
+            Website designed and developed by <NextLink href='https://ryanle.dev/' className='font-bold underline hover:text-white'>Ryan Le</NextLink>. All Rights Reserved.
           </span>
 
           {/* Socials */}
           <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
             {socials.map((channel, index) => (
-              <NextLink key={index} href={channel.href}>
+              <NextLink
+                key={index}
+                href={channel.href}
+                aria-label={channel.name}
+              >
                 {channel.icon}
               </NextLink>
             ))}

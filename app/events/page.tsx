@@ -51,7 +51,7 @@ const EventsPage = async () => {
         <p className='font-medium -mb-2 text-base text-black dark:text-white'>
           Sign up for Ryan Meetup event emails
         </p>
-        <SubscribeForm label='' />
+        <SubscribeForm label='' name='subscribe-events-page' />
       </div>
 
       <EventsContainer events={events as unknown as RyanEvent[]} />
