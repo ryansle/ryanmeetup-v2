@@ -38,7 +38,7 @@ const TicketPage = async () => {
     { main: 'VIR Access:', sub: 'Priority access to the Ryan Red Carpet event' },
     { main: 'Commemorative Deadpool Mask' },
     { main: 'First Come First Serve Seating:', sub: 'First picks on seats in the theater during the premiere' },
-    { main: 'After Party Entry:', sub: 'Access to the Ryan Meetup after party following the premiere' },
+    { main: 'After Party Entry:', sub: 'Access to the Ryan Meetup after party following the premiere, with no additional cover charges' },
     { main: 'Meet & Greet with Ryans:', sub: 'Photo opportunities with Ryan, Ryan, and Ryan, of course' },
   ];
 
@@ -77,21 +77,19 @@ const TicketPage = async () => {
           />
         </div>
 
-        <Text className='italic mb-10 text-center'>
+        {/* <Text className='italic mb-10 text-center'>
           <span className='font-semibold text-blue-500'>*</span>Early bird pricing ends on July 1st, 2024.
-        </Text>
+        </Text> */}
 
         <div className='grid grid-cols-11 space-y-10 md:space-y-0'>
           <div className='col-span-11 md:col-span-5'>
             <TicketSale
               name='Ryan'
               price='$40'
-              href='https://buy.stripe.com/8wMaGTeLC51Rg36bIK'
+              href='https://buy.stripe.com/4gw8yL9ridynaIMeUY'
               remaining={ryanTickets.ticketsRemaining as number}
               icon={<Katana className={iconStyle} />}
               inclusions={ryanTicket}
-              earlyBird
-              earlyBirdPrice='$35'
             />
           </div>
           <div className='col-span-11 md:col-span-1'>
@@ -101,7 +99,7 @@ const TicketPage = async () => {
             <TicketSale
               name='Hugh'
               price='$1,000'
-              href='https://buy.stripe.com/7sIg1d1YQ79Z5os3cf'
+              href='https://buy.stripe.com/6oE2aneLCfGv7wA149'
               remaining={hughTickets.ticketsRemaining as number}
               icon={<Wolverine className={iconStyle} />}
               inclusions={hughTicket}
