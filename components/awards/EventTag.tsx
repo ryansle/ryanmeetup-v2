@@ -31,7 +31,7 @@ const EventTag = (props: EventTagProps) => {
   };
 
   return (
-    <div className={`${renderTagStyles(event)} border text-xs p-1 rounded mb-1 font-semibold text-black dark:text-white shadow-lg`}>
+    <div className={`${renderTagStyles(event)} border text-xs p-1 rounded mb-1 font-semibold text-black bg-white dark:bg-black dark:text-white shadow-lg`}>
       {event}
     </div>
   );

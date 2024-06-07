@@ -10,7 +10,7 @@ const Poster = (props: PosterProps) => {
   const { title, src } = props;
 
   return (
-    <div className='overflow-hidden aspect-w-3 aspect-h-4'>
+    <div className='overflow-hidden aspect-w-3 aspect-h-4 shadow-lg'>
       <NextImage
         className='border border-gray-600'
         src={src}
