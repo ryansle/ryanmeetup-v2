@@ -23,7 +23,7 @@ const Info = (props: InfoProps) => {
   });
 
   return (
-    <section className='text-center py-4 border-t-2 border-gray-700 px-4 md:py-8 lg:px-32 xl:px-72 3xl:px-[400px] 4xl:px-[650px]'>
+    <section className='text-center py-4 border-t-2 border-gray-400 dark:border-gray-700 px-4 md:py-8 lg:px-32 xl:px-72 3xl:px-[400px] 4xl:px-[650px]'>
       <Heading className='mb-4'>
         Ryan Meetup Worldwide
       </Heading>

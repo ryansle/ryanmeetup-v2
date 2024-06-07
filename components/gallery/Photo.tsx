@@ -14,7 +14,7 @@ const Photo = (props: PhotoProps) => {
   const imageUrl = file.url.replace('//', '');
 
   return (
-    <div className='w-full max-h-[450px] aspect-w-3 aspect-h-2 overflow-hidden rounded-lg'>
+    <div className='w-full max-h-[450px] aspect-w-3 aspect-h-2 overflow-hidden border rounded-lg shadow-xl dark:border-black'>
       <NextImage
         src={`https://${imageUrl}`}
         fill

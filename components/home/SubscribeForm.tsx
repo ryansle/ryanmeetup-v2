@@ -75,11 +75,12 @@ const SubscribeForm = (props: SubscribeFormProps) => {
             name={name}
             onChange={(event) => setEmail(event.target.value)}
             placeholder='ryan@ryanmeetup.com'
+            ignoreColorMode
           />
         </div>
         <div className='col-span-4 h-full justify-end flex flex-col'>
           <button
-            className='text-white h-10 w-full border-gray-700 font-medium rounded-md border text-sm py-2.5 px-2 lg:px-4 tracking-wide disabled:text-gray-600 disabled:cursor-not-allowed uppercase font-cooper flex items-center justify-center gap-x-1 hover:scale-102 transition duration-300 ease-in-out space-x-2'
+            className='text-black dark:text-white h-10 w-full border-gray-700 font-medium rounded-md border text-sm py-2.5 px-2 lg:px-4 tracking-wide disabled:text-gray-600 disabled:cursor-not-allowed uppercase font-cooper flex items-center justify-center gap-x-1 hover:scale-102 transition duration-300 ease-in-out space-x-2'
             disabled={disabled}
             onClick={submit}
           >

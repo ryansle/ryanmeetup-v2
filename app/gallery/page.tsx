@@ -39,8 +39,8 @@ const GalleryPage = async () => {
       </Text>
 
       <Note>
-        <Text size='md' className='flex items-center' color='white'>
-          <Question className='mr-4 fill-yellow-500' /> Who is photographing all of these Ryan Meetups?
+        <Text size='md' className='flex items-center'>
+          <Question className='mr-4 fill-yellow-500' /> <span className='text-black dark:text-white'>Who is photographing all of these Ryan Meetups?</span>
         </Text>
         <Text size='xs'>
           Ryan Rose is the official photographer for the Ryan Meetup. You can book a gig with her{' '}
