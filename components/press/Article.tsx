@@ -22,7 +22,7 @@ const ArticleImage = (props: ArticleImageProps) => {
   return (
     <div className='w-full max-h-[200px] aspect-w-2 aspect-h-1'>
       <NextImage
-        className='rounded-lg'
+        className='rounded-lg shadow-xl border border-gray-400 dark:border-gray-700'
         src={imageSrc}
         fill
         alt={title}

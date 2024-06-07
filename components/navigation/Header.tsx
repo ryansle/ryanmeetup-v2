@@ -2,129 +2,13 @@
 
 // Components
 import { Heading } from '@/components/global';
-import {
-  FaInstagram as Instagram,
-  FaMeetup as Meetup,
-  FaDiscord as Discord,
-  FaYoutube as YouTube,
-  FaHandsHelping as Help,
-  FaPhotoVideo as Gallery,
-  FaTrophy as Trophy,
-  FaRegNewspaper as News,
-  FaMapMarkedAlt as Map
-} from 'react-icons/fa';
-import {
-  FaPeopleGroup as Community,
-  FaHandshakeSimple as Handshake,
-  FaShirt as Shirt,
-  FaTicket as Ticket,
-} from 'react-icons/fa6';
-import {
-  IoCalendarNumber as Calendar,
-  IoPersonAdd as Socials
-} from 'react-icons/io5';
-import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
-import { HiOutlineMail as Email } from 'react-icons/hi';
-import { RouteMenu } from '@/components/navigation';
+import { RouteMenu, ThemeToggle } from '@/components/navigation';
 import NextLink from 'next/link';
 import { MobileMenu } from '@/components/navigation';
 
 // Utilities
 import { usePathname } from 'next/navigation';
-
-const routes = [
-  {
-    icon: <Community />,
-    text: 'Community',
-    href: '',
-    subroutes: [
-      // {
-      //   icon: <Ticket />,
-      //   text: 'Buy Tickets',
-      //   href: '/tickets'
-      // },
-      {
-        icon: <Calendar />,
-        text: 'Events',
-        href: '/events',
-      },
-      {
-        icon: <Gallery />,
-        text: 'Gallery',
-        href: '/gallery',
-      },
-      {
-        icon: <Trophy />,
-        text: 'Awards',
-        href: '/awards',
-      },
-    ],
-  },
-  {
-    icon: <Shirt />,
-    text: 'Merch',
-    href: 'https://ryanmeetup.etsy.com',
-  },
-  {
-    icon: <Handshake />,
-    text: 'Support',
-    href: '',
-    subroutes: [
-      {
-        icon: <Flyer />,
-        text: 'Posters',
-        href: '/posters',
-      },
-      {
-        icon: <Help />,
-        text: 'Contribute',
-        href: '/contribute',
-      },
-    ],
-  },
-  {
-    icon: <Map />,
-    text: 'Map',
-    href: '/map',
-  },
-  {
-    icon: <News />,
-    text: 'Press',
-    href: '/press',
-  },
-  {
-    icon: <Email />,
-    text: 'Contact Us',
-    href: '/contact',
-  },
-  {
-    icon: <Socials />,
-    text: 'Social Media',
-    href: '',
-    subroutes: [
-      {
-        icon: <Instagram />,
-        text: 'Instagram',
-        href: 'https://www.instagram.com/ryanmeetup/',
-      },
-      {
-        icon: <Meetup />,
-        text: 'Meetup',
-        href: 'https://www.meetup.com/ryanmeetup/',
-      },
-      {
-        icon: <Discord />,
-        text: 'Discord',
-        href: 'https://discord.gg/HDugzYSHKC',
-      },
-      {
-        icon: <YouTube />,
-        text: 'YouTube',
-        href: 'https://www.youtube.com/@ryanmeetup',
-      },
-    ],
-  },
-];
+import { routes } from '@/lib/constants';
 
 const Header = () => {
   const pathname = usePathname();
@@ -141,7 +25,7 @@ const Header = () => {
         {routes.map((route) => !route.subroutes ? (
           <NextLink
             key={route.text}
-            className={`${route.href.includes(pathname) && pathname !== '/' && 'bg-gray-900'} text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base`}
+            className={`${route.href.includes(pathname) && pathname !== '/' && 'bg-gray-300 dark:bg-gray-900'} text-sm flex items-center font-semibold rounded-lg text-black tracking-wide gap-x-2 px-2 py-1 border border-white dark:border-black transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base dark:text-white`}
             href={route.href}
           >
             {route.icon} {route.text}
@@ -155,10 +39,13 @@ const Header = () => {
             pathname={pathname}
           />
         ))}
+
+        <ThemeToggle />
       </div>
 
-      <div className='block xl:hidden'>
+      <div className='flex gap-x-4 xl:hidden'>
         <MobileMenu content={routes} />
+        <ThemeToggle />
       </div>
     </header>
   );

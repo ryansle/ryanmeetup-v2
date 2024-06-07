@@ -12,7 +12,7 @@ type ButtonLinkProps = {
   rightIcon?: ReactNode;
   disabled?: boolean;
   href: string;
-}
+};
 
 type ButtonProps = {
   children: ReactNode;

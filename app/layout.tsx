@@ -1,5 +1,6 @@
 // Components
 import { BryanChecker } from '@/components/global';
+import { ThemeProvider } from 'next-themes';
 
 // Types
 import type { Metadata } from 'next';
@@ -34,9 +35,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <BryanChecker />
-        {children}
-        <Analytics />
+        <ThemeProvider attribute='class' defaultTheme='dark'>
+          <BryanChecker />
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

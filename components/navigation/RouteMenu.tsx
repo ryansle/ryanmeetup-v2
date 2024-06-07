@@ -25,15 +25,17 @@ const RouteMenu = (props: RouteMenuProps) => {
 
   const isSelected = (pathname: string) => {
     if ((pathname === '/events' || pathname === '/gallery' || pathname === '/awards' || pathname === '/tickets') && title === 'Community') {
-      return 'bg-gray-900';
+      return 'bg-gray-300 dark:bg-gray-900';
     } else if ((pathname === '/posters' || pathname === '/contribute') && title === 'Support') {
-      return 'bg-gray-900';
+      return 'bg-gray-300 dark:bg-gray-900';
     }
   };
 
   return (
     <Popover className='relative'>
-      <PopoverButton className={`${isSelected(pathname)} text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-black transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base`}>
+      <PopoverButton
+        className={`${isSelected(pathname)} text-sm flex items-center text-black font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-white transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base dark:text-white dark:border-black`}
+      >
         {icon} {title} <ChevronDown className='h-3 w-3 fill-gray-600' />
       </PopoverButton>
 
@@ -46,13 +48,13 @@ const RouteMenu = (props: RouteMenuProps) => {
         leaveTo='opacity-0 translate-y-1'
       >
         <PopoverPanel
-          className='z-50 bg-black w-40 rounded-lg border border-gray-700 p-2 mt-2'
+          className='z-50 bg-white dark:bg-black w-40 rounded-lg border border-gray-700 p-2 mt-2'
           anchor='bottom'
         >
           {routes.map((route, index) => (
             <div key={route.text}>
               <NextLink
-                className='flex items-center font-semibold tracking-wide gap-x-2 px-2 py-1 hover:bg-gray-700 hover:rounded'
+                className='flex text-black dark:text-white items-center font-semibold tracking-wide gap-x-2 px-2 py-1 hover:bg-gray-300 dark:hover:bg-gray-700 hover:rounded'
                 href={route.href}
               >
                 {route.icon} {route.text}

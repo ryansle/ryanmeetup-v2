@@ -45,7 +45,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
         <Heading size='md' className='mb-2'>{fullName}</Heading>
         {instagram && (
           <NextLink className='ml-2' href={instagram} aria-label={`${fullName}'s Instagram`}>
-            <Instagram className='fill-black dark:fill-white hover:fill-blue-500' />
+            <Instagram className='fill-black dark:fill-white transition duration-300 ease-in-out hover:scale-105 hover:fill-blue-500' />
           </NextLink>
         )}
       </div>

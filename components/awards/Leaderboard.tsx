@@ -56,7 +56,7 @@ const Leaderboard = (props: LeaderboardProps) => {
                 <td className='py-2'>
                   <div className='relative w-10 h-10 md:w-12 md:h-12'>
                     <NextImage
-                      className='rounded-full'
+                      className='rounded-full shadow-lg'
                       src={convertImageUrl(ryan.headshot) ?? '/trophy.png'}
                       fill
                       style={{ objectFit: 'cover' }}
