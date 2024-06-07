@@ -34,7 +34,7 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className='border-t border-gray-700 px-4 h-20 lg:px-32 2xl:px-56 3xl:px-[400px] 4xl:px-[500px]'>
+    <footer className='border-t border-gray-700 px-4 h-20 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
       <div className='w-full py-6 lg:py-8'>
         <div className='md:flex md:justify-between'>
           <div className='mb-6 md:mb-0'>

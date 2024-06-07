@@ -14,18 +14,19 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header className='flex justify-between items-center py-5 px-4 border-b border-gray-400 dark:border-gray-700 bg-white dark:bg-black sticky relative top-0 right-0 left-0 z-20 lg:px-32 2xl:px-56 3xl:px-[400px] 4xl:px-[500px]'>
-      <div className='relative w-[128px] h-[33px] text-black dark:text-white transition ease-in-out duration-300 hover:scale-105'>
-        <NextLink href='/'>
-          <Heading>RYAN</Heading>
-        </NextLink>
-      </div>
+    <header className='flex justify-between items-center py-5 px-4 border-b border-gray-400 dark:border-gray-700 bg-white dark:bg-black sticky relative top-0 right-0 left-0 z-20 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
+      <NextLink
+        href='/'
+        className='text-black dark:text-white transition ease-in-out duration-300 hover:scale-105'
+      >
+        <Heading>RYAN</Heading>
+      </NextLink>
 
       <div className='hidden xl:flex space-x-4 overflow-y-scroll'>
         {routes.map((route) => !route.subroutes ? (
           <NextLink
             key={route.text}
-            className={`${route.href.includes(pathname) && pathname !== '/' && 'bg-gray-300 dark:bg-gray-900'} text-sm flex items-center font-semibold rounded-lg text-black tracking-wide gap-x-2 px-2 py-1 border border-white dark:border-black transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base dark:text-white`}
+            className={`${route.href.includes(pathname) && pathname !== '/' && 'bg-gray-300 dark:bg-gray-800'} text-sm flex items-center font-semibold rounded-lg text-black tracking-wide gap-x-2 px-2 py-1 border border-white dark:border-black transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base dark:text-white`}
             href={route.href}
           >
             {route.icon} {route.text}
