@@ -8,7 +8,8 @@ import {
   FaPhotoVideo as Gallery,
   FaTrophy as Trophy,
   FaRegNewspaper as News,
-  FaMapMarkedAlt as Map
+  FaMapMarkedAlt as Map,
+  FaDollarSign as Dollar,
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
@@ -71,6 +72,11 @@ export const routes = [
         text: 'Contribute',
         href: '/contribute',
       },
+      {
+        icon: <Dollar />,
+        text: 'Donate',
+        href: 'https://buy.stripe.com/4gwdT546Ydyn8AE8wC',
+      }
     ],
   },
   {
