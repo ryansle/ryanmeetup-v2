@@ -76,11 +76,6 @@ const TicketPage = async () => {
             fill
           />
         </div>
-
-        {/* <Text className='italic mb-10 text-center'>
-          <span className='font-semibold text-blue-500'>*</span>Early bird pricing ends on July 1st, 2024.
-        </Text> */}
-
         <div className='grid grid-cols-11 space-y-10 md:space-y-0'>
           <div className='col-span-11 md:col-span-5'>
             <TicketSale

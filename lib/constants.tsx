@@ -75,7 +75,7 @@ export const routes = [
       {
         icon: <Dollar />,
         text: 'Donate',
-        href: 'https://buy.stripe.com/4gwdT546Ydyn8AE8wC',
+        href: '/donate',
       }
     ],
   },

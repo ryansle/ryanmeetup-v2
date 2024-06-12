@@ -1,10 +1,9 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Heading, Text, List } from '@/components/global';
-import NextImage from 'next/image';
-import NextLink from 'next/link';
-import QRCode from 'react-qr-code';
+import { Heading, Text, List, Divider } from '@/components/global';
 import { FaHandshake as Handshake } from 'react-icons/fa';
+import NextLink from 'next/link';
+import { GoDotFill as Bullet } from 'react-icons/go';
 
 // Types
 import type { Metadata } from 'next';
@@ -42,10 +41,12 @@ const ContributePage = () => {
       main: 'Buy our merchandise.',
       sub: 'Become a walking advertisement for the Ryan movement. And rest assured, all of our designs were created by fellow Ryans.',
     },
-    {
-      main: 'Consider Venmoing us.',
-      sub: 'All donations go towards setting up future Ryan Meetup events (ie: renting out spaces, buying name tags, trophies, decorations, etc, as well as tightening up security against potential Bryan intruders at our events).'
-    }
+  ];
+
+  const composed = [
+    { main: 'A photographer/videographer.' },
+    { main: 'A senior copywriter/creative director.' },
+    { main: 'A software engineer.' }
   ];
 
   return (
@@ -60,38 +61,26 @@ const ContributePage = () => {
         We have an army of Ryans at our disposal, so let&apos;s take advantage of it. The more Ryans who pitch in, the faster we&apos;ll grow.
       </Text>
 
+      <Text>
+        If you believe you have a relevant skill that can help to further expand the Ryan Meetup, please reach out to us on our <NextLink className='text-blue-500 underline font-semibold' href='/contact'>/contact</NextLink> page. Our small team of Ryans is currently composed of:
+      </Text>
+
+      <List
+        icon={<Bullet className='fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />}
+        content={composed}
+      />
+
+      <Divider />
+
       <div className='space-y-3'>
         <Heading size='md'>
           Ways to Contribute
         </Heading>
-        <div className='grid grid-cols-12 flex items-center'>
-          <div className='col-span-12 space-y-4 xl:col-span-9'>
-            <List
-              icon={<Handshake className='fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />}
-              content={waysToSupport}
-            />
-          </div>
-          <div className='col-span-0 xl:col-span-1' />
-          <div className='col-span-12 flex flex-col items-center mt-10 xl:mt-0 xl:col-span-2'>
-            <QRCode
-              value='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1'
-              size={200}
-            />
-            <div className='relative w-28 h-14'>
-              <NextImage
-                src='/venmo-logo.png'
-                fill
-                alt='Venmo Logo'
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-            <NextLink
-              href='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1'
-              className='font-bold text-blue-500 hover:underline -mt-2'
-            >
-              @RyanMeetup
-            </NextLink>
-          </div>
+        <div className='col-span-12 space-y-4'>
+          <List
+            icon={<Handshake className='fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />}
+            content={waysToSupport}
+          />
         </div>
       </div>
     </Layout>
