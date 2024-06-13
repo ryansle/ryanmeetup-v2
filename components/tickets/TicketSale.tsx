@@ -70,17 +70,6 @@ const TicketSale = (props: TicketSaleProps) => {
             </div>
           </div>
         )}
-        {/* <div className='flex justify-center'>
-          <div className='relative w-1/2 h-32'>
-            <NextImage
-              className='rounded-xl border border-black items-center shadow-xl'
-              src='/deadpools.png'
-              alt='150 Deadpools & Wolverine'
-              style={{ objectFit: 'cover' }}
-              fill
-            />
-          </div>
-        </div> */}
 
         <div className='my-2'>
           {earlyBirdPrice && (
@@ -102,7 +91,7 @@ const TicketSale = (props: TicketSaleProps) => {
           )}
         </div>
 
-        <div className='mt-4 min-h-96'>
+        <div className='mt-4 sm:min-h-80 md:min-h-[500px] lg:min-h-[400px]'>
           <Heading size='sm' className='mb-1 text-center'>
             What&apos;s Included?
           </Heading>

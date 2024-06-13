@@ -7,6 +7,7 @@ import { GiKatana as Katana, GiWolverineClaws as Wolverine } from 'react-icons/g
 import { FaClock as Clock } from 'react-icons/fa';
 import NextImage from 'next/image';
 import { MdEmojiTransportation as Transit } from 'react-icons/md';
+import { FAQ } from '@/components/home';
 
 // Types
 import type { Metadata } from 'next';
@@ -35,17 +36,18 @@ const TicketPage = async () => {
 
   const ryanTicket = [
     { main: 'Ryan Nametag:', sub: 'Classic red name tag so everyone knows that you are Ryan' },
-    { main: 'VIR Access:', sub: 'Priority access to the Ryan Red Carpet event' },
+    { main: 'VIR Access:', sub: 'Entry to the Ryan Red Carpet, the premiere of 150 Deadpools & Wolverine, and the Ryan after party hosted by Slate (with no additional cover)' },
     { main: 'Commemorative Deadpool Mask' },
     { main: 'First Come First Serve Seating:', sub: 'First picks on seats in the theater during the premiere' },
-    { main: 'After Party Entry:', sub: 'Access to the Ryan Meetup after party following the premiere, with no additional cover charges' },
-    { main: 'Meet & Greet with Ryans:', sub: 'Photo opportunities with Ryan, Ryan, and Ryan, of course' },
+    { main: '150 New Friends Named Ryan', },
+    { main: 'Meet & Greet with Ryans:', sub: 'Photo opportunities with Ryan, Ryan, Ryan, and of course, Ryan' },
   ];
 
   const hughTicket = [
     { main: 'Yellow Hugh Nametag:', sub: 'So that nobody mistakes you for Ryan, since you are definitely not one of us' },
-    { main: 'Commemorative Wolverine Mask:', sub: 'It may or may not be made out of an old paper plate' },
+    { main: 'Wolverine Mask:', sub: 'It may or may not be made out of an old paper plate' },
     { main: 'Front Row Seats:', sub: 'Sit at the very front of the theater and stare up at the screen the whole time' },
+    { main: 'An Inferiority Complex,', sub: 'since your name is not Ryan (but it can be...)' },
     { main: 'Access to Name Change Paperwork:', sub: 'Legally become a Ryan by filling out the necessary paperwork' },
   ];
 
@@ -58,7 +60,31 @@ const TicketPage = async () => {
   const transit = [
     { main: 'Transit:', sub: 'Board the F/M trains at 42nd St—Bryant Park and ride it southbound two stops to 23rd St' },
     { main: 'Ridesharing:', sub: 'About a 15-20 minute drive via Uber, Lyft, or cab services' },
-    { main: 'Walking:', sub: '~30 minute walk south, 1.3 milesI adde' },
+    { main: 'Walking:', sub: '~30 minute walk south, 1.3 miles' },
+  ];
+
+  const faqs = [
+    {
+      question: 'What happens if we overbook the theater?',
+      answer: 'Tickets will be sold on a first come, first serve basis. Those who purchase tickets after seats are filled will be placed on a waiting list and be refunded should seats not open back up.'
+    },
+    {
+      question: 'How will you know who has a seat and who doesn\'t?',
+      answer: 'Ryans will be placed on a guest list by first and last name as well as email address. Every Ryan will be IDed at the door prior to taking their seat.'
+    },
+    {
+      question: 'Can I bring a +1 to the movie premiere?',
+      answer: 'Only if their name is also Ryan. This private showing is for Ryans only - and the singular lonely Hugh.'
+    },
+    {
+      question: 'Do I need a ticket to attend the Ryan Red Carpet? Or just for a seat in the theater?',
+      answer: 'We are still working with AMC to figure out how much space we can reserve for the event. Until we know more, the answer for now is yes, you need a ticket. Stay tuned as we continue discussions with AMC.',
+    },
+    {
+      question: 'Can I still come to the after party if I don\'t attend the rest of the event?',
+      answer: 'Yes, you may still attend the after party without joining us for the Ryan Red Carpet.'
+    },
+
   ];
 
   const hrefStyle = 'text-blue-500 font-bold underline';
@@ -78,7 +104,7 @@ const TicketPage = async () => {
         </div>
 
         <Text className='text-center px-0 lg:px-28'>
-          <span className='font-semibold underline'>NOTE:</span> We encourage you to Zelle us directly at <span className='font-semibold text-blue-500'>theryanmeetup@gmail.com</span> or Venmo us at <NextLink href='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1' className='text-blue-500 font-semibold hover:underline'>@RyanMeetup</NextLink> to save extra money on ticketing fees. We are keeping a close watch on payments for the guest list, and will be IDing for entry.
+          <span className='font-semibold underline'>NOTE:</span> We encourage you to Zelle us directly at <span className='font-semibold text-blue-500'>theryanmeetup@gmail.com</span> or Venmo us at <NextLink href='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1' className='text-blue-500 font-semibold hover:underline'>@RyanMeetup</NextLink> to save extra money on ticketing fees.
         </Text>
 
         <div className='grid grid-cols-11 space-y-10 md:space-y-0'>
@@ -131,6 +157,13 @@ const TicketPage = async () => {
         <List
           icon={<Clock className={iconStyle} />}
           content={schedule}
+        />
+
+        <Divider />
+
+        <FAQ
+          data={faqs}
+          toggleable
         />
 
         <Divider />

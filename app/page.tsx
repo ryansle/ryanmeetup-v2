@@ -1,7 +1,7 @@
 // Components
 import { Layout } from '@/components/navigation';
 import { Landing, FAQ } from '@/components/home';
-import { Divider, BryanChecker } from '@/components/global';
+import { Divider } from '@/components/global';
 
 // Types
 import type { FrequentlyAskedQuestion } from '@/lib/types';
