@@ -8,10 +8,7 @@ import {
   DisclosurePanel,
   Transition
 } from '@headlessui/react';
-import {
-  FaChevronDown as ChevronDown,
-  FaChevronUp as ChevronUp
-} from 'react-icons/fa';
+import { FaChevronDown as ChevronDown } from 'react-icons/fa';
 
 // Types
 import type { FrequentlyAskedQuestion } from '@/lib/types';
@@ -44,7 +41,7 @@ const FAQ = (props: FAQProps) => {
                     {pair.question}
                   </span>
                   <div className='col-span-1 flex justify-end'>
-                    {open ? <ChevronUp /> : <ChevronDown />}
+                    <ChevronDown className={`transition duration-300 ease-in-out ${open && '-rotate-180'}`} />
                   </div>
                 </DisclosureButton>
                 <div className='overflow-hidden'>
@@ -82,30 +79,5 @@ const FAQ = (props: FAQProps) => {
     </div>
   );
 };
-
-{/* <div className="h-screen w-full pt-32 px-4">
-  <div className="mx-auto w-full max-w-lg divide-y divide-white/5 rounded-xl bg-white/5">
-    <Disclosure as="div" className="p-6" defaultOpen={true}>
-      <DisclosureButton className="group flex w-full items-center justify-between">
-        <span className="text-sm/6 font-medium text-white group-data-[hover]:text-white/80">
-          What is your refund policy?
-        </span>
-        <ChevronDownIcon className="size-5 fill-white/60 group-data-[hover]:fill-white/50 group-data-[open]:rotate-180" />
-      </DisclosureButton>
-      <DisclosurePanel className="mt-2 text-sm/5 text-white/50">
-        If you're unhappy with your purchase, we'll refund you in full.
-      </DisclosurePanel>
-    </Disclosure>
-    <Disclosure as="div" className="p-6">
-      <DisclosureButton className="group flex w-full items-center justify-between">
-        <span className="text-sm/6 font-medium text-white group-data-[hover]:text-white/80">
-          Do you offer technical support?
-        </span>
-        <ChevronDownIcon className="size-5 fill-white/60 group-data-[hover]:fill-white/50 group-data-[open]:rotate-180" />
-      </DisclosureButton>
-      <DisclosurePanel className="mt-2 text-sm/5 text-white/50">No.</DisclosurePanel>
-    </Disclosure>
-  </div>
-</div> */}
 
 export { FAQ };

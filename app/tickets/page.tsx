@@ -34,21 +34,35 @@ const TicketPage = async () => {
   const ryanTickets = await fetchRyanTickets();
   const hughTickets = await fetchHughTickets();
 
+  // const ryanTicket = [
+  //   { main: 'Ryan Nametag:', sub: 'Classic red name tag so everyone knows that you are Ryan' },
+  //   { main: 'VIR Access:', sub: 'Entry to the Ryan Red Carpet, the premiere of 150 Deadpools & Wolverine, and the Ryan after party hosted by Slate (with no additional cover)' },
+  //   { main: 'Commemorative Deadpool Mask' },
+  //   { main: 'First Come First Serve Seating:', sub: 'First picks on seats in the theater during the premiere' },
+  //   { main: '150 New Friends Named Ryan', },
+  //   { main: 'Meet & Greet with Ryans:', sub: 'Photo opportunities with Ryan, Ryan, Ryan, and of course, Ryan' },
+  // ];
+
   const ryanTicket = [
-    { main: 'Ryan Nametag:', sub: 'Classic red name tag so everyone knows that you are Ryan' },
-    { main: 'VIR Access:', sub: 'Entry to the Ryan Red Carpet, the premiere of 150 Deadpools & Wolverine, and the Ryan after party hosted by Slate (with no additional cover)' },
+    { main: 'AMC Movie Ticket' },
     { main: 'Commemorative Deadpool Mask' },
-    { main: 'First Come First Serve Seating:', sub: 'First picks on seats in the theater during the premiere' },
-    { main: '150 New Friends Named Ryan', },
-    { main: 'Meet & Greet with Ryans:', sub: 'Photo opportunities with Ryan, Ryan, Ryan, and of course, Ryan' },
+    { main: 'Red Carpet & After Party Access' },
+    { main: '149 New Friends Named Ryan' },
   ];
 
+  // const hughTicket = [
+  //   { main: 'Yellow Hugh Nametag:', sub: 'So that nobody mistakes you for Ryan, since you are definitely not one of us' },
+  //   { main: 'Wolverine Mask:', sub: 'It may or may not be made out of an old paper plate' },
+  //   { main: 'Front Row Seats:', sub: 'Sit at the very front of the theater and stare up at the screen the whole time' },
+  //   { main: 'An Inferiority Complex,', sub: 'since your name is not Ryan (but it can be...)' },
+  //   { main: 'Access to Name Change Paperwork:', sub: 'Legally become a Ryan by filling out the necessary paperwork' },
+  // ];
+
   const hughTicket = [
-    { main: 'Yellow Hugh Nametag:', sub: 'So that nobody mistakes you for Ryan, since you are definitely not one of us' },
-    { main: 'Wolverine Mask:', sub: 'It may or may not be made out of an old paper plate' },
-    { main: 'Front Row Seats:', sub: 'Sit at the very front of the theater and stare up at the screen the whole time' },
-    { main: 'An Inferiority Complex,', sub: 'since your name is not Ryan (but it can be...)' },
-    { main: 'Access to Name Change Paperwork:', sub: 'Legally become a Ryan by filling out the necessary paperwork' },
+    { main: 'AMC Movie Ticket' },
+    { main: 'Wolverine Mask' },
+    { main: 'An Inferiority Complex' },
+    { main: 'Legal Name Change Paperwork' },
   ];
 
   const schedule = [

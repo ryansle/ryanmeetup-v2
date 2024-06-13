@@ -91,7 +91,8 @@ const TicketSale = (props: TicketSaleProps) => {
           )}
         </div>
 
-        <div className='mt-4 sm:min-h-80 md:min-h-[500px] lg:min-h-[400px]'>
+        {/* <div className='mt-4 sm:min-h-80 md:min-h-[500px] lg:min-h-[400px]'> */}
+        <div className='mt-4 min-h-44'>
           <Heading size='sm' className='mb-1 text-center'>
             What&apos;s Included?
           </Heading>
@@ -131,7 +132,7 @@ const TicketSale = (props: TicketSaleProps) => {
       </div>
 
       <Text className='text-center mt-4'>
-        Tickets Remaining: {remaining} / {name === 'Ryan' ? 150 : 1}
+        Tickets Remaining: {remaining} / {name === 'Ryan' ? 149 : 1}
       </Text>
     </div>
   );
