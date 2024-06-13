@@ -76,6 +76,11 @@ const TicketPage = async () => {
             fill
           />
         </div>
+
+        <Text className='text-center px-0 lg:px-28'>
+          <span className='font-semibold underline'>NOTE:</span> We encourage you to Zelle us directly at <span className='font-semibold text-blue-500'>theryanmeetup@gmail.com</span> or Venmo us at <NextLink href='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1' className='text-blue-500 font-semibold hover:underline'>@RyanMeetup</NextLink> to save extra money on ticketing fees. We are keeping a close watch on payments for the guest list, and will be IDing for entry.
+        </Text>
+
         <div className='grid grid-cols-11 space-y-10 md:space-y-0'>
           <div className='col-span-11 md:col-span-5'>
             <TicketSale
@@ -113,6 +118,7 @@ const TicketPage = async () => {
             Join us for a private showing of{' '}
             <NextLink className={hrefStyle} href='https://www.youtube.com/watch?v=73_1biulkYk' target='_blank'>Deadpool &amp; Wolverine</NextLink> on Saturday, July 27th, in New York City at the{' '}
             <NextLink className={hrefStyle} href='https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25' target='_blank'>Empire AMC 25</NextLink>, where you&apos;ll meet 149 other Ryans dressed up as Deadpool - and maybe one singular, lonesome, Hugh.
+            You <span className='font-bold underline'>must</span> purchase a ticket for entrance into the auditorium, as there are a limited amount of seats available.
           </Text>
           <Text>
             There will be a Ryan Red Carpet event prior to the showing, as well as an after party hosted by{' '}<NextLink href='https://www.slate-ny.com' className={hrefStyle} target='_blank'>Slate</NextLink> in Chelsea. You can RSVP to the after party <NextLink href='/rsvp' className={hrefStyle} target='_blank'>here</NextLink>.
