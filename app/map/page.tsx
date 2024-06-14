@@ -36,3 +36,5 @@ const MapPage = async () => {
 };
 
 export default MapPage;
+
+export const revalidate = 30;

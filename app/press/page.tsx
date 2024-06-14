@@ -52,3 +52,5 @@ const PressPage = async () => {
 };
 
 export default PressPage;
+
+export const revalidate = 30;

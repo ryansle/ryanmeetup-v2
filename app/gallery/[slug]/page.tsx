@@ -34,3 +34,5 @@ const GalleryEventPage = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default GalleryEventPage;
+
+export const revalidate = 30;

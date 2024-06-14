@@ -79,26 +79,21 @@ const TicketPage = async () => {
 
   const faqs = [
     {
-      question: 'What happens if we overbook the theater?',
-      answer: 'Tickets will be sold on a first come, first serve basis. Those who purchase tickets after seats are filled will be placed on a waiting list and be refunded should seats not open back up.'
-    },
-    {
-      question: 'How will you know who has a seat and who doesn\'t?',
-      answer: 'Ryans will be placed on a guest list by first and last name as well as email address. Every Ryan will be IDed at the door prior to taking their seat.'
-    },
-    {
       question: 'Can I bring a +1 to the movie premiere?',
-      answer: 'Only if their name is also Ryan. This private showing is for Ryans only - and the singular lonely Hugh.'
+      answer: 'Only if their name is also Ryan.'
     },
     {
-      question: 'Do I need a ticket to attend the Ryan Red Carpet? Or just for a seat in the theater?',
-      answer: 'We are still working with AMC to figure out how much space we can reserve for the event. Until we know more, the answer for now is yes, you need a ticket. Stay tuned as we continue discussions with AMC.',
+      question: 'How does ticketing work?',
+      answer: 'We have already purchased all of the seats in the theater. When you pay for a ticket, we add your first and last name to the guest list. All you have to do is show up with your Ryan ID for entry.',
     },
     {
       question: 'Can I still come to the after party if I don\'t attend the rest of the event?',
       answer: 'Yes, you may still attend the after party without joining us for the Ryan Red Carpet.'
     },
-
+    {
+      question: 'Will Ryan be there?',
+      answer: 'Yes, of course.',
+    }
   ];
 
   const hrefStyle = 'text-blue-500 font-bold underline';
@@ -175,10 +170,7 @@ const TicketPage = async () => {
 
         <Divider />
 
-        <FAQ
-          data={faqs}
-          toggleable
-        />
+        <FAQ data={faqs} />
 
         <Divider />
 
@@ -197,3 +189,5 @@ const TicketPage = async () => {
 };
 
 export default TicketPage;
+
+export const revalidate = 30;
