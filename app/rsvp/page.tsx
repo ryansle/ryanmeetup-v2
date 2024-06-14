@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const GuidelinesPageRedirect = () => {
-  redirect('https://www.meetup.com/ryanmeetup/events/');
+  redirect('https://www.meetup.com/ryanmeetup/events/301647170/');
 };
 
 export default GuidelinesPageRedirect;

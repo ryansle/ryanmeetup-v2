@@ -46,7 +46,7 @@ const TicketPage = async () => {
   const ryanTicket = [
     { main: 'AMC Movie Ticket' },
     { main: 'Commemorative Deadpool Mask' },
-    { main: 'V.I.R. Access to the Red Carpet & After Party' },
+    { main: 'V.I.R. Access to Red Carpet & After Party' },
     { main: '149 New Friends Named Ryan' },
   ];
 
@@ -116,8 +116,8 @@ const TicketPage = async () => {
           <span className='font-semibold underline'>NOTE:</span> We encourage you to Zelle us directly at <span className='font-semibold text-blue-500'>theryanmeetup@gmail.com</span> or Venmo us at <NextLink href='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1' className='text-blue-500 font-semibold hover:underline'>@RyanMeetup</NextLink> to bypass ticketing fees.
         </Text>
 
-        <div className='grid grid-cols-11 space-y-10 md:space-y-0'>
-          <div className='col-span-11 md:col-span-5'>
+        <div className='grid grid-cols-10 space-y-10 gap-x-4 md:space-y-0'>
+          <div className='col-span-10 md:col-span-5'>
             <TicketSale
               name='Ryan'
               price='$40'
@@ -127,10 +127,8 @@ const TicketPage = async () => {
               inclusions={ryanTicket}
             />
           </div>
-          <div className='col-span-11 md:col-span-1'>
-            <Divider className='block md:hidden' margins='sm' />
-          </div>
-          <div className='col-span-11 md:col-span-5'>
+          <Divider className='col-span-10 block md:hidden' margins='sm' />
+          <div className='col-span-10 md:col-span-5'>
             <TicketSale
               name='Hugh'
               price='$1,000'
