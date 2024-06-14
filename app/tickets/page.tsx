@@ -46,7 +46,7 @@ const TicketPage = async () => {
   const ryanTicket = [
     { main: 'AMC Movie Ticket' },
     { main: 'Commemorative Deadpool Mask' },
-    { main: 'Red Carpet & After Party Access' },
+    { main: 'V.I.R. Access to the Red Carpet & After Party' },
     { main: '149 New Friends Named Ryan' },
   ];
 
@@ -88,7 +88,7 @@ const TicketPage = async () => {
     },
     {
       question: 'Can I still come to the after party if I don\'t attend the rest of the event?',
-      answer: 'Yes, you may still attend the after party without joining us for the Ryan Red Carpet.'
+      answer: 'Yes, you may still attend the after party without joining us for the premiere.'
     },
     {
       question: 'Will Ryan be there?',
@@ -112,8 +112,8 @@ const TicketPage = async () => {
           />
         </div>
 
-        <Text className='text-center px-0 lg:px-28'>
-          <span className='font-semibold underline'>NOTE:</span> We encourage you to Zelle us directly at <span className='font-semibold text-blue-500'>theryanmeetup@gmail.com</span> or Venmo us at <NextLink href='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1' className='text-blue-500 font-semibold hover:underline'>@RyanMeetup</NextLink> to save extra money on ticketing fees.
+        <Text className='text-center px-0 sm:px-12 md:px-24 xl:px-52' size='xs'>
+          <span className='font-semibold underline'>NOTE:</span> We encourage you to Zelle us directly at <span className='font-semibold text-blue-500'>theryanmeetup@gmail.com</span> or Venmo us at <NextLink href='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1' className='text-blue-500 font-semibold hover:underline'>@RyanMeetup</NextLink> to bypass ticketing fees.
         </Text>
 
         <div className='grid grid-cols-11 space-y-10 md:space-y-0'>

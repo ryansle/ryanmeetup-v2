@@ -93,8 +93,8 @@ const TicketSale = (props: TicketSaleProps) => {
 
         {/* <div className='mt-4 sm:min-h-80 md:min-h-[500px] lg:min-h-[400px]'> */}
         <div className='mt-4 min-h-44'>
-          <Heading size='sm' className='mb-1 text-center'>
-            What&apos;s Included?
+          <Heading size='sm' className='mb-4 text-center'>
+            What&apos;s Included:
           </Heading>
           <List
             content={inclusions}
