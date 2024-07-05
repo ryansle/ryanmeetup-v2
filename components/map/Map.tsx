@@ -7,6 +7,7 @@ import Map, { Marker, Popup } from 'react-map-gl';
 import NextImage from 'next/image';
 import { Heading, Text } from '@/components/global';
 import { Legend } from '@/components/map';
+import { FaMapPin as Pin } from 'react-icons/fa';
 
 // Types
 import type { Location } from '@/lib/types';
@@ -28,10 +29,14 @@ const Mapbox = (props: MapboxProps) => {
   const [showRyans, setShowRyans] = useState<boolean>(true);
   const [showMeetups, setShowMeetups] = useState<boolean>(true);
   const [showCommunityEvents, setShowCommunityEvents] = useState<boolean>(true);
+  const [showNamedBusinesses, setShowNamedBusinesses] = useState<boolean>(true);
+  const [showOwnedBusinesses, setShowOwnedBusinesses] = useState<boolean>(true);
 
   const meetupLocations = locations.filter((location) => location.locationType === 'Event Location');
   const hubLocations = locations.filter((location) => location.locationType === 'Ryan Hub');
   const communityLocations = locations.filter((location) => location.locationType === 'Community Event');
+  const namedBusinesses = locations.filter((location) => location.locationType === 'Ryan-Named Business');
+  const ownedBusinesses = locations.filter((location) => location.locationType === 'Ryan-Owned Business');
 
   const renderIcon = (type: string) => {
     switch (type) {
@@ -41,8 +46,14 @@ const Mapbox = (props: MapboxProps) => {
         return '/icons/ryanicon.png';
       case 'Community Event':
         return '/icons/emoji.png';
+      case 'Ryan-Owned Business':
+        return '/icons/building.png';
+      case 'Ryan-Named Business':
+        return '/icons/nametagicon.png';
     };
   };
+
+  const isBusiness = selectedLocation?.locationType === 'Ryan-Named Business' || selectedLocation?.locationType === 'Ryan-Owned Business';
 
   return (
     <div className='w-full h-[600px] md:h-[700px]'>
@@ -115,6 +126,25 @@ const Mapbox = (props: MapboxProps) => {
           </Marker>
         ))}
 
+        {showNamedBusinesses && namedBusinesses?.map((location) => (
+          <Marker
+            key={location.locationName}
+            latitude={location.coordinates.lat}
+            longitude={location.coordinates.lon}
+            onClick={(e) => {
+              e.originalEvent.stopPropagation();
+              setSelectedLocation(location);
+            }}
+          >
+            <NextImage
+              src={renderIcon(location.locationType) as string}
+              alt={location.locationType}
+              width={20}
+              height={20}
+            />
+          </Marker>
+        ))}
+
         {selectedLocation && (
           <Popup
             latitude={selectedLocation.coordinates.lat}
@@ -134,11 +164,22 @@ const Mapbox = (props: MapboxProps) => {
               )}
 
               <Heading size='xs' ignoreColorMode>
-                {selectedLocation.eventName ?? selectedLocation.city}
+                {isBusiness ? selectedLocation.locationName : selectedLocation.eventName ?? selectedLocation.city}
               </Heading>
-              <Text size='xs' color='primary' className='-mt-1'>
+              <Text size='xs' color='primary'>
+                {isBusiness && (
+                  <>
+                    <span>
+                      {selectedLocation.locationType}
+                    </span>
+                    <span className='flex mt-1'>
+                      <Pin className='fill-red-500 mr-1' /> {selectedLocation.city}
+                    </span>
+                  </>
+                )}
+
                 {selectedLocation.eventDate && (
-                  <span>
+                  <span className='-mt-1'>
                     {new Date(selectedLocation.eventDate).toLocaleDateString()} •
                   </span>
                 )}{' '}
@@ -152,9 +193,13 @@ const Mapbox = (props: MapboxProps) => {
           showMeetups={showMeetups}
           showRyans={showRyans}
           showCommunityEvents={showCommunityEvents}
+          showNamedBusinesses={showNamedBusinesses}
+          showOwnedBusinesses={showOwnedBusinesses}
           setShowMeetups={setShowMeetups}
           setShowRyans={setShowRyans}
           setShowCommunityEvents={setShowCommunityEvents}
+          setShowNamedBusinesses={setShowNamedBusinesses}
+          setShowOwnedBusinesses={setShowOwnedBusinesses}
         />
       </Map>
     </div>

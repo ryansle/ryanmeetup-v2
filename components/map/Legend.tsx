@@ -6,9 +6,13 @@ type LegendProps = {
   showMeetups: boolean;
   showRyans: boolean;
   showCommunityEvents: boolean;
+  showNamedBusinesses: boolean;
+  showOwnedBusinesses: boolean;
   setShowMeetups: (bool: boolean) => void;
   setShowRyans: (bool: boolean) => void;
   setShowCommunityEvents: (bool: boolean) => void;
+  setShowNamedBusinesses: (bool: boolean) => void;
+  setShowOwnedBusinesses: (bool: boolean) => void;
 };
 
 const Legend = (props: LegendProps) => {
@@ -16,9 +20,13 @@ const Legend = (props: LegendProps) => {
     showMeetups,
     showRyans,
     showCommunityEvents,
+    showNamedBusinesses,
+    showOwnedBusinesses,
     setShowMeetups,
     setShowRyans,
     setShowCommunityEvents,
+    setShowNamedBusinesses,
+    setShowOwnedBusinesses,
   } = props;
 
   const options = [
@@ -43,6 +51,20 @@ const Legend = (props: LegendProps) => {
       alt: 'There has been a Ryan Meetup community event here.',
       icon: '/icons/emoji.png',
     },
+    {
+      checked: showNamedBusinesses,
+      handler: () => setShowNamedBusinesses(!showNamedBusinesses),
+      text: 'Ryan-Named Biz',
+      alt: 'Ryan-Named Businesses',
+      icon: '/icons/nametagicon.png',
+    },
+    {
+      checked: showOwnedBusinesses,
+      handler: () => setShowOwnedBusinesses(!showOwnedBusinesses),
+      text: 'Ryan-Owned Biz',
+      alt: 'Ryan-Owned Businesses',
+      icon: '/icons/building.png',
+    },
   ];
 
   return (
@@ -50,33 +72,35 @@ const Legend = (props: LegendProps) => {
       <Heading size='xs' className='font-semibold mb-2' ignoreColorMode>
         Legend
       </Heading>
-      {options.map((option) => (
-        <div className='flex justify-between' key={option.text}>
-          <div className='flex'>
-            <input
-              type='checkbox'
-              className='w-4 h-4'
-              checked={option.checked}
-              onClick={option.handler}
-            />
+      <div className='space-y-1'>
+        {options.map((option) => (
+          <div className='flex justify-between' key={option.text}>
+            <div className='flex'>
+              <input
+                type='checkbox'
+                className='w-4 h-4'
+                checked={option.checked}
+                onClick={option.handler}
+              />
 
-            <Text
-              className='ml-2'
-              color='black'
-              size='xxs'
-            >
-              {option.text}
-            </Text>
+              <Text
+                className='ml-2'
+                color='black'
+                size='xxs'
+              >
+                {option.text}
+              </Text>
+            </div>
+            <NextImage
+              className='flex shrink-0'
+              src={option.icon}
+              width={20}
+              height={20}
+              alt='Ryans have met up in this city before'
+            />
           </div>
-          <NextImage
-            className='shrink-0'
-            src={option.icon}
-            width={20}
-            height={20}
-            alt='Ryans have met up in this city before'
-          />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
