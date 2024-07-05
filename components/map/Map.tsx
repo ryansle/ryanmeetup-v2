@@ -145,6 +145,25 @@ const Mapbox = (props: MapboxProps) => {
           </Marker>
         ))}
 
+        {showOwnedBusinesses && ownedBusinesses?.map((location) => (
+          <Marker
+            key={location.locationName}
+            latitude={location.coordinates.lat}
+            longitude={location.coordinates.lon}
+            onClick={(e) => {
+              e.originalEvent.stopPropagation();
+              setSelectedLocation(location);
+            }}
+          >
+            <NextImage
+              src={renderIcon(location.locationType) as string}
+              alt={location.locationType}
+              width={20}
+              height={20}
+            />
+          </Marker>
+        ))}
+
         {selectedLocation && (
           <Popup
             latitude={selectedLocation.coordinates.lat}
