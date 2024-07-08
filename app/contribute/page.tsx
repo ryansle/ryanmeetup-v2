@@ -7,6 +7,10 @@ import { GoDotFill as Bullet } from 'react-icons/go';
 
 // Types
 import type { Metadata } from 'next';
+import type { Ticket } from '@/lib/types';
+
+// Utilities
+import { fetchRyanTickets } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Contribute',
@@ -23,7 +27,9 @@ export const metadata: Metadata = {
   },
 };
 
-const ContributePage = () => {
+const ContributePage = async () => {
+  const tickets = await fetchRyanTickets();
+
   const waysToSupport = [
     {
       main: 'Invite more Ryans.',
@@ -50,7 +56,7 @@ const ContributePage = () => {
   ];
 
   return (
-    <Layout className='space-y-6'>
+    <Layout className='space-y-6' tickets={tickets as Ticket}>
       <Heading>Contribute to the Ryan Meetup</Heading>
 
       <Text>

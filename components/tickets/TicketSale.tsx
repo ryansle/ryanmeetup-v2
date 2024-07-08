@@ -132,7 +132,7 @@ const TicketSale = (props: TicketSaleProps) => {
       </div>
 
       <Text className='text-center mt-4'>
-        Tickets Remaining: {remaining} / {name === 'Ryan' ? 150 : 1}
+        {remaining} Ticket{remaining > 1 && 's'} Remaining
       </Text>
     </div>
   );

@@ -5,6 +5,10 @@ import { PosterContainer } from '@/components/posters';
 
 // Types
 import type { Metadata } from 'next';
+import type { Ticket } from '@/lib/types';
+
+// Utilities
+import { fetchRyanTickets } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Posters',
@@ -40,9 +44,11 @@ const eventPosters = [
   { title: 'Ryan Retreat', src: '/posters/ryanretreat.png' },
 ];
 
-const PostersPage = () => {
+const PostersPage = async () => {
+  const tickets = await fetchRyanTickets();
+
   return (
-    <Layout>
+    <Layout tickets={tickets as Ticket}>
       <PosterContainer
         title='Flyers'
         posters={posters}

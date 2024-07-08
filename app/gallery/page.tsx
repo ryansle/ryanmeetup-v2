@@ -6,11 +6,11 @@ import { FaQuestionCircle as Question } from 'react-icons/fa';
 import NextLink from 'next/link';
 
 // Types
-import type { MediaEvent } from '@/lib/types';
+import type { MediaEvent, Ticket } from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
-import { fetchMedia } from '@/actions/fetchContent';
+import { fetchMedia, fetchRyanTickets } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Gallery',
@@ -29,9 +29,10 @@ export const metadata: Metadata = {
 
 const GalleryPage = async () => {
   const media = await fetchMedia();
+  const tickets = await fetchRyanTickets();
 
   return (
-    <Layout>
+    <Layout tickets={tickets as Ticket}>
       <Heading className='mb-6'>Ryan Media</Heading>
 
       <Text size='lg' className='mb-4'>

@@ -6,11 +6,11 @@ import { SubscribeForm } from '@/components/home';
 import NextLink from 'next/link';
 
 // Types
-import type { RyanEvent } from '@/lib/types';
+import type { RyanEvent, Ticket } from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
-import { fetchEvents } from '@/actions/fetchContent';
+import { fetchEvents, fetchRyanTickets } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Events',
@@ -29,9 +29,10 @@ export const metadata: Metadata = {
 
 const EventsPage = async () => {
   const events = await fetchEvents();
+  const tickets = await fetchRyanTickets();
 
   return (
-    <Layout>
+    <Layout className='space-y-6' tickets={tickets as Ticket}>
       <Heading className='mb-6'>Ryan Meetup Events</Heading>
 
       <Text size='lg' className='mb-4'>

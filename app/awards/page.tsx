@@ -4,11 +4,21 @@ import { Heading, Text, Divider } from '@/components/global';
 import { FarthestRyan, Champion, Leaderboard } from '@/components/awards';
 
 // Types
-import type { TravelingRyan, ChampionRyan, RepeatRyan } from '@/lib/types';
+import type {
+  TravelingRyan,
+  ChampionRyan,
+  RepeatRyan,
+  Ticket
+} from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
-import { fetchFarthestRyans, fetchChampionRyans, fetchRepeatRyans } from '@/actions/fetchContent';
+import {
+  fetchFarthestRyans,
+  fetchChampionRyans,
+  fetchRepeatRyans,
+  fetchRyanTickets
+} from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Awards',
@@ -29,9 +39,10 @@ const AwardsPage = async () => {
   const farthest = await fetchFarthestRyans();
   const champs = await fetchChampionRyans();
   const repeats = await fetchRepeatRyans();
+  const tickets = await fetchRyanTickets();
 
   return (
-    <Layout>
+    <Layout tickets={tickets as Ticket}>
       <Heading className='mb-6'>Hall of Ryans</Heading>
       <Text size='lg'>
         Honoring Ryan Meetup award winning Ryans and more.

@@ -3,11 +3,11 @@ import { Layout } from '@/components/navigation';
 import { Mapbox, Info } from '@/components/map';
 
 // Types
-import type { Location } from '@/lib/types';
+import type { Location, Ticket } from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
-import { fetchLocations } from '@/actions/fetchContent';
+import { fetchLocations, fetchRyanTickets } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Map',
@@ -26,9 +26,10 @@ export const metadata: Metadata = {
 
 const MapPage = async () => {
   const locations = await fetchLocations();
+  const tickets = await fetchRyanTickets();
 
   return (
-    <Layout fullscreen>
+    <Layout fullscreen tickets={tickets as Ticket}>
       <Mapbox locations={locations as unknown as Location[]} />
       <Info locations={locations as unknown as Location[]} />
     </Layout>
