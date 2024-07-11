@@ -68,3 +68,5 @@ const PostersPage = async () => {
 };
 
 export default PostersPage;
+
+export const revalidate = 30;
