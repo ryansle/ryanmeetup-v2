@@ -18,8 +18,8 @@ type TicketSaleProps = {
     sub?: string;
   }[];
   icon: ReactNode;
-  earlyBird?: boolean;
-  earlyBirdPrice?: string;
+  flashSale?: boolean;
+  flashSalePrice?: string;
 };
 
 const TicketSale = (props: TicketSaleProps) => {
@@ -30,8 +30,8 @@ const TicketSale = (props: TicketSaleProps) => {
     remaining,
     inclusions,
     icon,
-    earlyBird = false,
-    earlyBirdPrice = '',
+    flashSale = false,
+    flashSalePrice = '',
   } = props;
 
   const supportedPaymentMethods = [
@@ -63,28 +63,28 @@ const TicketSale = (props: TicketSaleProps) => {
       </Heading>
 
       <div className='border rounded-lg w-full p-4 border-gray-700 relative overflow-hidden shadow-xl'>
-        {earlyBird && (
+        {flashSale && (
           <div className='absolute -rotate-45 z-10 -left-[60px] top-[45px]'>
             <div className='px-2 text-md text-center rounded-lg font-semibold uppercase w-[240px] h-6 flex items-center justify-center bg-red-500 text-sm'>
-              Early Bird Pricing
+              Flash Sale!
             </div>
           </div>
         )}
 
         <div className='my-2'>
-          {earlyBirdPrice && (
+          {flashSalePrice && (
             <div className='flex justify-center items-end space-x-4'>
               <Heading size='md' className='line-through'>
                 {price}
               </Heading>
 
               <Heading className='text-center uppercase' size='xl'>
-                {earlyBirdPrice}
+                {flashSalePrice}
               </Heading>
             </div>
           )}
 
-          {earlyBirdPrice === '' && (
+          {flashSalePrice === '' && (
             <Heading className='text-center uppercase' size='xl'>
               {price}
             </Heading>

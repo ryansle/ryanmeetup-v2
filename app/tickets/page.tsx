@@ -116,10 +116,12 @@ const TicketPage = async () => {
             <TicketSale
               name='Hugh'
               price='$1,000'
-              href='https://buy.stripe.com/6oE2aneLCfGv7wA149'
+              href='https://buy.stripe.com/4gwbKX5b23XN2cg7sz'
               remaining={hughTickets.ticketsRemaining as number}
               icon={<Wolverine className={iconStyle} />}
               inclusions={hughTicket}
+              flashSale
+              flashSalePrice='$999'
             />
           </div>
         </div>
