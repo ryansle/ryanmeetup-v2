@@ -22,6 +22,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref) 
     placeholder,
     required = false,
     ignoreColorMode = false,
+    ...rest
   } = props;
 
   return (
@@ -41,6 +42,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref) 
         required={required}
         type={type}
         ref={ref}
+        {...rest}
       />
     </div>
   );
