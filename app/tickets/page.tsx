@@ -105,7 +105,7 @@ const TicketPage = async () => {
             <TicketSale
               name='Ryan'
               price='$40'
-              href='https://buy.stripe.com/4gw8yL9ridynaIMeUY'
+              href='https://buy.stripe.com/4gw3ergTKcuj18c28g'
               remaining={ryanTickets.ticketsRemaining as number}
               icon={<Katana className={iconStyle} />}
               inclusions={ryanTicket}

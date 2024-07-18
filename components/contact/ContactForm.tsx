@@ -31,8 +31,6 @@ const ContactForm = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
 
-  console.log('Errors', errors);
-
   const send = (form: ContactFormFields) => {
     setLoading(true);
 
