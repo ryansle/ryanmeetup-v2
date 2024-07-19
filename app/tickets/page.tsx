@@ -38,6 +38,7 @@ const TicketPage = async () => {
   const ryanTicket = [
     { main: 'AMC Movie Ticket' },
     { main: 'Commemorative Deadpool Mask' },
+    { main: 'Homage T-Shirt' },
     { main: 'V.I.R. Access to Red Carpet & After Party' },
     { main: '149 New Friends Named Ryan' },
   ];
@@ -45,6 +46,7 @@ const TicketPage = async () => {
   const hughTicket = [
     { main: 'AMC Movie Ticket' },
     { main: 'Wolverine Mask' },
+    { main: 'Homage T-Shirt' },
     { main: 'An Inferiority Complex' },
     { main: 'Legal Name Change Paperwork' },
   ];
