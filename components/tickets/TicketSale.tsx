@@ -20,6 +20,7 @@ type TicketSaleProps = {
   icon: ReactNode;
   flashSale?: boolean;
   flashSalePrice?: string;
+  disabled: boolean;
 };
 
 const TicketSale = (props: TicketSaleProps) => {
@@ -32,6 +33,7 @@ const TicketSale = (props: TicketSaleProps) => {
     icon,
     flashSale = false,
     flashSalePrice = '',
+    disabled,
   } = props;
 
   const supportedPaymentMethods = [
@@ -66,7 +68,7 @@ const TicketSale = (props: TicketSaleProps) => {
         {flashSale && (
           <div className='absolute -rotate-45 z-10 -left-[60px] top-[45px]'>
             <div className='px-2 text-md text-center rounded-lg font-semibold uppercase w-[240px] h-6 flex items-center justify-center bg-red-500 text-sm'>
-              Flash Sale!
+              SOLD OUT
             </div>
           </div>
         )}
@@ -107,8 +109,9 @@ const TicketSale = (props: TicketSaleProps) => {
           className='mt-4'
           href={href}
           leftIcon={<Ticket />}
+          disabled={disabled}
         >
-          Buy Ticket
+          {disabled ? 'Sold out' : 'Buy Ticket'}
         </Button.Link>
 
         <div className='mt-2 space-y-1'>
@@ -132,7 +135,7 @@ const TicketSale = (props: TicketSaleProps) => {
       </div>
 
       <Text className='text-center mt-4'>
-        {remaining} Ticket{remaining > 1 && 's'} Remaining
+        {remaining} Ticket{remaining !== 1 && 's'} Remaining
       </Text>
     </div>
   );

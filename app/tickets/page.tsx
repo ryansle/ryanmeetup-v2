@@ -111,6 +111,7 @@ const TicketPage = async () => {
               remaining={ryanTickets.ticketsRemaining as number}
               icon={<Katana className={iconStyle} />}
               inclusions={ryanTicket}
+              disabled={ryanTickets.ticketsRemaining === 0}
             />
           </div>
           <Divider className='col-span-10 block md:hidden' margins='sm' />
@@ -123,7 +124,7 @@ const TicketPage = async () => {
               icon={<Wolverine className={iconStyle} />}
               inclusions={hughTicket}
               flashSale
-              flashSalePrice='$999'
+              disabled={hughTickets.ticketsRemaining === 0}
             />
           </div>
         </div>
