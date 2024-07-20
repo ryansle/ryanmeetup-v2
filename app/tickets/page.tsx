@@ -52,7 +52,8 @@ const TicketPage = async () => {
   ];
 
   const schedule = [
-    { main: '6:30 PM:', sub: 'Ryan Red Carpet @ AMC Empire 25' },
+    { main: '5:00 PM:', sub: 'Ryan Red Carpet @ AMC Empire 25' },
+    { main: '7:00 PM:', sub: 'Please be seated in the auditorium' },
     { main: '7:30 PM:', sub: '150 Deadpools & Wolverine Premiere' },
     { main: '10:30 PM:', sub: 'Ryan Meetup After Party @ Slate' },
   ];
@@ -139,7 +140,7 @@ const TicketPage = async () => {
           <Text>
             Join us for a private showing of{' '}
             <NextLink className={hrefStyle} href='https://www.youtube.com/watch?v=73_1biulkYk' target='_blank'>Deadpool &amp; Wolverine</NextLink> on Saturday, July 27th, in New York City at the{' '}
-            <NextLink className={hrefStyle} href='https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25' target='_blank'>Empire AMC 25</NextLink>, where you&apos;ll meet 149 other Ryans dressed up as Deadpool - and maybe one singular, lonesome, Hugh.
+            <NextLink className={hrefStyle} href='https://www.amctheatres.com/movie-theatres/new-york-city/amc-empire-25' target='_blank'>AMC Empire 25</NextLink>, where you&apos;ll meet 149 other Ryans dressed up as Deadpool - and one singular, lonesome, Hugh.
             You <span className='font-bold underline'>must</span> purchase a ticket for entrance into the auditorium, as there are a limited amount of seats available.
           </Text>
           <Text>
