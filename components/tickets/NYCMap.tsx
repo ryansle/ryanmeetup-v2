@@ -42,24 +42,24 @@ const NYCMap = () => {
     },
     {
       coordinates: {
-        lon: -73.99325226366977,
-        lat: 40.74185434318787,
+        lon: -73.98863873173451,
+        lat: 40.75541362414761,
       },
-      locationName: 'Slate NY',
+      locationName: 'Printers Alley',
       event: 'Ryan Meetup After Party',
       icon: '/icons/ryanicon.png',
       description: 'After party begins around 10:30 PM',
-      address: '54 W 21st St',
+      address: '215 W 40th St',
     }
   ];
 
   const amc = [-73.98900360278488, 40.7568101140526];
-  const slate = [-73.99325226366977, 40.74185434318787];
+  const printers = [-73.98863873173451, 40.75541362414761];
 
   useEffect(() => {
     const fetchRoute = async () => {
       const response = await fetch(
-        `https://api.mapbox.com/directions/v5/mapbox/driving/${amc.join(',')};${slate.join(',')}?geometries=geojson&access_token=${token}`
+        `https://api.mapbox.com/directions/v5/mapbox/walking/${amc.join(',')};${printers.join(',')}?geometries=geojson&access_token=${token}`
       );
 
       const data = await response.json();
@@ -75,9 +75,9 @@ const NYCMap = () => {
         mapboxAccessToken={token}
         scrollZoom={false}
         initialViewState={{
-          latitude: 40.7501,
-          longitude: -73.9912,
-          zoom: 13.5,
+          latitude: 40.7561,
+          longitude: -73.9902,
+          zoom: 16,
           bearing: 0,
           pitch: 0
         }}
