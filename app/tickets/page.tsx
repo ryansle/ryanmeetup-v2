@@ -97,9 +97,9 @@ const TicketPage = async () => {
           />
         </div>
 
-        <Text className='text-center px-0 sm:px-12 md:px-24 xl:px-52' size='xs'>
+        {/* <Text className='text-center px-0 sm:px-12 md:px-24 xl:px-52' size='xs'>
           <span className='font-semibold underline'>NOTE:</span> We encourage you to Zelle us directly at <span className='font-semibold text-blue-500'>theryanmeetup@gmail.com</span> or Venmo us at <NextLink href='https://venmo.com/code?user_id=3841296049374520231&created=1690776081.636693&printed=1' className='text-blue-500 font-semibold hover:underline'>@RyanMeetup</NextLink> to bypass ticketing fees.
-        </Text>
+        </Text> */}
 
         <div className='grid grid-cols-10 space-y-10 gap-x-4 md:space-y-0'>
           <div className='col-span-10 md:col-span-5'>
@@ -110,6 +110,7 @@ const TicketPage = async () => {
               remaining={ryanTickets.ticketsRemaining as number}
               icon={<Katana className={iconStyle} />}
               inclusions={ryanTicket}
+              flashSale
               disabled={ryanTickets.ticketsRemaining === 0}
             />
           </div>
