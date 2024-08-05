@@ -4,7 +4,7 @@ import { Landing, FAQ } from '@/components/home';
 import { Divider } from '@/components/global';
 
 // Types
-import type { FrequentlyAskedQuestion, Ticket } from '@/lib/types';
+import type { FrequentlyAskedQuestion } from '@/lib/types';
 
 // Utilities
 import { fetchFAQs } from '@/actions/fetchContent';

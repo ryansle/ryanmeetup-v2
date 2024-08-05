@@ -7,7 +7,6 @@ import { GoDotFill as Bullet } from 'react-icons/go';
 
 // Types
 import type { Metadata } from 'next';
-import type { Ticket } from '@/lib/types';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Contribute',

@@ -5,7 +5,6 @@ import { ContactForm } from '@/components/contact';
 
 // Types
 import type { Metadata } from 'next';
-import type { Ticket } from '@/lib/types';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Contact Us',
