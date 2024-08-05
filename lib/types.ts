@@ -159,10 +159,6 @@ type ContactFormFields = {
   message: string;
 };
 
-type Ticket = {
-  ticketsRemaining: number;
-};
-
 export type {
   RyanEvent,
   TravelingRyan,
@@ -177,5 +173,4 @@ export type {
   Route,
   Flyer,
   ContactFormFields,
-  Ticket,
 };

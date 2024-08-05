@@ -8,7 +8,6 @@ import type {
   TravelingRyan,
   ChampionRyan,
   RepeatRyan,
-  Ticket
 } from '@/lib/types';
 import type { Metadata } from 'next';
 
@@ -17,7 +16,6 @@ import {
   fetchFarthestRyans,
   fetchChampionRyans,
   fetchRepeatRyans,
-  fetchRyanTickets
 } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
@@ -39,10 +37,9 @@ const AwardsPage = async () => {
   const farthest = await fetchFarthestRyans();
   const champs = await fetchChampionRyans();
   const repeats = await fetchRepeatRyans();
-  const tickets = await fetchRyanTickets();
 
   return (
-    <Layout tickets={tickets as Ticket}>
+    <Layout>
       <Heading className='mb-6'>Hall of Ryans</Heading>
       <Text size='lg'>
         Honoring Ryan Meetup award winning Ryans and more.

@@ -7,9 +7,6 @@ import { ContactForm } from '@/components/contact';
 import type { Metadata } from 'next';
 import type { Ticket } from '@/lib/types';
 
-// Utilities
-import { fetchRyanTickets } from '@/actions/fetchContent';
-
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Contact Us',
   description: 'Get in contact with one of the Ryans here.',
@@ -26,10 +23,8 @@ export const metadata: Metadata = {
 };
 
 const ContactPage = async () => {
-  const tickets = await fetchRyanTickets();
-
   return (
-    <Layout className='space-y-6' tickets={tickets as Ticket}>
+    <Layout className='space-y-6'>
       <Heading>Contact the Ryans</Heading>
 
       <Text size='lg'>

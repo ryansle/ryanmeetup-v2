@@ -7,14 +7,13 @@ import { Divider } from '@/components/global';
 import type { FrequentlyAskedQuestion, Ticket } from '@/lib/types';
 
 // Utilities
-import { fetchFAQs, fetchRyanTickets } from '@/actions/fetchContent';
+import { fetchFAQs } from '@/actions/fetchContent';
 
 const HomePage = async () => {
   const faqs = await fetchFAQs();
-  const tickets = await fetchRyanTickets();
 
   return (
-    <Layout tickets={tickets as Ticket}>
+    <Layout>
       <Landing />
       <Divider margins='xl' />
       <FAQ data={faqs as FrequentlyAskedQuestion[]} />

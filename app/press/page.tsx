@@ -4,11 +4,11 @@ import { Heading, Text, Divider } from '@/components/global';
 import { Article } from '@/components/press';
 
 // Types
-import type { Article as RyanArticle, Ticket } from '@/lib/types';
+import type { Article as RyanArticle } from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
-import { fetchArticles, fetchRyanTickets } from '@/actions/fetchContent';
+import { fetchArticles } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Press',
@@ -27,10 +27,9 @@ export const metadata: Metadata = {
 
 const PressPage = async () => {
   const articles = await fetchArticles();
-  const tickets = await fetchRyanTickets();
 
   return (
-    <Layout tickets={tickets as Ticket}>
+    <Layout>
       <Heading className='mb-6'>Ryan Meetup in the Media</Heading>
 
       <Text size='lg'>

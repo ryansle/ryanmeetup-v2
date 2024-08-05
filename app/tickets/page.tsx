@@ -11,10 +11,6 @@ import { FAQ } from '@/components/home';
 
 // Types
 import type { Metadata } from 'next';
-import type { Ticket } from '@/lib/types';
-
-// Utilities
-import { fetchRyanTickets, fetchHughTickets } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Tickets',
@@ -32,9 +28,6 @@ export const metadata: Metadata = {
 };
 
 const TicketPage = async () => {
-  const ryanTickets = await fetchRyanTickets();
-  const hughTickets = await fetchHughTickets();
-
   const ryanTicket = [
     { main: 'AMC Movie Ticket' },
     { main: 'Commemorative Deadpool Mask' },
@@ -85,7 +78,7 @@ const TicketPage = async () => {
   const iconStyle = 'fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0';
 
   return (
-    <Layout tickets={ryanTickets as Ticket}>
+    <Layout>
       <div className='px-0 xl:px-32 space-y-6'>
         <div className='relative w-full h-60 md:h-[340px] lg:h-[470px]'>
           <NextImage
@@ -107,11 +100,11 @@ const TicketPage = async () => {
               name='Ryan'
               price='$40'
               href='https://buy.stripe.com/4gw8yL9ridynaIMeUY'
-              remaining={ryanTickets.ticketsRemaining as number}
+              remaining={0}
               icon={<Katana className={iconStyle} />}
               inclusions={ryanTicket}
               flashSale
-              disabled={ryanTickets.ticketsRemaining === 0}
+              disabled
             />
           </div>
           <Divider className='col-span-10 block md:hidden' margins='sm' />
@@ -120,11 +113,11 @@ const TicketPage = async () => {
               name='Hugh'
               price='$1,000'
               href='https://buy.stripe.com/4gwbKX5b23XN2cg7sz'
-              remaining={hughTickets.ticketsRemaining as number}
+              remaining={0}
               icon={<Wolverine className={iconStyle} />}
               inclusions={hughTicket}
               flashSale
-              disabled={hughTickets.ticketsRemaining === 0}
+              disabled
             />
           </div>
         </div>

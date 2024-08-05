@@ -7,10 +7,6 @@ import NextImage from 'next/image';
 
 // Types
 import type { Metadata } from 'next';
-import type { Ticket } from '@/lib/types';
-
-// Utilities
-import { fetchRyanTickets } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Donate to the Ryan Meetup',
@@ -30,10 +26,8 @@ const DonatePage = async () => {
   const labelStyle = 'font-bold text-xl text-blue-500 hover:underline -mt-2';
   const cardStyle = 'flex flex-col items-center justify-center col-span-4 border p-4 rounded-lg border-gray-700 transition duration-300 ease-in-out shadow-lg hover:scale-102 lg:col-span-2 lg:hover:scale-105';
 
-  const tickets = await fetchRyanTickets();
-
   return (
-    <Layout className='text-center space-y-6' tickets={tickets as Ticket}>
+    <Layout className='text-center space-y-6'>
       <Heading>Donate to the Ryan Meetup</Heading>
       <Text className='px-0 lg:px-32'>
         All donations go towards setting up future Ryan Meetup events (ie: renting out spaces, buying name tags, trophies, decorations, etc, as well as tightening up security against potential Bryan intruders at our events).

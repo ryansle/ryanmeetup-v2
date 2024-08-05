@@ -3,11 +3,11 @@ import { Layout } from '@/components/navigation';
 import { MediaContainer } from '@/components/gallery';
 
 // Types
-import type { MediaEvent, Ticket } from '@/lib/types';
+import type { MediaEvent } from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
-import { fetchSingleMediaEvent, fetchRyanTickets } from '@/actions/fetchContent';
+import { fetchSingleMediaEvent } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Gallery',
@@ -25,10 +25,9 @@ export const metadata: Metadata = {
 
 const GalleryEventPage = async ({ params }: { params: { slug: string } }) => {
   const media = await fetchSingleMediaEvent(params.slug);
-  const tickets = await fetchRyanTickets();
 
   return (
-    <Layout tickets={tickets as Ticket}>
+    <Layout>
       <MediaContainer media={media as unknown as MediaEvent} />
     </Layout>
   );
