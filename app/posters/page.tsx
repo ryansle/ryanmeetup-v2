@@ -30,6 +30,7 @@ const posters = [
 ];
 
 const eventPosters = [
+  { title: '150 Deadpools & Wolverine', src: '/posters/deadpool.jpeg' },
   { title: '150 Deadpools & Wolverine', src: '/posters/rysup.png' },
   { title: 'Ryami Vice', src: '/posters/vice.png' },
   { title: 'St. Ryan\'s Day', src: '/posters/stryans.jpg' },
