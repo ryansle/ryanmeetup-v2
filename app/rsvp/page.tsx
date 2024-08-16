@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
-const GuidelinesPageRedirect = () => {
-  redirect('https://www.meetup.com/ryanmeetup/events/301647170/');
+const RVSPPageRedirect = () => {
+  redirect('https://www.meetup.com/ryanmeetup/events/302870179/');
 };
 
-export default GuidelinesPageRedirect;
+export default RVSPPageRedirect;
