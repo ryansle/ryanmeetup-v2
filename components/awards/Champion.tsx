@@ -63,7 +63,7 @@ const Champion = (props: ChampionProps) => {
         {title}
       </Heading>
       <Text size='sm'>
-        {location}{location2 && `, & ${location2} `}• {convertShortDate(date)}
+        {location} {location2 && `, & ${location2} `}• {convertShortDate(date)}
       </Text>
     </div>
   );
