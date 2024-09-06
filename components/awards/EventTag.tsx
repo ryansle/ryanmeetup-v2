@@ -27,6 +27,8 @@ const EventTag = (props: EventTagProps) => {
         return 'border-pink-600';
       case 'Ryan Red Carpet':
         return 'border-[#EE1A25]';
+      case 'Ryan Royale':
+        return 'border-[#502780]';
       case 'Ryan\'s Game Show':
         return 'border-[#4AA1A1]';
       default:
