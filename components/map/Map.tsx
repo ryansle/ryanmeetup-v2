@@ -81,8 +81,8 @@ const Mapbox = (props: MapboxProps) => {
             <NextImage
               src={renderIcon(location.locationType) as string}
               alt={location.locationType}
-              width={18}
-              height={18}
+              width={16}
+              height={16}
               className='rounded-full border border-black'
             />
           </Marker>

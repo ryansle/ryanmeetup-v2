@@ -12,12 +12,12 @@ import { FaCheckCircle as Check } from 'react-icons/fa';
 
 // Types
 import type { ReactNode } from 'react';
+import type { ContactFormFields } from '@/lib/types';
 
 // Utilities
 import { useForm } from 'react-hook-form';
 import { validateEmail } from '@/utils/validate';
 import emailjs from '@emailjs/browser';
-import { ContactFormFields } from '@/lib/types';
 
 const ContactForm = () => {
   const {
