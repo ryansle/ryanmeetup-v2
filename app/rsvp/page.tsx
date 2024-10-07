@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const RVSPPageRedirect = () => {
-  redirect('https://www.meetup.com/ryanmeetup/events/302870179/');
+  redirect('https://partiful.com/e/B7N2vvQBFpOo8wCWwSxk');
 };
 
 export default RVSPPageRedirect;
