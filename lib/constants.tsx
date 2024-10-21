@@ -22,6 +22,7 @@ import {
 } from 'react-icons/io5';
 import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
 import { HiOutlineMail as Email } from 'react-icons/hi';
+import { PiHandHeartFill as Charity } from 'react-icons/pi';
 
 export const routes = [
   {
@@ -70,6 +71,11 @@ export const routes = [
         icon: <Dollar />,
         text: 'Donate',
         href: '/donate',
+      },
+      {
+        icon: <Charity />,
+        text: 'Charity',
+        href: '/charity',
       }
     ],
   },

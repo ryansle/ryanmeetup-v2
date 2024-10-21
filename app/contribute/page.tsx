@@ -46,16 +46,13 @@ const ContributePage = async () => {
   const composed = [
     { main: 'A photographer/videographer.' },
     { main: 'A senior copywriter/creative director.' },
-    { main: 'A software engineer.' }
+    { main: 'A software engineer.' },
+    { main: 'A television producer. ' },
   ];
 
   return (
     <Layout className='space-y-6'>
       <Heading>Contribute to the Ryan Meetup</Heading>
-
-      <Text>
-        Ryan Meetup has attained non-profit status and is currently in the process of awaiting official recognition under section 501(c)(3) of the Internal Revenue Code.
-      </Text>
 
       <Text>
         We have an army of Ryans at our disposal, so let&apos;s take advantage of it. The more Ryans who pitch in, the faster we&apos;ll grow.

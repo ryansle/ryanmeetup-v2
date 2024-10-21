@@ -134,6 +134,15 @@ type Flyer = {
   title: string;
   src: string;
 };
+
+type RyanInNeed = {
+  title: string;
+  coverImage: ContentfulImage;
+  goal: string;
+  platform: string;
+  href: string;
+  completed: boolean;
+}
 // #endregion
 
 // #region Mailerlite Types
@@ -173,4 +182,5 @@ export type {
   Route,
   Flyer,
   ContactFormFields,
+  RyanInNeed,
 };

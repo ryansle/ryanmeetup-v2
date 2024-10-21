@@ -66,6 +66,13 @@ const fetchRepeatRyans = async () => {
   return data.items.map((entry) => entry.fields);
 };
 
+const fetchRyansInNeed = async () => {
+  //@ts-ignore
+  const data = await client.getEntries(({ content_type: 'ryansInNeed' }));
+
+  return data.items.map((entry) => entry.fields);
+};
+
 export {
   fetchEvents,
   fetchFAQs,
@@ -76,4 +83,5 @@ export {
   fetchFarthestRyans,
   fetchChampionRyans,
   fetchRepeatRyans,
+  fetchRyansInNeed,
 };
