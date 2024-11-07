@@ -15,13 +15,19 @@ import { fetchEvents } from '@/actions/fetchContent';
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Events',
   description: 'Keep up to date with Ryan Meetups near you!',
-  keywords: ['when is the next ryan meetup?', 'ryan meetup', 'ryan meetup nyc', 'ryan meetup new york', 'ryan meetup new york city', 'ryan meetup near me', 'ryan meetup los angeles', 'ryan rendezvous', 'ryan roundup', 'ryan kickoff', 'ryan rodeo', 'ryan roundtable', 'ryan roadtrip', 'ryan rally', 'ryan rave', 'ryan run', 'ryan new york city', 'ryan meet up', 'ryan meetup new york city', 'ryan reunion', 'ryan syndicate', 'ryan retreat', 'ryan relay', 'st ryans day', 'ryami vice', '150 deadpools and wolverine', 'ryans game show', 'rytoberfest', 'ryancon'],
+  keywords: ['when is the next ryan meetup?', 'ryan meetup', 'ryan meetup nyc', 'ryan meetup new york', 'ryan meetup new york city', 'ryan meetup near me', 'ryan meetup los angeles', 'ryan rendezvous', 'ryan roundup', 'ryan kickoff', 'ryan rodeo', 'ryan roundtable', 'ryan roadtrip', 'ryan rally', 'ryan rave', 'ryan run', 'ryan new york city', 'ryan meet up', 'ryan meetup new york city', 'ryan reunion', 'ryan syndicate', 'ryan retreat', 'ryan relay', 'st ryans day', 'ryami vice', '150 deadpools and wolverine', 'ryans game show', 'rytoberfest', 'ryancon', 'last ryan standing', 'ryan royale', 'ryan relay', 'society of ryans', 'ryan red carpet'],
   openGraph: {
     url: 'https://ryanmeetup.com/events',
     title: 'Ryan Meetup - Events',
     description: 'Keep up to date with Ryan Meetups near you!',
     siteName: 'Ryan Meetup',
-    images: '/stryan.png',
+    images: [
+      {
+        url: '/stryan.webp',
+        width: 1000,
+        height: 667,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },

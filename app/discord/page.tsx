@@ -13,7 +13,13 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Discord',
     description: 'Join the official Ryan Meetup Discord server.',
     siteName: 'Ryan Meetup',
-    images: '/discord.png',
+    images: [
+      {
+        url: '/ryankickoff.png',
+        width: 1600,
+        height: 800,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },

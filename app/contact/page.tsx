@@ -14,8 +14,14 @@ export const metadata: Metadata = {
     url: 'https://ryanmeetup.com/contact',
     title: 'Ryan Meetup - Contact Us',
     description: 'Get in contact with one of the Ryans here.',
-    siteName: 'Ryan Meetup - Awards',
-    images: '/ryankickoff.png',
+    siteName: 'Ryan Meetup',
+    images: [
+      {
+        url: '/ryankickoff.png',
+        width: 1600,
+        height: 800,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },

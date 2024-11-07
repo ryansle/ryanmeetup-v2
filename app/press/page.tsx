@@ -16,10 +16,16 @@ export const metadata: Metadata = {
   keywords: ['ryans only', 'ryans only at the ryan meetup', 'and definitely no bryans', 'nyc irish bar plays host to viral ryan meetup', 'ryan meetup in the news', 'ryan meetup news', 'ryan meetup articles', 'ryan meetup press', 'first rule of ryan club, no bryans', 'no bryans allowed', 'ryan maguire', 'hosts bash for people named ryan', 'to get into this party', 'need the right name', 'its ryan', 'alyson krueger', 'will pavia', 'kerry oshea', 'ryan wilde', 'ryan andrew wilde', 'the takeaway', 'the times', 'irish central', 'the times', 'downtown new york alliance', 'new york times', 'miami new times', 'houston chronicle', 'los angeles times'],
   openGraph: {
     url: 'https://ryanmeetup.com/press',
-    title: 'Ryan Meetup - Gallery',
+    title: 'Ryan Meetup - Press',
     description: 'Read all about the Ryan Meetup in the news.',
     siteName: 'Ryan Meetup',
-    images: '/ryanroundup.png',
+    images: [
+      {
+        url: '/ryanroundup.png',
+        width: 3284,
+        height: 2189,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },

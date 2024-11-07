@@ -10,14 +10,20 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Contribute',
-  description: 'Learn how you can contrivute to the Ryan Meetup.',
+  description: 'Learn how you can contribute to the Ryan Meetup.',
   keywords: ['donate to the ryan meetup', 'ryan meetup venmo', 'ryan meetup zelle', 'ryan meetup money', 'contribute to ryan meetup'],
   openGraph: {
     url: 'https://ryanmeetup.com/contribute',
     title: 'Ryan Meetup - Contribute',
-    description: 'Learn how you can contrivute to the Ryan Meetup.',
+    description: 'Learn how you can contribute to the Ryan Meetup.',
     siteName: 'Ryan Meetup',
-    images: '/donate.png',
+    images: [
+      {
+        url: '/ryankickoff.png',
+        width: 1600,
+        height: 800,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -47,7 +53,8 @@ const ContributePage = async () => {
     { main: 'A photographer/videographer.' },
     { main: 'A senior copywriter/creative director.' },
     { main: 'A software engineer.' },
-    { main: 'A television producer. ' },
+    { main: 'A television producer.' },
+    { main: 'A CEO of a vintage apparel company.' }
   ];
 
   return (

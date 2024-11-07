@@ -12,6 +12,7 @@ type ButtonLinkProps = {
   rightIcon?: ReactNode;
   disabled?: boolean;
   href: string;
+  newTab?: boolean;
 };
 
 type ButtonProps = {
@@ -24,10 +25,22 @@ type ButtonProps = {
 };
 
 const ButtonLink = (props: ButtonLinkProps) => {
-  const { children, className, leftIcon, rightIcon, disabled = false, href } = props;
+  const {
+    children,
+    className,
+    leftIcon,
+    rightIcon,
+    disabled = false,
+    href,
+    newTab = true
+  } = props;
 
   return (
-    <NextLink className={`${className} w-full`} href={href} target='_blank'>
+    <NextLink
+      className={`${className} w-full`}
+      href={href}
+      target={newTab ? '_blank' : '_self'}
+    >
       <Button
         className={className}
         leftIcon={leftIcon}

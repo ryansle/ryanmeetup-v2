@@ -10,6 +10,7 @@ import {
   FaRegNewspaper as News,
   FaMapMarkedAlt as Map,
   FaDollarSign as Dollar,
+  FaWhatsapp as Whatsapp,
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
@@ -113,6 +114,11 @@ export const routes = [
         icon: <Discord />,
         text: 'Discord',
         href: 'https://discord.gg/HDugzYSHKC',
+      },
+      {
+        icon: <Whatsapp />,
+        text: 'WhatsApp',
+        href: 'https://chat.whatsapp.com/I1FQfjPokiMIQaHgqOoisW',
       },
       {
         icon: <YouTube />,
