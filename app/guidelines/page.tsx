@@ -12,7 +12,13 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Guidelines',
     description: 'Guidelines for hosting your own Ryan Meetup community event.',
     siteName: 'Ryan Meetup',
-    images: '/ryankickoff.png',
+    images: [
+      {
+        url: '/ryankickoff.png',
+        width: 1600,
+        height: 800,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },

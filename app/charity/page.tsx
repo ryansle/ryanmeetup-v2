@@ -17,7 +17,13 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Charity',
     description: 'Help support Ryans in need around the world.',
     siteName: 'Ryan Meetup',
-    images: '/stryan.png',
+    images: [
+      {
+        url: '/ryanwatsi-min.png',
+        width: 6000,
+        height: 4000,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -25,8 +31,6 @@ export const metadata: Metadata = {
 
 const CharityPage = async () => {
   const ryansInNeed = await fetchRyansInNeed();
-
-  console.log(ryansInNeed);
 
   const activeCampaigns = ryansInNeed.filter((campaign) => !campaign.completed);
   const fundedCampaigns = ryansInNeed.filter((campaign) => campaign.completed);

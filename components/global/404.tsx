@@ -19,7 +19,7 @@ const PageNotFound = () => {
       </Text>
 
       <div className='w-1/2 flex items-center'>
-        <Button.Link href='/'>
+        <Button.Link href='/' newTab={false}>
           Go Home
         </Button.Link>
       </div>
