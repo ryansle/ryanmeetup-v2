@@ -13,7 +13,13 @@ export const metadata: Metadata = {
     title: '404 Ryan Not Found',
     description: '404 - Ryan Not Found',
     siteName: 'Ryan Meetup',
-    images: '/ryanroundup.png',
+    images: [
+      {
+        url: 'https://ryanmeetup.com/ryanroundup.png',
+        width: 3284,
+        height: 2189,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },

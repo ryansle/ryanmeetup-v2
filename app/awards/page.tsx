@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: 'Ryan Meetup - Awards',
     images: [
       {
-        url: '/trophy.png',
+        url: 'https://ryanmeetup.com/trophy.png',
         width: 1000,
         height: 667,
       }

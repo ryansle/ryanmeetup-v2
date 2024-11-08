@@ -21,7 +21,13 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup',
     description: 'Wanna meet other Ryans? Join the Ryan Meetup!',
     siteName: 'Ryan Meetup',
-    images: '/ryanroundup.png',
+    images: [
+      {
+        url: 'https://ryanmeetup.com/ryanroundup.png',
+        width: 3284,
+        height: 2189,
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'Ryan Meetup - Tickets',
     description: 'Purchase tickets to 150 Deadpools & Wolverine, also known as the Ryan Red Carpet event in New York City on July 27th.',
     siteName: 'Ryan Meetup',
-    images: '/deadpool.png',
+    images: 'https://ryanmeetup.com/deadpool.png',
     locale: 'en_US',
     type: 'website',
   },
