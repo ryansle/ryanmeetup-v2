@@ -11,6 +11,7 @@ import {
   FaMapMarkedAlt as Map,
   FaDollarSign as Dollar,
   FaWhatsapp as Whatsapp,
+  FaScroll as Scroll,
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
@@ -31,6 +32,11 @@ export const routes = [
     text: 'Community',
     href: '',
     subroutes: [
+      {
+        icon: <Scroll />,
+        text: 'About',
+        href: '/about',
+      },
       {
         icon: <Calendar />,
         text: 'Events',
@@ -126,5 +132,44 @@ export const routes = [
         href: 'https://www.youtube.com/@ryanmeetup',
       },
     ],
+  },
+];
+
+export const gallery = [
+  {
+    imageUrl: '/ryanroundup.png',
+    title: 'Ryan Roundup, March 2023'
+  },
+  {
+    imageUrl: '/rendez.webp',
+    title: 'Ryan Rendezvous, May 2023',
+  },
+  {
+    imageUrl: '/retreat.webp',
+    title: 'Ryan Retreat, July 2023',
+  },
+  {
+    imageUrl: '/rave.webp',
+    title: 'Ryan Rave, September 2023',
+  },
+  {
+    imageUrl: '/claus.webp',
+    title: 'Photos with Ryan Claus, December 2023'
+  },
+  {
+    imageUrl: '/rodeo.webp',
+    title: 'Ryan Rodeo, February 2024',
+  },
+  {
+    imageUrl: '/stryan.webp',
+    title: 'St. Ryan\'s Day, March 2024'
+  },
+  {
+    imageUrl: '/ryami.webp',
+    title: 'Ryami Vice, May 2024',
+  },
+  {
+    imageUrl: '/deadpoolgroup.webp',
+    title: '150 Deadpools & Wolverine, July 2024',
   },
 ];
