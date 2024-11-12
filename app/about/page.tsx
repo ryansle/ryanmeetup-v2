@@ -94,8 +94,8 @@ const About = () => {
       <Divider />
 
       <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3'>
-        {gallery.map((photo) => (
-          <div className='transition ease-in-out duration-200 hover:scale-102'>
+        {gallery.map((photo, index) => (
+          <div className='transition ease-in-out duration-200 hover:scale-102' key={index}>
             <div className='w-full max-h-[450px] aspect-w-3 aspect-h-2 overflow-hidden border rounded-lg shadow-xl dark:border-black'>
               <NextImage
                 src={photo.imageUrl}
