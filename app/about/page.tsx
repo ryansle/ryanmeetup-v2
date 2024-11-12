@@ -54,7 +54,7 @@ const About = () => {
           </Text>
         </div>
 
-        <div className='col-span-12 xl:col-span-6 relative mb-4 w-full h-32 h-32 md:h-72 xl:w-full'>
+        <div className='col-span-12 xl:col-span-6 relative mb-4 w-full h-32 h-32 md:h-64 xl:w-full'>
           <NextImage
             className='rounded-xl shadow-xl mt-4'
             fill
