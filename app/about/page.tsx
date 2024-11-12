@@ -3,6 +3,7 @@ import { Layout } from '@/components/navigation';
 import { Heading, Text, List, Divider } from '@/components/global';
 import { FaHandshake as Handshake } from 'react-icons/fa';
 import NextImage from 'next/image';
+import NextLink from 'next/link';
 
 // Types
 import type { Metadata } from 'next';
@@ -41,16 +42,16 @@ const About = () => {
 
   return (
     <Layout className='space-y-6'>
-      <Heading>About Ryan Meetup</Heading>
+      <Heading>About Us</Heading>
 
       <div className='grid grid-cols-12 xl:gap-10'>
         <div className='col-span-12 xl:col-span-6 space-y-6'>
           <Text>
-            What began as a simple idea took root when Ryan set out to find other Ryans in her Brooklyn neighborhood. She posted flyers throughout the area, inviting everyone named “Ryan” to join a new community—the Ryan Meetup.
+            What began as a simple idea took root when Ryan set out to find other Ryans in her Brooklyn neighborhood. She posted flyers throughout the area, inviting everyone named &quot;Ryan&quot; to join a new community—the Ryan Meetup.
           </Text>
 
           <Text>
-            After two weeks of spreading the word, five Ryans had RSVP’d to the inaugural event, dubbed the "Ryan Kickoff" in Brooklyn, NY. With modest attendance expected, Ryan and a fellow Ryan debated whether to proceed. In the end, they decided that even a small gathering could mark the beginning of something special.
+            After two weeks of spreading the word, five Ryans had RSVP&apos;d to the inaugural event, dubbed the &quot;Ryan Kickoff&quot; in Brooklyn, NY. With modest attendance expected, Ryan and a fellow Ryan debated whether to proceed. In the end, they decided that even a small gathering could mark the beginning of something special.
           </Text>
         </div>
 
@@ -66,7 +67,7 @@ const About = () => {
       </div>
 
       <Text>
-        On the morning of the event, Ryan also RSVP'd to confirm his attendance. That evening, the three pioneering Ryans gathered at a local Brooklyn bar for their first meeting. Amidst introductions and laughs, they discussed the pressing topics at hand:
+        On the morning of the event, Ryan also RSVP&apos;d to confirm his attendance. That evening, the three pioneering Ryans gathered at a local Brooklyn bar for their first meeting. Amidst introductions and laughs, they discussed the pressing topics at hand:
       </Text>
 
       <List
@@ -75,15 +76,15 @@ const About = () => {
       />
 
       <Text>
-        It was during this inaugural event that they collectively decided to keep the momentum going. The next meetup would be titled the "Ryan Roundup" and was set for a new venue in Manhattan, appropriately held at Ryan Maguire’s Ale House.
+        It was during this inaugural event that they collectively decided to keep the momentum going. The next meetup would be titled the &quot;Ryan Roundup&quot; and was set for a new venue in Manhattan, appropriately held at Ryan Maguire&apos;s Ale House.
       </Text>
 
       <Text>
-        Determined to broaden their reach, each Ryan began promoting the Roundup with new flyers posted around their own parts of the city. Soon, “Ryan Meetup” notices started popping up in neighborhoods across New York—from Bushwick and Citi Field to Hudson Yards, Hell's Kitchen, and Flatiron. Eventually, the movement expanded across the country, with flyers appearing in Austin, TX, Myrtle Beach, SC, and Washington, DC.
+        Determined to broaden their reach, each Ryan began promoting the Roundup with new flyers posted around their own parts of the city. Soon, &quot;Ryan Meetup&quot; notices started popping up in neighborhoods across New York—from Bushwick and Citi Field to Hudson Yards, Hell&apos;s Kitchen, and Flatiron. Eventually, the movement expanded across the country, with flyers appearing in Austin, TX, Myrtle Beach, SC, and Washington, DC.
       </Text>
 
       <Text>
-        The Roundup quickly gained traction online, catching the eye of @WhatIsNewYork, making it onto LIVE with Kelly and Ryan, and even reaching the front page of Reddit. By the time the event rolled around, over 100 Ryans attended, attracting attention from major outlets like the New York Times, NPR, and beyond.
+        The Roundup quickly gained traction online, catching the eye of <NextLink className='text-blue-500 hover:underline' href='https://www.instagram.com/whatisnewyork/?hl=en'>@WhatIsNewYork on Instagram</NextLink>, making it onto LIVE with Kelly and Ryan, and even reaching the front page of Reddit. By the time the event rolled around, over 100 Ryans attended, attracting attention from major outlets like the New York Times, NPR, and beyond.
       </Text>
 
       <Text>
