@@ -73,6 +73,13 @@ const fetchRyansInNeed = async () => {
   return data.items.map((entry) => entry.fields);
 };
 
+const fetchHolidayFAQs = async () => {
+  //@ts-ignore
+  const data = await client.getEntries(({ content_type: 'holiday' }));
+
+  return data.items.map((entry) => entry.fields);
+};
+
 export {
   fetchEvents,
   fetchFAQs,
@@ -84,4 +91,5 @@ export {
   fetchChampionRyans,
   fetchRepeatRyans,
   fetchRyansInNeed,
+  fetchHolidayFAQs,
 };

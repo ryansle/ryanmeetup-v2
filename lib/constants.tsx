@@ -12,6 +12,7 @@ import {
   FaDollarSign as Dollar,
   FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
+  FaGift as Gift
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
@@ -51,6 +52,11 @@ export const routes = [
         icon: <Trophy />,
         text: 'Awards',
         href: '/awards',
+      },
+      {
+        icon: <Gift />,
+        text: 'Secret Ryan',
+        href: '/holidays',
       },
     ],
   },

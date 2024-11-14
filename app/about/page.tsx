@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
-const About = () => {
+const AboutPage = () => {
   const topics = [
     { main: 'What kind of Ryans were they?' },
     { main: 'How did each of them end up here?' },
@@ -120,4 +120,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutPage;

@@ -142,7 +142,7 @@ type RyanInNeed = {
   platform: string;
   href: string;
   completed: boolean;
-}
+};
 // #endregion
 
 // #region Mailerlite Types

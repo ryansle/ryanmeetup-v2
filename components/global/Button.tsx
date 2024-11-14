@@ -50,7 +50,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
       >
         {children}
       </Button>
-    </NextLink >
+    </NextLink>
   );
 };
 
