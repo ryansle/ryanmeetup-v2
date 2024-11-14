@@ -136,9 +136,13 @@ const HolidayPage = async () => {
             content={dates}
           />
         </div>
+
+        <JoinButton />
       </div>
     </Layout>
   );
 };
 
 export default HolidayPage;
+
+export const revalidate = 30;
