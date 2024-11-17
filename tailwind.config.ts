@@ -26,6 +26,7 @@ const config: Config = {
         30: '.3',
       },
       screens: {
+        '1xl': '1360px',
         '3xl': '1800px',
         '4xl': '2100px',
       },

@@ -22,7 +22,7 @@ const Header = () => {
         <Heading>RYAN</Heading>
       </NextLink>
 
-      <div className='hidden xl:flex space-x-4 overflow-y-scroll'>
+      <div className='hidden 1xl:flex space-x-4 overflow-y-scroll'>
         {routes.map((route) => !route.subroutes ? (
           <NextLink
             key={route.text}
@@ -44,7 +44,7 @@ const Header = () => {
         <ThemeToggle />
       </div>
 
-      <div className='flex gap-x-4 xl:hidden'>
+      <div className='flex gap-x-4 1xl:hidden'>
         <MobileMenu content={routes} />
         <ThemeToggle />
       </div>
