@@ -10,16 +10,9 @@ const JoinButton = () => (
       className='hidden lg:block'
       leftIcon={<Gift />}
       href='https://www.elfster.com/gift-exchanges/bb979ea9-b37b-4a70-b14f-16c66474ca26/rsvp/?join=ymi5'
+      disabled
     >
-      Join the Ryan Meetup Gift Exchange
-    </Button.Link>
-
-    <Button.Link
-      className='block lg:hidden'
-      leftIcon={<Gift />}
-      href='https://www.elfster.com/gift-exchanges/bb979ea9-b37b-4a70-b14f-16c66474ca26/rsvp/?join=ymi5'
-    >
-      Join the Gift Exchange
+      Registration closed
     </Button.Link>
   </div>
 );
