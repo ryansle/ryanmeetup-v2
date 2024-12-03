@@ -50,11 +50,11 @@ type ContentfulImage = {
 // #region Ryan Meetup Types
 type RyanEvent = {
   active: boolean;
-  coverImage: ContentfulImage;
+  coverImage: ContentfulImage | string;
   description: string;
   href: string;
   title: string;
-  date: Date;
+  date: Date | string;
   time: string;
   city: string;
   location: string;

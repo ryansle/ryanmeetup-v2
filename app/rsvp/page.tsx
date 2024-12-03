@@ -1,8 +1,14 @@
+// Components
+import { Layout } from '@/components/navigation';
+import { Heading } from '@/components/global';
+import { DoubleHeader } from '@/components/events';
+
 // Types
 import type { Metadata } from 'next';
+import type { RyanEvent } from '@/lib/types';
 
 // Utilities
-import { redirect } from 'next/navigation';
+import { fetchEvents } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - RSVP',
@@ -24,8 +30,18 @@ export const metadata: Metadata = {
   },
 };
 
-const RVSPPageRedirect = () => {
-  redirect('https://partiful.com/e/B7N2vvQBFpOo8wCWwSxk');
+const RSVPPage = async () => {
+  const events = await fetchEvents();
+
+  return (
+    <Layout className='space-y-6'>
+      <Heading className='mb-6 text-center'>One Weekend. Back-to-back Ryan Meetups.</Heading>
+
+      <DoubleHeader events={events as RyanEvent[]} />
+    </Layout>
+  );
 };
 
-export default RVSPPageRedirect;
+export default RSVPPage;
+
+export const revalidate = 30;

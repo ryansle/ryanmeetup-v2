@@ -7,7 +7,7 @@ import { MdLocationPin as Pin } from 'react-icons/md';
 import { FaMeetup as Meetup } from 'react-icons/fa';
 
 // Types
-import type { RyanEvent } from '@/lib/types';
+import type { ContentfulImage, RyanEvent } from '@/lib/types';
 
 // Utilities
 import { convertDateToDateTimeString, convertImageUrl } from '@/utils/convert';
@@ -29,7 +29,7 @@ const Event = (props: EventProps) => {
     isPartnerEvent
   } = props.event;
 
-  const imageUrl = convertImageUrl(coverImage);
+  const imageUrl = convertImageUrl(coverImage as ContentfulImage);
 
   return (
     <NextLink href={href}>
@@ -55,7 +55,7 @@ const Event = (props: EventProps) => {
         <div className='px-5 pt-3 pb-3 space-y-2'>
           <div className='flex items-center justify-between mb-3'>
             <div>
-              <Text size='xs'>{convertDateToDateTimeString(date)} @ {time}</Text>
+              <Text size='xs'>{convertDateToDateTimeString(date as Date)} @ {time}</Text>
               <Heading size='sm'>{title}</Heading>
             </div>
             {href.includes('meetup') && !isPartnerEvent && (
