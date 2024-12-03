@@ -26,7 +26,7 @@ const DoubleHeader = (props: DoubleHeaderProps) => {
   }, [events]);
 
   return (
-    <div className='mx-24 grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2'>
+    <div className='md:mx-24 grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2'>
       {activeEvents.map((event, index) => (
         <Event
           key={index}
