@@ -12,17 +12,17 @@ import { fetchEvents } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - RSVP',
-  description: 'RSVP to the Ryan Meetup.',
+  description: 'RSVP to the next Ryan Meetups in San Diego, CA on January 24th and 25th.',
   openGraph: {
     url: 'https://ryanmeetup.com/rsvp',
     title: 'Ryan Meetup - RSVP',
-    description: 'RSVP to the Ryan Meetup.',
+    description: 'RSVP to the next Ryan Meetups in San Diego, CA on January 24th and 25th.',
     siteName: 'Ryan Meetup',
     images: [
       {
-        url: 'https://ryanmeetup.com/ryanroundup.png',
-        width: 3284,
-        height: 2189,
+        url: 'https://ryanmeetup.com/gameshow.png',
+        width: 1438,
+        height: 808,
       }
     ],
     locale: 'en_US',
