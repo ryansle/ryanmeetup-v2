@@ -2,7 +2,6 @@
 import {
   FaInstagram as Instagram,
   FaMeetup as Meetup,
-  FaDiscord as Discord,
   FaYoutube as YouTube,
   FaHandsHelping as Help,
   FaPhotoVideo as Gallery,
@@ -121,11 +120,6 @@ export const routes = [
         icon: <Meetup />,
         text: 'Meetup',
         href: 'https://www.meetup.com/ryanmeetup/',
-      },
-      {
-        icon: <Discord />,
-        text: 'Discord',
-        href: 'https://discord.gg/HDugzYSHKC',
       },
       {
         icon: <Whatsapp />,

@@ -4,7 +4,6 @@ import NextLink from 'next/link';
 import {
   FaInstagram as Instagram,
   FaMeetup as Meetup,
-  FaDiscord as Discord,
   FaYoutube as YouTube,
 } from 'react-icons/fa';
 import { SubscribeForm } from '@/components/home';
@@ -19,11 +18,6 @@ const socials = [
     href: 'https://www.meetup.com/ryanmeetup/',
     icon: <Meetup className='h-5 w-5' color='gray' />,
     name: 'Meetup',
-  },
-  {
-    href: 'https://discord.gg/HDugzYSHKC',
-    icon: <Discord className='h-5 w-5' color='gray' />,
-    name: 'Discord',
   },
   {
     href: 'https://www.youtube.com/@ryanmeetup',
