@@ -53,6 +53,8 @@ const AwardsPage = async () => {
 
       <Divider />
 
+      <Heading size='md' className='mb-4 text-center xl:text-left'>Farthest Traveling Ryans</Heading>
+
       <div className='grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 xl:grid-cols-3'>
         {farthest?.map((ryan, index) => (
           <FarthestRyan
