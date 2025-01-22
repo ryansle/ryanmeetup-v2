@@ -52,11 +52,6 @@ export const routes = [
         text: 'Awards',
         href: '/awards',
       },
-      {
-        icon: <Gift />,
-        text: 'Secret Ryan',
-        href: '/holidays',
-      },
     ],
   },
   {
