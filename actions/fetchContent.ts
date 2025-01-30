@@ -22,7 +22,7 @@ const fetchFAQs = async () => {
 
 const fetchArticles = async () => {
   // @ts-ignore
-  const data = await client.getEntries(({ content_type: 'article', order: '-fields.date' }));
+  const data = await client.getEntries(({ content_type: 'article', order: '-fields.publishDate' }));
 
   return data.items.map((entry) => entry.fields);
 };
