@@ -9,7 +9,7 @@ const client = contentful.createClient({
 
 const fetchEvents = async () => {
   // @ts-ignore
-  const data = await client.getEntries(({ content_type: 'event', order: 'sys.createdAt' }));
+  const data = await client.getEntries(({ content_type: 'event', order: '-fields.date' }));
 
   return data.items.map((entry) => entry.fields);
 };
@@ -22,7 +22,7 @@ const fetchFAQs = async () => {
 
 const fetchArticles = async () => {
   // @ts-ignore
-  const data = await client.getEntries(({ content_type: 'article', order: '-sys.createdAt' }));
+  const data = await client.getEntries(({ content_type: 'article', order: '-fields.date' }));
 
   return data.items.map((entry) => entry.fields);
 };
@@ -47,14 +47,14 @@ const fetchLocations = async () => {
 
 const fetchFarthestRyans = async () => {
   // @ts-ignore
-  const data = await client.getEntries(({ content_type: 'farthest', order: '-sys.createdAt' }));
+  const data = await client.getEntries(({ content_type: 'farthest', order: '-fields.date' }));
 
   return data.items.map((entry) => entry.fields);
 };
 
 const fetchChampionRyans = async () => {
   // @ts-ignore
-  const data = await client.getEntries(({ content_type: 'champion', order: '-sys.createdAt' }));
+  const data = await client.getEntries(({ content_type: 'champion', order: '-fields.date' }));
 
   return data.items.map((entry) => entry.fields);
 };
