@@ -28,7 +28,8 @@ const fetchArticles = async () => {
 };
 
 const fetchMedia = async () => {
-  const data = await client.getEntries(({ content_type: 'gallery' }));
+  // @ts-ignore
+  const data = await client.getEntries(({ content_type: 'gallery', order: '-fields.date' }));
 
   return data.items;
 };

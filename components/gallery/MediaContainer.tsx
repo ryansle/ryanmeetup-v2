@@ -12,6 +12,7 @@ import type { ContentfulImage, MediaEvent } from '@/lib/types';
 
 // Utilities
 import useScreenSize from '@/hooks/useScreenSize';
+import { LiaCodeSolid } from 'react-icons/lia';
 
 type MediaContainerProps = {
   media: MediaEvent;
@@ -38,6 +39,15 @@ const MediaContainer = (props: MediaContainerProps) => {
     }
   }, [screenSize.width]);
 
+  const convertDate = (date: Date) => {
+    const parsedDate = new Date(date);
+    let day = parsedDate.getDate();
+    day++;
+    parsedDate.setDate(day);
+
+    return parsedDate;
+  };
+
   return (
     <div>
       <div className='flex justify-between'>
@@ -46,7 +56,7 @@ const MediaContainer = (props: MediaContainerProps) => {
             {title}
           </Heading>
           <Heading size='sm'>
-            {new Date(date).toLocaleDateString()}
+            {convertDate(date).toLocaleDateString()}
           </Heading>
         </div>
 
