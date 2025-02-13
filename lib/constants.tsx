@@ -9,9 +9,8 @@ import {
   FaRegNewspaper as News,
   FaMapMarkedAlt as Map,
   FaDollarSign as Dollar,
-  FaWhatsapp as Whatsapp,
+  // FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
-  FaGift as Gift
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
@@ -116,11 +115,11 @@ export const routes = [
         text: 'Meetup',
         href: 'https://www.meetup.com/ryanmeetup/',
       },
-      {
-        icon: <Whatsapp />,
-        text: 'WhatsApp',
-        href: 'https://chat.whatsapp.com/I1FQfjPokiMIQaHgqOoisW',
-      },
+      // {
+      //   icon: <Whatsapp />,
+      //   text: 'WhatsApp',
+      //   href: 'https://chat.whatsapp.com/I1FQfjPokiMIQaHgqOoisW',
+      // },
       {
         icon: <YouTube />,
         text: 'YouTube',
