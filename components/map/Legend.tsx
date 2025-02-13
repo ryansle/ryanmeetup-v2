@@ -63,7 +63,7 @@ const Legend = (props: LegendProps) => {
       handler: () => setShowOwnedBusinesses(!showOwnedBusinesses),
       text: 'Ryan-Owned Biz',
       alt: 'Ryan-Owned Businesses',
-      icon: '/icons/building.png',
+      icon: '/icons/brief.png',
     },
   ];
 

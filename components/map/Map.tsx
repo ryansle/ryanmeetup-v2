@@ -47,7 +47,7 @@ const Mapbox = (props: MapboxProps) => {
       case 'Community Event':
         return '/icons/emoji.png';
       case 'Ryan-Owned Business':
-        return '/icons/building.png';
+        return '/icons/brief.png';
       case 'Ryan-Named Business':
         return '/icons/nametagicon.png';
     };
