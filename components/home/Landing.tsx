@@ -51,10 +51,10 @@ const Landing = () => {
                 Join the Ryan Meetup
               </Button.Link>
             </div>
-            <p className='font-medium -mb-2 text-base text-black dark:text-white'>
+            {/* <p className='font-medium -mb-2 text-base text-black dark:text-white'>
               Sign up for Ryan Meetup event emails
             </p>
-            <SubscribeForm label='' name='subscribe-home-page' />
+            <SubscribeForm label='' name='subscribe-home-page' /> */}
           </div>
         </div>
         <div className='col-span-12 order-first mb-4 xl:col-span-5 xl:order-last xl:mb-0'>

@@ -37,7 +37,7 @@ const Footer = () => {
             </NextLink>
 
             <h2 className='mt-[2px] uppercase font-cooper text-lg'>No Bryans Allowed</h2>
-            <SubscribeForm label='Join our Ryan mailing list' name='subscribe-footer' />
+            {/* <SubscribeForm label='Join our Ryan mailing list' name='subscribe-footer' /> */}
           </div>
 
           {/* Resources & Follow Us */}

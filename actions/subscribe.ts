@@ -1,5 +1,3 @@
-'use server';
-
 import MailerLite from '@mailerlite/mailerlite-nodejs';
 import type { MailerParams } from '@/lib/types';
 
@@ -19,6 +17,8 @@ export async function subscribeToEmails(email: string) {
     status: 'active',
     subscribed_at: dateString,
   }
+
+  console.log(process.env.MAILER_API_TOKEN);
 
   mailerlite.subscribers.createOrUpdate(params as MailerParams)
     .then((response) => {
