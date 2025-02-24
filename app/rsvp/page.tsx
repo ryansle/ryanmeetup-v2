@@ -1,28 +1,23 @@
-// Components
-import { Layout } from '@/components/navigation';
-import { Heading } from '@/components/global';
-import { DoubleHeader } from '@/components/events';
 
 // Types
 import type { Metadata } from 'next';
-import type { RyanEvent } from '@/lib/types';
 
 // Utilities
-import { fetchEvents } from '@/actions/fetchContent';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - RSVP',
-  description: 'RSVP to the next Ryan Meetups in San Diego, CA on January 24th and 25th.',
+  description: 'RSVP to St. Ryan\'s Day II in Boston, MA, on March 22nd.',
   openGraph: {
     url: 'https://ryanmeetup.com/rsvp',
     title: 'Ryan Meetup - RSVP',
-    description: 'RSVP to the next Ryan Meetups in San Diego, CA on January 24th and 25th.',
+    description: 'RSVP to St. Ryan\'s Day II in Boston, MA, on March 22nd.',
     siteName: 'Ryan Meetup',
     images: [
       {
-        url: 'https://ryanmeetup.com/gameshow.png',
-        width: 1438,
-        height: 808,
+        url: 'https://ryanmeetup.com/stryan2.png',
+        width: 2400,
+        height: 1350,
       }
     ],
     locale: 'en_US',
@@ -31,17 +26,7 @@ export const metadata: Metadata = {
 };
 
 const RSVPPage = async () => {
-  const events = await fetchEvents();
-
-  return (
-    <Layout className='space-y-6'>
-      <Heading className='mb-6 text-center'>One Weekend. Back-to-back Ryan Meetups.</Heading>
-
-      <DoubleHeader events={events as RyanEvent[]} />
-    </Layout>
-  );
+  redirect('https://www.meetup.com/ryanmeetup/events/306368238/');
 };
 
 export default RSVPPage;
-
-export const revalidate = 30;

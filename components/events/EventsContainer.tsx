@@ -58,12 +58,12 @@ const EventsContainer = (props: EventsContainerProps) => {
         events={inactiveEvents}
       />
 
-      <Divider margins='xl' />
+      {/* <Divider margins='xl' />
 
       <EventsSection
         title='Past Community Events'
         events={inactiveCommunityEvents}
-      />
+      /> */}
     </div>
   );
 };
