@@ -65,6 +65,7 @@ type RyanEvent = {
 type FrequentlyAskedQuestion = {
   question: string;
   answer: string;
+  type: string;
 };
 
 type Article = {

@@ -16,6 +16,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'nametag': '#EE1A25',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

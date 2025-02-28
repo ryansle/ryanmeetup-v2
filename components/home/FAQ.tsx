@@ -16,14 +16,15 @@ import type { FrequentlyAskedQuestion } from '@/lib/types';
 type FAQProps = {
   data: FrequentlyAskedQuestion[];
   toggleable?: boolean;
+  showTitle?: boolean;
 };
 
 const FAQ = (props: FAQProps) => {
-  const { data, toggleable = false } = props;
+  const { data, toggleable = false, showTitle = false } = props;
 
   return (
     <div>
-      <Heading className='mb-4'>Frequently Asked Questions</Heading>
+      {showTitle && <Heading className='mb-4'>Frequently Asked Questions</Heading>}
 
       <div>
         {data?.map((pair, index) => toggleable ? (

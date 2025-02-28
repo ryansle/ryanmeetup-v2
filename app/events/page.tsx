@@ -1,9 +1,7 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Heading, Text, Note } from '@/components/global';
+import { Heading, Text } from '@/components/global';
 import { EventsContainer } from '@/components/events';
-import { SubscribeForm } from '@/components/home';
-import NextLink from 'next/link';
 
 // Types
 import type { RyanEvent } from '@/lib/types';
@@ -43,15 +41,6 @@ const EventsPage = async () => {
       <Text size='lg' className='mb-4'>
         If your name is Ryan, check out our Ryan Meetups below. No Bryans allowed.
       </Text>
-
-      {/* <Note>
-        <Text size='xs'>
-          Interested in hosting your own Ryan Meetup? Email us at <a className='underline text-blue-500' href='mailto:ryan@ryanmeetup.com'>ryan@ryanmeetup.com</a> and we&apos;ll add your community event to the page! Community events are Ryan Meetups that our team of Ryans is not directly associated with. But Ryans are Ryans, so we, as Ryans, are fully on board with all forms of Ryan gatherings.
-        </Text>
-        <Text size='xs'>
-          For more information on how to host your own Ryan Meetup community event, please check out our{' '}<NextLink href='/guidelines' className='text-blue-500 underline'>guidelines document</NextLink>.
-        </Text>
-      </Note> */}
 
       <EventsContainer events={events as unknown as RyanEvent[]} />
     </Layout>

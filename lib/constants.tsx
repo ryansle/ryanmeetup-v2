@@ -9,7 +9,7 @@ import {
   FaRegNewspaper as News,
   FaMapMarkedAlt as Map,
   FaDollarSign as Dollar,
-  // FaWhatsapp as Whatsapp,
+  FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
 } from 'react-icons/fa';
 import {
@@ -24,6 +24,7 @@ import {
 import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
 import { HiOutlineMail as Email } from 'react-icons/hi';
 import { PiHandHeartFill as Charity } from 'react-icons/pi';
+import { MdGroup as Group } from 'react-icons/md';
 
 export const routes = [
   {
@@ -41,6 +42,11 @@ export const routes = [
         text: 'Events',
         href: '/events',
       },
+      // {
+      //   icon: <Group />,
+      //   text: 'Chapters',
+      //   href: '/chapters',
+      // },
       {
         icon: <Gallery />,
         text: 'Gallery',
@@ -115,11 +121,11 @@ export const routes = [
         text: 'Meetup',
         href: 'https://www.meetup.com/ryanmeetup/',
       },
-      // {
-      //   icon: <Whatsapp />,
-      //   text: 'WhatsApp',
-      //   href: 'https://chat.whatsapp.com/I1FQfjPokiMIQaHgqOoisW',
-      // },
+      {
+        icon: <Whatsapp />,
+        text: 'WhatsApp',
+        href: 'https://chat.whatsapp.com/LeI37a2AlMk0OmMfhXPNvq',
+      },
       {
         icon: <YouTube />,
         text: 'YouTube',

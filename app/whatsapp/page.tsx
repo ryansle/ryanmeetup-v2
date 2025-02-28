@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const WhatsAppRedirectPage = () => {
-  redirect('https://chat.whatsapp.com/DzvGNTFg3HAIOokqPqatoF');
+  redirect('https://chat.whatsapp.com/LeI37a2AlMk0OmMfhXPNvq');
 };
 
 export default WhatsAppRedirectPage;

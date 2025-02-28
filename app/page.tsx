@@ -12,11 +12,16 @@ import { fetchFAQs } from '@/actions/fetchContent';
 const HomePage = async () => {
   const faqs = await fetchFAQs();
 
+  const homeFaqs = faqs.filter((faq) => faq.type === 'home');
+
   return (
     <Layout>
       <Landing />
       <Divider margins='xl' />
-      <FAQ data={faqs as FrequentlyAskedQuestion[]} />
+      <FAQ
+        showTitle
+        data={homeFaqs as FrequentlyAskedQuestion[]}
+      />
     </Layout>
   );
 };
