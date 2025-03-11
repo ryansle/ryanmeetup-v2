@@ -9,13 +9,15 @@ import {
   FaRegNewspaper as News,
   FaMapMarkedAlt as Map,
   FaDollarSign as Dollar,
-  FaWhatsapp as Whatsapp,
+  // FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
+  FaTiktok as Tiktok,
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
   FaHandshakeSimple as Handshake,
   FaShirt as Shirt,
+  FaThreads as Threads,
 } from 'react-icons/fa6';
 import {
   IoCalendarNumber as Calendar,
@@ -24,7 +26,7 @@ import {
 import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
 import { HiOutlineMail as Email } from 'react-icons/hi';
 import { PiHandHeartFill as Charity } from 'react-icons/pi';
-import { MdGroup as Group } from 'react-icons/md';
+// import { MdGroup as Group } from 'react-icons/md';
 
 export const routes = [
   {
@@ -117,15 +119,25 @@ export const routes = [
         href: 'https://www.instagram.com/ryanmeetup/',
       },
       {
+        icon: <Tiktok />,
+        text: 'TikTok',
+        href: 'https://www.tiktok.com/@ryanmeetup/',
+      },
+      {
+        icon: <Threads />,
+        text: 'Threads',
+        href: 'https://www.threads.net/@ryanmeetup',
+      },
+      {
         icon: <Meetup />,
         text: 'Meetup',
         href: 'https://www.meetup.com/ryanmeetup/',
       },
-      {
-        icon: <Whatsapp />,
-        text: 'WhatsApp',
-        href: 'https://chat.whatsapp.com/LeI37a2AlMk0OmMfhXPNvq',
-      },
+      // {
+      //   icon: <Whatsapp />,
+      //   text: 'WhatsApp',
+      //   href: 'https://chat.whatsapp.com/LeI37a2AlMk0OmMfhXPNvq',
+      // },
       {
         icon: <YouTube />,
         text: 'YouTube',
