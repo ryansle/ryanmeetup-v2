@@ -16,6 +16,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'js.stripe.com',
         port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'play-lh.googleusercontent.com',
+        port: '',
       }
     ],
   },
