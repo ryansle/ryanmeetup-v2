@@ -4,6 +4,30 @@ import { Heading, Divider } from '@/components/global';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 
+// Types
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - March Madness',
+  description: 'Ryan Meetup\'s official Ryans-only March Madness bracket',
+  keywords: ['ryan madness', 'march madness', 'ryan meetup madness', 'ryan meetup march', 'ryan meetup march madness', 'ryans only bracket', 'ryan meetup bracket', 'ryan meetup sports', 'ryan meetup whatsapp', 'join ryan meetup', 'ryans only'],
+  openGraph: {
+    url: 'https://ryanmeetup.com/march-madness',
+    title: 'Ryan Meetup - March Madness',
+    description: 'Ryan Meetup\'s official Ryans-only March Madness bracket',
+    siteName: 'Ryan Meetup',
+    images: [
+      {
+        url: 'https://ryanmeetup.com/braket.png',
+        width: 1376,
+        height: 1260,
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+};
+
 type LinkTileProps = {
   title: string;
   bgImage: string;
