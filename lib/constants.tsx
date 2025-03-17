@@ -12,6 +12,7 @@ import {
   // FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
   FaTiktok as Tiktok,
+  FaBasketballBall as Basketball
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
@@ -59,6 +60,11 @@ export const routes = [
         text: 'Awards',
         href: '/awards',
       },
+      {
+        icon: <Basketball />,
+        text: 'Bracket',
+        href: '/march-madness'
+      }
     ],
   },
   {
