@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const QAPage = () => {
-  redirect('https://forms.gle/1btc43o1EyqLVqLL7q');
+  redirect('https://docs.google.com/forms/d/e/1FAIpQLScP5a5ynWxQU6f1G9hvprObZQSp9QtLs_97Uf82JQJYHj4L4Q/viewform?usp=dialog');
 };
 
 export default QAPage;
