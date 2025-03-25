@@ -36,6 +36,7 @@ const posters = [
 ];
 
 const eventPosters = [
+  { title: 'St. Ryan\'s Day II', src: '/posters/stryan2.png' },
   { title: 'Ryan\'s Game Show', src: '/posters/rgs.png' },
   { title: 'Last Ryan Standing', src: '/posters/lastryanstanding.png' },
   { title: 'Ryan Royale', src: '/posters/RyanRoyale.png' },

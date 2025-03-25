@@ -31,6 +31,8 @@ const EventTag = (props: EventTagProps) => {
         return 'border-[#502780]';
       case 'Ryan\'s Game Show':
         return 'border-[#4AA1A1]';
+      case 'St. Ryan\'s Day II':
+        return 'border-green-500';
       default:
         return 'border-gray-700 text-black dark:text-white';
     }
