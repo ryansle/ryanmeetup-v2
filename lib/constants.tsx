@@ -155,39 +155,51 @@ export const routes = [
 
 export const gallery = [
   {
-    imageUrl: '/ryanroundup.png',
+    imageUrl: '/group-photos/ryanroundup.png',
     title: 'Ryan Roundup, March 2023'
   },
   {
-    imageUrl: '/rendez.webp',
+    imageUrl: '/group-photos/rendez.webp',
     title: 'Ryan Rendezvous, May 2023',
   },
   {
-    imageUrl: '/retreat.webp',
+    imageUrl: '/group-photos/retreat.webp',
     title: 'Ryan Retreat, July 2023',
   },
   {
-    imageUrl: '/rave.webp',
+    imageUrl: '/group-photos/rave.webp',
     title: 'Ryan Rave, September 2023',
   },
   {
-    imageUrl: '/claus.webp',
-    title: 'Photos with Ryan Claus, December 2023'
+    imageUrl: '/group-photos/claus.webp',
+    title: 'Ryan Claus, December 2023'
   },
   {
-    imageUrl: '/rodeo.webp',
+    imageUrl: '/group-photos/rodeo.webp',
     title: 'Ryan Rodeo, February 2024',
   },
   {
-    imageUrl: '/stryan.webp',
+    imageUrl: '/group-photos/stryan.webp',
     title: 'St. Ryan\'s Day, March 2024'
   },
   {
-    imageUrl: '/ryami.webp',
+    imageUrl: '/group-photos/ryami.webp',
     title: 'Ryami Vice, May 2024',
   },
   {
-    imageUrl: '/deadpoolgroup.webp',
+    imageUrl: '/group-photos/deadpoolgroup.webp',
     title: '150 Deadpools & Wolverine, July 2024',
+  },
+  {
+    imageUrl: '/group-photos/royale.jpg',
+    title: 'Ryan Royale, September 2024',
+  },
+  {
+    imageUrl: '/group-photos/comedy.jpeg',
+    title: 'Last Ryan Standing, January 2025',
+  },
+  {
+    imageUrl: '/group-photos/gameshow.jpg',
+    title: 'Ryan\'s Game Show, January 2025',
   },
 ];

@@ -83,7 +83,7 @@ const MarchMadnessPage = () => {
         <div className='col-span-5 md:col-span-1' />
         <div className='col-span-5 md:col-span-3 relative w-full h-[150px] md:h-[290px]'>
           <NextImage
-            src='/ryan_madness.png'
+            src='/logos/ryan_madness.png'
             layout='fill'
             alt='Ryan Madness'
             objectFit='contain'

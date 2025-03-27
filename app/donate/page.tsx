@@ -57,7 +57,7 @@ const DonatePage = async () => {
           />
           <div className='relative w-40 h-24'>
             <NextImage
-              src='/zellelogo.png'
+              src='/logos/zellelogo.png'
               fill
               alt='Zelle Logo'
               style={{ objectFit: 'contain' }}
@@ -74,7 +74,7 @@ const DonatePage = async () => {
           />
           <div className='relative w-40 h-24'>
             <NextImage
-              src='/venmo-logo.png'
+              src='/logos/venmo-logo.png'
               fill
               alt='Venmo Logo'
               style={{ objectFit: 'contain' }}
