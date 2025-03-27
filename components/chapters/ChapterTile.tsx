@@ -8,16 +8,16 @@ import { RyanChapter } from '@/lib/types';
 import { convertImageUrl } from '@/utils/convert';
 
 type ChapterTileProps = {
-  id: string;
   chapter: RyanChapter;
 };
 
+// TODO: nav to a chapter page instead of directly to WhatsApp
 const ChapterTile = (props: ChapterTileProps) => {
-  const { id } = props;
-  const { city, state, coverImage, whatsAppLink } = props.chapter;
+  const { city, slug, state, coverImage, whatsAppLink } = props.chapter;
 
   return (
-    <NextLink href={`/chapters/${id}`}>
+    // <NextLink href={`/chapters/${slug}`}>
+    <NextLink href={whatsAppLink}>
       <div className='border flex flex-col items-center justify-center shadow-xl border-gray-700 rounded-xl h-full timing hover:border-white hover:scale-102'>
         <div className='relative w-full flex items-center justify-center rounded-xl h-80 overflow-hidden bg-center'>
           <div className='w-full h-full brightness-30'>
@@ -34,7 +34,7 @@ const ChapterTile = (props: ChapterTileProps) => {
           </div>
         </div>
       </div>
-    </NextLink>
+    </NextLink >
   );
 };
 

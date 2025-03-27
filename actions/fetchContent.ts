@@ -79,6 +79,20 @@ const fetchChapters = async () => {
   return data.items.map((entry) => entry.fields);
 }
 
+const fetchSingleChapter = async (slug: string) => {
+  const entries = await client.getEntries({
+    content_type: 'chapter',
+    'fields.slug': slug,
+    limit: 1,
+  });
+
+  if (!entries.items.length) {
+    throw new Error(`No chapter found for slug: ${slug}`);
+  }
+
+  return entries.items[0].fields;
+}
+
 export {
   fetchEvents,
   fetchFAQs,
@@ -91,4 +105,5 @@ export {
   fetchRepeatRyans,
   fetchRyansInNeed,
   fetchChapters,
+  fetchSingleChapter,
 };

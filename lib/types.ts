@@ -66,6 +66,7 @@ type FrequentlyAskedQuestion = {
   question: string;
   answer: string;
   type: string;
+  loadOrder?: number;
 };
 
 type Article = {
@@ -81,6 +82,7 @@ type Article = {
 
 type MediaEvent = {
   title: string;
+  slug: string;
   description: string;
   date: Date;
   eventDate: string;
@@ -151,10 +153,16 @@ type RyanInNeed = {
 
 type RyanChapter = {
   city: string;
+  slug: string;
   state: string;
   leaders: string[];
   whatsAppLink: string;
   coverImage: ContentfulImage;
+}
+
+type ChapterLead = {
+  name: string;
+  email: string;
 }
 // #endregion
 
@@ -197,4 +205,5 @@ export type {
   ContactFormFields,
   RyanInNeed,
   RyanChapter,
+  ChapterLead,
 };

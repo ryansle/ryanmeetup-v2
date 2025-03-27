@@ -14,7 +14,8 @@ const ChaptersPage = async () => {
   const faqs = await fetchFAQs();
   const chapters = await fetchChapters();
 
-  const chapterFaqs = faqs.filter((faq) => faq.type === 'chapter');
+  // @ts-ignore - all chapter FAQs will contain a load order
+  const chapterFaqs = faqs.filter((faq) => faq.type === 'chapter').sort((a, b) => a.loadOrder - b.loadOrder);
 
   return (
     <Layout className='space-y-6'>
@@ -30,7 +31,6 @@ const ChaptersPage = async () => {
         {chapters?.map((chapter, index) => (
           <ChapterTile
             key={index}
-            id='miami'
             chapter={chapter as unknown as RyanChapter}
           />
         ))}
@@ -41,7 +41,6 @@ const ChaptersPage = async () => {
       <FAQ
         showTitle
         data={chapterFaqs as FrequentlyAskedQuestion[]}
-      // toggleable
       />
     </Layout>
   );
