@@ -6,11 +6,11 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Guidelines',
-  description: 'Guidelines for hosting your own Ryan Meetup community event.',
+  description: 'Guidelines for starting your own chapter of the Ryan Meetup.',
   openGraph: {
     url: 'https://ryanmeetup.com/guidelines',
     title: 'Ryan Meetup - Guidelines',
-    description: 'Guidelines for hosting your own Ryan Meetup community event.',
+    description: 'Guidelines for starting your own chapter of the Ryan Meetup.',
     siteName: 'Ryan Meetup',
     images: [
       {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const GuidelinesPageRedirect = () => {
-  redirect('https://docs.google.com/document/d/1xo3LgF4k5RQSkcdgc95-bah1zT9pPI8rr0Tx6zLoaYE/edit');
+  redirect('https://docs.google.com/document/d/1DfDD3iyrQMUHTt4EzbfPytfOOh-de1vk9pHRqqM8obs/edit?tab=t.0');
 };
 
 export default GuidelinesPageRedirect;
