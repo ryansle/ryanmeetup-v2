@@ -1,7 +1,7 @@
 'use client';
 
 // Components
-import { Heading, Text } from '@/components/global';
+import { Heading, Text, Divider } from '@/components/global';
 import {
   Disclosure,
   DisclosureButton,
@@ -61,6 +61,8 @@ const FAQ = (props: FAQProps) => {
                     </DisclosurePanel>
                   </Transition>
                 </div>
+
+                <Divider margins='md' />
               </>
             )}
           </Disclosure>

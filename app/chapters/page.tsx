@@ -1,28 +1,48 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Heading, Text } from '@/components/global';
+import { Heading, Divider, Text } from '@/components/global';
 import { FAQ } from '@/components/home';
+import { ChapterTile } from '@/components/chapters';
 
 // Types
-import type { FrequentlyAskedQuestion } from '@/lib/types';
+import type { FrequentlyAskedQuestion, RyanChapter } from '@/lib/types';
 
 // Utilities
-import { fetchFAQs } from '@/actions/fetchContent';
+import { fetchChapters, fetchFAQs } from '@/actions/fetchContent';
 
 const ChaptersPage = async () => {
   const faqs = await fetchFAQs();
+  const chapters = await fetchChapters();
 
   const chapterFaqs = faqs.filter((faq) => faq.type === 'chapter');
 
   return (
     <Layout className='space-y-6'>
-      <Heading className='text-center' size='xl'>Ryan Meetup Chapters</Heading>
-
-      <FAQ data={chapterFaqs as FrequentlyAskedQuestion[]} />
-
-      <Heading className='text-center'>
-        Our Chapters
+      <Heading className='text-center' size='xl'>
+        Ryan Meetup Chapters
       </Heading>
+
+      <Text className='text-center xl:mx-40'>
+        Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
+      </Text>
+
+      <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3'>
+        {chapters?.map((chapter, index) => (
+          <ChapterTile
+            key={index}
+            id='miami'
+            chapter={chapter as unknown as RyanChapter}
+          />
+        ))}
+      </div>
+
+      <Divider />
+
+      <FAQ
+        showTitle
+        data={chapterFaqs as FrequentlyAskedQuestion[]}
+      // toggleable
+      />
     </Layout>
   );
 };

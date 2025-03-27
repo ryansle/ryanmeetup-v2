@@ -148,6 +148,14 @@ type RyanInNeed = {
   href: string;
   completed: boolean;
 };
+
+type RyanChapter = {
+  city: string;
+  state: string;
+  leaders: string[];
+  whatsAppLink: string;
+  coverImage: ContentfulImage;
+}
 // #endregion
 
 // #region Mailerlite Types
@@ -188,4 +196,5 @@ export type {
   Flyer,
   ContactFormFields,
   RyanInNeed,
+  RyanChapter,
 };
