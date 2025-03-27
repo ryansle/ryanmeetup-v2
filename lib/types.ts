@@ -55,7 +55,7 @@ type RyanEvent = {
   href: string;
   title: string;
   date: Date | string;
-  time: string;
+  dateTime: string;
   city: string;
   location: string;
   venue: string;
@@ -74,6 +74,7 @@ type Article = {
   outlet: string;
   href: string;
   publishDate: Date;
+  publishedOn: string;
   thumbnail: ContentfulImage;
   new: boolean;
 };
@@ -82,6 +83,7 @@ type MediaEvent = {
   title: string;
   description: string;
   date: Date;
+  eventDate: string;
   bgImage: ContentfulImage;
   photos: ContentfulImage[];
   googleDriveLink: string;
@@ -108,6 +110,7 @@ type TravelingRyan = {
   milesTraveled: number;
   event: string;
   date: Date;
+  eventDate: string;
   instagram?: string;
 };
 
@@ -117,6 +120,7 @@ type ChampionRyan = {
   headshot: ContentfulImage;
   event: string;
   date: Date;
+  eventDate: string;
   instagram?: string;
   instagram2?: string;
   title: string;

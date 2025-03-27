@@ -8,7 +8,7 @@ import { FaInstagram as Instagram } from 'react-icons/fa';
 import type { TravelingRyan } from '@/lib/types';
 
 // Utilities
-import { convertImageUrl, convertShortDate } from '@/utils/convert';
+import { convertImageUrl } from '@/utils/convert';
 
 type FarthestRyanProps = {
   ryan: TravelingRyan;
@@ -22,7 +22,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
     traveledFrom,
     milesTraveled,
     event,
-    date,
+    eventDate,
     instagram,
   } = props.ryan;
 
@@ -62,7 +62,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
         </span>
       </Text>
       <Text size='sm'>
-        for <span className='font-cooper text-black dark:text-white'>{event}</span> on {convertShortDate(date)}
+        for <span className='font-cooper text-black dark:text-white'>{event}</span> on {eventDate}
       </Text>
     </div>
   );

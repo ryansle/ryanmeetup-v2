@@ -16,7 +16,7 @@ type MediaTileProps = {
 
 const MediaTile = (props: MediaTileProps) => {
   const { id } = props;
-  const { title, date, bgImage } = props.data;
+  const { title, eventDate, bgImage } = props.data;
 
   return (
     <NextLink href={`/gallery/${id}`}>
@@ -32,7 +32,7 @@ const MediaTile = (props: MediaTileProps) => {
           </div>
           <div className='absolute w-full inset-x-0 text-white text-xs text-center leading-4 flex items-center justify-center flex-col px-8'>
             <Heading ignoreColorMode>{title}</Heading>
-            <Heading size='sm' ignoreColorMode>{new Date(date).toLocaleDateString()}</Heading>
+            <Heading size='sm' ignoreColorMode>{eventDate}</Heading>
           </div>
         </div>
       </div>

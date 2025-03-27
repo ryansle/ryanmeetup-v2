@@ -39,6 +39,7 @@ const Article = (props: ArticleProps) => {
     outlet,
     href,
     publishDate,
+    publishedOn,
     thumbnail,
     new: isNew,
   } = props.article;
@@ -64,7 +65,7 @@ const Article = (props: ArticleProps) => {
           <div className='col-span-5 mt-2 xl:col-span-3 xl:ml-8 xl:mt-0'>
             <div className='flex items-center space-x-4'>
               <Text>
-                {new Date(publishDate).toLocaleDateString()}
+                {publishedOn}
               </Text>
               {isNew && <span className='text-green-500 border border-green-500 text-sm font-medium px-2 rounded bg-green-900 text-white'>NEW</span>}
             </div>

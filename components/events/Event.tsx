@@ -10,7 +10,7 @@ import { FaMeetup as Meetup } from 'react-icons/fa';
 import type { ContentfulImage, RyanEvent } from '@/lib/types';
 
 // Utilities
-import { convertDateToDateTimeString, convertImageUrl } from '@/utils/convert';
+import { convertImageUrl } from '@/utils/convert';
 
 type EventProps = {
   event: RyanEvent;
@@ -23,8 +23,7 @@ const Event = (props: EventProps) => {
     description,
     href,
     city,
-    date,
-    time,
+    dateTime,
     venue,
     isPartnerEvent
   } = props.event;
@@ -55,7 +54,7 @@ const Event = (props: EventProps) => {
         <div className='px-5 pt-3 pb-3 space-y-2'>
           <div className='flex items-center justify-between mb-3'>
             <div>
-              <Text size='xs'>{convertDateToDateTimeString(date as Date)} @ {time}</Text>
+              <Text size='xs'>{dateTime}</Text>
               <Heading size='sm'>{title}</Heading>
             </div>
             {href.includes('meetup') && !isPartnerEvent && (

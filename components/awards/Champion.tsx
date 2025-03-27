@@ -8,7 +8,7 @@ import { FaInstagram as Instagram } from 'react-icons/fa';
 import type { ChampionRyan } from '@/lib/types';
 
 // Utilities
-import { convertImageUrl, convertShortDate } from '@/utils/convert';
+import { convertImageUrl } from '@/utils/convert';
 
 type ChampionProps = {
   ryan: ChampionRyan;
@@ -19,7 +19,7 @@ const Champion = (props: ChampionProps) => {
     fullName,
     fullName2,
     headshot,
-    date,
+    eventDate,
     instagram,
     instagram2,
     title,
@@ -63,7 +63,7 @@ const Champion = (props: ChampionProps) => {
         {title}
       </Heading>
       <Text size='sm'>
-        {location} {location2 && `, & ${location2} `}• {convertShortDate(date)}
+        {location} {location2 && `, & ${location2} `}• {eventDate}
       </Text>
     </div>
   );

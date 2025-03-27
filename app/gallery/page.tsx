@@ -36,6 +36,8 @@ export const metadata: Metadata = {
 const GalleryPage = async () => {
   const media = await fetchMedia();
 
+  const tiles = media.sort((a, b) => new Date(b.fields.eventDate as string).getTime() - new Date(a.fields.eventDate as string).getTime());
+
   return (
     <Layout>
       <Heading className='mb-6'>Ryan Media</Heading>
@@ -55,7 +57,7 @@ const GalleryPage = async () => {
       </Note>
 
       <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3'>
-        {media?.map((content, index) => (
+        {tiles?.map((content, index) => (
           <MediaTile
             key={index}
             id={content.sys.id}
