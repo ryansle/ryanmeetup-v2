@@ -36,9 +36,9 @@ const RouteMenu = (props: RouteMenuProps) => {
       {({ open }) => (
         <>
           <PopoverButton
-            className={`${isSelected(pathname)} text-sm flex items-center text-black font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-white transition duration-300 ease-in-out hover:border hover:border-gray-700 2xl:text-base dark:text-white dark:border-black`}
+            className={`${isSelected(pathname)} text-sm flex items-center text-black font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-white timing hover:border hover:border-gray-700 2xl:text-base dark:text-white dark:border-black`}
           >
-            {icon} {title} <ChevronDown className={`h-3 w-3 fill-gray-200 transition ease-in-out duration-300 ${open && '-rotate-180'}`} />
+            {icon} {title} <ChevronDown className={`h-3 w-3 fill-gray-200 timing ${open && '-rotate-180'}`} />
           </PopoverButton>
 
           <Transition

@@ -38,7 +38,6 @@ const Article = (props: ArticleProps) => {
     author,
     outlet,
     href,
-    publishDate,
     publishedOn,
     thumbnail,
     new: isNew,
@@ -53,7 +52,7 @@ const Article = (props: ArticleProps) => {
       href={href}
       target='_blank'
     >
-      <div className='mb-2 transition ease-in duration-300 hover:scale-102'>
+      <div className='mb-2 timing hover:scale-102'>
         <div className='grid grid-cols-5'>
           <div className='col-span-5 xl:col-span-2'>
             <ArticleImage
@@ -70,13 +69,27 @@ const Article = (props: ArticleProps) => {
               {isNew && <span className='text-green-500 border border-green-500 text-sm font-medium px-2 rounded bg-green-900 text-white'>NEW</span>}
             </div>
 
-            <Heading size='lg'>
-              {title}
-            </Heading>
+            <div className='hidden md:block'>
+              <Heading size='lg'>
+                {title}
+              </Heading>
+            </div>
+            <div className='block md:hidden'>
+              <Heading size='md'>
+                {title}
+              </Heading>
+            </div>
 
-            <Text className='mt-4' size='lg'>
-              by <span className={highlight}>{author}</span> in {outlet.split(' ')[0].toLowerCase() === 'the' ? '' : 'the'} <span className={highlight}>{outlet}</span>
-            </Text>
+            <div className='block md:hidden'>
+              <Text className='mt-4' size='sm'>
+                by <span className={highlight}>{author}</span> in {outlet.split(' ')[0].toLowerCase() === 'the' ? '' : 'the'} <span className={highlight}>{outlet}</span>
+              </Text>
+            </div>
+            <div className='hidden md:block'>
+              <Text className='mt-4' size='lg'>
+                by <span className={highlight}>{author}</span> in {outlet.split(' ')[0].toLowerCase() === 'the' ? '' : 'the'} <span className={highlight}>{outlet}</span>
+              </Text>
+            </div>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ const MobileMenu = (props: MobileMenuProps) => {
       <div className='relative inline-block text-left z-10'>
         <Popover className='relative'>
           <PopoverButton
-            className='text-sm flex items-center font-semibold rounded-lg text-black dark:text-white tracking-wide gap-x-2 p-2 shrink-0 border border-gray-700 transition duration-300 ease-in-out 2xl:text-base transition duration-300 ease-in-out hover:bg-gray-800'
+            className='text-sm flex items-center font-semibold rounded-lg text-black dark:text-white tracking-wide gap-x-2 p-2 shrink-0 border border-gray-700 timing 2xl:text-base timing hover:bg-gray-800'
 
           >
             <Hamburger />
@@ -66,7 +66,7 @@ const MobileMenu = (props: MobileMenuProps) => {
                   {({ open }) => (
                     <>
                       <DisclosureButton className='text-gray-900 flex items-center w-full px-4 py-2 gap-x-2 text-sm leading-5 text-left hover:bg-gray-200 hover:rounded'>
-                        {row.icon} {row.text} <ChevronDown className={`h-3 w-3 fill-gray-600 transition duration-300 ease-in-out ${open && '-rotate-180'}`} />
+                        {row.icon} {row.text} <ChevronDown className={`h-3 w-3 fill-gray-600 timing ${open && '-rotate-180'}`} />
                       </DisclosureButton>
                       <DisclosurePanel className='pl-6'>
                         {row.subroutes && row.subroutes.map((route) => (

@@ -49,12 +49,12 @@ const Champion = (props: ChampionProps) => {
         <div className={`flex ml-2 space-x-2 ${fullName2 ? 'mb-2' : 'mb-1'}`}>
           {instagram && (
             <NextLink href={instagram} aria-label={`${fullName}'s Instagram`}>
-              <Instagram className='fill-black dark:fill-white transition duration-300 ease-in-out hover:scale-105 hover:fill-blue-500' />
+              <Instagram className='fill-black dark:fill-white timing hover:scale-105 hover:fill-blue-500' />
             </NextLink>
           )}
           {instagram2 && (
             <NextLink href={instagram2} aria-label={`${fullName2}'s Instagram`}>
-              <Instagram className='fill-black dark:fill-white transition duration-300 ease-in-out hover:scale-105 hover:fill-blue-500' />
+              <Instagram className='fill-black dark:fill-white timing hover:scale-105 hover:fill-blue-500' />
             </NextLink>
           )}
         </div>

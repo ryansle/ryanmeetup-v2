@@ -36,13 +36,13 @@ const FAQ = (props: FAQProps) => {
             {({ open }) => (
               <>
                 <DisclosureButton
-                  className='grid grid-cols-10 gap-x-4 text-xl font-semibold tracking-wider mb-2 text-black text-left border-gray-700 w-full transition duration-300 ease-in-out hover:underline hover:scale-102 dark:text-white'
+                  className='grid grid-cols-10 gap-x-4 text-xl font-semibold tracking-wider mb-2 text-black text-left border-gray-700 w-full timing hover:underline hover:scale-102 dark:text-white'
                 >
                   <span className='col-span-9'>
                     {pair.question}
                   </span>
                   <div className='col-span-1 flex justify-end'>
-                    <ChevronDown className={`transition duration-300 ease-in-out ${open && '-rotate-180'}`} />
+                    <ChevronDown className={`timing ${open && '-rotate-180'}`} />
                   </div>
                 </DisclosureButton>
                 <div className='overflow-hidden'>

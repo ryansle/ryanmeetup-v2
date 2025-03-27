@@ -35,3 +35,9 @@ body {
     src: url('../assets/fonts/COOPBL.woff');
   }
 }
+
+@layer components {
+  .timing {
+    @apply transition ease-in-out duration-300;
+  }
+}

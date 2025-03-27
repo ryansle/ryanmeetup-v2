@@ -1,7 +1,8 @@
 // Components
 import { Layout } from '@/components/navigation';
 import { Heading, Text, Divider } from '@/components/global';
-import { Article } from '@/components/press';
+import { Article, FeaturedIn } from '@/components/press';
+import NextLink from 'next/link';
 
 // Types
 import type { Article as RyanArticle } from '@/lib/types';
@@ -35,23 +36,49 @@ const PressPage = async () => {
   const articles = await fetchArticles();
 
   return (
-    <Layout>
-      <Heading className='mb-6'>Ryan Meetup in the Media</Heading>
+    <Layout fullscreen>
+      <div className='pt-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
+        <div className='hidden md:block'>
+          <Heading className='mb-4 text-center' size='2xl'>RYAN MEETUP</Heading>
+        </div>
+        <div className='block md:hidden'>
+          <Heading className='mb-4 text-center' size='lg'>RYAN MEETUP</Heading>
+        </div>
 
-      <Text size='lg'>
-        Keep up to date with the latest Ryan Meetup news in the media!
-      </Text>
+        <Text size='lg' className='text-center italic'>
+          has been proudly featured in:
+        </Text>
+      </div>
 
-      <Divider />
+      <FeaturedIn />
 
-      <div className='flex flex-col gap-y-8 xl:gap-y-4'>
-        {articles?.map((article, index) => (
-          <div key={index}>
-            <Article article={article as unknown as RyanArticle} />
+      <div className='px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
+        <Divider />
 
-            {index !== articles.length && <Divider className='block xl:hidden' />}
-          </div>
-        ))}
+        <div className='hidden md:block'>
+          <Heading className='mb-8 text-center' size='xl'>
+            More Ryan Meetup in the News
+          </Heading>
+        </div>
+        <div className='block md:hidden'>
+          <Heading className='mb-8 text-center' size='md'>
+            More Ryan Meetup in the News
+          </Heading>
+        </div>
+
+        <Text className='text-center mb-12' size='lg'>
+          Want to cover the Ryan Meetup? Get in touch with <NextLink className='text-blue-500 hover:underline' href='mailto:ryan@ryanmeetup.com'>Ryan</NextLink>.
+        </Text>
+
+        <div className='flex flex-col gap-y-8 mb-8 xl:gap-y-4'>
+          {articles?.map((article, index) => (
+            <div key={index}>
+              <Article article={article as unknown as RyanArticle} />
+
+              {index !== articles.length && <Divider className='block xl:hidden' />}
+            </div>
+          ))}
+        </div>
       </div>
     </Layout>
   );

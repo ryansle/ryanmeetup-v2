@@ -42,7 +42,7 @@ const Landing = () => {
               </p>
             </div>
 
-            <div className='w-full my-4 transition ease-in-out duration-300 hover:border-white hover:scale-102'>
+            <div className='w-full my-4 timing hover:border-white hover:scale-102'>
               <Button.Link
                 leftIcon={<Meetup />}
                 className='w-full font-cooper text-white'
