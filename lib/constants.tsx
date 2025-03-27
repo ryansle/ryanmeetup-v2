@@ -29,6 +29,34 @@ import { HiOutlineMail as Email } from 'react-icons/hi';
 import { PiHandHeartFill as Charity } from 'react-icons/pi';
 // import { MdGroup as Group } from 'react-icons/md';
 
+export const socials = [
+  {
+    href: 'https://www.instagram.com/ryanmeetup/',
+    icon: <Instagram />,
+    text: 'Instagram',
+  },
+  {
+    href: 'https://www.meetup.com/ryanmeetup/',
+    icon: <Meetup />,
+    text: 'Meetup',
+  },
+  {
+    href: 'https://www.youtube.com/@ryanmeetup',
+    icon: <YouTube />,
+    text: 'YouTube',
+  },
+  {
+    icon: <Tiktok />,
+    text: 'TikTok',
+    href: 'https://www.tiktok.com/@ryanmeetup/',
+  },
+  {
+    icon: <Threads />,
+    text: 'Threads',
+    href: 'https://www.threads.net/@ryanmeetup',
+  },
+];
+
 export const routes = [
   {
     icon: <Community />,
@@ -118,38 +146,7 @@ export const routes = [
     icon: <Socials />,
     text: 'Social Media',
     href: '',
-    subroutes: [
-      {
-        icon: <Instagram />,
-        text: 'Instagram',
-        href: 'https://www.instagram.com/ryanmeetup/',
-      },
-      {
-        icon: <Tiktok />,
-        text: 'TikTok',
-        href: 'https://www.tiktok.com/@ryanmeetup/',
-      },
-      {
-        icon: <Threads />,
-        text: 'Threads',
-        href: 'https://www.threads.net/@ryanmeetup',
-      },
-      {
-        icon: <Meetup />,
-        text: 'Meetup',
-        href: 'https://www.meetup.com/ryanmeetup/',
-      },
-      // {
-      //   icon: <Whatsapp />,
-      //   text: 'WhatsApp',
-      //   href: 'https://chat.whatsapp.com/LeI37a2AlMk0OmMfhXPNvq',
-      // },
-      {
-        icon: <YouTube />,
-        text: 'YouTube',
-        href: 'https://www.youtube.com/@ryanmeetup',
-      },
-    ],
+    subroutes: socials,
   },
 ];
 

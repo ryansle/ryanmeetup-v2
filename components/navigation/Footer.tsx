@@ -1,30 +1,9 @@
 // Components
 import { Heading } from '@/components/global';
 import NextLink from 'next/link';
-import {
-  FaInstagram as Instagram,
-  FaMeetup as Meetup,
-  FaYoutube as YouTube,
-} from 'react-icons/fa';
-import { SubscribeForm } from '@/components/home';
 
-const socials = [
-  {
-    href: 'https://www.instagram.com/ryanmeetup/',
-    icon: <Instagram className='h-5 w-5' color='gray' />,
-    name: 'Instagram',
-  },
-  {
-    href: 'https://www.meetup.com/ryanmeetup/',
-    icon: <Meetup className='h-5 w-5' color='gray' />,
-    name: 'Meetup',
-  },
-  {
-    href: 'https://www.youtube.com/@ryanmeetup',
-    icon: <YouTube className='h-5 w-5' color='gray' />,
-    name: 'YouTube',
-  }
-];
+// Utilities
+import { socials } from '@/lib/constants';
 
 const Footer = () => {
   return (
@@ -46,9 +25,9 @@ const Footer = () => {
               <h2 className='mb-6 text-xs font-semibold text-gray-900 uppercase text-white sm:text-sm'>Follow us</h2>
               <ul className='text-gray-600 font-medium space-y-2'>
                 {socials.map((social) => (
-                  <li key={social.name}>
+                  <li key={social.text}>
                     <NextLink href={social.href} className='hover:underline'>
-                      {social.name}
+                      {social.text}
                     </NextLink>
                   </li>
                 ))}
@@ -102,7 +81,7 @@ const Footer = () => {
               <NextLink
                 key={index}
                 href={channel.href}
-                aria-label={channel.name}
+                aria-label={channel.text}
               >
                 {channel.icon}
               </NextLink>
