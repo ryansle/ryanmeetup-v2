@@ -6,9 +6,32 @@ import { ChapterTile } from '@/components/chapters';
 
 // Types
 import type { FrequentlyAskedQuestion, RyanChapter } from '@/lib/types';
+import type { Metadata } from 'next';
 
 // Utilities
 import { fetchChapters, fetchFAQs } from '@/actions/fetchContent';
+
+
+export const metadata: Metadata = {
+  title: 'Ryan Meetup - Chapters',
+  description: 'Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.',
+  keywords: ['ryan meetup chapters', 'local ryan meetup', 'ryan meetup near me', 'where is the next ryan meetup', 'start your own ryan meetup', 'ryan meetup event', 'host a ryan meetup'],
+  openGraph: {
+    url: 'https://ryanmeetup.com/chapters',
+    title: 'Ryan Meetup - Chapters',
+    description: 'Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.',
+    siteName: 'Ryan Meetup',
+    images: [
+      {
+        url: 'https://ryanmeetup.com/group-photos/ryanroundup.png',
+        width: 3284,
+        height: 2189,
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 const ChaptersPage = async () => {
   const faqs = await fetchFAQs();
