@@ -82,13 +82,10 @@ type Article = {
 
 type MediaEvent = {
   title: string;
-  slug: string;
-  description: string;
   date: Date;
   eventDate: string;
   bgImage: ContentfulImage;
-  photos: ContentfulImage[];
-  googleDriveLink: string;
+  photoUrl: string;
 };
 
 type Location = {
