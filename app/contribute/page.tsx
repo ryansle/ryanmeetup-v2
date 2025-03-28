@@ -54,7 +54,6 @@ const ContributePage = async () => {
     { main: 'A senior copywriter/creative director.' },
     { main: 'A software engineer.' },
     { main: 'A television producer.' },
-    { main: 'A CEO of a vintage apparel company.' }
   ];
 
   return (

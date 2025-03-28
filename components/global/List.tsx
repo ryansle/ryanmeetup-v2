@@ -33,7 +33,7 @@ const ListItem = (props: ListItemProps) => {
     <li className='flex'>
       {icon}
       <Text size={fontSize}>
-        {main} <span className='font-light'>{sub}</span>
+        {main} {sub}
       </Text>
     </li>
   );
