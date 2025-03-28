@@ -27,7 +27,7 @@ import {
 import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
 import { HiOutlineMail as Email } from 'react-icons/hi';
 import { PiHandHeartFill as Charity } from 'react-icons/pi';
-// import { MdGroup as Group } from 'react-icons/md';
+import { MdGroup as Group } from 'react-icons/md';
 
 export const socials = [
   {
@@ -73,11 +73,11 @@ export const routes = [
         text: 'Events',
         href: '/events',
       },
-      // {
-      //   icon: <Group />,
-      //   text: 'Chapters',
-      //   href: '/chapters',
-      // },
+      {
+        icon: <Group />,
+        text: 'Chapters',
+        href: '/chapters',
+      },
       {
         icon: <Gallery />,
         text: 'Gallery',
