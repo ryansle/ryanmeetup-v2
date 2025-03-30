@@ -11,7 +11,6 @@ import type { Metadata } from 'next';
 // Utilities
 import { fetchChapters, fetchFAQs } from '@/actions/fetchContent';
 
-
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Chapters',
   description: 'Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.',

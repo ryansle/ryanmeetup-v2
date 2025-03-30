@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://v2.ryanmeetup.com'),
   title: 'Ryan Meetup',
   description: 'Wanna meet other Ryans? Join the Ryan Meetup!',
+  keywords: ['ryan gathering', 'ryan meetup', 'ryan meet up', 'ryan convention', 'ryan event', 'ryan society', 'gathering of the ryans', 'council of ryans', 'ryan association', 'ryan club', 'ryan social club', 'ryancon', 'network of ryans', 'ryan network', 'ryan reunion', 'ryan\'s game show', 'last ryan standing', 'ryan roundup', 'ryan rendezvous', 'st ryans day', 'ryan rave', 'rytoberfest', 'ryan retreat', 'ryan resort', 'ryans near me', 'ryan events near me', 'ryan rose', 'ryan le', 'ryan cousins', 'ryan vesler', 'ryan reynolds', 'ryan gosling', 'ryan seacrest', 'ryan stiles', 'ryan hailey', 'ryan cunningham', 'ryans meeting up', 'ryan party'],
   openGraph: {
     url: 'https://ryanmeetup.com',
     title: 'Ryan Meetup',

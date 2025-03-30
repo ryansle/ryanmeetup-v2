@@ -70,7 +70,7 @@ const FeaturedIn = () => {
                 alt={outlet.title}
                 width={0}
                 height={40}
-                className="h-20 w-auto object-contain"
+                className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto object-contain"
                 sizes="(max-width: 768px) 100px, 300px"
               />
             </NextLink>
