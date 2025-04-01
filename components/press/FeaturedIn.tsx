@@ -33,6 +33,11 @@ const FeaturedIn = () => {
       url: 'https://abcnews.go.com/WNN/video/rytoberfest-weekend-104132029',
     },
     {
+      title: 'CBS News',
+      src: `/logos/press/cbs-${renderColor(theme as string)}.png`,
+      url: 'https://www.cbsnews.com/losangeles/video/rallying-ryans-host-meet-ups-around-the-world/',
+    },
+    {
       title: 'New York Post',
       src: '/logos/press/nyp.png',
       url: 'https://nypost.com/2023/10/17/brooklyns-ryan-society-has-raves-and-bizarre-rules/',
