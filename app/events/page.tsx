@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     siteName: 'Ryan Meetup',
     images: [
       {
-        url: 'https://ryanmeetup.com/stryan.webp',
-        width: 1000,
-        height: 667,
+        url: 'https://ryanmeetup.com/meta/events.png',
+        width: 3360,
+        height: 1854,
       }
     ],
     locale: 'en_US',
