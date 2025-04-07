@@ -51,7 +51,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
       <Button.Link
         leftIcon={<Whatsapp />}
-        href={whatsapp as string ?? 'https://ryanmeetup.com'}
+        href={whatsapp as string}
       >
         Join the WhatsApp Group
       </Button.Link>

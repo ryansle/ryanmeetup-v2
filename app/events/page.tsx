@@ -1,7 +1,7 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Heading, Text } from '@/components/global';
-import { EventsContainer } from '@/components/events';
+import { Divider } from '@/components/global';
+import { Blurb, EventsContainer } from '@/components/events';
 
 // Types
 import type { RyanEvent } from '@/lib/types';
@@ -35,12 +35,10 @@ const EventsPage = async () => {
   const events = await fetchEvents();
 
   return (
-    <Layout className='space-y-6'>
-      <Heading className='mb-6'>Ryan Meetup Events</Heading>
+    <Layout>
+      <Blurb />
 
-      <Text size='lg' className='mb-4'>
-        If your name is Ryan, check out our Ryan Meetups below. No Bryans allowed.
-      </Text>
+      <Divider />
 
       <EventsContainer events={events as unknown as RyanEvent[]} />
     </Layout>
