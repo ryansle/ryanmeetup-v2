@@ -2,6 +2,8 @@
 import { Layout } from '@/components/navigation';
 import { Heading, Text, Divider } from '@/components/global';
 import { FarthestRyan, Champion, Leaderboard } from '@/components/awards';
+import { MdLeaderboard as Leader } from 'react-icons/md';
+import { FaTrophy as Trophy, FaPlaneArrival as Plane } from 'react-icons/fa';
 
 // Types
 import type {
@@ -44,12 +46,54 @@ const AwardsPage = async () => {
   const champs = await fetchChampionRyans();
   const repeats = await fetchRepeatRyans();
 
+  const anchorStyle = 'block text-sm text-blue-600';
+  const iconStyle = 'w-6 h-6 fill-black timing hover:scale-110'
+
+  const anchors = [
+    { 
+      icon: <Plane className={iconStyle} />, 
+      href: '#farthest',
+      tooltip: 'Farthest Traveled', 
+    },
+    { 
+      icon: <Trophy className={iconStyle} />, 
+      href: '#champions',
+      tooltip: 'Champions', 
+    },
+    { 
+      icon: <Leader className={iconStyle} />, 
+      href: '#leaderboard',
+      tooltip: 'Leaderboard', 
+    }
+  ];
+
   return (
     <Layout>
       <Heading className='mb-6'>Hall of Ryans</Heading>
+      <div id='farthest' />
+
       <Text size='lg'>
-        Honoring Ryan Meetup award winning Ryans and more.
+        Honoring Ryan Meetup <span className='block sm:inline-block'>award winning Ryans and more.</span>
       </Text>
+
+      
+      <div className='fixed top-24 right-4 z-50 lg:right-32 xl:hidden'>
+        <div className='bg-white shadow-lg rounded-lg p-2 space-y-4'>
+          {anchors.map((anchor) => (
+            <div key={anchor.href} className='relative group'>
+              <a 
+                href={anchor.href} 
+                className={anchorStyle}
+              >
+                {anchor.icon}
+              </a>
+              <span className='absolute right-full mr-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-xs rounded px-2 py-1 transition-opacity mr-4'>
+                {anchor.tooltip}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <Divider />
 
@@ -63,6 +107,8 @@ const AwardsPage = async () => {
           />
         ))}
       </div>
+
+      <div id='champions' />
 
       <Divider margins='xl' />
 
@@ -81,9 +127,11 @@ const AwardsPage = async () => {
           ))}
         </div>
 
+        <div id='leaderboard' />
         <Divider margins='xl' />
 
         <Leaderboard ryans={repeats as RepeatRyan[]} />
+
       </div>
     </Layout>
   );
