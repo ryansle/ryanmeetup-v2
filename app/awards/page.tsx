@@ -47,7 +47,7 @@ const AwardsPage = async () => {
   const repeats = await fetchRepeatRyans();
 
   const anchorStyle = 'block text-sm text-blue-600';
-  const iconStyle = 'w-6 h-6 fill-black timing hover:scale-110'
+  const iconStyle = 'w-5 h-5 fill-white dark:fill-black timing hover:scale-110'
 
   const anchors = [
     { 
@@ -73,12 +73,12 @@ const AwardsPage = async () => {
       <div id='farthest' />
 
       <Text size='lg'>
-        Honoring Ryan Meetup <span className='block sm:inline-block'>award winning Ryans and more.</span>
+        Honoring Ryan Meetup award winning Ryans and more.
       </Text>
 
       
-      <div className='fixed top-24 right-4 z-50 lg:right-32 xl:hidden'>
-        <div className='bg-white shadow-lg rounded-lg p-2 space-y-4'>
+      <div className='fixed bottom-3 right-3 z-50 lg:right-32 xl:hidden'>
+        <div className='dark:bg-white border border-gray-700 bg-black shadow-lg rounded-lg p-2 space-y-4'>
           {anchors.map((anchor) => (
             <div key={anchor.href} className='relative group'>
               <a 
