@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
+    "@emotion/react": "^11.14.0",
     "@headlessui/react": "^2.0.4",
     "@mailerlite/mailerlite-nodejs": "^1.2.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -19,8 +20,8 @@
     "mapbox-gl": "^1.13.3",
     "next": "14.2.3",
     "next-themes": "^0.3.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.51.5",
     "react-hot-toast": "^2.4.1",

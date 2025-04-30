@@ -2,7 +2,7 @@
 import { Layout } from '@/components/navigation';
 import { Heading, Divider, Text } from '@/components/global';
 import { FAQ } from '@/components/home';
-import { ChapterTile } from '@/components/chapters';
+import { ChapterTile, CalendarButton } from '@/components/chapters';
 
 // Types
 import type { FrequentlyAskedQuestion, RyanChapter } from '@/lib/types';
@@ -40,25 +40,29 @@ const ChaptersPage = async () => {
   const chapterFaqs = faqs.filter((faq) => faq.type === 'chapter').sort((a, b) => a.loadOrder - b.loadOrder);
 
   return (
-    <Layout className='space-y-6'>
-      <Heading className='text-center' size='xl'>
-        Ryan Meetup Chapters
-      </Heading>
+    <Layout>
+      <div className='space-y-6'>
+        <Heading className='text-center' size='xl'>
+          Ryan Meetup Chapters
+        </Heading>
 
-      <Text className='text-center xl:mx-40'>
-        Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
-      </Text>
+        <Text className='text-center xl:mx-40'>
+          Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
+        </Text>
 
-      <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3'>
-        {chapters?.map((chapter, index) => (
-          <ChapterTile
-            key={index}
-            chapter={chapter as unknown as RyanChapter}
-          />
-        ))}
+        <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3'>
+          {chapters?.map((chapter, index) => (
+            <ChapterTile
+              key={index}
+              chapter={chapter as unknown as RyanChapter}
+            />
+          ))}
+        </div>
+
+        <CalendarButton />
       </div>
 
-      <Divider />
+      <Divider margins='lg' />
 
       <FAQ
         showTitle
