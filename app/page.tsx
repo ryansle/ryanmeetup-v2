@@ -2,6 +2,7 @@
 import { Layout } from '@/components/navigation';
 import { Landing, FAQ } from '@/components/home';
 import { Divider } from '@/components/global';
+import { FeaturedIn } from '@/components/press';
 
 // Types
 import type { FrequentlyAskedQuestion } from '@/lib/types';
@@ -15,13 +16,21 @@ const HomePage = async () => {
   const homeFaqs = faqs.filter((faq) => faq.type === 'home');
 
   return (
-    <Layout>
-      <Landing />
-      <Divider margins='xl' />
-      <FAQ
-        showTitle
-        data={homeFaqs as FrequentlyAskedQuestion[]}
-      />
+    <Layout fullscreen>
+      <div className='py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
+        <Landing />
+      </div>
+
+      <FeaturedIn />
+
+      <div className='px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
+        <Divider margins='xl' />
+
+        <FAQ
+          showTitle
+          data={homeFaqs as FrequentlyAskedQuestion[]}
+        />
+      </div>
     </Layout>
   );
 };

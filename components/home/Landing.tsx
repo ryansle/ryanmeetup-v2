@@ -3,10 +3,9 @@
 // Components
 import NextImage from 'next/image';
 import NextLink from 'next/link';
-import { Button, Heading, BryanChecker } from '@/components/global';
+import { Button, Heading } from '@/components/global';
 import { FaMeetup as Meetup } from 'react-icons/fa';
 import { Transition } from '@headlessui/react';
-import { SubscribeForm } from '@/components/home';
 
 const Landing = () => {
   return (

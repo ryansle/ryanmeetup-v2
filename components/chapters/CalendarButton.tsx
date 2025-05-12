@@ -11,7 +11,7 @@ const CalendarButton = () => {
       className='mt-6'
       leftIcon={<Calendar />}
     >
-      Click here for the full calendar of events
+      Full Calendar of Events
     </Button.Link>
   );
 };
