@@ -1,22 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-
 // Components
 import { BryanModal } from '@/components/global';
 
 // Utilities
 import { usePathname } from 'next/navigation';
+import useBryanChecker from '@/hooks/useBryanChecker';
 
 const BryanChecker = () => {
-  const [bryanChecked, setBryanChecked] = useState<boolean>(false);
+  const bryanChecked = useBryanChecker();
 
   const pathname = usePathname();
-
-  useEffect(() => {
-    const value = JSON.parse(localStorage.getItem('bryanCheck') as string);
-    setBryanChecked(value);
-  }, []);
 
   return (
     <>
