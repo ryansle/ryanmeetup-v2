@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 
 // Components
 import { Event } from '@/components/events';
@@ -15,14 +15,10 @@ type DoubleHeaderProps = {
 const DoubleHeader = (props: DoubleHeaderProps) => {
   const { events } = props;
 
-  const [activeEvents, setActiveEvents] = useState<RyanEvent[]>([]);
-
-  useEffect(() => {
-    const active = events?.filter((event) => (
+  const activeEvents = useMemo(() => {
+    return events?.filter((event) => (
       new Date(event.date as unknown as string).getTime() >= new Date().getTime()
     ));
-
-    setActiveEvents(active as unknown as RyanEvent[]);
   }, [events]);
 
   return (
