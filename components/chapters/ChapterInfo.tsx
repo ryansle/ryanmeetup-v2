@@ -36,12 +36,12 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
           <div className='col-span-1'>
             <Text className='font-bold' color='white'>
-              Email:
+              Contact:
             </Text>
           </div>
 
           <div className='col-span-2'>
-            <Text>{ryan.email}</Text>
+            <Text>{ryan.contact}</Text>
           </div>
           {index !== leaders.length - 1 && <Divider margins='sm' className='col-span-3' />}
         </div>

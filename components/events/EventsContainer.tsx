@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 
 // Components
 import { Divider } from '@/components/global';
@@ -11,22 +11,25 @@ import type { RyanEvent } from '@/lib/types';
 
 type EventsContainerProps = {
   events: RyanEvent[];
+  eventType?: string;
 };
 
 const EventsContainer = (props: EventsContainerProps) => {
-  const { events } = props;
+  const { events, eventType = 'Main' } = props;
+
+  const mainEvents = events.filter(event => event.chapter.includes(eventType));
 
   const activeEvents = useMemo(() => {
-    return events?.filter((event) => (
+    return mainEvents?.filter((event) => (
       new Date(event.date as unknown as string).getTime() >= new Date().getTime()
     ));
-  }, [events]);  
+  }, [mainEvents]);  
 
   const inactiveEvents = useMemo(() => {
-    return events?.filter((event) => (
+    return mainEvents?.filter((event) => (
       new Date(event.date as unknown as string).getTime() < new Date().getTime()
     ));
-  }, [events]);  
+  }, [mainEvents]);  
 
   return (
     <div className='mb-10'>
@@ -36,6 +39,7 @@ const EventsContainer = (props: EventsContainerProps) => {
           <EventsSection
             title='Upcoming Events'
             events={activeEvents}
+            eventType={eventType}
           />
 
           <Divider margins='xl' />
@@ -45,6 +49,7 @@ const EventsContainer = (props: EventsContainerProps) => {
       <EventsSection
         title='Past Events'
         events={inactiveEvents}
+        eventType={eventType}
       />
     </div>
   );

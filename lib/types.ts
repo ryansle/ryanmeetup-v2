@@ -60,6 +60,7 @@ type RyanEvent = {
   location: string;
   venue: string;
   isPartnerEvent: boolean;
+  chapter: string[];
 };
 
 type FrequentlyAskedQuestion = {
@@ -159,7 +160,8 @@ type RyanChapter = {
 
 type ChapterLead = {
   name: string;
-  email: string;
+  contact: string;
+  headshot?: ContentfulImage;
 }
 // #endregion
 

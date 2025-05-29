@@ -29,8 +29,18 @@ const convertImageUrl = (file: ContentfulImage) => {
   }
 };
 
+const convertSlug = (slug: string) => {
+  let res = slug.replaceAll('-', ' ');
+  res = res.split(' ')
+    .map(word => word[0].toUpperCase() + word.slice(1))
+    .join(' ');
+
+  return res;
+};
+
 export {
   convertDateToDateTimeString,
   convertShortDate,
-  convertImageUrl
+  convertImageUrl,
+  convertSlug,
 };
