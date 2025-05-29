@@ -38,9 +38,16 @@ const convertSlug = (slug: string) => {
   return res;
 };
 
+const filterInstagram = (url: string) => {
+  const result = url.split('https://www.instagram.com/');
+
+  return result[1];
+};
+
 export {
   convertDateToDateTimeString,
   convertShortDate,
   convertImageUrl,
   convertSlug,
+  filterInstagram,
 };

@@ -2,50 +2,87 @@
 
 // Components
 import { Heading, Text, Divider, Button } from '@/components/global';
-// Components
 import { FaWhatsapp as Whatsapp } from 'react-icons/fa';
+import NextImage from 'next/image';
+import NextLink from 'next/link';
 
 // Types
-import type { ChapterLead } from '@/lib/types';
+import type { ChapterLead, ContentfulImage } from '@/lib/types';
+
+// Utilities
+import { convertImageUrl, filterInstagram } from '@/utils/convert';
 
 type ChapterInfoProps = {
   leaders: ChapterLead[];
   whatsapp: string;
+  instagram: string;
+  avatar: ContentfulImage;
+  city: string;
 };
 
 const ChapterInfo = (props: ChapterInfoProps) => {
-  const { leaders, whatsapp } = props;
+  const { 
+    leaders, 
+    whatsapp, 
+    instagram,
+    avatar,
+    city,
+  } = props;
 
   return (
     <div className='border rounded border-gray-400 p-4 dark:border-gray-700'>
-      <Heading className='text-center mb-4'>
-        Chapter Info
-      </Heading>
-
-      {leaders.map((ryan, index) => (
-        <div className='grid grid-cols-3' key={index}>
-          <div className='col-span-1'>
-            <Text className='font-bold' color='white'>
-              Chapter Lead:
-            </Text>
-          </div>
-
-          <div className='col-span-2'>
-            <Text>{ryan.name}</Text>
-          </div>
-
-          <div className='col-span-1'>
-            <Text className='font-bold' color='white'>
-              Contact:
-            </Text>
-          </div>
-
-          <div className='col-span-2'>
-            <Text>{ryan.contact}</Text>
-          </div>
-          {index !== leaders.length - 1 && <Divider margins='sm' className='col-span-3' />}
+      <div className='mb-8'>
+        <div className='flex items-center justify-center'>
+          <NextImage 
+            // @ts-ignore
+            src={avatar ? convertImageUrl(avatar) : '/chapters/default.jpg'}
+            width={200}
+            height={200}
+            alt={`Ryan Meetup ${city}`}
+            className='rounded-full'
+          />
         </div>
-      ))}
+      </div>
+
+      <div className='grid grid-cols-7 gap-4'>
+        <div className='col-span-3'>
+          <Text className='font-bold' color='white'>
+            Chapter Lead{leaders.length > 1 && 's'}:
+          </Text>
+        </div>
+
+        <div className='col-span-4'>
+          {leaders.map((ryan, index) => (
+            <Text key={index}>
+              {ryan.name}
+            </Text>
+          ))}
+        </div>
+      </div>
+
+      <div className='grid grid-cols-7 gap-4'>
+        <div className='col-span-3'>
+          <Text className='font-bold' color='white'>
+            Instagram:
+          </Text>
+        </div>
+
+        <div className='col-span-4'>
+          <NextLink href={instagram} className='text-lg font-bold text-blue-500'>
+            @{filterInstagram(instagram)}
+          </NextLink>
+        </div>
+      </div>
+
+      <div className='mt-8'>
+        <Heading size='sm'>
+          Need to get in contact?
+        </Heading>
+
+        <Text>
+          Our Instagram inbox is open for all inquiries.
+        </Text>
+      </div>
 
       <Divider margins='md' />
 

@@ -156,13 +156,14 @@ type RyanChapter = {
   leaders: string[];
   whatsAppLink: string;
   coverImage: ContentfulImage;
-}
+  instagram: string;
+};
 
 type ChapterLead = {
   name: string;
   contact: string;
   headshot?: ContentfulImage;
-}
+};
 // #endregion
 
 // #region Mailerlite Types

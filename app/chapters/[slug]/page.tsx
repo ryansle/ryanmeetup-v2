@@ -3,9 +3,12 @@ import { Layout } from '@/components/navigation';
 import { Heading, Text } from '@/components/global';
 import { ChapterInfo } from '@/components/chapters';
 import { EventsContainer } from '@/components/events';
+import { FaCity as City } from 'react-icons/fa';
+import { MdGroup as Group } from 'react-icons/md';
+import NextLink from 'next/link';
 
 // Types
-import type { RyanEvent, ChapterLead } from '@/lib/types';
+import type { RyanEvent, ChapterLead, ContentfulImage } from '@/lib/types';
 
 // Utilities
 import { fetchEvents, fetchSingleChapter } from '@/actions/fetchContent';
@@ -16,21 +19,38 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const events = await fetchEvents();
 
   // @ts-ignore
-  const leaders = content?.leaders?.map((entry: { fields: any; }) => entry.fields) ?? [];
-  const city = content?.city;
-  const whatsapp = content?.whatsAppLink;
+  const leaders = content.leaders?.map((entry: { fields: any; }) => entry.fields) ?? [];
+  const city = content.city;
+  const whatsapp = content.whatsAppLink;
+  const instagram = content.instagram;
+  const avatar = content.avatar;
 
   return (
     <Layout>
       <div className='grid grid-cols-12 gap-4'>
-        <div className='col-span-12 md:col-span-6 xl:col-span-5'>
+        <div className='col-span-12 md:col-span-6 xl:col-span-4'>
           <ChapterInfo
             leaders={leaders as ChapterLead[]}
             whatsapp={whatsapp as string}
+            instagram={instagram as string}
+            avatar={avatar as ContentfulImage}
+            city={city as string}
           />
         </div>
 
-        <div className='col-span-12 md:col-span-6 xl:col-span-7 px-2'>
+        <div className='col-span-12 md:col-span-6 xl:col-span-8 ml-0 xl:ml-4 px-2'>
+          <div className='flex space-x-4 mb-2'>
+            <NextLink href='/chapters' className='text-gray-400 flex items-center timing hover:scale-102'>
+              <Group className='mr-2' /> <Text>Chapters</Text>
+            </NextLink>
+
+            <span className='text-gray-400'> / </span>
+
+            <NextLink href='/chapters' className='flex items-center timing hover:scale-102'>
+              <City className='mr-2' /> <Text color='white'>{city as string}</Text>
+            </NextLink>
+          </div>
+
           <Heading className='mb-8' size='xl'>
             Ryan Meetup {city as string}
           </Heading>

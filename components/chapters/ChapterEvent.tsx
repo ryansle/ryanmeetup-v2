@@ -22,7 +22,6 @@ const ChapterEvent = (props: EventProps) => {
     coverImage,
     description,
     href,
-    city,
     dateTime,
     venue,
     isPartnerEvent
@@ -57,19 +56,30 @@ const ChapterEvent = (props: EventProps) => {
               <Text size='xs'>{dateTime}</Text>
               <Heading size='sm'>{title}</Heading>
             </div>
+
             {href.includes('meetup') && !isPartnerEvent && (
               <div>
                 <Meetup className='w-10 h-10 fill-black dark:fill-white' />
               </div>
             )}
+
+            {href.includes('partiful') && (
+              <NextImage 
+                src='/icons/partiful.png'
+                width={40}
+                height={40}
+                alt='Partiful Logo'
+              />
+            )}
           </div>
+
           <Text className='min-h-[100px]' size='xs'>
             {description}
           </Text>
 
           <div className='flex items-center space-x-2'>
             <Pin />
-            <Text size='xs'>{venue}</Text>
+            <Text size='sm'>{venue}</Text>
           </div>
         </div>
       </div>
