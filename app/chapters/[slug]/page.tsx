@@ -1,11 +1,10 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Heading, Text } from '@/components/global';
+import { Heading, Breadcrumbs } from '@/components/global';
 import { ChapterInfo } from '@/components/chapters';
 import { EventsContainer } from '@/components/events';
 import { FaCity as City } from 'react-icons/fa';
 import { MdGroup as Group } from 'react-icons/md';
-import NextLink from 'next/link';
 
 // Types
 import type { RyanEvent, ChapterLead, ContentfulImage } from '@/lib/types';
@@ -25,11 +24,25 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const instagram = content.instagram;
   const avatar = content.avatar;
 
+  const breadcrumbs = [
+    { 
+      icon: <Group className='mr-2' />,
+      href: '/chapters',  
+      title: 'Chapters',
+    },
+    { 
+      icon: <City className='mr-2' />,
+      href: `/chapters/${params.slug}`,
+      title: city as string,
+    },
+  ];
+
   return (
     <Layout>
       <div className='flex flex-wrap'>
         {/* LEFT PANEL (Sticky) */}
-        <div className='w-full md:w-1/2 xl:w-1/3 p-4'>
+        <div className='w-full md:w-1/2 xl:w-1/3 px-4'>
+          <Breadcrumbs className='flex sm:hidden' crumbs={breadcrumbs} />
           <div className='sticky top-28'>
             <ChapterInfo
               leaders={leaders as ChapterLead[]}
@@ -43,17 +56,7 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
 
         {/* RIGHT PANEL (Scrollable) */}
         <div className='flex-1 p-4'>
-          <div className='flex space-x-4 mb-2'>
-            <NextLink href='/chapters' className='text-gray-400 flex items-center timing hover:scale-102'>
-              <Group className='mr-2' /> <Text>Chapters</Text>
-            </NextLink>
-
-            <span className='text-gray-400'> / </span>
-
-            <NextLink href='/chapters' className='flex items-center timing hover:scale-102'>
-              <City className='mr-2' /> <Text color='white'>{city as string}</Text>
-            </NextLink>
-          </div>
+          <Breadcrumbs className='hidden sm:flex' crumbs={breadcrumbs} />
 
           <div className='hidden xl:block'>
             <Heading className='mb-8' size='xl'>

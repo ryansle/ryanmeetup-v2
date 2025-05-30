@@ -10,3 +10,4 @@ export * from './BryanChecker';
 export * from './BryanModal';
 export * from './Note';
 export * from './List';
+export * from './Breadcrumbs';
