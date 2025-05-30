@@ -26,8 +26,9 @@ import {
 } from 'react-icons/io5';
 import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
 import { HiOutlineMail as Email } from 'react-icons/hi';
-import { PiHandHeartFill as Charity } from 'react-icons/pi';
+// import { PiHandHeartFill as Charity } from 'react-icons/pi';
 import { MdGroup as Group } from 'react-icons/md';
+import { GoSponsorTiers as Sponsor } from 'react-icons/go';
 
 export const socials = [
   {
@@ -120,10 +121,15 @@ export const routes = [
         text: 'Donate',
         href: '/donate',
       },
+      // {
+      //   icon: <Charity />,
+      //   text: 'Charity',
+      //   href: '/charity',
+      // }
       {
-        icon: <Charity />,
-        text: 'Charity',
-        href: '/charity',
+        icon: <Sponsor />,
+        text: 'Sponsors',
+        href: '/sponsors'
       }
     ],
   },

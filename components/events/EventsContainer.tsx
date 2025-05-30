@@ -19,17 +19,13 @@ const EventsContainer = (props: EventsContainerProps) => {
 
   const mainEvents = events.filter(event => event.chapter.includes(eventType));
 
-  const activeEvents = useMemo(() => {
-    return mainEvents?.filter((event) => (
-      new Date(event.date as unknown as string).getTime() >= new Date().getTime()
-    ));
-  }, [mainEvents]);  
+  const activeEvents = mainEvents?.filter((event) => (
+    new Date(event.date as unknown as string).getTime() >= new Date().getTime()
+  ));
 
-  const inactiveEvents = useMemo(() => {
-    return mainEvents?.filter((event) => (
-      new Date(event.date as unknown as string).getTime() < new Date().getTime()
-    ));
-  }, [mainEvents]);  
+  const inactiveEvents = mainEvents?.filter((event) => (
+    new Date(event.date as unknown as string).getTime() < new Date().getTime()
+  ));
 
   return (
     <div className='mb-10'>
@@ -55,9 +51,14 @@ const EventsContainer = (props: EventsContainerProps) => {
       )}
 
       {(inactiveEvents.length === 0 && activeEvents.length === 0) && (
-        <Text>
-          There have not been any Ryan Meetups in {eventType} yet.
-        </Text>
+        <div className='space-y-4'>
+          <Text>
+            There have not been any local Ryan Meetups in {eventType} yet.
+          </Text>
+          <Text>
+            Talk to Ryan about scheduling one today!
+          </Text>
+        </div>
       )}
     </div>
   );

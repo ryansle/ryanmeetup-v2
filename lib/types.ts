@@ -164,6 +164,13 @@ type ChapterLead = {
   contact: string;
   headshot?: ContentfulImage;
 };
+
+type Sponsor = {
+  name: string;
+  logo: ContentfulImage;
+  href: string;
+  eventsSponsored: number;
+};
 // #endregion
 
 // #region Mailerlite Types
@@ -206,4 +213,5 @@ export type {
   RyanInNeed,
   RyanChapter,
   ChapterLead,
+  Sponsor,
 };

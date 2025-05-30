@@ -1,7 +1,8 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Divider } from '@/components/global';
+import { Divider, Text } from '@/components/global';
 import { Blurb, EventsContainer } from '@/components/events';
+import { FaRegNewspaper as News } from 'react-icons/fa';
 
 // Types
 import type { RyanEvent } from '@/lib/types';
@@ -36,7 +37,26 @@ const EventsPage = async () => {
 
   return (
     <Layout>
-      <Blurb />
+      <Blurb 
+        fullHeadline='Join the Ryan Meetup'
+        smallHeadline='Ryan Meetups'
+        href='/newsletter'
+        icon={<News />}
+        hrefText='Get notified of future events'
+      >
+        <Text size='lg' className='mb-6 xl:mx-32'>
+          <span className='hidden md:inline-block'>
+            It&apos;s never too late to join the Ryan Meetup.
+          </span>
+          <span>
+            {' '}Sign up for our newsletter below to stay up-to-date with our events.{' '}
+          </span>
+
+          <span className='hidden md:inline-block'>
+            And remember - No Bryans allowed.
+          </span>
+        </Text>
+      </Blurb>
 
       <Divider />
 

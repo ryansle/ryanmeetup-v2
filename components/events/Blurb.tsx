@@ -1,10 +1,30 @@
 'use client';
 
 // Components
-import { Heading, Text, Button } from '@/components/global';
-import { FaRegNewspaper as News } from 'react-icons/fa';
+import { Heading, Button } from '@/components/global';
 
-const Blurb = () => {
+// Types
+import type { ReactNode } from 'react';
+
+type BlurbProps = {
+  fullHeadline: string;
+  smallHeadline?: string;
+  children: ReactNode;
+  href: string;
+  icon: ReactNode;
+  hrefText: string;
+};
+
+const Blurb = (props: BlurbProps) => {
+  const {
+    fullHeadline,
+    smallHeadline = fullHeadline,
+    children,
+    href,
+    icon,
+    hrefText,
+  } = props;
+
   return (
     <div>
       <div className='hidden xl:block'>
@@ -12,38 +32,27 @@ const Blurb = () => {
           className='mb-6 text-center'
           size='2xl'
         >
-          Join the Ryan Meetup
+          {fullHeadline}
         </Heading>
       </div>
 
       <div className='block xl:hidden'>
         <Heading className='mb-6 text-center'>
-          Ryan Meetups
+          {smallHeadline}
         </Heading>
       </div>
 
       <div className='text-center'>
-        <Text size='lg' className='mb-6 xl:mx-32'>
-          <span className='hidden md:inline-block'>
-            It&apos;s never too late to join the Ryan Meetup.
-          </span>
-          <span>
-            {' '}Sign up for our newsletter below to stay up-to-date with our events.{' '}
-          </span>
-
-          <span className='hidden md:inline-block'>
-            And remember - No Bryans allowed.
-          </span>
-        </Text>
+        {children}
 
         <div className='grid grid-cols-12'>
           <div className='col-span-0 xl:col-span-1' />
           <Button.Link
             className='col-span-12 xl:col-span-10'
-            href='/newsletter'
-            leftIcon={<News />}
+            href={href}
+            leftIcon={icon}
           >
-            Get notified of future events
+            {hrefText}
           </Button.Link>
           <div className='col-span-0 xl:col-span-1' />
         </div>

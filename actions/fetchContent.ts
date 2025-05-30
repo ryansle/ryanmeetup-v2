@@ -77,7 +77,7 @@ const fetchChapters = async () => {
   const data = await client.getEntries(({ content_type: 'chapter' }));
 
   return data.items.map((entry) => entry.fields);
-}
+};
 
 const fetchSingleChapter = async (slug: string) => {
   const entries = await client.getEntries({
@@ -91,7 +91,13 @@ const fetchSingleChapter = async (slug: string) => {
   }
 
   return entries.items[0].fields;
-}
+};
+
+const fetchSponsors = async () => {
+  const data = await client.getEntries(({ content_type: 'sponsor' }));
+
+  return data.items.map((entry) => entry.fields);
+};
 
 export {
   fetchEvents,
@@ -106,4 +112,5 @@ export {
   fetchRyansInNeed,
   fetchChapters,
   fetchSingleChapter,
+  fetchSponsors,
 };

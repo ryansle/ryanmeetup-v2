@@ -45,8 +45,6 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const content = await fetchSingleChapter(params.slug);
   const events = await fetchEvents();
 
-  console.log(content);
-
   // @ts-ignore
   const leaders = content.leaders?.map((entry: { fields: any; }) => entry.fields) ?? [];
   const city = content.city;
