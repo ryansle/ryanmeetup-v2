@@ -8,14 +8,45 @@ import { MdGroup as Group } from 'react-icons/md';
 
 // Types
 import type { RyanEvent, ChapterLead, ContentfulImage } from '@/lib/types';
+import type { Metadata } from 'next';
 
 // Utilities
 import { fetchEvents, fetchSingleChapter } from '@/actions/fetchContent';
 import { convertSlug } from '@/utils/convert';
 
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const content = await fetchSingleChapter(params.slug);
+
+  const { city, state } = content;
+
+  // You can customize this with actual event data if needed
+  return {
+    title: `Ryan Meetup - ${city} Chapter`,
+    description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
+    keywords: ['ryan meetup', `ryan meetup ${city}`, `ryan meetup ${state}`,],
+    openGraph: {
+      url: `https://ryanmeetup.com/chapters/${params.slug}`,
+      title: `Ryan Meetup - ${city} Chapter`,
+      description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
+      siteName: 'Ryan Meetup',
+      images: [
+        {
+          url: 'https://ryanmeetup.com/meta/events.png',
+          width: 3360,
+          height: 1854,
+        }
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+  };
+}
+
 const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const content = await fetchSingleChapter(params.slug);
   const events = await fetchEvents();
+
+  console.log(content);
 
   // @ts-ignore
   const leaders = content.leaders?.map((entry: { fields: any; }) => entry.fields) ?? [];

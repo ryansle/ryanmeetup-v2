@@ -30,7 +30,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
   } = props;
 
   return (
-    <div className='border rounded border-gray-400 p-4 dark:border-gray-700'>
+    <div className='border rounded-3xl border-gray-400 p-4 dark:border-gray-700'>
       <div className='mb-8'>
         <div className='flex items-center justify-center'>
           <NextImage 
