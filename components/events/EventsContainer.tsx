@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 
 // Components
-import { Divider } from '@/components/global';
+import { Text, Divider } from '@/components/global';
 import { EventsSection } from '@/components/events';
 
 // Types
@@ -42,15 +42,23 @@ const EventsContainer = (props: EventsContainerProps) => {
             eventType={eventType}
           />
 
-          <Divider margins='xl' />
+          {inactiveEvents.length !== 0 && <Divider margins='xl' />}
         </>
       )}
 
-      <EventsSection
-        title='Past Events'
-        events={inactiveEvents}
-        eventType={eventType}
-      />
+      {inactiveEvents.length !== 0 && (
+        <EventsSection
+          title='Past Events'
+          events={inactiveEvents}
+          eventType={eventType}
+        />
+      )}
+
+      {(inactiveEvents.length === 0 && activeEvents.length === 0) && (
+        <Text>
+          There have not been any Ryan Meetups in {eventType} yet.
+        </Text>
+      )}
     </div>
   );
 };

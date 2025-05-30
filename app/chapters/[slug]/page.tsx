@@ -27,18 +27,22 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <Layout>
-      <div className='grid grid-cols-12 gap-4'>
-        <div className='col-span-12 md:col-span-6 xl:col-span-4'>
-          <ChapterInfo
-            leaders={leaders as ChapterLead[]}
-            whatsapp={whatsapp as string}
-            instagram={instagram as string}
-            avatar={avatar as ContentfulImage}
-            city={city as string}
-          />
+      <div className='flex flex-wrap'>
+        {/* LEFT PANEL (Sticky) */}
+        <div className='w-full md:w-1/2 xl:w-1/3 p-4'>
+          <div className='sticky top-28'>
+            <ChapterInfo
+              leaders={leaders as ChapterLead[]}
+              whatsapp={whatsapp as string}
+              instagram={instagram as string}
+              avatar={avatar as ContentfulImage}
+              city={city as string}
+            />
+          </div>
         </div>
 
-        <div className='col-span-12 md:col-span-6 xl:col-span-8 ml-0 xl:ml-4 px-2'>
+        {/* RIGHT PANEL (Scrollable) */}
+        <div className='flex-1 p-4'>
           <div className='flex space-x-4 mb-2'>
             <NextLink href='/chapters' className='text-gray-400 flex items-center timing hover:scale-102'>
               <Group className='mr-2' /> <Text>Chapters</Text>
@@ -51,12 +55,20 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
             </NextLink>
           </div>
 
-          <Heading className='mb-8' size='xl'>
-            Ryan Meetup {city as string}
-          </Heading>
+          <div className='hidden xl:block'>
+            <Heading className='mb-8' size='xl'>
+              Ryan Meetup {city as string}
+            </Heading>
+          </div>
+
+          <div className='block xl:hidden'>
+            <Heading className='mb-8' size='lg'>
+              {city as string} Events
+            </Heading>
+          </div>
 
           <div className='space-y-4'>
-            <EventsContainer 
+            <EventsContainer
               events={events as unknown as RyanEvent[]}
               eventType={convertSlug(params.slug)}
             />
