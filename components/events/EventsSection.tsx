@@ -21,7 +21,7 @@ const EventsSection = (props: EventsSectionProps) => {
         {title}
       </Heading>
 
-      {eventType === 'main' ? (
+      {eventType === 'Main' ? (
         <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3 4xl:grid-cols-3'>
           {events?.map((event, index) => (
             <Event
@@ -33,7 +33,7 @@ const EventsSection = (props: EventsSectionProps) => {
       ) : (
         <div className='grid grid-cols-1 gap-x-4 gap-y-4 xl:grid-cols-2'>
           {events?.map((event, index) => (
-            <ChapterEvent
+            <Event
               key={index}
               event={event as RyanEvent}
             />

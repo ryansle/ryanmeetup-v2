@@ -19,7 +19,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   const { city, state } = content;
 
-  // You can customize this with actual event data if needed
   return {
     title: `Ryan Meetup - ${city} Chapter`,
     description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
