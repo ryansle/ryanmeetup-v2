@@ -1,7 +1,6 @@
 // Components
 import { Heading } from '@/components/global';
 import { Event } from '@/components/events';
-import { ChapterEvent } from '@/components/chapters';
 
 // Types
 import type { RyanEvent } from '@/lib/types';
