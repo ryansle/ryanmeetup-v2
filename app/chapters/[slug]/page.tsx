@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       type: 'website',
     },
   };
-}
+};
 
 const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const content = await fetchSingleChapter(params.slug);

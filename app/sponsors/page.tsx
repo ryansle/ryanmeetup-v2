@@ -55,7 +55,7 @@ const SponsorsPage = async () => {
         icon={<Send />}
         hrefText='Partner With Us'
       >
-        <Text size='lg' className='mb-6 xl:mx-48'>
+        <Text className='mb-6 xl:mx-48'>
           Thanks to our incredible sponsors, Ryan Meetups have popped up all across the country. Want to help power the next one? Reach out below — we’d love to partner with you.
         </Text>
       </Blurb>
@@ -87,3 +87,5 @@ const SponsorsPage = async () => {
 };
 
 export default SponsorsPage;
+
+export const revalidate = 30;
