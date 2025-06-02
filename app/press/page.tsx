@@ -55,21 +55,6 @@ const PressPage = async () => {
       <div className='px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
         <Divider />
 
-        <div className='hidden md:block'>
-          <Heading className='mb-8 text-center' size='xl'>
-            More Ryan Meetup in the News
-          </Heading>
-        </div>
-        <div className='block md:hidden'>
-          <Heading className='mb-8 text-center' size='md'>
-            More Ryan Meetup in the News
-          </Heading>
-        </div>
-
-        <Text className='text-center mb-12' size='lg'>
-          Want to cover the Ryan Meetup? Get in touch with <NextLink className='text-blue-500 hover:underline' href='mailto:ryan@ryanmeetup.com'>Ryan</NextLink>.
-        </Text>
-
         <div className='flex flex-col gap-y-8 mb-8 xl:gap-y-4'>
           {articles?.map((article, index) => (
             <div key={index}>
