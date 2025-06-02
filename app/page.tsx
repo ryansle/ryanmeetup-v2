@@ -1,17 +1,18 @@
 // Components
 import { Layout } from '@/components/navigation';
 import { Landing, FAQ } from '@/components/home';
-import { Divider } from '@/components/global';
-import { FeaturedIn } from '@/components/press';
+import { Divider, Heading } from '@/components/global';
 
 // Types
-import type { FrequentlyAskedQuestion } from '@/lib/types';
+import type { FrequentlyAskedQuestion, Sponsor } from '@/lib/types';
 
 // Utilities
-import { fetchFAQs } from '@/actions/fetchContent';
+import { fetchFAQs, fetchSponsors } from '@/actions/fetchContent';
+import { SponsorCarousel } from '@/components/sponsors';
 
 const HomePage = async () => {
   const faqs = await fetchFAQs();
+  const sponsors = await fetchSponsors();
 
   const homeFaqs = faqs.filter((faq) => faq.type === 'home');
 
@@ -19,9 +20,15 @@ const HomePage = async () => {
     <Layout fullscreen>
       <div className='py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
         <Landing />
+
+        <Divider margins='xl' />
+
+        <Heading className='text-center'>
+          Ryan Meetup has been supported by Ryans at:
+        </Heading>
       </div>
 
-      <FeaturedIn />
+      <SponsorCarousel sponsors={sponsors as Sponsor[]} />
 
       <div className='px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
         <Divider margins='xl' />

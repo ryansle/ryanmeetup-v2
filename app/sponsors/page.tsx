@@ -42,9 +42,9 @@ export async function generateMetadata(): Promise<Metadata> {
 const SponsorsPage = async () => {
   const sponsors = await fetchSponsors();
 
-  const goldSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number >= 3);
-  const silverSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number === 2);
-  const bronzeSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number === 1);
+  // const goldSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number >= 3);
+  // const silverSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number === 2);
+  // const bronzeSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number === 1);
 
   return (
     <Layout>
@@ -63,6 +63,11 @@ const SponsorsPage = async () => {
       <Divider />
 
       <SponsorSection 
+        tier='All'
+        sponsors={sponsors as Sponsor[]} 
+      />
+
+      {/* <SponsorSection 
         tier='Gold'
         sponsors={goldSponsors as Sponsor[]} 
       />
@@ -79,7 +84,7 @@ const SponsorsPage = async () => {
       <SponsorSection 
         tier='Bronze'
         sponsors={bronzeSponsors as Sponsor[]} 
-      />
+      /> */}
 
       <div className='mb-20' />
     </Layout>
