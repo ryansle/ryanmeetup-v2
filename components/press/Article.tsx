@@ -7,6 +7,9 @@ import { Heading, Text } from '@/components/global';
 import type { Article } from '@/lib/types';
 import { convertImageUrl } from '@/utils/convert';
 
+// Utilities
+import { isMoreThanTwoWeeksAgo } from '@/utils/validate';
+
 type ArticleProps = {
   article: Article;
 };
@@ -40,12 +43,13 @@ const Article = (props: ArticleProps) => {
     href,
     publishedOn,
     thumbnail,
-    new: isNew,
   } = props.article;
 
   const highlight = 'font-semibold text-blue-500';
 
   const imageUrl = convertImageUrl(thumbnail);
+
+  const isNew = !isMoreThanTwoWeeksAgo(publishedOn);
 
   return (
     <NextLink
