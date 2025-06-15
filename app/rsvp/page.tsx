@@ -35,7 +35,7 @@ const RSVPPage = async () => {
 
   return (
     <Layout>
-      <Heading className='mb-6 text-center'>Join us for our Denver Double Header!</Heading>
+      <Heading className='mb-6 text-center'>Join us in Denver, CO!</Heading>
 
       <DoubleHeader events={events as RyanEvent[]} />
     </Layout>
