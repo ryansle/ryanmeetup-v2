@@ -40,9 +40,9 @@ const ContactPage = async () => {
         </Text>
       </Blurb>
 
-      <Divider margins='xl' />
+      <Divider margins='lg' />
 
-      <div className='grid grid-cols-2 gap-20'>
+      <div className='grid grid-cols-2 gap-4 xl:gap-20'>
         <ContactForm />
         <FollowUs />
       </div>

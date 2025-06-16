@@ -56,7 +56,7 @@ const FollowUs = () => {
   };
 
   return (
-    <div>
+    <div className='col-span-2 md:col-span-1'>
       <div className='space-y-3'>
         {socials.map((outlet) => (
           <NextLink 
@@ -100,7 +100,7 @@ const FollowUs = () => {
         href='/newsletter'
         leftIcon={<News />}
       >
-        Sign up for the Ryan Meetup newsletter
+        Sign up for our newsletter
       </Button.Link>
     </div>
   );
