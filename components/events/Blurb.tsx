@@ -10,9 +10,9 @@ type BlurbProps = {
   fullHeadline: string;
   smallHeadline?: string;
   children: ReactNode;
-  href: string;
-  icon: ReactNode;
-  hrefText: string;
+  href?: string;
+  icon?: ReactNode;
+  hrefText?: string;
 };
 
 const Blurb = (props: BlurbProps) => {
@@ -45,17 +45,19 @@ const Blurb = (props: BlurbProps) => {
       <div className='text-center'>
         {children}
 
-        <div className='grid grid-cols-12'>
-          <div className='col-span-0 xl:col-span-1' />
-          <Button.Link
-            className='col-span-12 xl:col-span-10'
-            href={href}
-            leftIcon={icon}
-          >
-            {hrefText}
-          </Button.Link>
-          <div className='col-span-0 xl:col-span-1' />
-        </div>
+        {href && (
+          <div className='grid grid-cols-12'>
+            <div className='col-span-0 xl:col-span-1' />
+            <Button.Link
+              className='col-span-12 xl:col-span-10'
+              href={href}
+              leftIcon={icon}
+            >
+              {hrefText}
+            </Button.Link>
+            <div className='col-span-0 xl:col-span-1' />
+          </div>
+        )}
       </div>
     </div>
   );

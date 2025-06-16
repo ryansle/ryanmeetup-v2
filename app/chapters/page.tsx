@@ -13,7 +13,7 @@ import { fetchChapters, fetchFAQs } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Chapters',
-  description: 'Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.',
+  description: 'Introducing Ryan Meetup chapters - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.',
   keywords: ['ryan meetup chapters', 'local ryan meetup', 'ryan meetup near me', 'where is the next ryan meetup', 'start your own ryan meetup', 'ryan meetup event', 'host a ryan meetup'],
   openGraph: {
     url: 'https://ryanmeetup.com/chapters',
@@ -47,10 +47,10 @@ const ChaptersPage = async () => {
         </Heading>
 
         <Text className='text-center xl:mx-40'>
-          Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
+          Introducing Ryan Meetup chapters - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
         </Text>
 
-        <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-4'>
+        <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {chapters?.map((chapter, index) => (
             <ChapterTile
               key={index}

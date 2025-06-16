@@ -16,20 +16,15 @@ type PosterContainerProps = {
 };
 
 const PosterContainer = (props: PosterContainerProps) => {
-  const { title, posters, download = false, description } = props;
+  const { posters, download = false } = props;
 
   return (
     <div className='space-y-6'>
-      <Heading>{title}</Heading>
-
-      <Text size='lg'>
-        {description}
-      </Text>
-
       {download && (
         <Button
           onClick={() => window.open('/posters/posters.zip')}
           leftIcon={<Download />}
+          className='mt-8'
         >
           Download Poster Bundle
         </Button>

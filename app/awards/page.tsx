@@ -4,6 +4,7 @@ import { Heading, Text, Divider } from '@/components/global';
 import { FarthestRyan, Champion, Leaderboard } from '@/components/awards';
 import { MdLeaderboard as Leader } from 'react-icons/md';
 import { FaTrophy as Trophy, FaPlaneArrival as Plane } from 'react-icons/fa';
+import { Blurb } from '@/components/events';
 
 // Types
 import type {
@@ -69,14 +70,16 @@ const AwardsPage = async () => {
 
   return (
     <Layout>
-      <Heading className='mb-6'>Hall of Ryans</Heading>
+      <Blurb
+        fullHeadline='Hall of Ryans'
+        smallHeadline='Hall of Ryans'
+      >
+        <Text size='lg'>
+          Honoring Ryan Meetup award winning Ryans and more.
+        </Text>
+      </Blurb>
+
       <div id='farthest' />
-
-      <Text size='lg'>
-        Honoring Ryan Meetup award winning Ryans and more.
-      </Text>
-
-      
       <div className='fixed bottom-3 right-3 z-50 lg:right-32 xl:hidden'>
         <div className='dark:bg-white border border-gray-700 bg-black shadow-lg rounded-lg p-2 space-y-4'>
           {anchors.map((anchor) => (

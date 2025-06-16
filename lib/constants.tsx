@@ -11,7 +11,7 @@ import {
   FaDollarSign as Dollar,
   // FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
-  FaTiktok as Tiktok,
+  FaTiktok as TikTok,
   // FaBasketballBall as Basketball
 } from 'react-icons/fa';
 import {
@@ -47,7 +47,7 @@ export const socials = [
     text: 'YouTube',
   },
   {
-    icon: <Tiktok />,
+    icon: <TikTok />,
     text: 'TikTok',
     href: 'https://www.tiktok.com/@ryanmeetup/',
   },

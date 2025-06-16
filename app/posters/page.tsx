@@ -1,7 +1,8 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Divider } from '@/components/global';
+import { Divider, Text } from '@/components/global';
 import { PosterContainer } from '@/components/posters';
+import { Blurb } from '@/components/events';
 
 // Types
 import type { Metadata } from 'next';
@@ -55,6 +56,14 @@ const eventPosters = [
 const PostersPage = async () => {
   return (
     <Layout>
+      <Blurb
+        fullHeadline='Ryan Meetup Flyers'
+        smallHeadline='Ryan Meetup Flyers'
+      >
+        <Text size='lg' className='mx-0 sm:mx-24 lg:mx-0'>
+          Interested in hanging up Ryan Meetup posters in your city? Download our posters here!
+        </Text>
+      </Blurb>
       <PosterContainer
         title='Flyers'
         posters={posters}

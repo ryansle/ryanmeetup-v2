@@ -44,14 +44,14 @@ const ChapterInfo = (props: ChapterInfoProps) => {
         </div>
       </div>
 
-      <div className='grid grid-cols-7 gap-4'>
-        <div className='col-span-3'>
+      <div className='grid grid-cols-9 gap-4'>
+        <div className='col-span-4'>
           <Text className='font-bold' color='white'>
             Chapter Lead{leaders.length > 1 && 's'}:
           </Text>
         </div>
 
-        <div className='col-span-4'>
+        <div className='col-span-5'>
           {leaders.map((ryan, index) => (
             <Text key={index}>
               {ryan.name}
