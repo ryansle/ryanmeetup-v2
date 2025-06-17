@@ -70,6 +70,7 @@ const AwardsPage = async () => {
 
   return (
     <Layout>
+      <div id='farthest' />
       <Blurb
         fullHeadline='Hall of Ryans'
         smallHeadline='Hall of Ryans'
@@ -79,8 +80,7 @@ const AwardsPage = async () => {
         </Text>
       </Blurb>
 
-      <div id='farthest' />
-      <div className='fixed bottom-3 right-3 z-50 lg:right-32 xl:hidden'>
+      <div className='fixed bottom-3 right-3 z-50 lg:right-32 lg:bottom-8'>
         <div className='dark:bg-white border border-gray-700 bg-black shadow-lg rounded-lg p-2 space-y-4'>
           {anchors.map((anchor) => (
             <div key={anchor.href} className='relative group'>

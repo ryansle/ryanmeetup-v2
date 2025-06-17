@@ -33,6 +33,10 @@ const EventTag = (props: EventTagProps) => {
         return 'border-[#4AA1A1]';
       case 'St. Ryan\'s Day II':
         return 'border-green-500';
+      case 'Ryans @ Rockies':
+        return 'border-[#483d79]';
+      case 'Ryan Summit':
+        return 'border-white';
       default:
         return 'border-gray-700 text-black dark:text-white';
     }

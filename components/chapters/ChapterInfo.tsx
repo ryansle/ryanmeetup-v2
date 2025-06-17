@@ -84,14 +84,18 @@ const ChapterInfo = (props: ChapterInfoProps) => {
         </Text>
       </div>
 
-      <Divider margins='md' />
+      {whatsapp && (
+        <div>
+          <Divider margins='md' />
 
-      <Button.Link
-        leftIcon={<Whatsapp />}
-        href={whatsapp as string}
-      >
-        Join the WhatsApp Group
-      </Button.Link>
+          <Button.Link
+            leftIcon={<Whatsapp />}
+            href={whatsapp as string}
+          >
+            Join the WhatsApp Group
+          </Button.Link>
+        </div>
+      )}
     </div>
   );
 };
