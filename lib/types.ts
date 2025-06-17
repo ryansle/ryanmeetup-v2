@@ -99,7 +99,7 @@ type Location = {
   eventDate: Date;
   image: ContentfulImage;
   city: string;
-  locationType: 'Event Location' | 'Ryan Hub' | 'Community Event' | 'Ryan-Named Business' | 'Ryan-Owned Business';
+  locationType: 'Event Location' | 'Ryan Hub' | 'Ryan-Named Business' | 'Ryan-Owned Business';
 };
 
 type TravelingRyan = {

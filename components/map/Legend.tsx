@@ -5,12 +5,10 @@ import NextImage from 'next/image';
 type LegendProps = {
   showMeetups: boolean;
   showRyans: boolean;
-  showCommunityEvents: boolean;
   showNamedBusinesses: boolean;
   showOwnedBusinesses: boolean;
   setShowMeetups: (bool: boolean) => void;
   setShowRyans: (bool: boolean) => void;
-  setShowCommunityEvents: (bool: boolean) => void;
   setShowNamedBusinesses: (bool: boolean) => void;
   setShowOwnedBusinesses: (bool: boolean) => void;
 };
@@ -19,12 +17,10 @@ const Legend = (props: LegendProps) => {
   const {
     showMeetups,
     showRyans,
-    showCommunityEvents,
     showNamedBusinesses,
     showOwnedBusinesses,
     setShowMeetups,
     setShowRyans,
-    setShowCommunityEvents,
     setShowNamedBusinesses,
     setShowOwnedBusinesses,
   } = props;
@@ -43,13 +39,6 @@ const Legend = (props: LegendProps) => {
       text: 'Ryan lives here',
       alt: 'There\'s at least one of the Ryans that lives here.',
       icon: '/icons/ryanicon.png',
-    },
-    {
-      checked: showCommunityEvents,
-      handler: () => setShowCommunityEvents(!showCommunityEvents),
-      text: 'Community Event',
-      alt: 'There has been a Ryan Meetup community event here.',
-      icon: '/icons/emoji.png',
     },
     {
       checked: showNamedBusinesses,
