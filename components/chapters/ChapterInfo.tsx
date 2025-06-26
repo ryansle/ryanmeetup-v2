@@ -34,7 +34,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
       <div className='mb-8'>
         <div className='flex items-center justify-center'>
           <NextImage 
-            src={avatar ? convertImageUrl(avatar) : '/chapters/default.jpg'}
+            src={convertImageUrl(avatar) ?? '/chapters/default.jpg'}
             width={200}
             height={200}
             alt={`Ryan Meetup ${city}`}
