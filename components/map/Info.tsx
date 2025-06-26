@@ -24,7 +24,7 @@ const Info = (props: InfoProps) => {
 
   return (
     <section className='text-center py-4 border-t-2 border-gray-400 dark:border-gray-700 px-4 md:py-8 lg:px-32 xl:px-72 3xl:px-[350px] 4xl:px-[650px]'>
-      <Heading className='mb-4'>
+      <Heading className='mb-6'>
         Ryan Meetup Worldwide
       </Heading>
       <Text>
@@ -35,7 +35,7 @@ const Info = (props: InfoProps) => {
         Help us expand as we gear up for RyanCon, the soon-to-be largest same name gathering in history.
       </Text>
 
-      <Heading className='mt-8 mb-4' size='md'>
+      <Heading className='mt-8 mb-6' size='md'>
         Don&apos;t see your city?
       </Heading>
       <Text>

@@ -16,7 +16,7 @@ const EventsSection = (props: EventsSectionProps) => {
 
   return (
     <div className='mb-10'>
-      <Heading size='md' className='mb-4'>
+      <Heading className='mb-4'>
         {title}
       </Heading>
 

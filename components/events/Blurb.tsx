@@ -37,7 +37,7 @@ const Blurb = (props: BlurbProps) => {
       </div>
 
       <div className='block xl:hidden'>
-        <Heading className='mb-6 text-center'>
+        <Heading className='mb-6 text-center' size='xl'>
           {smallHeadline}
         </Heading>
       </div>

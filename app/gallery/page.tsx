@@ -52,7 +52,7 @@ const GalleryPage = async () => {
         </Text>
         <Text size='xs'>
           Ryan Rose is the official photographer for the Ryan Meetup. You can book a gig with her{' '}
-          <NextLink className='font-semibold text-blue-500 underline' href='https://www.justryanrose.com/contact'>here</NextLink>.
+          <NextLink className='font-semibold text-blue-500 underline' href='mailto:justryanrose@gmail.com'>here</NextLink>.
         </Text>
       </Note>
 

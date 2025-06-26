@@ -39,11 +39,11 @@ const Leaderboard = (props: LeaderboardProps) => {
 
   return (
     <div>
-      <Heading className='mb-4 text-center xl:text-left'>
+      <Heading className='mb-6 text-center'>
         Attendance Leaderboard
       </Heading>
 
-      <Text className='italic mb-10 text-center xl:text-left'>
+      <Text className='italic mb-10 text-center'>
         <span className='font-semibold text-blue-500'>*</span>Ryans must attend at least three Ryan Meetups in order to qualify for the leaderboard.
       </Text>
 

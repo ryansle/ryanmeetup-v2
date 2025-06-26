@@ -4,6 +4,7 @@ import { Heading, Text, Divider } from '@/components/global';
 import QRCode from 'react-qr-code';
 import NextLink from 'next/link';
 import NextImage from 'next/image';
+import { Blurb } from '@/components/events';
 
 // Types
 import type { Metadata } from 'next';
@@ -34,18 +35,26 @@ const DonatePage = async () => {
 
   return (
     <Layout className='text-center space-y-6'>
-      <Heading>Donate to the Ryan Meetup</Heading>
-      <Text className='px-0 lg:px-32'>
-        All donations go towards setting up future Ryan Meetup events (ie: renting out spaces, buying name tags, trophies, decorations, etc, as well as tightening up security against potential Bryan intruders at our events).
-      </Text>
-      <Text className='px-0 lg:px-32'>
-        Currently, our non-profit is sustained entirely by ticket and merchandise sales as well as donations.
-      </Text>
-      <Text>
-        There are two ways to donate to the Ryan Meetup:
-      </Text>
+      <Blurb
+        fullHeadline='Donate to the Ryan Meetup'
+        smallHeadline='Donate'
+      >
+        <Text className='px-0 lg:px-32'>
+          All donations go towards setting up future Ryan Meetup events (ie: renting out spaces, buying name tags, trophies, decorations, etc, as well as tightening up security against potential Bryan intruders at our events).
+        </Text>
 
-      <Divider />
+        <br />
+
+        <Text className='px-0 lg:px-32'>
+          Currently, our non-profit is sustained entirely by ticket and merchandise sales as well as donations.
+        </Text>
+
+        <br />
+
+        <Text>
+          There are two ways to donate to the Ryan Meetup:
+        </Text>
+      </Blurb>
 
       <div className='grid grid-cols-4 gap-x-20 gap-y-4 px-0 lg:px-40'>
         <div className={cardStyle}>

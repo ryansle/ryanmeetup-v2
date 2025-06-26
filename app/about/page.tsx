@@ -50,15 +50,15 @@ const AboutPage = () => {
         </Text>
 
         <Text>
-          That night, after checking each other&apos;s IDs, Ryan, Ryan, and Ryan devised a plan to reach more Ryans. And set an ambitious goal for themselves: to break the world record for largest same first name gathering.
+          That night, after checking each other&apos;s IDs, Ryan, Ryan, and Ryan devised a plan to reach more Ryans—and set an ambitious goal for themselves: to break the world record for largest same first name gathering.
         </Text>
 
         <Text>
-          So the Ryans got to work, covering NYC in flyers to advertise their next event at Ryan Maguire&apos;s pub—but this time, over 100 Ryans showed up. Including some Ryans from major news sources, who helped spread the word to even more Ryans.
+          So the Ryans got to work, covering NYC in flyers to advertise their next event at Ryan Maguire&apos;s pub—but this time, over 100 Ryans showed up, including some Ryans from major news sources, who helped spread the word to even more Ryans.
         </Text>
 
         <Text>
-          Soon, Ryans everywhere wanted to join in on the fun. So we took it on tour, hosting Ryan Meetups in Los Angeles, Austin, Chicago, Miami, and Toronto. All while building a community with thousands of Ryans, who each contribute in their own unique way. And that&apos;s exactly what it will take to put our name in the record books.
+          Soon, Ryans everywhere wanted to join in on the fun. So we took Ryan Meetup on tour, hosting events in Los Angeles, Denver, Chicago, and more. All while building a community with thousands of Ryans, who each contribute in their own unique way. And that&apos;s exactly what it will take to put our name in the record books.
         </Text>
 
         <Text>
