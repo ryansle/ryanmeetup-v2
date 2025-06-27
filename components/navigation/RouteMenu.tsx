@@ -26,7 +26,7 @@ const RouteMenu = (props: RouteMenuProps) => {
   const isSelected = (pathname: string) => {
     if ((pathname === '/events' || pathname.includes('/gallery') || pathname === '/awards' || pathname === '/about' || pathname === '/holidays' || pathname === '/rsvp' || pathname.includes('/chapters')) && title === 'Community') {
       return 'bg-gray-300 dark:bg-gray-800';
-    } else if ((pathname === '/posters' || pathname === '/contribute' || pathname === '/charity' || pathname === '/sponsors' || pathname === '/donate') && title === 'Support') {
+    } else if ((pathname === '/flyers' || pathname === '/contribute' || pathname === '/sponsors' || pathname === '/donate') && title === 'Support') {
       return 'bg-gray-300 dark:bg-gray-800';
     }
   };

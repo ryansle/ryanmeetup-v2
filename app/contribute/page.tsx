@@ -36,8 +36,8 @@ const ContributePage = async () => {
       sub: 'The goal is gathering as many Ryans as possible, and this is the easiest way to expand our network.',
     },
     {
-      main: 'Hang up posters.',
-      sub: 'This is how it all started for us, and it’s an effective way to reach Ryans in the wild.',
+      main: 'Hang up flyers.',
+      sub: 'This is how it all started for us, and it\'s an effective way to reach Ryans in the wild.',
     },
     {
       main: 'Share your skills.',

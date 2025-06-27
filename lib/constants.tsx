@@ -9,10 +9,9 @@ import {
   FaRegNewspaper as News,
   FaMapMarkedAlt as Map,
   FaDollarSign as Dollar,
-  // FaWhatsapp as Whatsapp,
+  FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
   FaTiktok as TikTok,
-  // FaBasketballBall as Basketball
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
@@ -26,7 +25,6 @@ import {
 } from 'react-icons/io5';
 import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
 import { HiOutlineMail as Email } from 'react-icons/hi';
-// import { PiHandHeartFill as Charity } from 'react-icons/pi';
 import { MdGroup as Group } from 'react-icons/md';
 import { GoSponsorTiers as Sponsor } from 'react-icons/go';
 
@@ -55,6 +53,11 @@ export const socials = [
     icon: <Threads />,
     text: 'Threads',
     href: 'https://www.threads.net/@ryanmeetup',
+  },
+  {
+    icon: <Whatsapp />,
+    text: 'WhatsApp',
+    href: '/whatsapp',
   },
 ];
 
@@ -89,11 +92,6 @@ export const routes = [
         text: 'Awards',
         href: '/awards',
       },
-      // {
-      //   icon: <Basketball />,
-      //   text: 'Bracket',
-      //   href: '/march-madness'
-      // }
     ],
   },
   {
@@ -108,8 +106,8 @@ export const routes = [
     subroutes: [
       {
         icon: <Flyer />,
-        text: 'Posters',
-        href: '/posters',
+        text: 'Flyers',
+        href: '/flyers',
       },
       {
         icon: <Help />,
@@ -121,11 +119,6 @@ export const routes = [
         text: 'Donate',
         href: '/donate',
       },
-      // {
-      //   icon: <Charity />,
-      //   text: 'Charity',
-      //   href: '/charity',
-      // }
       {
         icon: <Sponsor />,
         text: 'Sponsors',

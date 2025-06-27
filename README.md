@@ -8,7 +8,7 @@ The ultimate goal of the Ryan Meetup is gathering as many Ryans as possible in o
 
 ## Description
 
-As the Ryan Meetup has grown exponentially since its inception in early February, it became necessary for it to have its own website to capitalize on the internet traffic we were bringing in by (initially) hanging up posters on the street in various cities around the world. Some of these cities have included, but are not limited to:
+As the Ryan Meetup has grown exponentially since its inception in early February, it became necessary for it to have its own website to capitalize on the internet traffic we were bringing in by (initially) hanging up flyers on the street in various cities around the world. Some of these cities have included, but are not limited to:
 
 * New York, NY
 * Los Angeles, CA
@@ -30,7 +30,7 @@ As the Ryan Meetup has grown exponentially since its inception in early February
 * Keep up to date with upcoming Ryan Meetup events
 * Support the Ryan Meetup by purchasing merchandise through our Etsy store
 * View our gallery of photos from previous Ryan Meetups
-* Download our poster pack in order to spread the word throughout your own city
+* Download our flyer pack in order to spread the word throughout your own city
 * Check out our Ryan Meetup World Map for real-time info of Ryans around the world, and where previous events have happened
 * Stay up to date with Ryan Meetup in the news
 * Dark and light mode

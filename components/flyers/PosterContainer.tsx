@@ -1,22 +1,22 @@
 'use client';
 
 // Components
-import { Heading, Text, Button } from '@/components/global';
+import { Button } from '@/components/global';
 import { FaDownload as Download } from 'react-icons/fa';
-import { Poster } from '@/components/posters';
+import { Poster } from '@/components/flyers';
 
 // Types
 import type { Flyer } from '@/lib/types';
 
 type PosterContainerProps = {
   title: string;
-  posters: Flyer[];
+  flyers: Flyer[];
   download?: boolean;
   description: string;
 };
 
 const PosterContainer = (props: PosterContainerProps) => {
-  const { posters, download = false } = props;
+  const { flyers, download = false } = props;
 
   return (
     <div className='space-y-6'>
@@ -26,16 +26,16 @@ const PosterContainer = (props: PosterContainerProps) => {
           leftIcon={<Download />}
           className='mt-8'
         >
-          Download Poster Bundle
+          Download Flyer Bundle
         </Button>
       )}
 
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6'>
-        {posters.map((poster: Flyer, index: number) => (
+        {flyers.map((flyer: Flyer, index: number) => (
           <Poster
             key={index}
-            title={poster.title}
-            src={poster.src}
+            title={flyer.title}
+            src={flyer.src}
           />
         ))}
       </div>

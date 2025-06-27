@@ -67,12 +67,6 @@ const fetchRepeatRyans = async () => {
   return data.items.map((entry) => entry.fields);
 };
 
-const fetchRyansInNeed = async () => {
-  const data = await client.getEntries(({ content_type: 'ryansInNeed' }));
-
-  return data.items.map((entry) => entry.fields);
-};
-
 const fetchChapters = async () => {
   const data = await client.getEntries(({ content_type: 'chapter' }));
 
@@ -109,7 +103,6 @@ export {
   fetchFarthestRyans,
   fetchChampionRyans,
   fetchRepeatRyans,
-  fetchRyansInNeed,
   fetchChapters,
   fetchSingleChapter,
   fetchSponsors,
