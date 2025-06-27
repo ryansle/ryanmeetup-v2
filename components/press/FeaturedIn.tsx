@@ -28,6 +28,16 @@ const FeaturedIn = () => {
       url: 'https://www.latimes.com/california/newsletter/2023-09-11/at-the-dumb-and-wholesome-ryan-rave-everyone-belongs-and-everyones-ryan-essential-california',
     },
     {
+      title: 'ESPN',
+      src: '/logos/press/espn.png',
+      url: 'https://www.espn.com/mlb/story/_/id/45587300/colorado-rockies-ryan-record-meetup-coors-field',
+    },
+    {
+      title: 'Major League Baseball',
+      src: '/logos/press/mlb.png',
+      url: 'https://www.mlb.com/rockies/news/ryan-mcmahon-rox-fall-to-d-backs-in-series-opener?t=rockies-pipeline-coverage',
+    },
+    {
       title: 'ABC News',
       src: `/logos/press/abc-${renderColor(theme as string)}.png`,
       url: 'https://abcnews.go.com/WNN/video/rytoberfest-weekend-104132029',
@@ -61,6 +71,16 @@ const FeaturedIn = () => {
       title: 'TV Insider',
       src: `/logos/press/tvinsider-${renderColor(theme as string)}.png`,
       url: 'https://www.tvinsider.com/1181795/the-price-is-right-drew-carey-snub-ryan-seacrest/',
+    },
+    {
+      title: 'OutKick',
+      src: `/logos/press/outkick-${renderColor(theme as string)}.png`,
+      url: 'https://www.outkick.com/sports/rockies-players-named-ryan-shine-front-600-other-ryans-ryan-night-coors-field',
+    },
+    {
+      title: 'The Denver Gazette',
+      src: `/logos/press/denver-g-${renderColor(theme as string)}.png`,
+      url: 'https://denvergazette.com/outtherecolorado/news/calling-all-people-named-ryan-heres-your-chance-to-unite-for-a-world-record/article_1117b211-9775-4149-af66-6266ba275aa6.html',
     },
   ];
 

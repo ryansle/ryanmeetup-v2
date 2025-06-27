@@ -73,27 +73,19 @@ const Article = (props: ArticleProps) => {
               {isNew && <span className='text-green-500 border border-green-500 text-sm font-medium px-2 rounded bg-green-900 text-white'>NEW</span>}
             </div>
 
-            <div className='hidden md:block'>
-              <Heading size='lg'>
-                {title}
-              </Heading>
-            </div>
-            <div className='block md:hidden'>
-              <Heading size='md'>
-                {title}
-              </Heading>
-            </div>
+            <Heading size='lg' className='hidden md:block'>
+              {title}
+            </Heading>
+            <Heading size='md' className='block md:hidden'>
+              {title}
+            </Heading>
 
-            <div className='block md:hidden'>
-              <Text className='mt-4' size='sm'>
-                by <span className={highlight}>{author}</span> in {outlet.split(' ')[0].toLowerCase() === 'the' ? '' : 'the'} <span className={highlight}>{outlet}</span>
-              </Text>
-            </div>
-            <div className='hidden md:block'>
-              <Text className='mt-4' size='lg'>
-                by <span className={highlight}>{author}</span> in {outlet.split(' ')[0].toLowerCase() === 'the' ? '' : 'the'} <span className={highlight}>{outlet}</span>
-              </Text>
-            </div>
+            <Text className='mt-4 block md:hidden' size='sm'>
+              by <span className={highlight}>{author}</span> at <span className={highlight}>{outlet}</span>
+            </Text>
+            <Text className='mt-4 hidden md:block' size='lg'>
+              by <span className={highlight}>{author}</span> at <span className={highlight}>{outlet}</span>
+            </Text>
           </div>
         </div>
       </div>
