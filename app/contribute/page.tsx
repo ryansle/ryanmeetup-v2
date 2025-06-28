@@ -50,10 +50,13 @@ const ContributePage = async () => {
   ];
 
   const composed = [
-    { main: 'A photographer/videographer.' },
-    { main: 'A senior copywriter/creative director.' },
-    { main: 'A software engineer.' },
-    { main: 'A television producer.' },
+    { main: 'Photographer/Videographer Ryan,' },
+    { main: 'Senior Copywriter/Creative Director Ryan,' },
+    { main: 'Software Engineer & Technology Ryan,' },
+    { main: 'Producer/Writer Ryan,' },
+    { main: 'Digital Marketing & Outreach Ryan,' },
+    { main: 'Graphic Design Ryan,' },
+    { main: 'and Printing Ryan.' },
   ];
 
   return (

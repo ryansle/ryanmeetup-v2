@@ -33,6 +33,8 @@ const FollowUs = () => {
         return <TikTok className={iconStyle} />;
       case 'Threads':
         return <Threads className={iconStyle} />;
+      case 'WhatsApp':
+        return <Whatsapp className={iconStyle} />;
       default:
         return;
     }
@@ -50,13 +52,15 @@ const FollowUs = () => {
         return 'Follow';
       case 'Threads':
         return 'Follow';
+      case 'WhatsApp':
+        return 'Join the conversation'
       default:
         return;
     }
   };
 
   return (
-    <div className='col-span-2 md:col-span-1'>
+    <div className='col-span-2 md:col-span-1 dark:text-white'>
       <div className='space-y-3'>
         {socials.map((outlet) => (
           <NextLink 
@@ -71,16 +75,6 @@ const FollowUs = () => {
             </Text>
           </NextLink>
         ))}
-        <NextLink 
-          href='/whatsapp'
-          className='flex space-x-4 timing hover:scale-102'
-        >
-          <Whatsapp className={iconStyle}/>
-
-          <Text color='white'>
-            Join the conversation on WhatsApp 
-          </Text>
-        </NextLink>
       </div>
 
       <Divider />

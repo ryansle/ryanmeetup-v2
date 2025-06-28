@@ -93,6 +93,7 @@ const fetchSponsors = async () => {
 };
 
 const fetchOutlets = async () => {
+  // @ts-ignore
   const data = await client.getEntries(({ content_type: 'outlets', order: 'sys.updatedAt' }));
 
   console.log(data.items)

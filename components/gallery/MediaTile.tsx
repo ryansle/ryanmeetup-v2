@@ -1,5 +1,5 @@
 // Components
-import { Heading } from '@/components/global';
+import { Heading, Text } from '@/components/global';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 
@@ -15,7 +15,7 @@ type MediaTileProps = {
 };
 
 const MediaTile = (props: MediaTileProps) => {
-  const { title, eventDate, bgImage, photoUrl } = props.data;
+  const { title, eventDate, bgImage, photoUrl, credits } = props.data;
 
   return (
     <NextLink href={photoUrl}>
@@ -33,6 +33,18 @@ const MediaTile = (props: MediaTileProps) => {
             <Heading ignoreColorMode>{title}</Heading>
             <Heading size='sm' ignoreColorMode>{eventDate}</Heading>
           </div>
+          {credits && (
+            <Text 
+              className='absolute bottom-0 left-0 text-white p-2 font-cooper' 
+              size='xs' 
+              color='white'
+            >
+              Addl. photo credits to{' '}
+              {credits.map((credit, index) => (
+                <span key={credit}>{credit} {credits.length > 1 && index !== credits.length - 1 && ','}</span>
+              ))}
+            </Text>
+          )}
         </div>
       </div>
     </NextLink>

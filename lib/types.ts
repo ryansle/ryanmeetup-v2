@@ -87,6 +87,7 @@ type MediaEvent = {
   eventDate: string;
   bgImage: ContentfulImage;
   photoUrl: string;
+  credits?: string[];
 };
 
 type Location = {
@@ -180,15 +181,6 @@ type Outlet = {
 };
 // #endregion
 
-// #region Mailerlite Types
-type MailerParams = {
-  email: string;
-  groups: string[];
-  status: 'active' | 'unsubscribed' | 'unconfirmed' | 'bounced' | 'junk';
-  subscribed_at: string;
-};
-// #endregion
-
 type Route = {
   icon: ReactNode;
   text: string;
@@ -212,7 +204,6 @@ export type {
   Article,
   MediaEvent,
   Location,
-  MailerParams,
   ContentfulImage,
   Route,
   Flyer,

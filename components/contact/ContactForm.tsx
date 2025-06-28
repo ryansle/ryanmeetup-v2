@@ -89,7 +89,7 @@ const ContactForm = () => {
   ));
 
   return (
-    <form className='w-full grid grid-cols-2 gap-x-8 gap-y-8 mb-4 border border-gray-700 p-8 rounded-xl bg-black col-span-2 md:col-span-1'>
+    <form className='w-full grid grid-cols-2 gap-x-8 gap-y-8 mb-4 border border-gray-700 p-8 rounded-xl bg-white dark:bg-black col-span-2 md:col-span-1'>
       <div className='col-span-1'>
         <Input
           label='First Name'
