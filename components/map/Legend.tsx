@@ -73,8 +73,7 @@ const Legend = (props: LegendProps) => {
               />
 
               <Text
-                className='ml-2'
-                color='black'
+                className='ml-2 text-black'
                 size='xxs'
               >
                 {option.text}

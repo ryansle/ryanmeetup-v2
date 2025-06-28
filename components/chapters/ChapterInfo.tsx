@@ -38,14 +38,14 @@ const ChapterInfo = (props: ChapterInfoProps) => {
             width={200}
             height={200}
             alt={`Ryan Meetup ${city}`}
-            className='rounded-full'
+            className='rounded-full border shadow-xl'
           />
         </div>
       </div>
 
       <div className='grid grid-cols-9 gap-4'>
         <div className='col-span-4'>
-          <Text className='font-bold' color='white'>
+          <Text className='font-bold dark:text-white text-black'>
             Chapter Lead{leaders.length > 1 && 's'}:
           </Text>
         </div>
@@ -61,7 +61,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
       <div className='grid grid-cols-7 gap-4'>
         <div className='col-span-3'>
-          <Text className='font-bold' color='white'>
+          <Text className='font-bold dark:text-white text-black'>
             Instagram:
           </Text>
         </div>

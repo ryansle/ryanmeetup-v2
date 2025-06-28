@@ -54,12 +54,12 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
 
   const breadcrumbs = [
     { 
-      icon: <Group className='mr-2' />,
+      icon: <Group className='mr-2 fill-black dark:fill-white' />,
       href: '/chapters',  
       title: 'Chapters',
     },
     { 
-      icon: <City className='mr-2' />,
+      icon: <City className='mr-2 fill-black dark:fill-white' />,
       href: `/chapters/${params.slug}`,
       title: city as string,
     },

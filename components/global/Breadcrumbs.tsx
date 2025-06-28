@@ -23,7 +23,7 @@ const Breadcrumbs = (props: BreadcrumbProps) => {
         <div className='flex space-x-4 mb-2' key={anchor.title}>
           <NextLink href={anchor.href} className='flex items-center timing hover:scale-102'>
             {anchor.icon} 
-            <Text color={index === crumbs.length - 1 ? 'white' : 'secondary'}>
+            <Text className={index === crumbs.length - 1 ? 'text-black dark:text-white' : 'text-gray-600 dark:text-gray-400'}>
               {anchor.title}
             </Text>
           </NextLink>

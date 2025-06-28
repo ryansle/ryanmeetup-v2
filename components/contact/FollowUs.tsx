@@ -19,7 +19,7 @@ import NextLink from 'next/link';
 import { socials } from '@/lib/constants';
 
 const FollowUs = () => {
-  const iconStyle = 'fill-white h-8 w-8';
+  const iconStyle = 'dark:fill-white h-8 w-8 fill-black';
 
   const renderIcon = (title: string) => {
     switch (title) {
@@ -60,7 +60,7 @@ const FollowUs = () => {
   };
 
   return (
-    <div className='col-span-2 md:col-span-1 dark:text-white'>
+    <div className='col-span-2 md:col-span-1 dark:text-white text-black'>
       <div className='space-y-3'>
         {socials.map((outlet) => (
           <NextLink 
@@ -70,7 +70,7 @@ const FollowUs = () => {
           >
             {renderIcon(outlet.text)}
 
-            <Text color='white'>
+            <Text className='text-black dark:text-white'>
               {renderWord(outlet.text)} us on {outlet.text}
             </Text>
           </NextLink>
@@ -85,7 +85,7 @@ const FollowUs = () => {
       >
         <Email className='h-8 w-8' />
 
-        <Text color='white'>
+        <Text className='text-black dark:text-white'>
           ryan@ryanmeetup.com
         </Text>
       </NextLink>

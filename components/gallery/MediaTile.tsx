@@ -35,9 +35,8 @@ const MediaTile = (props: MediaTileProps) => {
           </div>
           {credits && (
             <Text 
-              className='absolute bottom-0 left-0 text-white p-2 font-cooper' 
+              className='absolute bottom-0 left-0 text-white p-2 font-cooper text-white' 
               size='xs' 
-              color='white'
             >
               Addl. photo credits to{' '}
               {credits.map((credit, index) => (
