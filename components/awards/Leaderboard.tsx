@@ -36,7 +36,8 @@ const Leaderboard = (props: LeaderboardProps) => {
   const { ryans } = props;
 
   const sortedRyans = ryans.sort((a, b) => b.eventsAttended.length - a.eventsAttended.length);
-
+  const filteredRyans = sortedRyans.filter((ryan) => ryan.eventsAttended.length >= 4);
+  
   return (
     <div>
       <Heading className='mb-6 text-center'>
@@ -44,14 +45,14 @@ const Leaderboard = (props: LeaderboardProps) => {
       </Heading>
 
       <Text className='italic mb-10 text-center'>
-        <span className='font-semibold text-blue-500'>*</span>Ryans must attend at least three Ryan Meetups in order to qualify for the leaderboard.
+        <span className='font-semibold text-blue-500'>*</span>Ryans must attend at least four Ryan Meetups in order to qualify for the leaderboard.
       </Text>
 
       <div className='relative overflow-x-auto'>
         <table className='w-full text-sm text-left'>
           <TableHeader />
           <tbody>
-            {sortedRyans.map((ryan, index) => (
+            {filteredRyans.map((ryan, index) => (
               <tr key={ryan.fullName} className={`text-2xl border-gray-700 h-full ${index !== sortedRyans.length - 1 && 'border-b'}`}>
                 <td className='py-2'>
                   <div className='relative w-10 h-10 md:w-12 md:h-12'>

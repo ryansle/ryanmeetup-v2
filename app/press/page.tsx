@@ -2,14 +2,13 @@
 import { Layout } from '@/components/navigation';
 import { Heading, Text, Divider } from '@/components/global';
 import { Article, FeaturedIn } from '@/components/press';
-import NextLink from 'next/link';
 
 // Types
-import type { Article as RyanArticle } from '@/lib/types';
+import type { Article as RyanArticle, Outlet } from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
-import { fetchArticles } from '@/actions/fetchContent';
+import { fetchArticles, fetchOutlets } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Press',
@@ -34,6 +33,7 @@ export const metadata: Metadata = {
 
 const PressPage = async () => {
   const articles = await fetchArticles();
+  const outlets = await fetchOutlets();
 
   return (
     <Layout fullscreen>
@@ -50,7 +50,7 @@ const PressPage = async () => {
         </Text>
       </div>
 
-      <FeaturedIn />
+      <FeaturedIn outlets={outlets as Outlet[]} />
 
       <div className='px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
         <Divider />

@@ -171,6 +171,13 @@ type Sponsor = {
   href: string;
   eventsSponsored: number;
 };
+
+type Outlet = {
+  title: string;
+  href: string;
+  darkModeImage: ContentfulImage;
+  lightModeImage: ContentfulImage;
+};
 // #endregion
 
 // #region Mailerlite Types
@@ -214,4 +221,5 @@ export type {
   RyanChapter,
   ChapterLead,
   Sponsor,
+  Outlet,
 };

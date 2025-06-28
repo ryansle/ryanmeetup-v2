@@ -61,7 +61,6 @@ const fetchChampionRyans = async () => {
 };
 
 const fetchRepeatRyans = async () => {
-  // @ts-ignore
   const data = await client.getEntries(({ content_type: 'leaderboard' }));
 
   return data.items.map((entry) => entry.fields);
@@ -93,6 +92,14 @@ const fetchSponsors = async () => {
   return data.items.map((entry) => entry.fields);
 };
 
+const fetchOutlets = async () => {
+  const data = await client.getEntries(({ content_type: 'outlets', order: 'sys.updatedAt' }));
+
+  console.log(data.items)
+
+  return data.items.map((entry) => entry.fields);
+}
+
 export {
   fetchEvents,
   fetchFAQs,
@@ -106,4 +113,5 @@ export {
   fetchChapters,
   fetchSingleChapter,
   fetchSponsors,
+  fetchOutlets,
 };
