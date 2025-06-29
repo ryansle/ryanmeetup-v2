@@ -39,6 +39,8 @@ const ChaptersPage = async () => {
   // @ts-ignore - all chapter FAQs will contain a load order
   const chapterFaqs = faqs.filter((faq) => faq.type === 'chapter').sort((a, b) => a.loadOrder - b.loadOrder);
 
+  const activeChapters = chapters.filter(chapter => chapter.active);
+
   return (
     <Layout>
       <div className='space-y-6'>
@@ -50,8 +52,8 @@ const ChaptersPage = async () => {
           Introducing Ryan Meetup chapters - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
         </Text>
 
-        <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-          {chapters?.map((chapter, index) => (
+        <div className={`grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-${activeChapters.length % 4 === 0 ? 4 : activeChapters.length % 3 === 0 ? 3 : 5}`}>
+          {activeChapters?.map((chapter, index) => (
             <ChapterTile
               key={index}
               chapter={chapter as unknown as RyanChapter}

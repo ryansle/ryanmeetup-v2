@@ -52,10 +52,16 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
         <div className='col-span-5'>
           {leaders.map((ryan, index) => (
-            <Text key={index}>
+            <Text key={index} className='-ml-1'>
               {ryan.name}
             </Text>
           ))}
+
+          {leaders.length === 0 && (
+            <Text className='-ml-1'>
+              No active lead.
+            </Text>
+          )}
         </div>
       </div>
 
