@@ -45,7 +45,7 @@ const Leaderboard = (props: LeaderboardProps) => {
       </Heading>
 
       <Text className='italic mb-10 text-center'>
-        <span className='font-semibold text-blue-500'>*</span>Ryans must attend at least four Ryan Meetups in order to qualify for the leaderboard.
+        <span className='font-semibold text-blue-700 dark:text-blue-500'>*</span>Ryans must attend at least four Ryan Meetups in order to qualify for the leaderboard.
       </Text>
 
       <div className='relative overflow-x-auto'>
@@ -116,10 +116,10 @@ const Leaderboard = (props: LeaderboardProps) => {
 
       <Text className='text-center mb-20'>
         Get in contact through our{' '}
-        <NextLink href='/contact' className='font-semibold text-blue-500 hover:cursor'>
+        <NextLink href='/contact' className='font-semibold text-blue-700 dark:text-blue-500 hover:cursor'>
           /contact
         </NextLink> page or shoot us an email at{' '}
-        <NextLink className='font-semibold text-blue-500 hover:cursor' href='mailto:ryan@ryanmeetup.com'>
+        <NextLink className='font-semibold text-blue-700 dark:text-blue-500 hover:cursor' href='mailto:ryan@ryanmeetup.com'>
           ryan@ryanmeetup.com
         </NextLink>.
       </Text>

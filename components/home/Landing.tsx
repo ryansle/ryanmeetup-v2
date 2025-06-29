@@ -30,7 +30,7 @@ const Landing = () => {
                 One day, we aim to host RyanCon, and break the world record for the{' '}
                 <NextLink
                   href='https://www.guinnessworldrecords.com/world-records/largest-same-name-gathering-first-name'
-                  className='font-medium text-blue-500 hover:underline'
+                  className='font-medium text-blue-700 dark:text-blue-500 hover:underline'
                 >
                   largest same name gathering
                 </NextLink>

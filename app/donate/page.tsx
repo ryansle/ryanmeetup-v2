@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 const DonatePage = async () => {
-  const labelStyle = 'font-bold text-xl text-blue-500 hover:underline -mt-2';
+  const labelStyle = 'font-bold text-xl text-blue-700 dark:text-blue-500 hover:underline -mt-2';
   const cardStyle = 'flex flex-col items-center justify-center col-span-4 border p-4 rounded-lg border-gray-700 timing shadow-lg hover:scale-102 lg:col-span-2 lg:hover:scale-105';
 
   return (

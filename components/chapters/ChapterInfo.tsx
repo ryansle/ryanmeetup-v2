@@ -30,7 +30,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
   } = props;
 
   return (
-    <div className='border rounded-3xl border-gray-400 p-4 dark:border-gray-700'>
+    <div className='border rounded-3xl border-gray-400 p-4 dark:border-gray-700 bg-white dark:bg-black'>
       <div className='mb-8'>
         <div className='flex items-center justify-center'>
           <NextImage 
@@ -67,7 +67,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
         </div>
 
         <div className='col-span-4'>
-          <NextLink href={instagram} className='text-lg font-bold text-blue-500'>
+          <NextLink href={instagram} className='text-lg font-bold text-blue-700 dark:text-blue-500'>
             @{filterInstagram(instagram)}
           </NextLink>
         </div>

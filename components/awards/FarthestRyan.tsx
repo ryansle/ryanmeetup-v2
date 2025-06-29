@@ -26,7 +26,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
     instagram,
   } = props.ryan;
 
-  const semibold = 'font-semibold text-blue-500';
+  const semibold = 'font-semibold text-blue-700 dark:text-blue-500';
 
   const imageUrl = convertImageUrl(headshot);
 

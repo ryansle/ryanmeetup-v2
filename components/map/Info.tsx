@@ -28,7 +28,7 @@ const Info = (props: InfoProps) => {
         Ryan Meetup Worldwide
       </Heading>
       <Text>
-        Our growing network of Ryans currently spans across <span className='font-semibold text-blue-500'>50+ countries</span> and <span className='font-semibold text-blue-500'>800+ cities</span> worldwide.
+        Our growing network of Ryans currently spans across <span className='font-semibold text-blue-700 dark:text-blue-500'>50+ countries</span> and <span className='font-semibold text-blue-700 dark:text-blue-500'>800+ cities</span> worldwide.
         <span className='inline lg:hidden'>{' '}Help us expand as we gear up for RyanCon, the soon-to-be largest same name gathering in history.</span>
       </Text>
       <Text className='hidden lg:block'>
@@ -39,7 +39,7 @@ const Info = (props: InfoProps) => {
         Don&apos;t see your city?
       </Heading>
       <Text>
-        <NextLink href='/contact' className='font-semibold underline underline-offset-2 text-blue-500 hover:cursor-pointer'>Contact Ryan</NextLink> to have your city added to the map.
+        <NextLink href='/contact' className='font-semibold underline underline-offset-2 text-blue-700 dark:text-blue-500 hover:cursor-pointer'>Contact Ryan</NextLink> to have your city added to the map.
       </Text>
     </section>
   )

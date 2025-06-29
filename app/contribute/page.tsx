@@ -69,7 +69,7 @@ const ContributePage = async () => {
         </Text>
 
         <Text>
-          If you believe you have a relevant skill that can help to further expand the Ryan Meetup, please reach out to us on our <NextLink className='text-blue-500 underline font-semibold' href='/contact'>/contact</NextLink> page. Our small team of Ryans is currently composed of:
+          If you believe you have a relevant skill that can help to further expand the Ryan Meetup, please reach out to us on our <NextLink className='text-blue-700 dark:text-blue-500 underline font-semibold' href='/contact'>/contact</NextLink> page. Our small team of Ryans is currently composed of:
         </Text>
 
         <List

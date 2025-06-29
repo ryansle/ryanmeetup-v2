@@ -45,7 +45,7 @@ const Article = (props: ArticleProps) => {
     thumbnail,
   } = props.article;
 
-  const highlight = 'font-semibold text-blue-500';
+  const highlight = 'font-semibold text-blue-700 dark:text-blue-500';
 
   const imageUrl = convertImageUrl(thumbnail);
 
