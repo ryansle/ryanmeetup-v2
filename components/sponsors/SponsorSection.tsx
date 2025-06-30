@@ -17,7 +17,7 @@ const SponsorSection = (props: SponsorSectionProps) => {
 
   return (
     <section className='space-y-8'>
-      <Heading className='text-center'>
+      <Heading className='text-center text-4xl' size='h1'>
         {tier} Sponsors
       </Heading>
 
@@ -27,7 +27,7 @@ const SponsorSection = (props: SponsorSectionProps) => {
         {tier === 'Bronze' && 'Bronze tier sponsors have helped bring a Ryan Meetup to life through their one-time support — whether by donating funds, providing resources, or simply believing in the mission. Every meetup needs a spark, and they helped light the flame.'}
       </Text>
 
-      <div className={`grid grid-cols-2 gap-x-4 xl:grid-cols-${sponsors.length < 4 ? sponsors.length : '4'} content-center gap-8`}>
+      <div className='grid grid-cols-2 gap-x-4 lg:grid-cols-3 content-center gap-8'>
         {sponsors.map((sponsor) => (
           <Sponsor 
             key={sponsor.name as string}

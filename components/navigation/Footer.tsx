@@ -12,7 +12,13 @@ const Footer = () => {
         <div className='md:flex md:justify-between'>
           <div className='mb-6 md:mb-0'>
             <NextLink href='/'>
-              <Heading ignoreColorMode>RYAN MEETUP</Heading>
+              <Heading 
+                className='text-4xl'
+                size='h1'
+                ignoreColorMode
+              >
+                RYAN MEETUP
+              </Heading>
             </NextLink>
 
             <h2 className='mt-[2px] uppercase font-cooper text-lg'>No Bryans Allowed</h2>

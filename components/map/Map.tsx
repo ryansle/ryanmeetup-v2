@@ -159,7 +159,7 @@ const Mapbox = (props: MapboxProps) => {
                 />
               )}
 
-              <Heading size='xs' ignoreColorMode>
+              <Heading className='text-lg' size='h3' ignoreColorMode>
                 {isBusiness ? selectedLocation.locationName : selectedLocation.eventName ?? selectedLocation.city}
               </Heading>
               <Text className='text-gray-700 text-sm'>

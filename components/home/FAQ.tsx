@@ -24,7 +24,7 @@ const FAQ = (props: FAQProps) => {
 
   return (
     <div>
-      {showTitle && <Heading className='mb-6'>Frequently Asked Questions</Heading>}
+      {showTitle && <Heading className='mb-6 text-4xl'>Frequently Asked Questions</Heading>}
 
       <div>
         {data?.map((pair, index) => toggleable ? (

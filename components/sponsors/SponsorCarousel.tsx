@@ -34,7 +34,7 @@ const SponsorCarousel = (props: SponsorCarousel) => {
                 sizes='(max-width: 768px) 100px, 300px'
               />
             </NextLink>
-            <Heading size='xs' className='text-center max-w-32 lg:max-w-none'>
+            <Heading className='text-center max-w-32 text-lg lg:max-w-none' size='h4'>
               {sponsor.name}
             </Heading>
           </div>

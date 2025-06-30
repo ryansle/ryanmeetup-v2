@@ -12,7 +12,7 @@ type BreadcrumbProps = {
     title: string;
   }[];
   className?: string;
-}
+};
 
 const Breadcrumbs = (props: BreadcrumbProps) => {
   const { crumbs, className } = props;
@@ -20,7 +20,7 @@ const Breadcrumbs = (props: BreadcrumbProps) => {
   return (
     <div className={`flex space-x-4 mb-2 ${className}`}>
       {crumbs.map((anchor, index) => (
-        <div className='flex space-x-4 mb-2' key={anchor.title}>
+        <div className='flex space-x-4 mb-2 text-lg' key={anchor.title}>
           <NextLink href={anchor.href} className='flex items-center timing hover:scale-102'>
             {anchor.icon} 
             <Text className={index === crumbs.length - 1 ? 'text-black dark:text-white' : 'text-gray-600 dark:text-gray-400'}>

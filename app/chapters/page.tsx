@@ -44,11 +44,11 @@ const ChaptersPage = async () => {
   return (
     <Layout>
       <div className='space-y-6'>
-        <Heading className='text-center' size='xl'>
+        <Heading className='text-center text-5xl' size='h1'>
           Ryan Meetup Chapters
         </Heading>
 
-        <Text className='text-center xl:mx-40'>
+        <Text className='text-lg text-center xl:mx-40'>
           Introducing Ryan Meetup chapters - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
         </Text>
 

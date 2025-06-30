@@ -39,19 +39,19 @@ const DonatePage = async () => {
         fullHeadline='Donate to the Ryan Meetup'
         smallHeadline='Donate'
       >
-        <Text className='px-0 lg:px-32'>
+        <Text className='text-lg px-0 lg:px-32'>
           All donations go towards setting up future Ryan Meetup events (ie: renting out spaces, buying name tags, trophies, decorations, etc, as well as tightening up security against potential Bryan intruders at our events).
         </Text>
 
         <br />
 
-        <Text className='px-0 lg:px-32'>
+        <Text className='text-lg px-0 lg:px-32'>
           Currently, our non-profit is sustained entirely by ticket and merchandise sales as well as donations.
         </Text>
 
         <br />
 
-        <Text>
+        <Text className='text-lg'>
           There are two ways to donate to the Ryan Meetup:
         </Text>
       </Blurb>

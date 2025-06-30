@@ -52,14 +52,16 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const instagram = content.instagram;
   const avatar = content.avatar;
 
+  const iconStyle = 'mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white'
+
   const breadcrumbs = [
     { 
-      icon: <Group className='mr-2 fill-black dark:fill-white' />,
+      icon: <Group className={iconStyle} />,
       href: '/chapters',  
       title: 'Chapters',
     },
     { 
-      icon: <City className='mr-2 fill-black dark:fill-white' />,
+      icon: <City className={iconStyle} />,
       href: `/chapters/${params.slug}`,
       title: city as string,
     },
@@ -87,13 +89,13 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
           <Breadcrumbs className='hidden sm:flex' crumbs={breadcrumbs} />
 
           <div className='hidden xl:block'>
-            <Heading className='mb-8' size='xl'>
+            <Heading className='mb-8 text-5xl' size='h1'>
               Ryan Meetup {city as string}
             </Heading>
           </div>
 
           <div className='block xl:hidden'>
-            <Heading className='mb-8' size='lg'>
+            <Heading className='mb-8 text-4xl' size='h2'>
               {city as string} Events
             </Heading>
           </div>

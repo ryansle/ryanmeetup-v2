@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 type HeadingProps = {
-  size?: 'xs' | 'sm' | 'md' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | 'display';
+  size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   variant?: 'ryan' | 'normal';
   className?: string;
   children: ReactNode;
@@ -41,26 +41,20 @@ const Heading = (props: HeadingProps) => {
 
   const renderHeading = () => {
     switch (size) {
-      case '3xl':
-        return <h1 className={`${styles} text-9xl`}>{children}</h1>;
-      case '2xl':
-        return <h1 className={`${styles} text-7xl`}>{children}</h1>;
-      case 'xl':
-        return <h1 className={`${styles} text-5xl`}>{children}</h1>;
-      case 'lg':
-        return <h2 className={`${styles} text-4xl`}>{children}</h2>;
-      case 'md':
-        return <h2 className={`${styles} text-3xl`}>{children}</h2>;
-      case 'base': 
-        return <h2 className={`${styles} text-2xl`}>{children}</h2>
-      case 'sm':
-        return <h3 className={`${styles} text-xl`}>{children}</h3>;
-      case 'xs':
-        return <h4 className={`${styles} text-lg`}>{children}</h4>;
-      case 'display':
-        return <h1 className={`${styles} text-display3`}>{children}</h1>;
+      case 'h1':
+        return <h1 className={styles}>{children}</h1>
+      case 'h2':
+        return <h2 className={styles}>{children}</h2>
+      case 'h3':
+        return <h3 className={styles}>{children}</h3>
+      case 'h4':
+        return <h4 className={styles}>{children}</h4>
+      case 'h5':
+        return <h5 className={styles}>{children}</h5>
+      case 'h6':
+        return <h6 className={styles}>{children}</h6>
       default:
-        return <h4 className={`${styles} text-xl`}>{children}</h4>;
+        return <h1 className={styles}>{children}</h1>
     }
   };
 

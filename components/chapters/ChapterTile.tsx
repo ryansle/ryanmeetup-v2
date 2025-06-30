@@ -11,13 +11,11 @@ type ChapterTileProps = {
   chapter: RyanChapter;
 };
 
-// TODO: nav to a chapter page instead of directly to WhatsApp
 const ChapterTile = (props: ChapterTileProps) => {
-  const { city, slug, state, coverImage, whatsAppLink } = props.chapter;
+  const { city, slug, state, coverImage } = props.chapter;
 
   return (
     <NextLink href={`/chapters/${slug}`}>
-    {/* <NextLink href={whatsAppLink}> */}
       <div className='border flex flex-col items-center justify-center shadow-xl border-gray-700 rounded-xl h-72 timing hover:border-white hover:scale-102'>
         <div className='relative w-full flex items-center justify-center rounded-xl h-80 overflow-hidden bg-center'>
           <div className='w-full h-full brightness-30'>
@@ -29,12 +27,24 @@ const ChapterTile = (props: ChapterTileProps) => {
             />
           </div>
           <div className='absolute w-full inset-x-0 text-white text-xs text-center leading-4 flex items-center justify-center flex-col px-8'>
-            <Heading ignoreColorMode size='md'>{city}</Heading>
-            <Heading size='sm' ignoreColorMode>{state}</Heading>
+            <Heading 
+              className='text-3xl' 
+              size='h2' 
+              ignoreColorMode
+            >
+              {city}
+            </Heading>
+            <Heading 
+              className='text-xl' 
+              ignoreColorMode
+              size='h3'
+            >
+              {state}
+            </Heading>
           </div>
         </div>
       </div>
-    </NextLink >
+    </NextLink>
   );
 };
 

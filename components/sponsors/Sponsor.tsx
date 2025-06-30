@@ -35,17 +35,9 @@ const Sponsor = (props: SponsorProps) => {
         className='rounded-xl'
       />
 
-      <div className='hidden lg:block'>
-        <Heading size='md' className='mt-4 text-center'>
-          {name}
-        </Heading>
-      </div>
-
-      <div className='block lg:hidden'>
-        <Heading size='sm' className='mt-4 text-center'>
-          {name}
-        </Heading>
-      </div>
+      <Heading className='mt-4 text-center text-xl lg:text-3xl' size='h4'>
+        {name}
+      </Heading>
     </NextLink>
   );
 };

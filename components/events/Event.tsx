@@ -54,7 +54,9 @@ const Event = (props: EventProps) => {
           <div className='flex items-center justify-between mb-3'>
             <div>
               <Text className='text-sm'>{dateTime}</Text>
-              <Heading size='sm'>{title}</Heading>
+              <Heading className='text-xl' size='h3'>
+                {title}
+              </Heading>
             </div>
             {href.includes('meetup') && (
               <div>

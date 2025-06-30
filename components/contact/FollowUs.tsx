@@ -70,7 +70,7 @@ const FollowUs = () => {
           >
             {renderIcon(outlet.text)}
 
-            <Text className='text-black dark:text-white'>
+            <Text className='text-lg text-black dark:text-white'>
               {renderWord(outlet.text)} us on {outlet.text}
             </Text>
           </NextLink>
@@ -85,7 +85,7 @@ const FollowUs = () => {
       >
         <Email className='h-8 w-8' />
 
-        <Text className='text-black dark:text-white'>
+        <Text className='text-lg text-black dark:text-white'>
           ryan@ryanmeetup.com
         </Text>
       </NextLink>

@@ -6,11 +6,11 @@ import { Heading, Text, Button } from '@/components/global';
 const PageNotFound = () => {
   return (
     <div className='flex items-center justify-center flex-col space-y-5'>
-      <Heading size='3xl'>
+      <Heading className='text-9xl' size='h1'>
         404
       </Heading>
 
-      <Heading size='xl' className='text-center'>
+      <Heading className='text-center text-5xl' size='h2'>
         Ryan Not Found
       </Heading>
 

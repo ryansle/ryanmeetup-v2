@@ -40,7 +40,7 @@ const GalleryPage = async () => {
 
   return (
     <Layout>
-      <Heading className='mb-6'>Ryan Media</Heading>
+      <Heading className='mb-6 text-4xl' size='h1'>Ryan Media</Heading>
 
       <Text className='text-xl mb-4'>
         Our gallery of Ryan media from previous events.

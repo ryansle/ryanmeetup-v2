@@ -30,8 +30,20 @@ const MediaTile = (props: MediaTileProps) => {
             />
           </div>
           <div className='absolute w-full inset-x-0 text-white text-xs text-center leading-4 flex items-center justify-center flex-col px-8'>
-            <Heading ignoreColorMode>{title}</Heading>
-            <Heading size='sm' ignoreColorMode>{eventDate}</Heading>
+            <Heading 
+              className='text-4xl'
+              ignoreColorMode
+              size='h2'
+            >
+              {title}
+            </Heading>
+            <Heading 
+              className='text-xl' 
+              size='h3'
+              ignoreColorMode
+            >
+              {eventDate}
+            </Heading>
           </div>
           {credits && (
             <Text 

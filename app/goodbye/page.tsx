@@ -27,21 +27,12 @@ export const metadata: Metadata = {
 const GoodbyePage = () => {
   return (
     <div className='text-center flex flex-col justify-center items-center h-screen space-y-8 bg-white dark:bg-black'>
-      <div className='block space-y-20 md:hidden'>
-        <Heading size='xl'>
+      <div className='block space-y-20'>
+        <Heading className='text-5xl md:text-9xl' size='h1'>
           Goodbye, Bryan.
         </Heading>
 
-        <Heading>
-          There are no Bryans allowed at the Ryan Meetup.
-        </Heading>
-      </div>
-      <div className='hidden space-y-20 md:block'>
-        <Heading size='3xl'>
-          Goodbye, Bryan.
-        </Heading>
-
-        <Heading>
+        <Heading className='text-4xl' size='h2'>
           There are no Bryans allowed at the Ryan Meetup.
         </Heading>
       </div>

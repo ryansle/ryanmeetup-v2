@@ -58,7 +58,7 @@ const Legend = (props: LegendProps) => {
 
   return (
     <div className='absolute bottom-2 right-2 bg-white p-3 rounded-md shadow-md text-black w-48 font-semibold lg:bottom-8 lg:right-8'>
-      <Heading size='xs' className='font-semibold mb-2' ignoreColorMode>
+      <Heading className='font-semibold mb-2 text-lg' ignoreColorMode size='h3'>
         Legend
       </Heading>
       <div className='space-y-1'>

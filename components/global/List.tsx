@@ -16,23 +16,21 @@ type ListProps = {
   }[];
   className?: string;
   icon: ReactNode;
-  fontSize?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
 };
 
 type ListItemProps = {
   main: string;
   sub?: string;
   icon: ReactNode;
-  fontSize?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
 };
 
 const ListItem = (props: ListItemProps) => {
-  const { main, sub, icon, fontSize } = props;
+  const { main, sub, icon } = props;
 
   return (
     <li className='flex'>
       {icon}
-      <Text size={fontSize}>
+      <Text className='text-lg'>
         {main} {sub}
       </Text>
     </li>
@@ -40,7 +38,7 @@ const ListItem = (props: ListItemProps) => {
 };
 
 const List = (props: ListProps) => {
-  const { content, className, icon, fontSize } = props;
+  const { content, className, icon } = props;
 
   return (
     <ul className={`${className} space-y-2`}>
@@ -50,7 +48,6 @@ const List = (props: ListProps) => {
           main={item.main}
           sub={item.sub}
           icon={icon}
-          fontSize={fontSize}
         />
       ))}
     </ul>

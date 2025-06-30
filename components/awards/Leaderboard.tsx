@@ -25,7 +25,7 @@ const TableHeader = () => (
       <th scope='col' className='w-32'>
         # Attended
       </th>
-      <th scope='col' className='hidden md:block'>
+      <th scope='col' className='hidden xl:block'>
         Events Attended
       </th>
     </tr>
@@ -40,11 +40,11 @@ const Leaderboard = (props: LeaderboardProps) => {
   
   return (
     <div>
-      <Heading className='mb-6 text-center'>
+      <Heading className='mb-6 text-center text-4xl'>
         Attendance Leaderboard
       </Heading>
 
-      <Text className='italic mb-10 text-center'>
+      <Text className='italic mb-10 text-center text-lg'>
         <span className='font-semibold text-blue-700 dark:text-blue-500'>*</span>Ryans must attend at least four Ryan Meetups in order to qualify for the leaderboard.
       </Text>
 
@@ -66,35 +66,21 @@ const Leaderboard = (props: LeaderboardProps) => {
                   </div>
                 </td>
                 <td>
-                  <div className='hidden md:block'>
-                    <Text>
-                      {ryan.fullName}
-                    </Text>
-                  </div>
-                  <div className='block md:hidden'>
-                    <Text className='text-xs'>
-                      {ryan.fullName}
-                    </Text>
-                  </div>
+                  <Text className='text-xs md:text-sm lg:text-base xl:text-lg'>
+                    {ryan.fullName}
+                  </Text>
                 </td>
                 <td>
-                  <div className='hidden md:block'>
-                    <Text>
-                      {ryan.basedIn}
-                    </Text>
-                  </div>
-                  <div className='block md:hidden'>
-                    <Text className='text-xs'>
-                      {ryan.basedIn}
-                    </Text>
-                  </div>
+                  <Text className='text-xs md:text-sm lg:text-base xl:text-lg'>
+                    {ryan.basedIn}
+                  </Text>
                 </td>
                 <td>
                   <p className='text-4xl text-center pr-2 md:pr-8 text-gray-700 dark:text-white'>
                     {ryan.eventsAttended.length}
                   </p>
                 </td>
-                <td className='p-2 hidden md:block'>
+                <td className='p-2 hidden xl:block'>
                   <div className='flex gap-x-1 flex-wrap items-center'>
                     {ryan.eventsAttended.map((event, index) => (
                       <EventTag
@@ -110,11 +96,11 @@ const Leaderboard = (props: LeaderboardProps) => {
         </table>
       </div>
 
-      <Heading className='mb-4 mx-16 lg:mx-0 text-center mt-10'>
+      <Heading className='mb-4 mx-16 lg:mx-0 text-center text-4xl mt-10'>
         Not seeing your name?
       </Heading>
 
-      <Text className='text-center mb-20'>
+      <Text className='text-center mb-20 text-lg'>
         Get in contact through our{' '}
         <NextLink href='/contact' className='font-semibold text-blue-700 dark:text-blue-500 hover:cursor'>
           /contact

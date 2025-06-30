@@ -38,12 +38,7 @@ const PressPage = async () => {
   return (
     <Layout fullscreen>
       <div className='pt-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
-        <div className='hidden md:block'>
-          <Heading className='mb-4 text-center' size='2xl'>RYAN MEETUP</Heading>
-        </div>
-        <div className='block md:hidden'>
-          <Heading className='mb-4 text-center' size='lg'>RYAN MEETUP</Heading>
-        </div>
+        <Heading className='mb-4 text-center text-4xl md:text-7xl' size='h1'>RYAN MEETUP</Heading>
 
         <Text className='text-center italic text-xl'>
           has been proudly featured in:

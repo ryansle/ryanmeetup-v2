@@ -19,7 +19,12 @@ const Header = () => {
         href='/'
         className='text-black dark:text-white timing hover:scale-105'
       >
-        <Heading>RYAN</Heading>
+        <Heading
+          className='text-4xl'
+          size='h1'
+        >
+          RYAN
+        </Heading>
       </NextLink>
 
       <div className='hidden 2xl:flex space-x-4 overflow-y-scroll'>

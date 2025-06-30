@@ -67,23 +67,17 @@ const Article = (props: ArticleProps) => {
 
           <div className='col-span-5 mt-2 xl:col-span-3 xl:ml-8 xl:mt-0'>
             <div className='flex items-center space-x-4'>
-              <Text>
+              <Text className='text-lg'>
                 {publishedOn}
               </Text>
               {isNew && <span className='text-green-500 border border-green-500 text-sm font-medium px-2 rounded bg-green-900 text-white'>NEW</span>}
             </div>
 
-            <Heading size='lg' className='hidden md:block'>
-              {title}
-            </Heading>
-            <Heading size='md' className='block md:hidden'>
+            <Heading className='text-3xl md:text-4xl' size='h2'>
               {title}
             </Heading>
 
-            <Text className='text-base mt-4 block md:hidden'>
-              by <span className={highlight}>{author}</span> at <span className={highlight}>{outlet}</span>
-            </Text>
-            <Text className='text-xl mt-4 hidden md:block'>
+            <Text className='text-base mt-4 md:text-xl'>
               by <span className={highlight}>{author}</span> at <span className={highlight}>{outlet}</span>
             </Text>
           </div>
