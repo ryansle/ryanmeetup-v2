@@ -49,10 +49,10 @@ const FarthestRyan = (props: FarthestRyanProps) => {
           </NextLink>
         )}
       </div>
-      <Text size='sm'>
+      <Text className='text-base'>
         Traveled {milesTraveled} miles from
       </Text>
-      <Text size='sm'>
+      <Text className='text-base'>
         <span className={semibold}>
           {traveledFrom}
         </span>
@@ -61,7 +61,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
           {traveledTo}
         </span>
       </Text>
-      <Text size='sm'>
+      <Text className='text-base'>
         for <span className='font-cooper text-black dark:text-white'>{event}</span> on {eventDate}
       </Text>
     </div>

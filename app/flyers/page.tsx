@@ -60,7 +60,7 @@ const FlyersPage = async () => {
         fullHeadline='Ryan Meetup Flyers'
         smallHeadline='Ryan Meetup Flyers'
       >
-        <Text size='lg' className='mx-0 sm:mx-24 lg:mx-0'>
+        <Text className='text-xl mx-0 sm:mx-24 lg:mx-0'>
           Interested in hanging up Ryan Meetup flyers in your city? Download our flyers here!
         </Text>
       </Blurb>

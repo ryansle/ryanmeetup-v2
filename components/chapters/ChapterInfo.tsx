@@ -45,20 +45,20 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
       <div className='grid grid-cols-9 gap-4'>
         <div className='col-span-4'>
-          <Text className='font-bold dark:text-white text-black'>
+          <Text className='font-bold text-black text-base lg:text-lg dark:text-white'>
             Chapter Lead{leaders.length > 1 && 's'}:
           </Text>
         </div>
 
         <div className='col-span-5'>
           {leaders.map((ryan, index) => (
-            <Text key={index} className='-ml-1'>
+            <Text key={index} className='-ml-1 text-base lg:text-lg'>
               {ryan.name}
             </Text>
           ))}
 
           {leaders.length === 0 && (
-            <Text className='-ml-1'>
+            <Text className='-ml-1 text-base lg:text-lg'>
               No active lead.
             </Text>
           )}
@@ -67,13 +67,13 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
       <div className='grid grid-cols-7 gap-4'>
         <div className='col-span-3'>
-          <Text className='font-bold dark:text-white text-black'>
+          <Text className='font-bold text-base text-black lg:text-lg dark:text-white'>
             Instagram:
           </Text>
         </div>
 
         <div className='col-span-4'>
-          <NextLink href={instagram} className='text-lg font-bold text-blue-700 dark:text-blue-500'>
+          <NextLink href={instagram} className='text-base lg:text-lg font-bold text-blue-700 dark:text-blue-500'>
             @{filterInstagram(instagram)}
           </NextLink>
         </div>
@@ -84,7 +84,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
           Need to get in contact?
         </Heading>
 
-        <Text>
+        <Text className='text-base lg:text-lg'>
           Our Instagram inbox is open for all inquiries.
         </Text>
       </div>

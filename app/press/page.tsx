@@ -45,7 +45,7 @@ const PressPage = async () => {
           <Heading className='mb-4 text-center' size='lg'>RYAN MEETUP</Heading>
         </div>
 
-        <Text size='lg' className='text-center italic'>
+        <Text className='text-center italic text-xl'>
           has been proudly featured in:
         </Text>
       </div>

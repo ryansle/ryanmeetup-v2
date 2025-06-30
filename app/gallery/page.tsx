@@ -42,15 +42,15 @@ const GalleryPage = async () => {
     <Layout>
       <Heading className='mb-6'>Ryan Media</Heading>
 
-      <Text size='lg' className='mb-4'>
+      <Text className='text-xl mb-4'>
         Our gallery of Ryan media from previous events.
       </Text>
 
       <Note>
-        <Text size='md' className='flex items-center'>
+        <Text className='flex items-center text-lg'>
           <Question className='mr-4 fill-yellow-500' /> <span className='text-black dark:text-white'>Who is photographing all of these Ryan Meetups?</span>
         </Text>
-        <Text size='xs'>
+        <Text className='text-sm'>
           Ryan Rose is the official photographer for the Ryan Meetup. You can book a gig with her{' '}
           <NextLink className='font-semibold text-blue-700 dark:text-blue-500 underline' href='mailto:justryanrose@gmail.com'>here</NextLink>.
         </Text>

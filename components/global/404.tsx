@@ -14,7 +14,7 @@ const PageNotFound = () => {
         Ryan Not Found
       </Heading>
 
-      <Text size='lg' className='text-center'>
+      <Text className='text-center text-xl'>
         Maybe you meant to access one of our other pages?
       </Text>
 

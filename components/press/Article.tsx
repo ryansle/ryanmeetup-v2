@@ -80,10 +80,10 @@ const Article = (props: ArticleProps) => {
               {title}
             </Heading>
 
-            <Text className='mt-4 block md:hidden' size='sm'>
+            <Text className='text-base mt-4 block md:hidden'>
               by <span className={highlight}>{author}</span> at <span className={highlight}>{outlet}</span>
             </Text>
-            <Text className='mt-4 hidden md:block' size='lg'>
+            <Text className='text-xl mt-4 hidden md:block'>
               by <span className={highlight}>{author}</span> at <span className={highlight}>{outlet}</span>
             </Text>
           </div>

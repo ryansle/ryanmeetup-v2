@@ -125,7 +125,7 @@ const ContactForm = () => {
           })}
         />
         {errors.email && (
-          <Text className='mt-2 text-red-500' size='xs'>
+          <Text className='mt-2 text-red-500 text-sm'>
             {errors.email.message as ReactNode}
           </Text>
         )}

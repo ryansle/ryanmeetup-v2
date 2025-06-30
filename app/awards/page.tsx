@@ -75,7 +75,7 @@ const AwardsPage = async () => {
         fullHeadline='Hall of Ryans'
         smallHeadline='Hall of Ryans'
       >
-        <Text size='lg'>
+        <Text className='text-xl'>
           Honoring Ryan Meetup award winning Ryans and more.
         </Text>
       </Blurb>
@@ -117,7 +117,7 @@ const AwardsPage = async () => {
 
       <div>
         <Heading className='mb-6 text-center'>Ryan Meetup Champions</Heading>
-        <Text size='lg' className='mb-10 text-center'>
+        <Text className='mb-10 text-center text-xl'>
           Ryans that overcame great obstacles to take home the championship titles.
         </Text>
 

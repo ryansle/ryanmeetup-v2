@@ -39,12 +39,12 @@ const EventsPage = async () => {
     <Layout>
       <Blurb 
         fullHeadline='Join the Ryan Meetup'
-        smallHeadline='Ryan Meetups'
+        smallHeadline='Our Events'
         href='/newsletter'
         icon={<News />}
         hrefText='Get notified of future events'
       >
-        <Text size='lg' className='mb-6 xl:mx-32'>
+        <Text className='text-xl mb-6 xl:mx-32'>
           <span className='hidden md:inline-block'>
             It&apos;s never too late to join the Ryan Meetup.
           </span>

@@ -53,7 +53,7 @@ const Event = (props: EventProps) => {
         <div className='px-5 pt-3 pb-3 space-y-2'>
           <div className='flex items-center justify-between mb-3'>
             <div>
-              <Text size='xs'>{dateTime}</Text>
+              <Text className='text-sm'>{dateTime}</Text>
               <Heading size='sm'>{title}</Heading>
             </div>
             {href.includes('meetup') && (
@@ -71,17 +71,17 @@ const Event = (props: EventProps) => {
               />
             )}
           </div>
-          <Text className='min-h-[85px]' size='xs'>{description}</Text>
+          <Text className='min-h-[85px] text-sm'>{description}</Text>
 
           <div className='grid grid-cols-2 text-gray-400'>
             <div className='col-span-1 flex items-center space-x-2'>
               <City />
-              <Text size='xs'>{city}</Text>
+              <Text className='text-sm'>{city}</Text>
             </div>
 
             <div className='col-span-1 flex items-center space-x-2'>
               <Pin />
-              <Text size='xs'>{venue}</Text>
+              <Text className='text-sm'>{venue}</Text>
             </div>
           </div>
         </div>

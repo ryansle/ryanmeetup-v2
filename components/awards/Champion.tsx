@@ -62,7 +62,7 @@ const Champion = (props: ChampionProps) => {
       <Heading size='sm' className='mb-1'>
         {title}
       </Heading>
-      <Text size='sm'>
+      <Text className='text-base'>
         {location} {location2 && `, & ${location2} `}• {eventDate}
       </Text>
     </div>
