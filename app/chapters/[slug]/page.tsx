@@ -95,7 +95,7 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
           </div>
 
           <div className='block xl:hidden'>
-            <Heading className='mb-8 text-4xl' size='h2'>
+            <Heading className='mt-4 mb-8 text-3xl text-center lg:text-left lg:text-4xl' size='h2'>
               {city as string} Events
             </Heading>
           </div>
@@ -104,6 +104,8 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
             <EventsContainer
               events={events as unknown as RyanEvent[]}
               eventType={convertSlug(params.slug)}
+              // hidePastEvents
+              showUpcomingSection
             />
           </div>
         </div>
