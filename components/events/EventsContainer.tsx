@@ -34,8 +34,7 @@ const EventsContainer = (props: EventsContainerProps) => {
 
   return (
     <div className='mb-10'>
-
-      {showUpcomingSection && activeEvents.length === 0 && (
+      {showUpcomingSection && activeEvents.length === 0 && inactiveEvents.length !== 0 && (
         <div className='mb-8'>
           <Heading className='mb-4 text-center text-2xl lg:text-4xl lg:text-left' size='h2'>
             Upcoming Events
@@ -74,10 +73,10 @@ const EventsContainer = (props: EventsContainerProps) => {
 
       {(inactiveEvents.length === 0 && activeEvents.length === 0) && (
         <div className='space-y-4'>
-          <Text>
+          <Text className='text-lg'>
             There have not been any local Ryan Meetups in {eventType} yet.
           </Text>
-          <Text>
+          <Text className='text-lg'>
             Talk to Ryan about scheduling one today!
           </Text>
         </div>
