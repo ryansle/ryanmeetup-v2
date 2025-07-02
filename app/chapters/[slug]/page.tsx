@@ -94,13 +94,7 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
             </Heading>
           </div>
 
-          <div className='block xl:hidden'>
-            <Heading className='mt-4 mb-8 text-3xl text-center lg:text-left lg:text-4xl' size='h2'>
-              {city as string} Events
-            </Heading>
-          </div>
-
-          <div className='space-y-4'>
+          <div className='space-y-4 mt-4'>
             <EventsContainer
               events={events as unknown as RyanEvent[]}
               eventType={convertSlug(params.slug)}

@@ -70,7 +70,7 @@ const EventsSection = (props: EventsSectionProps) => {
           {({ open }) => (
             <>
               <DisclosureButton className='gap-x-4 mb-2 w-full flex items-center hover:underline hover:scale-102 timing'>
-                <Heading className='mb-4 text-center text-2xl lg:text-4xl lg:text-left' size='h2'>
+                <Heading className='mb-4 text-center text-3xl lg:text-4xl lg:text-left' size='h2'>
                   {title}
                 </Heading>
 
@@ -101,7 +101,7 @@ const EventsSection = (props: EventsSectionProps) => {
         </Disclosure>
       ) : (
         <div>
-          <Heading className='mb-4 text-center text-2xl lg:text-4xl lg:text-left' size='h2'>
+          <Heading className='mb-4 text-center text-3xl lg:text-4xl lg:text-left' size='h2'>
             {title}
           </Heading>
 

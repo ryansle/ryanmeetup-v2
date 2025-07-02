@@ -3,6 +3,7 @@
 // Components
 import { Text, Divider, Heading } from '@/components/global';
 import { EventsSection } from '@/components/events';
+import NextLink from 'next/link';
 
 // Types
 import type { RyanEvent } from '@/lib/types';
@@ -36,7 +37,7 @@ const EventsContainer = (props: EventsContainerProps) => {
     <div className='mb-10'>
       {showUpcomingSection && activeEvents.length === 0 && inactiveEvents.length !== 0 && (
         <div className='mb-8'>
-          <Heading className='mb-4 text-center text-2xl lg:text-4xl lg:text-left' size='h2'>
+          <Heading className='mb-4 text-center text-3xl lg:text-4xl lg:text-left' size='h2'>
             Upcoming Events
           </Heading>
 
@@ -73,11 +74,11 @@ const EventsContainer = (props: EventsContainerProps) => {
 
       {(inactiveEvents.length === 0 && activeEvents.length === 0) && (
         <div className='space-y-4'>
-          <Text className='text-lg'>
+          <Text className='text-center text-lg lg:text-left'>
             There have not been any local Ryan Meetups in {eventType} yet.
           </Text>
-          <Text className='text-lg'>
-            Talk to Ryan about scheduling one today!
+          <Text className='text-center text-lg lg:text-left'>
+            Reach out to Ryan via Instagram or at <NextLink className='font-semibold text-blue-700 dark:text-blue-500 hover:cursor' href='mailto:ryan@ryanmeetup.com'>ryan@ryanmeetup.com</NextLink>{' '}about scheduling one today!
           </Text>
         </div>
       )}

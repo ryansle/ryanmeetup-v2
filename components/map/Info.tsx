@@ -40,7 +40,7 @@ const Info = (props: InfoProps) => {
       <Heading className='mt-8 mb-6 text-3xl' size='h2'>
         Don&apos;t see your city?
       </Heading>
-      <Text>
+      <Text className='text-lg'>
         <NextLink href='/contact' className='font-semibold underline underline-offset-2 text-blue-700 dark:text-blue-500 hover:cursor-pointer'>Contact Ryan</NextLink> to have your city added to the map.
       </Text>
     </section>

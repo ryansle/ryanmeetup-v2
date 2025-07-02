@@ -4,6 +4,7 @@ import { Heading, Text, Note } from '@/components/global';
 import { MediaTile } from '@/components/gallery';
 import { FaQuestionCircle as Question } from 'react-icons/fa';
 import NextLink from 'next/link';
+import { Blurb } from '@/components/events';
 
 // Types
 import type { MediaEvent } from '@/lib/types';
@@ -40,15 +41,16 @@ const GalleryPage = async () => {
 
   return (
     <Layout>
-      <Heading className='mb-6 text-4xl' size='h1'>Ryan Media</Heading>
+      <Heading className='mb-6 text-5xl text-center lg:text-left' size='h1'>Ryan Media</Heading>
 
-      <Text className='text-xl mb-4'>
+      <Text className='text-xl mb-4 text-center lg:text-left'>
         Our gallery of Ryan media from previous events.
       </Text>
 
       <Note>
         <Text className='flex items-center text-lg'>
-          <Question className='mr-4 fill-yellow-500' /> <span className='text-black dark:text-white'>Who is photographing all of these Ryan Meetups?</span>
+          <Question className='mr-4 fill-yellow-500 w-6 h-6 mb-2 lg:mb-0 lg:w-4 lg:w-4' /> 
+          <span className='text-black dark:text-white text-base'>Who is photographing all of these Ryan Meetups?</span>
         </Text>
         <Text className='text-sm'>
           Ryan Rose is the official photographer for the Ryan Meetup. You can book a gig with her{' '}
