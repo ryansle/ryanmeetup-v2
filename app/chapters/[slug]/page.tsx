@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       siteName: 'Ryan Meetup',
       images: [
         {
-          url: 'https://ryanmeetup.com/meta/events.png',
+          url: `https://ryanmeetup.com/chapters/${params.slug}.png`,
           width: 3360,
           height: 1854,
         }
