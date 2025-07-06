@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 // Components
-import { Header, Footer } from '@/components/navigation';
+import { Header, NewFooter } from '@/components/navigation';
 import { useTheme } from 'next-themes';
 
 // Types
@@ -38,7 +38,7 @@ const Layout = (props: LayoutProps) => {
       >
         {children}
       </section>
-      <Footer />
+      <NewFooter />
     </main>
   );
 };
