@@ -75,3 +75,5 @@ const ChaptersPage = async () => {
 };
 
 export default ChaptersPage;
+
+export const revalidate = 60;

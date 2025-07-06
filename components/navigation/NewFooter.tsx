@@ -1,7 +1,6 @@
 // Components
 import NextLink from 'next/link';
-import { Heading, Divider, Button } from '@/components/global';
-import { FaRegNewspaper as News } from 'react-icons/fa';
+import { Heading, Divider } from '@/components/global';
 
 // Utilities
 import { socials } from '@/lib/constants';
