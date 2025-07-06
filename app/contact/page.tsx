@@ -42,7 +42,7 @@ const ContactPage = async () => {
 
       <Divider margins='lg' />
 
-      <div className='grid grid-cols-2 gap-4 xl:gap-20'>
+      <div className='grid grid-cols-2 gap-8 xl:gap-20'>
         <ContactForm />
         <FollowUs />
       </div>
