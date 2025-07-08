@@ -1,13 +1,14 @@
 // Components
-import { Heading } from '@/components/global';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
+import { Text } from '@/components/global';
 
 // Types
 import type { Sponsor } from '@/lib/types';
 
 // Utilities
 import { convertImageUrl } from '@/utils/convert';
+import { useTheme } from 'next-themes';
 
 type SponsorProps = {
   sponsor: Sponsor;
@@ -17,10 +18,14 @@ type SponsorProps = {
 const Sponsor = (props: SponsorProps) => {
   const { 
     name,
-    logo,
+    darkModeImage,
+    lightModeImage,
     href,
+    eventsSponsored,
   } = props.sponsor;
   const { className } = props;
+
+  const { theme } = useTheme();
 
   return (
     <NextLink 
@@ -28,16 +33,16 @@ const Sponsor = (props: SponsorProps) => {
       className={`flex flex-col items-center w-full justify-start timing hover:scale-102 ${className}`}
     >
       <NextImage 
-        src={convertImageUrl(logo) ?? '/chapters/default.jpg'}
+        src={theme === 'light' ? convertImageUrl(lightModeImage) as string : convertImageUrl(darkModeImage) as string}
         width={300}
         height={300}
         alt={name}
         className='rounded-xl'
       />
 
-      <Heading className='mt-4 text-center text-xl lg:text-3xl' size='h4'>
-        {name}
-      </Heading>
+      <Text className='text-center text-lg mt-2' color='black'>
+        {eventsSponsored}x Sponsor
+      </Text>
     </NextLink>
   );
 };

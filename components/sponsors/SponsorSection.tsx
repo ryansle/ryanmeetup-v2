@@ -15,6 +15,8 @@ type SponsorSectionProps = {
 const SponsorSection = (props: SponsorSectionProps) => {
   const { sponsors, tier } = props;
 
+  const sorted = sponsors.sort((a, b) => b.eventsSponsored - a.eventsSponsored);
+
   return (
     <section className='space-y-8'>
       <Heading className='text-center text-4xl' size='h1'>
@@ -27,8 +29,8 @@ const SponsorSection = (props: SponsorSectionProps) => {
         {tier === 'Bronze' && 'Bronze tier sponsors have helped bring a Ryan Meetup to life through their one-time support — whether by donating funds, providing resources, or simply believing in the mission. Every meetup needs a spark, and they helped light the flame.'}
       </Text>
 
-      <div className='grid grid-cols-2 gap-x-4 lg:grid-cols-3 content-center gap-8'>
-        {sponsors.map((sponsor) => (
+      <div className='grid grid-cols-2 gap-x-4 lg:grid-cols-4 content-center gap-8'>
+        {sorted.map((sponsor) => (
           <Sponsor 
             key={sponsor.name as string}
             sponsor={sponsor as SponsorType}

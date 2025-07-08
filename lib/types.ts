@@ -168,9 +168,10 @@ type ChapterLead = {
 
 type Sponsor = {
   name: string;
-  logo: ContentfulImage;
   href: string;
   eventsSponsored: number;
+  darkModeImage: ContentfulImage;
+  lightModeImage: ContentfulImage;
 };
 
 type Outlet = {

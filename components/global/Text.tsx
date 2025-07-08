@@ -15,8 +15,8 @@ const getVariantClasses = (color: string, ignoreColorMode: boolean) => {
   const styles = 'tracking-wide font-medium';
 
   const fontColor = clsx([
-    color === 'black' && 'text-black',
-    color === 'white' && 'text-white',
+    color === 'black' && 'text-black dark:text-white',
+    color === 'white' && 'text-black dark:text-white',
     color === 'primary' && 'text-gray-700',
     color === 'secondary' && `${ignoreColorMode ? 'text-gray-400' : 'text-gray-600 dark:text-gray-400'}`,
   ]);
