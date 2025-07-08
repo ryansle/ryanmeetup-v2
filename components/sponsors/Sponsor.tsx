@@ -39,10 +39,6 @@ const Sponsor = (props: SponsorProps) => {
         alt={name}
         className='rounded-xl'
       />
-
-      <Text className='text-center text-lg mt-2' color='black'>
-        {eventsSponsored}x Sponsor
-      </Text>
     </NextLink>
   );
 };
