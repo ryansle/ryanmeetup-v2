@@ -42,9 +42,9 @@ export async function generateMetadata(): Promise<Metadata> {
 const SponsorsPage = async () => {
   const sponsors = await fetchSponsors();
 
-  // const goldSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number >= 3);
-  // const silverSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number === 2);
-  // const bronzeSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number === 1);
+  const goldSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number >= 3);
+  const silverSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number === 2);
+  const bronzeSponsors = sponsors.filter((sponsor) => sponsor.eventsSponsored as number === 1);
 
   return (
     <Layout>
@@ -60,31 +60,31 @@ const SponsorsPage = async () => {
         </Text>
       </Blurb>
 
-      <Divider />
-
-      <SponsorSection 
-        tier='All'
-        sponsors={sponsors as Sponsor[]} 
-      />
+      <Divider margins='xl' />
 
       {/* <SponsorSection 
-        tier='Gold'
+        tier='All'
+        sponsors={sponsors as Sponsor[]} 
+      /> */}
+
+      <SponsorSection 
+        tier='Founding'
         sponsors={goldSponsors as Sponsor[]} 
       />
 
-      <Divider />
+      <Divider margins='xl' />
 
       <SponsorSection 
-        tier='Silver'
+        tier='Core'
         sponsors={silverSponsors as Sponsor[]} 
       />
 
-      <Divider />
+      <Divider margins='xl' />
 
       <SponsorSection 
-        tier='Bronze'
+        tier='Contributing'
         sponsors={bronzeSponsors as Sponsor[]} 
-      /> */}
+      />
 
       <div className='mb-20' />
     </Layout>

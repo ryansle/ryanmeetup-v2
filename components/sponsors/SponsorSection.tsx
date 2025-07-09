@@ -19,25 +19,39 @@ const SponsorSection = (props: SponsorSectionProps) => {
 
   return (
     <section className='space-y-8'>
-      <Heading className='text-center text-4xl' size='h1'>
+      <Heading className='text-center text-3xl md:text-5xl' size='h2'>
         {tier} Sponsors
       </Heading>
 
-      <Text className='text-center'>
-        {tier === 'Gold' && 'Gold tier sponsors have stood with the Ryan Meetup time and time again — not just with financial support, but with hands-on help, collaborative ideas, and unwavering encouragement. They\'re woven into the story of this movement and help make the impossible feel inevitable.'}
-        {tier === 'Silver' && 'Silver tier sponsors have returned to support multiple Ryan Meetups, showing a clear commitment to the community. Whether through recurring contributions, logistical support, or brand partnerships, they’ve helped us build momentum from city to city.'}
-        {tier === 'Bronze' && 'Bronze tier sponsors have helped bring a Ryan Meetup to life through their one-time support — whether by donating funds, providing resources, or simply believing in the mission. Every meetup needs a spark, and they helped light the flame.'}
+      <Text className='text-center text-base lg:text-lg mx-0 2xl:mx-48'>
+        {tier === 'Founding' && 'Founding sponsors have gone above and beyond to support the Ryan Meetup, by providing essential resources, funding, and more. They are the backbone of our community and help us achieve our mission.'}
+        {tier === 'Core' && 'Core sponsors have consistently supported multiple Ryan Meetups, demonstrating their ongoing commitment to the community and helping to drive our mission forward.'}
+        {/* {tier === 'Contributing' && 'Contributing sponsors have played a vital role in supporting individual Ryan Meetups, providing essential resources and encouragement to make these events a success.'} */}
       </Text>
 
-      <div className='grid grid-cols-2 gap-x-4 lg:grid-cols-4 content-center gap-8'>
-        {sorted.map((sponsor) => (
-          <Sponsor 
-            key={sponsor.name as string}
-            sponsor={sponsor as SponsorType}
-            className='col-span-1'
-          />
-        ))}
-      </div>
+      {sorted.length >= 4 && (
+        <div className={`content-center gap-4 grid grid-cols-2 lg:grid-cols-${tier === 'Founding' ? '3' : '4'}`}>
+          {sorted.map((sponsor) => (
+            <Sponsor 
+              key={sponsor.name as string}
+              sponsor={sponsor as SponsorType}
+              className='col-span-1 w-full max-w-[800px]'
+            />
+          ))}
+        </div>
+      )}
+      
+      {sorted.length < 4 && (
+        <div className='flex items-center justify-center gap-4'>
+          {sorted.map((sponsor) => (
+            <Sponsor 
+              key={sponsor.name as string}
+              sponsor={sponsor as SponsorType}
+              className='w-full max-w-[400px]'
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

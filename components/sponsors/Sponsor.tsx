@@ -1,7 +1,6 @@
 // Components
 import NextImage from 'next/image';
 import NextLink from 'next/link';
-import { Text } from '@/components/global';
 
 // Types
 import type { Sponsor } from '@/lib/types';
@@ -21,7 +20,6 @@ const Sponsor = (props: SponsorProps) => {
     darkModeImage,
     lightModeImage,
     href,
-    eventsSponsored,
   } = props.sponsor;
   const { className } = props;
 
@@ -34,8 +32,8 @@ const Sponsor = (props: SponsorProps) => {
     >
       <NextImage 
         src={theme === 'light' ? convertImageUrl(lightModeImage) as string : convertImageUrl(darkModeImage) as string}
-        width={300}
-        height={300}
+        width={1000}
+        height={1000}
         alt={name}
         className='rounded-xl'
       />
