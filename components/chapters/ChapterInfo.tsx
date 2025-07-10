@@ -18,6 +18,7 @@ type ChapterInfoProps = {
   instagram: string;
   avatar: ContentfulImage;
   city: string;
+  isActive?: boolean;
 };
 
 const ChapterInfo = (props: ChapterInfoProps) => {
@@ -27,10 +28,19 @@ const ChapterInfo = (props: ChapterInfoProps) => {
     instagram,
     avatar,
     city,
+    isActive,
   } = props;
 
   return (
-    <div className='border rounded-3xl border-gray-400 p-4 dark:border-gray-700 bg-white dark:bg-black'>
+    <div className='border rounded-3xl border-gray-400 p-4 dark:border-gray-700 bg-white overflow-hidden relative dark:bg-black'>
+      {!isActive && (
+        <div className='absolute top-8 -left-[100px] -rotate-45 z-10'>
+          <div className='px-2 text-xl text-center rounded-lg font-semibold uppercase w-[300px] h-10 flex items-center justify-center bg-red-500 text-sm'>
+            INACTIVE
+          </div>
+        </div>
+      )}
+
       <div className='mb-8'>
         <div className='flex items-center justify-center'>
           <NextImage 
@@ -73,7 +83,10 @@ const ChapterInfo = (props: ChapterInfoProps) => {
         </div>
 
         <div className='col-span-4'>
-          <NextLink href={instagram} className='text-base lg:text-lg font-bold text-blue-700 dark:text-blue-500'>
+          <NextLink 
+            href={instagram} 
+            className='text-base lg:text-lg font-bold text-blue-700 dark:text-blue-500 hover:underline'
+          >
             @{filterInstagram(instagram)}
           </NextLink>
         </div>

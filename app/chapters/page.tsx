@@ -52,7 +52,7 @@ const ChaptersPage = async () => {
           Introducing Ryan Meetup chapters - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
         </Text>
 
-        <div className={`grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-4`}>
+        <div className={`grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-${activeChapters.length % 5 === 0 ? 5 : 4}`}>
           {activeChapters?.map((chapter, index) => (
             <ChapterTile
               key={index}

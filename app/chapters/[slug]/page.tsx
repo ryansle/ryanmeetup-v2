@@ -51,6 +51,7 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const whatsapp = content.whatsAppLink;
   const instagram = content.instagram;
   const avatar = content.avatar;
+  const isActive = content.active;
 
   const iconStyle = 'mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white'
 
@@ -80,6 +81,7 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
               instagram={instagram as string}
               avatar={avatar as ContentfulImage}
               city={city as string}
+              isActive={isActive as boolean}
             />
           </div>
         </div>
