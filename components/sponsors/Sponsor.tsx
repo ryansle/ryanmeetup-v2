@@ -28,7 +28,7 @@ const Sponsor = (props: SponsorProps) => {
   return (
     <NextLink 
       href={href}
-      className={`flex flex-col items-center w-full justify-start timing hover:scale-102 ${className}`}
+      className={`flex flex-col items-center w-full justify-start timing hover:scale-105 ${className}`}
     >
       <NextImage 
         src={theme === 'light' ? convertImageUrl(lightModeImage) as string : convertImageUrl(darkModeImage) as string}
