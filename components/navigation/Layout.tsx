@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 // Components
-import { Header, NewFooter } from '@/components/navigation';
+import { Banner, Header, NewFooter } from '@/components/navigation';
 import { useTheme } from 'next-themes';
 
 // Types
@@ -28,7 +28,7 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <main>
-      {/* <Banner /> */}
+      <Banner />
       <Header />
       <section 
         className={`${className} 

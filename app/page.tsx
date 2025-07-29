@@ -44,4 +44,4 @@ const HomePage = async () => {
 
 export default HomePage;
 
-export const revalidate = 30;
+export const revalidate = 300;

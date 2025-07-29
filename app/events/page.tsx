@@ -67,4 +67,4 @@ const EventsPage = async () => {
 
 export default EventsPage;
 
-export const revalidate = 30;
+export const revalidate = 300;

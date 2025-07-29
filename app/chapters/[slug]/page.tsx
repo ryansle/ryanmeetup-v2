@@ -112,4 +112,4 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
 
 export default ChapterPage;
 
-export const revalidate = 30;
+export const revalidate = 300;
