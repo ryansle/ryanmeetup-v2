@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Ryan Meetup - Join',
   description: 'Wanna meet other Ryans?',
   openGraph: {
-    url: 'https://www.meetup.com/ryanmeetup/',
+    url: 'https://partiful.com/u/sJG4HpH0wS3ZA3YkzaL5',
     title: 'Ryan Meetup - Join',
     description: 'Wanna meet other Ryans?',
     siteName: 'Ryan Meetup',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const JoinPageRedirect = () => {
-  redirect('https://www.meetup.com/ryanmeetup/');
+  redirect('https://partiful.com/u/sJG4HpH0wS3ZA3YkzaL5');
 };
 
 export default JoinPageRedirect;

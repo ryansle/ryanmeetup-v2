@@ -39,7 +39,7 @@ const Mapbox = (props: MapboxProps) => {
   const renderIcon = (type: string) => {
     switch (type) {
       case 'Event Location':
-        return '/icons/meetup-icon.webp';
+        return '/icons/partiful.webp';
       case 'Ryan Hub':
         return '/icons/ryanicon.png';
       case 'Ryan-Owned Business':
@@ -162,7 +162,7 @@ const Mapbox = (props: MapboxProps) => {
               <Heading className='text-lg' size='h3' ignoreColorMode>
                 {isBusiness ? selectedLocation.locationName : selectedLocation.eventName ?? selectedLocation.city}
               </Heading>
-              <Text className='text-gray-700 text-sm'>
+              <Text className='text-gray-700 text-sm' ignoreColorMode color='primary'>
                 {isBusiness && (
                   <>
                     <span>
@@ -175,7 +175,7 @@ const Mapbox = (props: MapboxProps) => {
                 )}
 
                 {selectedLocation.eventDate && (
-                  <span className='-mt-1'>
+                  <span className='-mt-1 text-gray-700'>
                     {new Date(selectedLocation.eventDate).toLocaleDateString()} •
                   </span>
                 )}{' '}

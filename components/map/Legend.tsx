@@ -31,7 +31,7 @@ const Legend = (props: LegendProps) => {
       handler: () => setShowMeetups(!showMeetups),
       text: 'Ryan Meetup',
       alt: 'Past or future Ryan Meetup location.',
-      icon: '/icons/meetup-icon.webp',
+      icon: '/icons/partiful.webp',
     },
     {
       checked: showRyans,
@@ -74,8 +74,8 @@ const Legend = (props: LegendProps) => {
 
               <Text
                 className='ml-2 text-xs'
+                color='primary'
                 ignoreColorMode
-                color='black'
               >
                 {option.text}
               </Text>

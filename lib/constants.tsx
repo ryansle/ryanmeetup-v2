@@ -1,7 +1,6 @@
 // Components
 import {
   FaInstagram as Instagram,
-  FaMeetup as Meetup,
   FaYoutube as YouTube,
   FaHandsHelping as Help,
   FaPhotoVideo as Gallery,
@@ -34,11 +33,11 @@ export const socials = [
     icon: <Instagram />,
     text: 'Instagram',
   },
-  {
-    href: 'https://www.meetup.com/ryanmeetup/',
-    icon: <Meetup />,
-    text: 'Meetup',
-  },
+  // { 
+  //   href: 'https://partiful.com/u/sJG4HpH0wS3ZA3YkzaL5',
+  //   icon: <NextImage src='/icons/partiful-black.png' alt='Partiful Icon' width={16} height={16} />,
+  //   text: 'Partiful',
+  // },
   {
     href: 'https://www.youtube.com/@ryanmeetup',
     icon: <YouTube />,

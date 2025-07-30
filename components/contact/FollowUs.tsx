@@ -4,7 +4,6 @@
 // Components
 import {
   FaInstagram as Instagram,
-  FaMeetup as Meetup,
   FaYoutube as YouTube,
   FaWhatsapp as Whatsapp,
   FaTiktok as TikTok,
@@ -25,8 +24,6 @@ const FollowUs = () => {
     switch (title) {
       case 'Instagram':
         return <Instagram className={iconStyle} />;
-      case 'Meetup':
-        return <Meetup className={iconStyle} />;
       case 'YouTube':
         return <YouTube className={iconStyle} />;
       case 'TikTok':
@@ -44,8 +41,6 @@ const FollowUs = () => {
     switch (title) {
       case 'Instagram':
         return 'Follow'
-      case 'Meetup':
-        return 'Join';
       case 'YouTube':
         return 'Subscribe to';
       case 'TikTok':
