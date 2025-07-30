@@ -8,6 +8,7 @@ import NextImage from 'next/image';
 import { Heading, Text } from '@/components/global';
 import { Legend } from '@/components/map';
 import { FaMapPin as Pin } from 'react-icons/fa';
+import NextLink from 'next/link';
 
 // Types
 import type { Location } from '@/lib/types';
@@ -30,11 +31,13 @@ const Mapbox = (props: MapboxProps) => {
   const [showMeetups, setShowMeetups] = useState<boolean>(true);
   const [showNamedBusinesses, setShowNamedBusinesses] = useState<boolean>(true);
   const [showOwnedBusinesses, setShowOwnedBusinesses] = useState<boolean>(true);
+  const [showChapters, setShowChapters] = useState<boolean>(true);
 
   const meetupLocations = locations.filter((location) => location.locationType === 'Event Location');
   const hubLocations = locations.filter((location) => location.locationType === 'Ryan Hub');
   const namedBusinesses = locations.filter((location) => location.locationType === 'Ryan-Named Business');
   const ownedBusinesses = locations.filter((location) => location.locationType === 'Ryan-Owned Business');
+  const chapters = locations.filter((location) => location.locationType === 'Chapter');
 
   const renderIcon = (type: string) => {
     switch (type) {
@@ -46,10 +49,18 @@ const Mapbox = (props: MapboxProps) => {
         return '/icons/brief.png';
       case 'Ryan-Named Business':
         return '/icons/nametagicon.png';
+      case 'Chapter':
+        return '/icons/invert.png'
     };
   };
 
   const isBusiness = selectedLocation?.locationType === 'Ryan-Named Business' || selectedLocation?.locationType === 'Ryan-Owned Business';
+
+  const convertToSlug = (city: string) => {
+    let sanitized = city.substring(0, city.indexOf(',')).toLowerCase();
+
+    return sanitized.replaceAll(' ', '-');
+  };
 
   return (
     <div className='w-full h-[600px] md:h-[700px]'>
@@ -185,15 +196,39 @@ const Mapbox = (props: MapboxProps) => {
           </Popup>
         )}
 
+        {showChapters && chapters?.map((location) => (
+          <Marker
+            key={location.locationName}
+            latitude={location.coordinates.lat}
+            longitude={location.coordinates.lon}
+            onClick={(e) => {
+              e.originalEvent.stopPropagation();
+              setSelectedLocation(location);
+            }}
+          >
+            <NextLink href={`/chapters/${convertToSlug(location.city)}`}>
+              <NextImage
+                src={renderIcon(location.locationType) as string}
+                alt={location.locationType}
+                className='rounded-full'
+                width={20}
+                height={20}
+              />
+            </NextLink>
+          </Marker>
+        ))}
+
         <Legend
           showMeetups={showMeetups}
           showRyans={showRyans}
           showNamedBusinesses={showNamedBusinesses}
           showOwnedBusinesses={showOwnedBusinesses}
+          showChapters={showChapters}
           setShowMeetups={setShowMeetups}
           setShowRyans={setShowRyans}
           setShowNamedBusinesses={setShowNamedBusinesses}
           setShowOwnedBusinesses={setShowOwnedBusinesses}
+          setShowChapters={setShowChapters}
         />
       </Map>
     </div>

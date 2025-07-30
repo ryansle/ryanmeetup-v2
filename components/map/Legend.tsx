@@ -7,10 +7,12 @@ type LegendProps = {
   showRyans: boolean;
   showNamedBusinesses: boolean;
   showOwnedBusinesses: boolean;
+  showChapters: boolean;
   setShowMeetups: (bool: boolean) => void;
   setShowRyans: (bool: boolean) => void;
   setShowNamedBusinesses: (bool: boolean) => void;
   setShowOwnedBusinesses: (bool: boolean) => void;
+  setShowChapters: (bool: boolean) => void;
 };
 
 const Legend = (props: LegendProps) => {
@@ -19,10 +21,12 @@ const Legend = (props: LegendProps) => {
     showRyans,
     showNamedBusinesses,
     showOwnedBusinesses,
+    showChapters,
     setShowMeetups,
     setShowRyans,
     setShowNamedBusinesses,
     setShowOwnedBusinesses,
+    setShowChapters,
   } = props;
 
   const options = [
@@ -54,6 +58,13 @@ const Legend = (props: LegendProps) => {
       alt: 'Ryan-Owned Businesses',
       icon: '/icons/brief.png',
     },
+    {
+      checked: showChapters,
+      handler: () => setShowChapters(!showChapters),
+      text: 'Local Chapter',
+      alt: 'Ryan Meetup Chapter',
+      icon: '/icons/invert.png',
+    },
   ];
 
   return (
@@ -81,7 +92,7 @@ const Legend = (props: LegendProps) => {
               </Text>
             </div>
             <NextImage
-              className='flex shrink-0'
+              className={`flex shrink-0 ${option.text === 'Local Chapter' && 'rounded-full'}`}
               src={option.icon}
               width={20}
               height={20}
