@@ -97,7 +97,13 @@ const fetchOutlets = async () => {
   const data = await client.getEntries(({ content_type: 'outlets', order: 'sys.updatedAt' }));
 
   return data.items.map((entry) => entry.fields);
-}
+};
+
+const fetchTestimonies = async () => {
+  const data = await client.getEntries(({ content_type: 'testimony' }));  
+
+  return data.items.map((entry) => entry.fields);
+};
 
 export {
   fetchEvents,
@@ -113,4 +119,5 @@ export {
   fetchSingleChapter,
   fetchSponsors,
   fetchOutlets,
+  fetchTestimonies,
 };

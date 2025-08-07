@@ -180,6 +180,13 @@ type Outlet = {
   darkModeImage: ContentfulImage;
   lightModeImage: ContentfulImage;
 };
+
+type Testimonial = {
+  lastName: string;
+  headshot: ContentfulImage;
+  quote: string;
+  location: string;
+};
 // #endregion
 
 type Route = {
@@ -214,4 +221,5 @@ export type {
   ChapterLead,
   Sponsor,
   Outlet,
+  Testimonial
 };

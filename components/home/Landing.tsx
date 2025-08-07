@@ -5,6 +5,8 @@ import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { Button, Heading } from '@/components/global';
 import { Transition } from '@headlessui/react';
+import { FaRegNewspaper as Newsletter } from 'react-icons/fa6';
+
 
 const Landing = () => {
   return (
@@ -43,9 +45,10 @@ const Landing = () => {
             <div className='w-full my-4 timing hover:border-white hover:scale-102'>
               <Button.Link
                 className='w-full font-cooper text-white'
-                href='/join'
+                href='/newsletter'
+                leftIcon={<Newsletter className='w-5 h-5' />}
               >
-                Join the Ryan Meetup
+                Sign up for our newsletter
               </Button.Link>
             </div>
           </div>
