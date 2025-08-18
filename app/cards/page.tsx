@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const BuyCardsPageRedirect = () => {
-  redirect('https://buy.stripe.com/9B600i0YV6xOaZd8Lx2kw09');
+  redirect('https://buy.stripe.com/3cIcN4fTP7BS0kzbXJ2kw0a');
 };
 
 export default BuyCardsPageRedirect;
