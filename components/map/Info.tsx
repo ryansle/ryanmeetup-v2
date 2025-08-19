@@ -44,7 +44,7 @@ const Info = (props: InfoProps) => {
         <NextLink href='/contact' className='font-semibold underline underline-offset-2 text-blue-700 dark:text-blue-500 hover:cursor-pointer'>Contact Ryan</NextLink> to have your city added to the map.
       </Text>
     </section>
-  )
+  );
 };
 
 export { Info };

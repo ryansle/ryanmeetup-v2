@@ -11,3 +11,4 @@ export * from './BryanModal';
 export * from './Note';
 export * from './List';
 export * from './Breadcrumbs';
+export * from './Backdrop';
