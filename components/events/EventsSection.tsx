@@ -1,3 +1,5 @@
+'use client';
+
 // Components
 import { Heading } from '@/components/global';
 import { Event, Chapters } from '@/components/events';
@@ -11,6 +13,9 @@ import { FaChevronDown as ChevronDown } from 'react-icons/fa';
 
 // Types
 import type { RyanEvent } from '@/lib/types';
+
+// Utilities
+import { usePathname } from 'next/navigation';
 
 type EventsSectionProps = {
   events: RyanEvent[];
@@ -30,11 +35,13 @@ type ContainerProps = {
 const Container = (props: ContainerProps) => {
   const { eventType, events, title, showChapters } = props;
 
+  const pathname = usePathname();
+
   return (
     <div>
        {eventType === 'Main' ? (
         <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3 4xl:grid-cols-3'>
-          {title === 'Upcoming Events' && showChapters && <Chapters />}
+          {title === 'Upcoming Events' && showChapters && !pathname.includes('/chapters') && <Chapters />}
 
           {events?.map((event, index) => (
             <Event
