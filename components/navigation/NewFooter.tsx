@@ -31,10 +31,10 @@ const NewFooter = () => {
         {/* RIGHT COLUMN */}
         <div className='grid grid-cols-4 space-x-8'>
           <div className='col-span-1'>
-            <h2 className='mb-6 text-xs font-semibold text-gray-900 uppercase title sm:text-sm'>
+            <h2 className='mb-6 text-xs font-semibold uppercase title sm:text-sm'>
               Follow us
             </h2>
-            <ul className='text-gray-700 font-medium space-y-2'>
+            <ul className='secondary font-medium space-y-2'>
               {socials.map((social) => (
                 <li key={social.text}>
                   <NextLink href={social.href} className='hover:underline'>
@@ -45,12 +45,12 @@ const NewFooter = () => {
             </ul>
           </div>
           <div className='col-span-3'>
-            <h2 className='mb-6 text-xs font-semibold text-gray-900 uppercase title sm:text-sm'>
+            <h2 className='mb-6 text-xs font-semibold uppercase title sm:text-sm'>
               Built With
             </h2>
             <div className='grid grid-cols-2 space-x-4'>
               <div className='col-span-1'>
-                <ul className='text-gray-700 font-medium'>
+                <ul className='secondary font-medium'>
                   <li className='mb-2'>
                     <NextLink href='https://vercel.com' className='hover:underline'>
                       Vercel
@@ -74,7 +74,7 @@ const NewFooter = () => {
                 </ul>
               </div>
               <div className='col-span-1'>
-                <ul className='text-gray-700 font-medium'>
+                <ul className='secondary font-medium'>
                   <li className='mb-2'>
                     <NextLink href='https://headlessui.com/' className='hover:underline'>
                       Headless UI
@@ -100,7 +100,7 @@ const NewFooter = () => {
       <Divider margins='lg'/>
 
       <div className='sm:flex sm:items-center sm:justify-between'>
-        <span className='text-sm text-gray-700 sm:text-center'>
+        <span className='text-sm secondary sm:text-center'>
           Website designed and developed by <NextLink href='https://ryanle.dev/' className='font-bold underline hover:text-white'>Ryan Le</NextLink>. All Rights Reserved.
         </span>
 
