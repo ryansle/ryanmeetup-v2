@@ -100,7 +100,7 @@ const AwardsPage = async () => {
 
       <Divider />
 
-      <Heading className='mb-6 text-center text-4xl'>Farthest Traveling Ryans</Heading>
+      <Heading className='mb-6 text-center text-4xl title'>Farthest Traveling Ryans</Heading>
 
       <div className='grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 xl:grid-cols-3'>
         {farthest?.map((ryan, index) => (
@@ -116,7 +116,7 @@ const AwardsPage = async () => {
       <Divider margins='xl' />
 
       <div>
-        <Heading className='mb-6 text-center text-4xl'>Ryan Meetup Champions</Heading>
+        <Heading className='mb-6 text-center text-4xl title'>Ryan Meetup Champions</Heading>
         <Text className='mb-10 text-center text-xl'>
           Ryans that overcame great obstacles to take home the championship titles.
         </Text>

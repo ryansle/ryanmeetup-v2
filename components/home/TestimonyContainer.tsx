@@ -14,7 +14,7 @@ const TestimonyContainer = (props: TestimonyContainerProps) => {
 
   return (
     <section>
-      <Heading className='text-center text-4xl mb-8' size='h4'>
+      <Heading className='text-center text-4xl mb-8 title' size='h4'>
         Hear what Ryans have to say about the Ryan Meetup:
       </Heading>
 

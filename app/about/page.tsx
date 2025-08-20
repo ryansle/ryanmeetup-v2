@@ -43,7 +43,7 @@ const AboutPage = () => {
             alt='The first Ryan Meetup'
           />
         </div>
-        <Heading className='text-4xl'>
+        <Heading className='text-4xl title'>
           About Us
         </Heading>
 

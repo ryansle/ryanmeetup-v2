@@ -13,14 +13,14 @@ const NewFooter = () => {
         <div className='timing hover:scale-105 mb-8 xl:mb-0'>
           <NextLink href='/'>
             <Heading 
-              className='text-4xl text-center sm:text-left xl:text-6xl xl:text-center'
+              className='text-4xl text-center sm:text-left xl:text-6xl xl:text-center title'
               size='h1'
             >
               RYAN MEETUP
             </Heading>
 
             <Heading 
-              className='mt-[2px] uppercase font-cooper text-lg text-center sm:text-left xl:text-3xl xl:text-center'
+              className='mt-[2px] uppercase font-cooper text-lg text-center sm:text-left xl:text-3xl xl:text-center title'
               size='h2'
             >
               NO BRYANS ALLOWED

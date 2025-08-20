@@ -40,7 +40,7 @@ const Leaderboard = (props: LeaderboardProps) => {
   
   return (
     <div>
-      <Heading className='mb-6 text-center text-4xl'>
+      <Heading className='mb-6 text-center text-4xl title'>
         Attendance Leaderboard
       </Heading>
 
@@ -96,7 +96,7 @@ const Leaderboard = (props: LeaderboardProps) => {
         </table>
       </div>
 
-      <Heading className='mb-4 mx-16 lg:mx-0 text-center text-4xl mt-10'>
+      <Heading className='mb-4 mx-16 lg:mx-0 text-center text-4xl mt-10 title'>
         Not seeing your name?
       </Heading>
 

@@ -91,7 +91,7 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
           <Breadcrumbs className='hidden sm:flex' crumbs={breadcrumbs} />
 
           <div className='hidden xl:block'>
-            <Heading className='mb-8 text-5xl' size='h1'>
+            <Heading className='mb-8 text-5xl title' size='h1'>
               Ryan Meetup {city as string}
             </Heading>
           </div>

@@ -7,7 +7,7 @@ import { FaDollarSign as Dollar } from 'react-icons/fa';
 const CardInfo = () => {
   return (
      <div className='col-span-12 xl:col-span-6 text-black h-full border border-gray-400 bg-white dark:bg-black rounded-xl w-full p-4 lg:p-8 text-left dark:border-gray-700'>
-      <Heading className='text-2xl text-center lg:text-left lg:text-3xl font-semibold mb-4' size='h1'>
+      <Heading className='text-2xl text-center title lg:text-left lg:text-3xl font-semibold mb-4' size='h1'>
         Ryan Meetup Membership Card
       </Heading>
 
@@ -35,7 +35,7 @@ const CardInfo = () => {
       </section>
 
       <section className='space-y-4 mt-8 text-base lg:text-lg'>
-        <Heading className='text-2xl' size='h2'>
+        <Heading className='text-2xl title' size='h2'>
           Why this price?
         </Heading>
 

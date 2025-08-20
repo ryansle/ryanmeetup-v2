@@ -93,7 +93,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
       </div>
 
       <div className='mt-8'>
-        <Heading className='text-xl' size='h4'>
+        <Heading className='text-xl title' size='h4'>
           Need to get in contact?
         </Heading>
 

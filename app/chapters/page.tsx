@@ -53,7 +53,7 @@ const ChaptersPage = async () => {
   return (
     <Layout>
       <div className='space-y-6'>
-        <Heading className='text-center text-5xl' size='h1'>
+        <Heading className='text-center text-5xl title' size='h1'>
           Ryan Meetup Chapters
         </Heading>
 

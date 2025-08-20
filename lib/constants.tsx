@@ -31,7 +31,7 @@ import { GoSponsorTiers as Sponsor } from 'react-icons/go';
 export const socials = [
   {
     href: 'https://www.instagram.com/ryanmeetup/',
-    icon: <Instagram />,
+    icon: <Instagram className='title' />,
     text: 'Instagram',
   },
   // { 
@@ -41,21 +41,21 @@ export const socials = [
   // },
   {
     href: 'https://www.youtube.com/@ryanmeetup',
-    icon: <YouTube />,
+    icon: <YouTube className='title' />,
     text: 'YouTube',
   },
   {
-    icon: <TikTok />,
+    icon: <TikTok className='title' />,
     text: 'TikTok',
     href: 'https://www.tiktok.com/@ryanmeetup/',
   },
   {
-    icon: <Threads />,
+    icon: <Threads className='title' />,
     text: 'Threads',
     href: 'https://www.threads.net/@ryanmeetup',
   },
   {
-    icon: <Whatsapp />,
+    icon: <Whatsapp className='title' />,
     text: 'WhatsApp',
     href: '/whatsapp',
   },

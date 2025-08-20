@@ -42,7 +42,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
         />
       </div>
       <div className='flex items-center'>
-        <Heading className='mb-2 text-3xl' size='h3'>{fullName}</Heading>
+        <Heading className='mb-2 text-3xl title' size='h3'>{fullName}</Heading>
         {instagram && (
           <NextLink className='ml-2' href={instagram} aria-label={`${fullName}'s Instagram`}>
             <Instagram className='fill-black dark:fill-white timing hover:scale-105 hover:fill-blue-500' />

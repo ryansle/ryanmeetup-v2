@@ -73,7 +73,7 @@ const Article = (props: ArticleProps) => {
               {isNew && <span className='text-green-500 border border-green-500 text-sm font-medium px-2 rounded bg-green-900 text-white'>NEW</span>}
             </div>
 
-            <Heading className='text-3xl md:text-4xl' size='h2'>
+            <Heading className='title text-3xl md:text-4xl' size='h2'>
               {title}
             </Heading>
 

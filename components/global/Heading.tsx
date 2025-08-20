@@ -34,10 +34,9 @@ const Heading = (props: HeadingProps) => {
     children,
     variant = 'ryan',
     bold = false,
-    ignoreColorMode = false,
   } = props;
 
-  const styles = `tracking-wider ${!ignoreColorMode && 'text-black dark:text-white'}`;
+  const styles = 'tracking-wider';
 
   const renderHeading = () => {
     switch (size) {

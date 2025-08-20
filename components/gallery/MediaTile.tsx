@@ -31,25 +31,20 @@ const MediaTile = (props: MediaTileProps) => {
           </div>
           <div className='absolute w-full inset-x-0 text-white text-xs text-center leading-4 flex items-center justify-center flex-col px-8'>
             <Heading 
-              className='text-4xl'
-              ignoreColorMode
+              className='text-4xl text-white'
               size='h2'
             >
               {title}
             </Heading>
             <Heading 
-              className='text-xl' 
+              className='text-xl text-white' 
               size='h3'
-              ignoreColorMode
             >
               {eventDate}
             </Heading>
           </div>
           {credits && (
-            <Text 
-              className='absolute bottom-0 left-0 text-white p-2 font-cooper text-sm'
-              ignoreColorMode
-            >
+            <Text className='absolute bottom-0 left-0 text-white p-2 font-cooper text-sm'>
               Addl. photo credits to{' '}
               {credits.map((credit, index) => (
                 <span key={credit}>{credit} {credits.length > 1 && index !== credits.length - 1 && ','}</span>

@@ -59,7 +59,7 @@ const Champion = (props: ChampionProps) => {
           )}
         </div>
       </div>
-      <Heading className='text-xl mb-1' size='h4'>
+      <Heading className='text-xl mb-1 title' size='h4'>
         {title}
       </Heading>
       <Text className='text-base'>

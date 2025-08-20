@@ -37,15 +37,13 @@ const ChapterTile = (props: ChapterTileProps) => {
           </div>
           <div className='absolute w-full inset-x-0 text-white text-xs text-center leading-4 flex items-center justify-center flex-col px-8'>
             <Heading 
-              className='text-3xl' 
+              className='text-3xl text-white' 
               size='h2' 
-              ignoreColorMode
             >
               {city}
             </Heading>
             <Heading 
-              className='text-xl' 
-              ignoreColorMode
+              className='text-xl text-white' 
               size='h3'
             >
               {state}

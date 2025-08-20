@@ -54,7 +54,7 @@ const Event = (props: EventProps) => {
           <div className='flex items-center justify-between mb-3'>
             <div>
               <Text className='text-sm'>{dateTime}</Text>
-              <Heading className='text-xl' size='h3'>
+              <Heading className='text-xl title' size='h3'>
                 {title}
               </Heading>
             </div>

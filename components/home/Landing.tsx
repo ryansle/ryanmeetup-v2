@@ -14,10 +14,10 @@ const Landing = () => {
       <div className='grid grid-cols-12 h-full flex items-center'>
         <div className='col-span-12 order-last xl:order-first xl:col-span-7'>
           <div className='space-y-2'>
-            <Heading className='text-5xl' size='h1'>
+            <Heading className='text-5xl title' size='h1'>
               If your name is Ryan,
             </Heading>
-            <Heading className='text-3xl' size='h2'>
+            <Heading className='text-3xl title' size='h2'>
               you&apos;re in the right place.
             </Heading>
           </div>

@@ -47,7 +47,7 @@ const EventsContainer = (props: EventsContainerProps) => {
     <div className='mb-10'>
       {showUpcomingSection && activeEvents.length === 0 && inactiveEvents.length !== 0 && (
         <div className='mb-8'>
-          <Heading className='mb-4 text-center text-3xl lg:text-4xl lg:text-left' size='h2'>
+          <Heading className='mb-4 text-center text-3xl title lg:text-4xl lg:text-left' size='h2'>
             Upcoming Events
           </Heading>
 

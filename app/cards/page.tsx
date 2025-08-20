@@ -72,7 +72,7 @@ const BuyCardsPageRedirect = () => {
       </Backdrop>
 
       <section className='text-center py-4 border-t-2 border-gray-400 dark:border-gray-700 px-4 md:py-8 lg:px-32 xl:px-72 3xl:px-[350px] 4xl:px-[650px]'>
-        <Heading className='mb-6 text-4xl'>
+        <Heading className='mb-6 text-4xl title'>
           Need help with your order?
         </Heading>
 

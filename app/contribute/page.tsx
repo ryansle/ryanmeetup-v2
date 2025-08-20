@@ -62,7 +62,7 @@ const ContributePage = async () => {
   return (
     <Layout>
       <div className='space-y-6'>
-        <Heading className='text-4xl'>Contribute to the Ryan Meetup</Heading>
+        <Heading className='text-4xl title'>Contribute to the Ryan Meetup</Heading>
 
         <Text className='text-lg'>
           We have an army of Ryans at our disposal, so let&apos;s take advantage of it. The more Ryans who pitch in, the faster we&apos;ll grow.
@@ -81,7 +81,7 @@ const ContributePage = async () => {
       <Divider margins='lg' />
 
       <div className='space-y-6'>
-        <Heading className='text-4xl'>
+        <Heading className='text-4xl title'>
           Ways to Contribute
         </Heading>
         <div className='col-span-12 space-y-4'>

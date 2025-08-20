@@ -19,7 +19,7 @@ const SponsorSection = (props: SponsorSectionProps) => {
 
   return (
     <section className='space-y-8'>
-      <Heading className='text-center text-3xl md:text-5xl' size='h2'>
+      <Heading className='text-center text-3xl title md:text-5xl' size='h2'>
         {tier} Sponsors
       </Heading>
 
@@ -29,25 +29,37 @@ const SponsorSection = (props: SponsorSectionProps) => {
         {/* {tier === 'Contributing' && 'Contributing sponsors have played a vital role in supporting individual Ryan Meetups, providing essential resources and encouragement to make these events a success.'} */}
       </Text>
 
-      {sorted.length >= 4 && (
-        <div className={`content-center gap-4 grid grid-cols-2 lg:grid-cols-${tier === 'Founding' ? '3' : '4'}`}>
+      {tier === 'Founding' && (
+        <div className='grid grid-cols-2 xl:grid-cols-3 gap-4'>
           {sorted.map((sponsor) => (
             <Sponsor 
               key={sponsor.name as string}
               sponsor={sponsor as SponsorType}
-              className='col-span-1 w-full max-w-[800px]'
+              className='w-full max-w-[400px] col-span-1'
             />
           ))}
         </div>
       )}
-      
-      {sorted.length < 4 && (
-        <div className='flex items-center justify-center gap-4'>
+
+      {tier === 'Core' && (
+        <div className='flex items-center justify-center flex-wrap'>
           {sorted.map((sponsor) => (
             <Sponsor 
               key={sponsor.name as string}
               sponsor={sponsor as SponsorType}
-              className='w-full max-w-[400px]'
+              className='w-full max-w-[400px] col-span-1'
+            />
+          ))}
+        </div>
+      )}
+
+      {tier === 'Contributing' && (
+        <div className='grid grid-cols-2 xl:grid-cols-3 gap-4'>
+          {sorted.map((sponsor) => (
+            <Sponsor 
+              key={sponsor.name as string}
+              sponsor={sponsor as SponsorType}
+              className='w-full max-w-[400px] col-span-1'
             />
           ))}
         </div>
