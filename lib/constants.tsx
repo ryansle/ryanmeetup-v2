@@ -11,6 +11,7 @@ import {
   FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
   FaTiktok as TikTok,
+  FaAddressCard as Card,
 } from 'react-icons/fa';
 import {
   FaPeopleGroup as Community,
@@ -103,6 +104,7 @@ export const routes = [
     text: 'Support',
     href: '',
     subroutes: [
+
       {
         icon: <Flyer />,
         text: 'Flyers',
@@ -122,7 +124,12 @@ export const routes = [
         icon: <Sponsor />,
         text: 'Sponsors',
         href: '/sponsors'
-      }
+      },
+      {
+        icon: <Card />,
+        text: 'Buy Card',
+        href: '/cards',
+      },
     ],
   },
   {

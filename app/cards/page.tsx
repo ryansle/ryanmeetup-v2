@@ -36,7 +36,7 @@ const BuyCardsPageRedirect = () => {
     <Layout fullscreen>
       <Backdrop imageSrc='/backdrop.png'>
         <div className='hidden lg:grid grid-cols-12 gap-16 py-8 lg:px-32 2xl:px-56 3xl:px-[320px] 4xl:px-[500px]'>
-          <div className='col-span-12 xl:col-span-6 flex items-center'>
+          <div className='col-span-12 xl:col-span-6 flex items-center flex-col justify-center'>
             <div className='relative lg:h-[500px] w-full'>
               <NextImage 
                 src='/cards.png'
@@ -46,6 +46,9 @@ const BuyCardsPageRedirect = () => {
                 fill
               />
             </div>
+            <p className='mt-8 font-semibold'>
+              Shown: front / back of the membership card
+            </p>
           </div>
 
          <CardInfo />
@@ -59,6 +62,10 @@ const BuyCardsPageRedirect = () => {
             height={1024}
             width={768}
           />
+
+          <p className='mt-8 font-semibold'>
+            Shown: front / back of the membership card
+          </p>
 
           <CardInfo />
         </div>

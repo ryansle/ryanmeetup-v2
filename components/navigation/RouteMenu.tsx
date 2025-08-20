@@ -26,7 +26,7 @@ const RouteMenu = (props: RouteMenuProps) => {
   const isSelected = (pathname: string) => {
     if ((pathname === '/events' || pathname.includes('/gallery') || pathname === '/awards' || pathname === '/about' || pathname === '/holidays' || pathname === '/rsvp' || pathname.includes('/chapters')) && title === 'Community') {
       return 'bg-gray-300 dark:bg-gray-800';
-    } else if ((pathname === '/flyers' || pathname === '/contribute' || pathname === '/sponsors' || pathname === '/donate') && title === 'Support') {
+    } else if ((pathname === '/flyers' || pathname === '/contribute' || pathname === '/cards' || pathname === '/sponsors' || pathname === '/donate') && title === 'Support') {
       return 'bg-gray-300 dark:bg-gray-800';
     }
   };
@@ -50,7 +50,7 @@ const RouteMenu = (props: RouteMenuProps) => {
             leaveTo='opacity-0 translate-y-1'
           >
             <PopoverPanel
-              className='z-50 bg-white dark:bg-black w-40 rounded-lg border border-gray-700 p-2 mt-2'
+              className='z-50 bg-white dark:bg-black w-fit rounded-lg border border-gray-700 p-2 mt-2'
               anchor='bottom'
             >
               {routes.map((route, index) => (
