@@ -79,11 +79,11 @@ const fetchSingleChapter = async (slug: string) => {
     limit: 1,
   });
 
-  if (!entries.items.length) {
-    throw new Error(`No chapter found for slug: ${slug}`);
+  if (entries.items[0]) {
+    return entries.items[0].fields;
   }
 
-  return entries.items[0].fields;
+  return null;
 };
 
 const fetchSponsors = async () => {

@@ -1,6 +1,6 @@
 // Components
 import { Layout } from '@/components/navigation';
-import { Heading, Breadcrumbs } from '@/components/global';
+import { Heading, Breadcrumbs, PageNotFound } from '@/components/global';
 import { ChapterInfo } from '@/components/chapters';
 import { EventsContainer } from '@/components/events';
 import { FaCity as City } from 'react-icons/fa';
@@ -14,30 +14,33 @@ import type { Metadata } from 'next';
 import { fetchEvents, fetchSingleChapter } from '@/actions/fetchContent';
 import { convertSlug } from '@/utils/convert';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
   const content = await fetchSingleChapter(params.slug);
 
-  const { city, state } = content;
+  if (content) {
+    const { city, state } = content;
 
-  return {
-    title: `Ryan Meetup - ${city} Chapter`,
-    description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
-    keywords: ['ryan meetup', `ryan meetup ${city}`, `ryan meetup ${state}`,],
-    openGraph: {
-      url: `https://ryanmeetup.com/chapters/${params.slug}`,
+    return {
       title: `Ryan Meetup - ${city} Chapter`,
       description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
-      siteName: 'Ryan Meetup',
-      images: [
-        {
-          url: `https://ryanmeetup.com/chapters/${params.slug}.png`,
-          width: 3360,
-          height: 1854,
-        }
-      ],
-      locale: 'en_US',
-      type: 'website',
-    },
+      keywords: ['ryan meetup', `ryan meetup ${city}`, `ryan meetup ${state}`,],
+      openGraph: {
+        url: `https://ryanmeetup.com/chapters/${params.slug}`,
+        title: `Ryan Meetup - ${city} Chapter`,
+        description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
+        siteName: 'Ryan Meetup',
+        images: [
+          {
+            url: `https://ryanmeetup.com/chapters/${params.slug}.png`,
+            width: 3360,
+            height: 1854,
+          }
+        ],
+        locale: 'en_US',
+        type: 'website',
+      },
+    };
   };
 };
 
@@ -46,16 +49,14 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const events = await fetchEvents();
 
   // @ts-ignore
-  const leaders = content.leaders?.map((entry: { fields: any; }) => entry.fields) ?? [];
-  const city = content.city;
-  const whatsapp = content.whatsAppLink;
-  const instagram = content.instagram;
-  const avatar = content.avatar;
-  const isActive = content.active;
+  const leaders = content?.leaders?.map((entry: { fields: any; }) => entry.fields) ?? [];
+  const city = content?.city;
+  const whatsapp = content?.whatsAppLink;
+  const instagram = content?.instagram;
+  const avatar = content?.avatar;
+  const isActive = content?.active;
 
   const iconStyle = 'mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white';
-
-  console.log('events', events);
 
   const breadcrumbs = [
     { 
@@ -72,7 +73,8 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <Layout>
-      <div className='flex flex-wrap'>
+      {content ? (
+         <div className='flex flex-wrap'>
         {/* LEFT PANEL (Sticky) */}
         <div className='w-full md:w-1/2 xl:w-1/3 px-4'>
           <Breadcrumbs className='flex sm:hidden' crumbs={breadcrumbs} />
@@ -108,6 +110,9 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
       </div>
+      ) : (
+        <PageNotFound />
+      )}
     </Layout>
   );
 };
