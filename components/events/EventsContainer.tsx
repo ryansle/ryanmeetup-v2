@@ -8,6 +8,9 @@ import NextLink from 'next/link';
 // Types
 import type { RyanEvent } from '@/lib/types';
 
+// Utilities
+import { usePathname } from 'next/navigation';
+
 type EventsContainerProps = {
   events: RyanEvent[];
   eventType?: string;
@@ -25,13 +28,20 @@ const EventsContainer = (props: EventsContainerProps) => {
 
   const mainEvents = events.filter(event => event.chapter.includes(eventType));
 
-  const activeEvents = mainEvents?.filter((event) => (
+  const chapterEvents = events.filter(event => (
+    !event.chapter.includes(eventType) && 
     new Date(event.date as unknown as string).getTime() >= new Date().getTime()
   ));
 
-  const inactiveEvents = mainEvents?.filter((event) => (
+  const activeEvents = mainEvents?.filter(event => (
+    new Date(event.date as unknown as string).getTime() >= new Date().getTime()
+  ));
+
+  const inactiveEvents = mainEvents?.filter(event => (
     new Date(event.date as unknown as string).getTime() < new Date().getTime()
   ));
+
+  const pathname = usePathname();
 
   return (
     <div className='mb-10'>
@@ -51,12 +61,13 @@ const EventsContainer = (props: EventsContainerProps) => {
         </div>
       )}
 
-      {activeEvents.length !== 0 && (
+      {(activeEvents.length !== 0 || chapterEvents.length !== 0) && !pathname.includes('/chapter') && (
         <>
           <EventsSection
             title='Upcoming Events'
             events={activeEvents}
             eventType={eventType}
+            showChapters={chapterEvents.length !== 0}
           />
 
           {inactiveEvents.length !== 0 && <Divider margins='lg' />}
@@ -69,6 +80,7 @@ const EventsContainer = (props: EventsContainerProps) => {
           events={inactiveEvents}
           eventType={eventType}
           hidePastEvents={hidePastEvents}
+          showChapters={false}
         />
       )}
 

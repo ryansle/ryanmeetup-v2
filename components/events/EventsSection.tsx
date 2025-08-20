@@ -1,6 +1,6 @@
 // Components
 import { Heading } from '@/components/global';
-import { Event } from '@/components/events';
+import { Event, Chapters } from '@/components/events';
 import {
   Disclosure,
   DisclosureButton,
@@ -17,20 +17,25 @@ type EventsSectionProps = {
   title: string;
   eventType: string;
   hidePastEvents?: boolean;
+  showChapters: boolean;
 };
 
 type ContainerProps = {
   eventType: string;
   events: RyanEvent[];
+  title: string;
+  showChapters: boolean;
 };
 
 const Container = (props: ContainerProps) => {
-  const { eventType, events } = props;
+  const { eventType, events, title, showChapters } = props;
 
   return (
     <div>
        {eventType === 'Main' ? (
         <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3 4xl:grid-cols-3'>
+          {title === 'Upcoming Events' && showChapters && <Chapters />}
+
           {events?.map((event, index) => (
             <Event
               key={index}
@@ -58,6 +63,7 @@ const EventsSection = (props: EventsSectionProps) => {
     title, 
     eventType, 
     hidePastEvents = false,
+    showChapters,
   } = props;
 
   return (
@@ -92,6 +98,8 @@ const EventsSection = (props: EventsSectionProps) => {
                     <Container
                       eventType={eventType}
                       events={events}
+                      title={title}
+                      showChapters={showChapters}
                     />
                   </DisclosurePanel>
                 </Transition>
@@ -108,6 +116,8 @@ const EventsSection = (props: EventsSectionProps) => {
           <Container
             eventType={eventType}
             events={events}
+            title={title}
+            showChapters={showChapters}
           />
         </div>
       )}

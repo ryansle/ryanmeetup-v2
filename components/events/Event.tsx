@@ -75,13 +75,13 @@ const Event = (props: EventProps) => {
           </div>
           <Text className='min-h-[85px] text-sm'>{description}</Text>
 
-          <div className='grid grid-cols-2 text-gray-400'>
-            <div className='col-span-1 flex items-center space-x-2'>
+          <div className='grid grid-cols-12 text-gray-400'>
+            <div className='col-span-6 lg:col-span-5 flex items-center space-x-2'>
               <City />
               <Text className='text-sm'>{city}</Text>
             </div>
 
-            <div className='col-span-1 flex items-center space-x-2'>
+            <div className='col-span-6 lg:col-span-7 flex items-center space-x-2'>
               <Pin />
               <Text className='text-sm'>{venue}</Text>
             </div>

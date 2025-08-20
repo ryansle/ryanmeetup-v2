@@ -9,7 +9,7 @@ import type { FrequentlyAskedQuestion, RyanChapter } from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
-import { fetchChapters, fetchFAQs } from '@/actions/fetchContent';
+import { fetchChapters, fetchFAQs, fetchEvents } from '@/actions/fetchContent';
 
 export const metadata: Metadata = {
   title: 'Ryan Meetup - Chapters',
@@ -35,11 +35,20 @@ export const metadata: Metadata = {
 const ChaptersPage = async () => {
   const faqs = await fetchFAQs();
   const chapters = await fetchChapters();
+  const events = await fetchEvents();
 
-  // @ts-ignore - all chapter FAQs will contain a load order
-  const chapterFaqs = faqs.filter((faq) => faq.type === 'chapter').sort((a, b) => a.loadOrder - b.loadOrder);
+  // @ts-ignore
+  const chapterEvents = events.filter(event => !event?.chapter?.includes('Main') && new Date(event.date as unknown as string).getTime() >= new Date().getTime());
+  
+  const chapterFaqs = faqs.filter((faq) => faq.type === 'chapter').sort((a, b) => Number(a.loadOrder) - Number(b.loadOrder));
 
   const activeChapters = chapters.filter(chapter => chapter.active);
+
+  const upcomingEvents = new Set(chapterEvents
+    //@ts-ignore
+    .map(event => event.city?.split(',')[0].trim()) 
+    .filter(Boolean)
+  );
 
   return (
     <Layout>
@@ -52,11 +61,12 @@ const ChaptersPage = async () => {
           Introducing Ryan Meetup chapters - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.
         </Text>
 
-        <div className={`grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-4`}>
+        <div className={`grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-5`}>
           {activeChapters?.map((chapter, index) => (
             <ChapterTile
               key={index}
               chapter={chapter as unknown as RyanChapter}
+              showBanner={upcomingEvents.has(chapter.city)}
             />
           ))}
         </div>
