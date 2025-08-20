@@ -67,7 +67,7 @@ const Article = (props: ArticleProps) => {
 
           <div className='col-span-5 mt-2 xl:col-span-3 xl:ml-8 xl:mt-0'>
             <div className='flex items-center space-x-4'>
-              <Text className='text-lg'>
+              <Text className='text-lg secondary'>
                 {publishedOn}
               </Text>
               {isNew && <span className='text-green-500 border border-green-500 text-sm font-medium px-2 rounded bg-green-900 text-white'>NEW</span>}
@@ -77,7 +77,7 @@ const Article = (props: ArticleProps) => {
               {title}
             </Heading>
 
-            <Text className='text-base mt-4 md:text-xl'>
+            <Text className='text-base mt-4 secondary md:text-xl'>
               by <span className={highlight}>{author}</span> at <span className={highlight}>{outlet}</span>
             </Text>
           </div>

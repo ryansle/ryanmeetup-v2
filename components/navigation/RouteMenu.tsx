@@ -56,7 +56,7 @@ const RouteMenu = (props: RouteMenuProps) => {
               {routes.map((route, index) => (
                 <div key={route.text}>
                   <NextLink
-                    className='flex text-black dark:text-white items-center font-semibold tracking-wide gap-x-2 px-2 py-1 hover:bg-gray-300 dark:hover:bg-gray-700 hover:rounded'
+                    className='flex title items-center font-semibold tracking-wide gap-x-2 px-2 py-1 hover:bg-gray-300 dark:hover:bg-gray-700 hover:rounded'
                     href={route.href}
                   >
                     {route.icon} {route.text}

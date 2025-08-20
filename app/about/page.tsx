@@ -47,23 +47,23 @@ const AboutPage = () => {
           About Us
         </Heading>
 
-        <Text className='text-lg'>
+        <Text className='text-lg secondary'>
           In February 2023, Ryan decided she wanted to meet more people named Ryan. So she posted a handful of flyers in her Brooklyn neighborhood with a QR code that implored Ryans to RSVP for a &quot;Ryan Meetup.&quot; Only two other Ryans attended.
         </Text>
 
-        <Text className='text-lg'>
+        <Text className='text-lg secondary'>
           That night, after checking each other&apos;s IDs, Ryan, Ryan, and Ryan devised a plan to reach more Ryans—and set an ambitious goal for themselves: to break the world record for largest same first name gathering.
         </Text>
 
-        <Text className='text-lg'>
+        <Text className='text-lg secondary'>
           So the Ryans got to work, covering NYC in flyers to advertise their next event at Ryan Maguire&apos;s pub—but this time, over 100 Ryans showed up, including some Ryans from major news sources, who helped spread the word to even more Ryans.
         </Text>
 
-        <Text className='text-lg'>
+        <Text className='text-lg secondary'>
           Soon, Ryans everywhere wanted to join in on the fun. So we took Ryan Meetup on tour, hosting events in Los Angeles, Denver, Chicago, and more. All while building a community with thousands of Ryans, who each contribute in their own unique way. And that&apos;s exactly what it will take to put our name in the record books.
         </Text>
 
-        <Text className='text-lg'>
+        <Text className='text-lg secondary'>
           When your name is called, be ready Ryan. We&apos;re going to need you.
         </Text>
 
@@ -72,7 +72,7 @@ const AboutPage = () => {
         <div className='grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3'>
           {gallery.map((photo, index) => (
             <div className='timing hover:scale-102' key={index}>
-              <div className='w-full max-h-[450px] aspect-w-3 aspect-h-2 overflow-hidden border rounded-lg shadow-xl dark:border-black'>
+              <div className='w-full max-h-[450px] aspect-w-3 aspect-h-2 overflow-hidden border border-gray-700 rounded-lg shadow-xl dark:border-black'>
                 <NextImage
                   src={photo.imageUrl}
                   fill
@@ -86,7 +86,7 @@ const AboutPage = () => {
                 />
               </div>
 
-              <Text className='text-center mt-2 text-lg'>
+              <Text className='text-center mt-2 text-lg title'>
                 {photo.title}
               </Text>
             </div>

@@ -62,13 +62,13 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
         <div className='col-span-5'>
           {leaders.map((ryan, index) => (
-            <Text key={index} className='-ml-1 text-base lg:text-lg'>
+            <Text key={index} className='-ml-1 text-base secondary lg:text-lg'>
               {ryan.name}
             </Text>
           ))}
 
           {leaders.length === 0 && (
-            <Text className='-ml-1 text-base lg:text-lg'>
+            <Text className='-ml-1 text-base lg:text-lg secondary'>
               No active lead.
             </Text>
           )}
@@ -97,7 +97,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
           Need to get in contact?
         </Heading>
 
-        <Text className='text-base lg:text-lg'>
+        <Text className='secondary text-base lg:text-lg'>
           Our Instagram inbox is open for all inquiries.
         </Text>
       </div>

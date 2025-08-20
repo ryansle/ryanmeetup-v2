@@ -76,7 +76,7 @@ const BuyCardsPageRedirect = () => {
           Need help with your order?
         </Heading>
 
-        <Text className='text-lg'>
+        <Text className='text-lg secondary'>
           <NextLink href='/contact' className='font-semibold underline underline-offset-2 text-blue-700 dark:text-blue-500 hover:cursor-pointer'>Get in touch</NextLink> with our team and we&apos;ll make things right.
         </Text>
       </section>

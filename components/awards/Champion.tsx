@@ -42,7 +42,7 @@ const Champion = (props: ChampionProps) => {
       </div>
       <div className='flex items-center'>
         <div>
-          <h3 className={`${fullName2 ? 'text-md' : fullName.length > 15 ? 'text-2xl' : 'text-3xl'} mb-2 font-cooper tracking-wider text-black dark:text-white`}>
+          <h3 className={`${fullName2 ? 'text-md' : fullName.length > 15 ? 'text-2xl' : 'text-3xl'} mb-2 font-cooper tracking-wider title`}>
             {fullName}
           </h3>
         </div>
@@ -62,7 +62,7 @@ const Champion = (props: ChampionProps) => {
       <Heading className='text-xl mb-1 title' size='h4'>
         {title}
       </Heading>
-      <Text className='text-base'>
+      <Text className='secondary text-base'>
         {location} {location2 && `, & ${location2} `}• {eventDate}
       </Text>
     </div>

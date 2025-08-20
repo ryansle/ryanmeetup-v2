@@ -23,10 +23,10 @@ const Chapters = () => {
             >
               Ryan Meetup Chapters
             </Heading>
-            <Text className='text-xl mt-4'>
+            <Text className='text-white text-xl mt-4'>
               We&apos;re expanding the Ryan Meetup! 
             </Text>
-            <Text className='text-xl mt-4' >
+            <Text className='text-white text-xl mt-4' >
               Check out our local chapters and join the community in your city.
             </Text>
           </div>

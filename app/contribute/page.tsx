@@ -64,16 +64,16 @@ const ContributePage = async () => {
       <div className='space-y-6'>
         <Heading className='text-4xl title'>Contribute to the Ryan Meetup</Heading>
 
-        <Text className='text-lg'>
+        <Text className='text-lg secondary'>
           We have an army of Ryans at our disposal, so let&apos;s take advantage of it. The more Ryans who pitch in, the faster we&apos;ll grow.
         </Text>
 
-        <Text className='text-lg'>
+        <Text className='text-lg secondary'>
           If you believe you have a relevant skill that can help to further expand the Ryan Meetup, please reach out to us on our <NextLink className='text-blue-700 dark:text-blue-500 underline font-semibold' href='/contact'>/contact</NextLink> page. Our small team of Ryans is currently composed of:
         </Text>
 
         <List
-          icon={<Bullet className='fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />}
+          icon={<Bullet className='fill-gray-700 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />}
           content={composed}
         />
       </div>
@@ -86,7 +86,7 @@ const ContributePage = async () => {
         </Heading>
         <div className='col-span-12 space-y-4'>
           <List
-            icon={<Handshake className='fill-gray-600 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />}
+            icon={<Handshake className='fill-gray-700 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0' />}
             content={waysToSupport}
           />
         </div>

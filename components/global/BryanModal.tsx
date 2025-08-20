@@ -31,7 +31,7 @@ const BryanModal = () => {
     >
       <div className='flex items-center' onClick={handleChange}>
         <input
-          className='w-4 h-4 text-blue-600 rounded focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600'
+          className='w-4 h-4 text-blue-600 rounded focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-700'
           type='checkbox'
           checked={isChecked}
           onChange={handleChange}

@@ -23,7 +23,7 @@ const SponsorSection = (props: SponsorSectionProps) => {
         {tier} Sponsors
       </Heading>
 
-      <Text className='text-center text-base lg:text-lg mx-0 2xl:mx-48'>
+      <Text className='text-center text-base secondary lg:text-lg mx-0 2xl:mx-48'>
         {tier === 'Founding' && 'Founding sponsors have gone above and beyond to support the Ryan Meetup, by providing essential resources, funding, and more. They are the backbone of our community and help us achieve our mission.'}
         {tier === 'Core' && 'Core sponsors have consistently supported multiple Ryan Meetups, demonstrating their ongoing commitment to the community and helping to drive our mission forward.'}
         {/* {tier === 'Contributing' && 'Contributing sponsors have played a vital role in supporting individual Ryan Meetups, providing essential resources and encouragement to make these events a success.'} */}

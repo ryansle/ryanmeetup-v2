@@ -52,7 +52,7 @@ const EventsContainer = (props: EventsContainerProps) => {
           </Heading>
 
           <div className='space-y-4'>
-            <Text className='text-lg text-center lg:text-left'>
+            <Text className='text-lg text-center secondary lg:text-left'>
               No upcoming events at this time.
             </Text>
           </div>
@@ -86,10 +86,10 @@ const EventsContainer = (props: EventsContainerProps) => {
 
       {(inactiveEvents.length === 0 && activeEvents.length === 0) && (
         <div className='space-y-4'>
-          <Text className='text-center text-lg lg:text-left'>
+          <Text className='text-center text-lg secondary lg:text-left'>
             There have not been any local Ryan Meetups in {eventType} yet.
           </Text>
-          <Text className='text-center text-lg lg:text-left'>
+          <Text className='text-center text-lg secondary lg:text-left'>
             Reach out to Ryan via Instagram or at <NextLink className='font-semibold text-blue-700 dark:text-blue-500 hover:cursor' href='mailto:ryan@ryanmeetup.com'>ryan@ryanmeetup.com</NextLink>{' '}about scheduling one today!
           </Text>
         </div>

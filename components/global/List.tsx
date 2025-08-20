@@ -30,7 +30,7 @@ const ListItem = (props: ListItemProps) => {
   return (
     <li className='flex'>
       {icon}
-      <Text className='text-lg'>
+      <Text className='secondary text-lg'>
         {main} {sub}
       </Text>
     </li>

@@ -11,7 +11,7 @@ const CardInfo = () => {
         Ryan Meetup Membership Card
       </Heading>
 
-      <section className='space-y-4 text-base lg:text-lg'>
+      <section className='space-y-4 text-base secondary lg:text-lg'>
         <Text>
           You&apos;ve always been a member, and now you can have the card to prove it.
         </Text>
@@ -26,15 +26,14 @@ const CardInfo = () => {
 
         <div className='text-gray-700 dark:text-gray-400 tracking-wide font-medium mt-8'>
           Price:{' '}
-          <span className='relative group text-black dark:text-white hover:underline'>
+          <span className='relative group title font-bold hover:underline'>
             $30 USD
-            <span className='text-red-500'>*</span>
           </span>
           ; includes free shipping.
         </div>
       </section>
 
-      <section className='space-y-4 mt-8 text-base lg:text-lg'>
+      <section className='space-y-4 mt-8 text-base secondary lg:text-lg'>
         <Heading className='text-2xl title' size='h2'>
           Why this price?
         </Heading>

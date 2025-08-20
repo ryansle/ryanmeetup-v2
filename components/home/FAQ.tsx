@@ -55,7 +55,7 @@ const FAQ = (props: FAQProps) => {
                     leaveTo='opacity-0 -translate-y-6'
                   >
                     <DisclosurePanel className='origin-top transition'>
-                      <Text>
+                      <Text className='secondary'>
                         {pair.answer}
                       </Text>
                     </DisclosurePanel>
@@ -69,10 +69,10 @@ const FAQ = (props: FAQProps) => {
         ) : (
           <div key={index}>
             <>
-              <div className='text-xl font-semibold tracking-wider mb-2 text-black dark:text-white'>
+              <div className='text-xl font-semibold tracking-wider mb-2 title'>
                 {pair.question}
               </div>
-              <div className='text-lg mb-10 text-gray-600 dark:text-gray-400'>
+              <div className='text-lg mb-10 text-gray-700 dark:text-gray-400'>
                 {pair.answer}
               </div>
             </>

@@ -83,11 +83,7 @@ const Legend = (props: LegendProps) => {
                 onClick={option.handler}
               />
 
-              <Text
-                className='ml-2 text-xs'
-                color='primary'
-                ignoreColorMode
-              >
+              <Text className='ml-2 text-xs text-black'>
                 {option.text}
               </Text>
             </div>

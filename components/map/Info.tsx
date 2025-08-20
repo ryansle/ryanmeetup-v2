@@ -27,20 +27,20 @@ const Info = (props: InfoProps) => {
       <Heading className='mb-6 text-4xl title'>
         Ryan Meetup Worldwide
       </Heading>
-      <Text className='text-lg'>
+      <Text className='text-lg secondary'>
         Our growing network of Ryans currently spans across <span className='font-semibold text-blue-700 dark:text-blue-500'>50+ countries</span> and <span className='font-semibold text-blue-700 dark:text-blue-500'>800+ cities</span> worldwide.
       </Text>
 
       <br />
       
-      <Text className='text-lg'>
+      <Text className='text-lg secondary'>
         Help us expand as we gear up for RyanCon, the soon-to-be largest same name gathering in history.
       </Text>
 
       <Heading className='mt-8 mb-6 text-3xl title' size='h2'>
         Don&apos;t see your city?
       </Heading>
-      <Text className='text-lg'>
+      <Text className='text-lg secondary'>
         <NextLink href='/contact' className='font-semibold underline underline-offset-2 text-blue-700 dark:text-blue-500 hover:cursor-pointer'>Contact Ryan</NextLink> to have your city added to the map.
       </Text>
     </section>

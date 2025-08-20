@@ -26,7 +26,7 @@ const Breadcrumbs = (props: BreadcrumbProps) => {
             className='flex items-center timing hover:scale-102 hover:underline'
           >
             {anchor.icon} 
-            <Text className={index === crumbs.length - 1 ? 'text-black dark:text-white' : 'text-gray-600 dark:text-gray-400'}>
+            <Text className={index === crumbs.length - 1 ? 'title' : 'text-gray-700 dark:text-gray-400'}>
               {anchor.title}
             </Text>
           </NextLink>

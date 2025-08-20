@@ -38,7 +38,7 @@ const EventTag = (props: EventTagProps) => {
       case 'Ryan Summit':
         return 'border-white';
       default:
-        return 'border-gray-700 text-black dark:text-white';
+        return 'border-gray-700 secondary';
     }
   };
 

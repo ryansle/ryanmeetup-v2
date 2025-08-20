@@ -33,7 +33,7 @@ const HomePage = async () => {
         <Divider margins='xl' />
 
         <Heading className='text-center text-4xl title' size='h4'>
-          Ryan Meetup has been supported by Ryans at:
+          We&apos;re supported by Ryans at:
         </Heading>
       </div>
 

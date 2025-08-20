@@ -26,7 +26,7 @@ const Testimony = (props: TestimonyProps) => {
           />
         </div> */}
         <div className='col-span-5'>
-          <p className='text-gray-600 text-base dark:text-gray-400'>
+          <p className='text-gray-700 text-base dark:text-gray-400'>
             {quote}
           </p>
           <h3 className='text-lg font-semibold text-lg mt-2 text-right'>

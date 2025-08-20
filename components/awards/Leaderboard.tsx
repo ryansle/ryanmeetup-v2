@@ -13,7 +13,7 @@ type LeaderboardProps = {
 };
 
 const TableHeader = () => (
-  <thead className='uppercase tracking-widest text-xs xl:text-md text-black dark:text-white'>
+  <thead className='uppercase tracking-widest text-xs xl:text-md title'>
     <tr>
       <th scope='col' className='w-16' aria-label='Headshot' />
       <th scope='col' className='w-48'>
@@ -44,7 +44,7 @@ const Leaderboard = (props: LeaderboardProps) => {
         Attendance Leaderboard
       </Heading>
 
-      <Text className='italic mb-10 text-center text-lg'>
+      <Text className='secondary italic mb-10 text-center text-lg'>
         <span className='font-semibold text-blue-700 dark:text-blue-500'>*</span>Ryans must attend at least four Ryan Meetups in order to qualify for the leaderboard.
       </Text>
 
@@ -66,12 +66,12 @@ const Leaderboard = (props: LeaderboardProps) => {
                   </div>
                 </td>
                 <td>
-                  <Text className='text-xs md:text-sm lg:text-base xl:text-lg'>
+                  <Text className='title text-xs md:text-sm lg:text-base xl:text-lg'>
                     {ryan.fullName}
                   </Text>
                 </td>
                 <td>
-                  <Text className='text-xs md:text-sm lg:text-base xl:text-lg'>
+                  <Text className='title text-xs md:text-sm lg:text-base xl:text-lg'>
                     {ryan.basedIn}
                   </Text>
                 </td>
@@ -100,7 +100,7 @@ const Leaderboard = (props: LeaderboardProps) => {
         Not seeing your name?
       </Heading>
 
-      <Text className='text-center mb-20 text-lg'>
+      <Text className='secondary text-center mb-20 text-lg'>
         Get in contact through our{' '}
         <NextLink href='/contact' className='font-semibold text-blue-700 dark:text-blue-500 hover:cursor'>
           /contact

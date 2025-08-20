@@ -53,12 +53,12 @@ const Event = (props: EventProps) => {
         <div className='px-5 pt-3 pb-3 space-y-2'>
           <div className='flex items-center justify-between mb-3'>
             <div>
-              <Text className='text-sm'>{dateTime}</Text>
+              <Text className='text-sm secondary'>{dateTime}</Text>
               <Heading className='text-xl title' size='h3'>
                 {title}
               </Heading>
             </div>
-            {href.includes('meetup') && (
+            {/* {href.includes('meetup') && (
               <div>
                 <Meetup className='w-10 h-10 fill-black dark:fill-white' />
               </div>
@@ -71,19 +71,19 @@ const Event = (props: EventProps) => {
                 height={40}
                 alt='Partiful Logo'
               />
-            )}
+            )} */}
           </div>
-          <Text className='min-h-[85px] text-sm'>{description}</Text>
+          <Text className='min-h-[85px] text-sm secondary'>{description}</Text>
 
           <div className='grid grid-cols-12 text-gray-400'>
             <div className='col-span-6 lg:col-span-5 flex items-center space-x-2'>
               <City />
-              <Text className='text-sm'>{city}</Text>
+              <Text className='text-sm secondary'>{city}</Text>
             </div>
 
             <div className='col-span-6 lg:col-span-7 flex items-center space-x-2'>
               <Pin />
-              <Text className='text-sm'>{venue}</Text>
+              <Text className='text-sm secondary'>{venue}</Text>
             </div>
           </div>
         </div>

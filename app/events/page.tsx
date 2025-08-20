@@ -44,7 +44,7 @@ const EventsPage = async () => {
         icon={<News />}
         hrefText='Get notified of future events'
       >
-        <Text className='text-xl mb-6 xl:mx-32'>
+        <Text className='secondary text-xl mb-6 xl:mx-32'>
           <span className='hidden md:inline-block'>
             It&apos;s never too late to join the Ryan Meetup.
           </span>
