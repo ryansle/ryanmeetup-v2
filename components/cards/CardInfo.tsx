@@ -43,7 +43,7 @@ const CardInfo = () => {
         </Text>
 
         <Text>
-          Please allow 2-3 weeks for delivery, as each card is made to order.
+          Please allow 4-5 weeks for delivery, as each card is made to order.
         </Text>
       </section>
 
