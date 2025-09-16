@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Ryan Meetup - Newsletter',
   description: 'Subscribe to the official Ryan Meetup newsletter.',
   openGraph: {
-    url: 'https://share-na2.hsforms.com/21Dr3jZZ1QqyzevFmZhPRrw402o2n',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdS8O47kdOcmjXglOt_aGTs2q9qK6CrN4zGFdx62H10a-8kDg/viewform',
     title: 'Ryan Meetup - Newsletter',
     description: 'Subscribe to the official Ryan Meetup newsletter.',
     siteName: 'Ryan Meetup',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const NewsletterPageRedirect = () => {
-  redirect('https://share-na2.hsforms.com/21Dr3jZZ1QqyzevFmZhPRrw402o2n');
+  redirect('https://docs.google.com/forms/d/e/1FAIpQLSdS8O47kdOcmjXglOt_aGTs2q9qK6CrN4zGFdx62H10a-8kDg/viewform');
 };
 
 export default NewsletterPageRedirect;
