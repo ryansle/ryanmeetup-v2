@@ -7,7 +7,7 @@ import { FaCity as City } from 'react-icons/fa';
 import { MdGroup as Group } from 'react-icons/md';
 
 // Types
-import type { RyanEvent, ChapterLead, ContentfulImage } from '@/lib/types';
+import type { RyanEvent, ContentfulImage } from '@/lib/types';
 import type { Metadata } from 'next';
 
 // Utilities
@@ -49,7 +49,7 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
   const events = await fetchEvents();
 
   // @ts-ignore
-  const leaders = content?.leaders?.map((entry: { fields: any; }) => entry.fields) ?? [];
+  const leaders = content?.chapterLeads;
   const city = content?.city;
   const whatsapp = content?.whatsAppLink;
   const instagram = content?.instagram;
@@ -80,7 +80,7 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
           <Breadcrumbs className='flex sm:hidden' crumbs={breadcrumbs} />
           <div className='sticky top-28'>
             <ChapterInfo
-              leaders={leaders as ChapterLead[]}
+              leaders={leaders as string[]}
               whatsapp={whatsapp as string}
               instagram={instagram as string}
               avatar={avatar as ContentfulImage}

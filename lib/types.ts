@@ -154,16 +154,10 @@ type RyanChapter = {
   city: string;
   slug: string;
   state: string;
-  leaders: string[];
+  chapterLeads: string[];
   whatsAppLink: string;
   coverImage: ContentfulImage;
   instagram: string;
-};
-
-type ChapterLead = {
-  name: string;
-  contact: string;
-  headshot?: ContentfulImage;
 };
 
 type Sponsor = {
@@ -218,7 +212,6 @@ export type {
   ContactFormFields,
   RyanInNeed,
   RyanChapter,
-  ChapterLead,
   Sponsor,
   Outlet,
   Testimonial

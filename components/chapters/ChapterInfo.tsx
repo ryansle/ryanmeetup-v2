@@ -7,13 +7,13 @@ import NextImage from 'next/image';
 import NextLink from 'next/link';
 
 // Types
-import type { ChapterLead, ContentfulImage } from '@/lib/types';
+import type { ContentfulImage } from '@/lib/types';
 
 // Utilities
 import { convertImageUrl, filterInstagram } from '@/utils/convert';
 
 type ChapterInfoProps = {
-  leaders: ChapterLead[];
+  leaders: string[];
   whatsapp: string;
   instagram: string;
   avatar: ContentfulImage;
@@ -63,7 +63,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
         <div className='col-span-5'>
           {leaders.map((ryan, index) => (
             <Text key={index} className='-ml-1 text-base secondary lg:text-lg'>
-              {ryan.name}
+              {ryan}
             </Text>
           ))}
 
