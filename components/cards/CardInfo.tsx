@@ -51,8 +51,9 @@ const CardInfo = () => {
         href='https://buy.stripe.com/3cIcN4fTP7BS0kzbXJ2kw0a'
         leftIcon={<Dollar className='w-5 h-5' />}
         className='mt-8'
+        disabled
       >
-        BUY NOW
+        RY-D ORDERS WILL RESUME SOON
       </Button.Link>
     </div>
   );
