@@ -23,55 +23,56 @@ const EventsContainer = (props: EventsContainerProps) => {
     showUpcomingSection = false
   } = props;
 
-  const mainEvents = events.filter(event => event.chapter.includes(eventType));
+  const now = Date.now();
 
-  const chapterEvents = events.filter(event => (
-    !event.chapter.includes(eventType) && 
-    new Date(event.date as unknown as string).getTime() >= new Date().getTime()
-  ));
+  const mainEvents = events.filter(e => e.chapter.includes(eventType));
 
-  const activeEvents = mainEvents?.filter(event => (
-    new Date(event.date as unknown as string).getTime() >= new Date().getTime()
-  ));
+  const chapterEvents = events.filter(
+    e => !e.chapter.includes(eventType) && new Date(e.date as unknown as string).getTime() >= now
+  );
 
-  const inactiveEvents = mainEvents?.filter(event => (
-    new Date(event.date as unknown as string).getTime() < new Date().getTime()
-  ));
+  const activeEvents = mainEvents.filter(
+    e => new Date(e.date as unknown as string).getTime() >= now
+  );
+
+  const inactiveEvents = mainEvents.filter(
+    e => new Date(e.date as unknown as string).getTime() < now
+  );
+
+  const showEmptyUpcomingBanner = showUpcomingSection && activeEvents.length === 0 && inactiveEvents.length !== 0;
 
   return (
-    <div className='mb-10'>
-      {showUpcomingSection && activeEvents.length === 0 && inactiveEvents.length !== 0 && (
-        <div className='mb-8'>
-          <Heading className='mb-4 text-center text-3xl title lg:text-4xl lg:text-left' size='h2'>
+    <div className="mb-10">
+      {showEmptyUpcomingBanner && (
+        <div className="mb-8">
+          <Heading className="mb-4 text-center text-3xl title lg:text-4xl lg:text-left" size="h2">
             Upcoming Events
           </Heading>
-
-          <div className='space-y-4'>
-            <Text className='text-lg text-center secondary lg:text-left'>
+          <div className="space-y-4">
+            <Text className="text-lg text-center secondary lg:text-left">
               No upcoming events at this time.
             </Text>
           </div>
-
-          <Divider margins='lg' />
+          <Divider margins="lg" />
         </div>
       )}
 
-      {(activeEvents.length !== 0 || chapterEvents.length !== 0) && (
+      {/* Only render the second block if we are NOT in the “empty banner” case */}
+      {!showEmptyUpcomingBanner && (activeEvents.length !== 0 || chapterEvents.length !== 0) && (
         <>
           <EventsSection
-            title='Upcoming Events'
+            title="Upcoming Events"
             events={activeEvents}
             eventType={eventType}
             showChapters={chapterEvents.length !== 0}
           />
-
-          {inactiveEvents.length !== 0 && <Divider margins='lg' />}
+          {inactiveEvents.length !== 0 && <Divider margins="lg" />}
         </>
       )}
 
       {inactiveEvents.length !== 0 && (
         <EventsSection
-          title='Past Events'
+          title="Past Events"
           events={inactiveEvents}
           eventType={eventType}
           hidePastEvents={hidePastEvents}
@@ -79,13 +80,20 @@ const EventsContainer = (props: EventsContainerProps) => {
         />
       )}
 
-      {(inactiveEvents.length === 0 && activeEvents.length === 0) && (
-        <div className='space-y-4'>
-          <Text className='text-center text-lg secondary lg:text-left'>
+      {inactiveEvents.length === 0 && activeEvents.length === 0 && (
+        <div className="space-y-4">
+          <Text className="text-center text-lg secondary lg:text-left">
             There have not been any local Ryan Meetups in {eventType} yet.
           </Text>
-          <Text className='text-center text-lg secondary lg:text-left'>
-            Reach out to Ryan via Instagram or at <NextLink className='font-semibold text-blue-700 dark:text-blue-500 hover:cursor' href='mailto:ryan@ryanmeetup.com'>ryan@ryanmeetup.com</NextLink>{' '}about scheduling one today!
+          <Text className="text-center text-lg secondary lg:text-left">
+            Reach out to Ryan via Instagram or at{' '}
+            <NextLink
+              className="font-semibold text-blue-700 dark:text-blue-500 hover:cursor"
+              href="mailto:ryan@ryanmeetup.com"
+            >
+              ryan@ryanmeetup.com
+            </NextLink>{' '}
+            about scheduling one today!
           </Text>
         </div>
       )}
