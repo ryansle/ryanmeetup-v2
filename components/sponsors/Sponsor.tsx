@@ -1,13 +1,13 @@
 // Components
-import NextImage from 'next/image';
-import NextLink from 'next/link';
+import NextImage from "next/image";
+import NextLink from "next/link";
 
 // Types
-import type { Sponsor } from '@/lib/types';
+import type { Sponsor } from "@/lib/types";
 
 // Utilities
-import { convertImageUrl } from '@/utils/convert';
-import { useTheme } from 'next-themes';
+import { convertImageUrl } from "@/utils/convert";
+import { useTheme } from "next-themes";
 
 type SponsorProps = {
   sponsor: Sponsor;
@@ -15,27 +15,26 @@ type SponsorProps = {
 };
 
 const Sponsor = (props: SponsorProps) => {
-  const { 
-    name,
-    darkModeImage,
-    lightModeImage,
-    href,
-  } = props.sponsor;
+  const { name, darkModeImage, lightModeImage, href } = props.sponsor;
   const { className } = props;
 
   const { theme } = useTheme();
 
   return (
-    <NextLink 
+    <NextLink
       href={href}
       className={`flex flex-col items-center w-full justify-start timing hover:scale-105 ${className}`}
     >
-      <NextImage 
-        src={theme === 'light' ? convertImageUrl(lightModeImage) as string : convertImageUrl(darkModeImage) as string}
+      <NextImage
+        src={
+          theme === "light"
+            ? (convertImageUrl(lightModeImage) as string)
+            : (convertImageUrl(darkModeImage) as string)
+        }
         width={1000}
         height={1000}
         alt={name}
-        className='rounded-xl'
+        className="rounded-xl"
       />
     </NextLink>
   );

@@ -6,7 +6,7 @@ export const validateEmail = (email: string) => {
 
 // Compare two dates and see if they're more than 2 weeks apart
 export const isMoreThanTwoWeeksAgo = (dateString: string) => {
-  const [month, day, yearStr] = dateString.split('/');
+  const [month, day, yearStr] = dateString.split("/");
 
   // Handle 2-digit or 4-digit years
   const year = yearStr.length === 2 ? 2000 + Number(yearStr) : Number(yearStr);

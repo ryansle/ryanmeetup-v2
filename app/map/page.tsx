@@ -1,32 +1,42 @@
 // Components
-import { Layout } from '@/components/navigation';
-import { Mapbox, Info } from '@/components/map';
+import { Layout } from "@/components/navigation";
+import { Mapbox, Info } from "@/components/map";
 
 // Types
-import type { Location } from '@/lib/types';
-import type { Metadata } from 'next';
+import type { Location } from "@/lib/types";
+import type { Metadata } from "next";
 
 // Utilities
-import { fetchLocations } from '@/actions/fetchContent';
+import { fetchLocations } from "@/actions/fetchContent";
 
 export const metadata: Metadata = {
-  title: 'Ryan Meetup - Map',
-  description: 'Ryan Meetup around the world.',
-  keywords: ['ryan meetup world map', 'ryan meetup worldwide', 'ryan meetup world', 'ryan meetup us', 'ryan meetup england', 'ryan meetup germany', 'ryan meetup canada', 'ryan meetup australia', 'ryan meetup america'],
+  title: "Ryan Meetup - Map",
+  description: "Ryan Meetup around the world.",
+  keywords: [
+    "ryan meetup world map",
+    "ryan meetup worldwide",
+    "ryan meetup world",
+    "ryan meetup us",
+    "ryan meetup england",
+    "ryan meetup germany",
+    "ryan meetup canada",
+    "ryan meetup australia",
+    "ryan meetup america",
+  ],
   openGraph: {
-    url: 'https://ryanmeetup.com/map',
-    title: 'Ryan Meetup - Map',
-    description: 'Ryan Meetup around the world.',
-    siteName: 'Ryan Meetup',
+    url: "https://ryanmeetup.com/map",
+    title: "Ryan Meetup - Map",
+    description: "Ryan Meetup around the world.",
+    siteName: "Ryan Meetup",
     images: [
       {
-        url: 'https://ryanmeetup.com/map.png',
+        url: "https://ryanmeetup.com/map.png",
         width: 3360,
         height: 1350,
-      }
+      },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
 };
 

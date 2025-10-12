@@ -1,8 +1,8 @@
 // Components
-import { Text } from '@/components/global';
+import { Text } from "@/components/global";
 
 // Types
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 type Content = {
   main: string;
@@ -28,9 +28,9 @@ const ListItem = (props: ListItemProps) => {
   const { main, sub, icon } = props;
 
   return (
-    <li className='flex'>
+    <li className="flex">
       {icon}
-      <Text className='secondary text-lg'>
+      <Text className="secondary text-lg">
         {main} {sub}
       </Text>
     </li>
@@ -43,12 +43,7 @@ const List = (props: ListProps) => {
   return (
     <ul className={`${className} space-y-2`}>
       {content.map((item: Content) => (
-        <ListItem
-          key={item.main}
-          main={item.main}
-          sub={item.sub}
-          icon={icon}
-        />
+        <ListItem key={item.main} main={item.main} sub={item.sub} icon={icon} />
       ))}
     </ul>
   );

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
 // Components
-import { Heading, Button } from '@/components/global';
+import { Heading, Button } from "@/components/global";
 
 // Types
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 type BlurbProps = {
   fullHeadline: string;
@@ -27,35 +27,32 @@ const Blurb = (props: BlurbProps) => {
 
   return (
     <div>
-      <div className='hidden xl:block'>
-        <Heading
-          className='mb-6 text-center text-7xl title'
-          size='h1'
-        >
+      <div className="hidden xl:block">
+        <Heading className="mb-6 text-center text-7xl title" size="h1">
           {fullHeadline}
         </Heading>
       </div>
 
-      <div className='block xl:hidden'>
-        <Heading className='mb-6 text-center text-5xl title' size='h1'>
+      <div className="block xl:hidden">
+        <Heading className="mb-6 text-center text-5xl title" size="h1">
           {smallHeadline}
         </Heading>
       </div>
 
-      <div className='text-center'>
+      <div className="text-center">
         {children}
 
         {href && (
-          <div className='grid grid-cols-12'>
-            <div className='col-span-0 xl:col-span-1' />
+          <div className="grid grid-cols-12">
+            <div className="col-span-0 xl:col-span-1" />
             <Button.Link
-              className='col-span-12 xl:col-span-10'
+              className="col-span-12 xl:col-span-10"
               href={href}
               leftIcon={icon}
             >
               {hrefText}
             </Button.Link>
-            <div className='col-span-0 xl:col-span-1' />
+            <div className="col-span-0 xl:col-span-1" />
           </div>
         )}
       </div>

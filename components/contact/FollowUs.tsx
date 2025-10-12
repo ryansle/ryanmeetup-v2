@@ -1,5 +1,4 @@
-
-'use client';
+"use client";
 
 // Components
 import {
@@ -7,30 +6,30 @@ import {
   FaYoutube as YouTube,
   FaWhatsapp as Whatsapp,
   FaTiktok as TikTok,
-} from 'react-icons/fa';
-import { FaThreads as Threads,} from 'react-icons/fa6';
-import { HiOutlineMail as Email } from 'react-icons/hi';
-import { Divider, Text, Button } from '@/components/global';
-import { FaRegNewspaper as News } from 'react-icons/fa';
-import NextLink from 'next/link';
+} from "react-icons/fa";
+import { FaThreads as Threads } from "react-icons/fa6";
+import { HiOutlineMail as Email } from "react-icons/hi";
+import { Divider, Text, Button } from "@/components/global";
+import { FaRegNewspaper as News } from "react-icons/fa";
+import NextLink from "next/link";
 
 // Utilities
-import { socials } from '@/lib/constants';
+import { socials } from "@/lib/constants";
 
 const FollowUs = () => {
-  const iconStyle = 'dark:fill-white h-8 w-8 fill-black';
+  const iconStyle = "dark:fill-white h-8 w-8 fill-black";
 
   const renderIcon = (title: string) => {
     switch (title) {
-      case 'Instagram':
+      case "Instagram":
         return <Instagram className={iconStyle} />;
-      case 'YouTube':
+      case "YouTube":
         return <YouTube className={iconStyle} />;
-      case 'TikTok':
+      case "TikTok":
         return <TikTok className={iconStyle} />;
-      case 'Threads':
+      case "Threads":
         return <Threads className={iconStyle} />;
-      case 'WhatsApp':
+      case "WhatsApp":
         return <Whatsapp className={iconStyle} />;
       default:
         return;
@@ -39,33 +38,33 @@ const FollowUs = () => {
 
   const renderWord = (title: string) => {
     switch (title) {
-      case 'Instagram':
-        return 'Follow'
-      case 'YouTube':
-        return 'Subscribe to';
-      case 'TikTok':
-        return 'Follow';
-      case 'Threads':
-        return 'Follow';
-      case 'WhatsApp':
-        return 'Join the conversation'
+      case "Instagram":
+        return "Follow";
+      case "YouTube":
+        return "Subscribe to";
+      case "TikTok":
+        return "Follow";
+      case "Threads":
+        return "Follow";
+      case "WhatsApp":
+        return "Join the conversation";
       default:
         return;
     }
   };
 
   return (
-    <div className='col-span-2 md:col-span-1 dark:text-white text-black'>
-      <div className='space-y-3'>
+    <div className="col-span-2 md:col-span-1 dark:text-white text-black">
+      <div className="space-y-3">
         {socials.map((outlet) => (
-          <NextLink 
+          <NextLink
             href={outlet.href}
-            key={outlet.text} 
-            className='flex space-x-4 timing hover:scale-102'
+            key={outlet.text}
+            className="flex space-x-4 timing hover:scale-102"
           >
             {renderIcon(outlet.text)}
 
-            <Text className='text-lg secondary'>
+            <Text className="text-lg secondary">
               {renderWord(outlet.text)} us on {outlet.text}
             </Text>
           </NextLink>
@@ -74,21 +73,16 @@ const FollowUs = () => {
 
       <Divider />
 
-      <NextLink 
-        href='mailto:ryan@ryanmeetup.com'
-        className='flex space-x-4 timing hover:scale-102 mb-8'
+      <NextLink
+        href="mailto:ryan@ryanmeetup.com"
+        className="flex space-x-4 timing hover:scale-102 mb-8"
       >
-        <Email className='h-8 w-8' />
+        <Email className="h-8 w-8" />
 
-        <Text className='text-lg secondary'>
-          ryan@ryanmeetup.com
-        </Text>
+        <Text className="text-lg secondary">ryan@ryanmeetup.com</Text>
       </NextLink>
 
-      <Button.Link
-        href='/newsletter'
-        leftIcon={<News />}
-      >
+      <Button.Link href="/newsletter" leftIcon={<News />}>
         Sign up for our newsletter
       </Button.Link>
     </div>

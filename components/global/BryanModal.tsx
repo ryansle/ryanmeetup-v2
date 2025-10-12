@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 // Components
-import { Modal } from '@/components/global';
+import { Modal } from "@/components/global";
 
 // Utilities
-import { useRouter } from 'next/navigation';
-import useLocalStorage from '@/hooks/useLocalStorage';
+import { useRouter } from "next/navigation";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const BryanModal = () => {
-  const localStorageKey = 'bryanCheck';
+  const localStorageKey = "bryanCheck";
 
   const [isChecked, handleChange] = useLocalStorage(localStorageKey, false);
   const [showModal, setShowModal] = useState<boolean>(true);
@@ -21,22 +21,22 @@ const BryanModal = () => {
     <Modal
       open={showModal}
       setIsOpen={setShowModal}
-      title='Welcome to the Ryan Meetup.'
+      title="Welcome to the Ryan Meetup."
       closable={false}
-      cancelButtonText='Leave'
-      continueButtonText='Continue'
+      cancelButtonText="Leave"
+      continueButtonText="Continue"
       isContinueDisabled={!isChecked}
-      cancelAction={() => router.push('/goodbye')}
+      cancelAction={() => router.push("/goodbye")}
       continueAction={() => setShowModal(false)}
     >
-      <div className='flex items-center' onClick={handleChange}>
+      <div className="flex items-center" onClick={handleChange}>
         <input
-          className='w-4 h-4 text-blue-600 rounded focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-700'
-          type='checkbox'
+          className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-700"
+          type="checkbox"
           checked={isChecked}
           onChange={handleChange}
         />
-        <label className='font-medium ml-4'>
+        <label className="font-medium ml-4">
           I certify my name is not Bryan or Brian.
         </label>
       </div>

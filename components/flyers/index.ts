@@ -1,2 +1,2 @@
-export * from './Poster';
-export * from './PosterContainer';
+export * from "./Poster";
+export * from "./PosterContainer";

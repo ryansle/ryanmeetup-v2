@@ -1,8 +1,8 @@
 // Components
-import NextLink from 'next/link';
+import NextLink from "next/link";
 
 // Types
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 type ButtonLinkProps = {
   children: ReactNode;
@@ -32,21 +32,21 @@ const ButtonLink = (props: ButtonLinkProps) => {
     rightIcon,
     disabled = false,
     href,
-    newTab = true
+    newTab = true,
   } = props;
 
   return (
     <NextLink
       className={`${className} w-full`}
       href={href}
-      target={newTab ? '_blank' : '_self'}
+      target={newTab ? "_blank" : "_self"}
     >
       <Button
         className={className}
         leftIcon={leftIcon}
         rightIcon={rightIcon}
         disabled={disabled}
-        onClick={() => console.log('')}
+        onClick={() => console.log("")}
       >
         {children}
       </Button>
@@ -55,7 +55,14 @@ const ButtonLink = (props: ButtonLinkProps) => {
 };
 
 const Button = (props: ButtonProps) => {
-  const { children, className, onClick, leftIcon, rightIcon, disabled = false } = props;
+  const {
+    children,
+    className,
+    onClick,
+    leftIcon,
+    rightIcon,
+    disabled = false,
+  } = props;
 
   return (
     <button
@@ -63,16 +70,19 @@ const Button = (props: ButtonProps) => {
       onClick={onClick}
       disabled={disabled}
     >
-      <span className='absolute inset-px z-10 grid place-items-center rounded-lg bg-black bg-gradient-to-t from-neutral-800 text-white font-semibold'>
-        <div className='flex items-center justify-center'>
-          {leftIcon && <span className='mr-2'>{leftIcon}</span>}
+      <span className="absolute inset-px z-10 grid place-items-center rounded-lg bg-black bg-gradient-to-t from-neutral-800 text-white font-semibold">
+        <div className="flex items-center justify-center">
+          {leftIcon && <span className="mr-2">{leftIcon}</span>}
           {children}
-          {rightIcon && <span className='ml-2'>{rightIcon}</span>}
+          {rightIcon && <span className="ml-2">{rightIcon}</span>}
         </div>
       </span>
 
       {!disabled && (
-        <span aria-hidden className='absolute inset-0 z-0 scale-x-[7] blur before:absolute before:inset-0 before:top-1/2 before:aspect-square before:animate-disco before:bg-gradient-conic before:from-purple-700 before:via-red-500 before:to-amber-400' />
+        <span
+          aria-hidden
+          className="absolute inset-0 z-0 scale-x-[7] blur before:absolute before:inset-0 before:top-1/2 before:aspect-square before:animate-disco before:bg-gradient-conic before:from-purple-700 before:via-red-500 before:to-amber-400"
+        />
       )}
     </button>
   );

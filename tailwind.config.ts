@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from "tailwindcss";
 
 const fluidType = (minFont: number, maxFont: number) => {
   let XX = 768 / 100;
@@ -8,31 +8,31 @@ const fluidType = (minFont: number, maxFont: number) => {
 };
 
 const config: Config = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        'nametag': '#EE1A25',
+        nametag: "#EE1A25",
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       brightness: {
-        20: '.2',
-        25: '.25',
-        30: '.3',
+        20: ".2",
+        25: ".25",
+        30: ".3",
       },
       screens: {
-        '1xl': '1360px',
-        '3xl': '1800px',
-        '4xl': '2100px',
+        "1xl": "1360px",
+        "3xl": "1800px",
+        "4xl": "2100px",
       },
       fontSize: {
         display: fluidType(80, 100),
@@ -41,22 +41,22 @@ const config: Config = {
         display4: fluidType(16, 24),
       },
       fontFamily: {
-        cooper: ['Cooper', 'sans-serif']
+        cooper: ["Cooper", "sans-serif"],
       },
       scale: {
-        '102': '1.02',
+        "102": "1.02",
       },
       keyframes: {
         disco: {
-          '0%': { transform: 'translateY(-50%) rotate(0deg)' },
-          '100%': { transform: 'translateY(-50%) rotate(360deg)' },
+          "0%": { transform: "translateY(-50%) rotate(0deg)" },
+          "100%": { transform: "translateY(-50%) rotate(360deg)" },
         },
       },
       animation: {
-        disco: 'disco 1.5s linear infinite',
+        disco: "disco 1.5s linear infinite",
       },
     },
   },
-  plugins: [require('@tailwindcss/aspect-ratio')],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };
 export default config;

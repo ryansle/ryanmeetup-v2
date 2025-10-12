@@ -1,8 +1,8 @@
 // Utilities
-import clsx from 'clsx';
+import clsx from "clsx";
 
 // Types
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 type TextProps = {
   className?: string;
@@ -10,16 +10,9 @@ type TextProps = {
 };
 
 const Text = (props: TextProps) => {
-  const {
-    className,
-    children,
-  } = props;
+  const { className, children } = props;
 
-  return (
-    <p className={`${className} tracking-wide font-medium`}>
-      {children}
-    </p>
-  );
+  return <p className={`${className} tracking-wide font-medium`}>{children}</p>;
 };
 
 export { Text };

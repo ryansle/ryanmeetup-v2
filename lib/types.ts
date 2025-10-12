@@ -1,5 +1,5 @@
 // Types
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 // #region Contentful Types
 type ContentfulSys = {
@@ -19,7 +19,7 @@ type ContentfulFile = {
   };
   fileName: string;
   url: string;
-}
+};
 
 type ContentfulImage = {
   fields: {
@@ -100,7 +100,12 @@ type Location = {
   eventDate: Date;
   image: ContentfulImage;
   city: string;
-  locationType: 'Event Location' | 'Ryan Hub' | 'Ryan-Named Business' | 'Ryan-Owned Business' | 'Chapter';
+  locationType:
+    | "Event Location"
+    | "Ryan Hub"
+    | "Ryan-Named Business"
+    | "Ryan-Owned Business"
+    | "Chapter";
 };
 
 type TravelingRyan = {
@@ -197,6 +202,12 @@ type ContactFormFields = {
   message: string;
 };
 
+type Charity = {
+  title: string;
+  amount: string;
+  href: string;
+};
+
 export type {
   RyanEvent,
   TravelingRyan,
@@ -214,5 +225,6 @@ export type {
   RyanChapter,
   Sponsor,
   Outlet,
-  Testimonial
+  Testimonial,
+  Charity,
 };

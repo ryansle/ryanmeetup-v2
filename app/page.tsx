@@ -1,55 +1,52 @@
 // Components
-import { Layout } from '@/components/navigation';
-import { Landing, FAQ, TestimonyContainer } from '@/components/home';
-import { Divider, Heading } from '@/components/global';
+import { Layout } from "@/components/navigation";
+import { Landing, FAQ, TestimonyContainer } from "@/components/home";
+import { Divider, Heading } from "@/components/global";
 
 // Types
-import type { 
-  FrequentlyAskedQuestion, 
-  Sponsor, 
-  Testimonial 
-} from '@/lib/types';
+import type {
+  FrequentlyAskedQuestion,
+  Sponsor,
+  Testimonial,
+} from "@/lib/types";
 
 // Utilities
-import { 
-  fetchFAQs, 
-  fetchSponsors, 
-  fetchTestimonies 
-} from '@/actions/fetchContent';
-import { SponsorCarousel } from '@/components/sponsors';
+import {
+  fetchFAQs,
+  fetchSponsors,
+  fetchTestimonies,
+} from "@/actions/fetchContent";
+import { SponsorCarousel } from "@/components/sponsors";
 
 const HomePage = async () => {
   const faqs = await fetchFAQs();
   const sponsors = await fetchSponsors();
   const testimonies = await fetchTestimonies();
 
-  const homeFaqs = faqs.filter((faq) => faq.type === 'home');
+  const homeFaqs = faqs.filter((faq) => faq.type === "home");
 
   return (
     <Layout fullscreen>
-      <div className='py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
+      <div className="py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
         <Landing />
 
-        <Divider margins='xl' />
+        <Divider margins="xl" />
 
-        <Heading className='text-center text-4xl title' size='h4'>
+        <Heading className="text-center text-4xl title" size="h4">
           We&apos;re supported by Ryans at:
         </Heading>
       </div>
 
       <SponsorCarousel sponsors={sponsors as Sponsor[]} />
 
-      <div className='px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'>
-        <Divider margins='xl' />
+      <div className="px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
+        <Divider margins="xl" />
 
         <TestimonyContainer testimonies={testimonies as Testimonial[]} />
 
-        <Divider margins='xl' />
+        <Divider margins="xl" />
 
-        <FAQ
-          showTitle
-          data={homeFaqs as FrequentlyAskedQuestion[]}
-        />
+        <FAQ showTitle data={homeFaqs as FrequentlyAskedQuestion[]} />
       </div>
     </Layout>
   );

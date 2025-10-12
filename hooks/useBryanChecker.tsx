@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useBryanChecker = () => {
   const [bryanChecked, setBryanChecked] = useState<boolean>(false);
 
   useEffect(() => {
-    const value = JSON.parse(localStorage.getItem('bryanCheck') as string);
+    const value = JSON.parse(localStorage.getItem("bryanCheck") as string);
     setBryanChecked(value);
   }, []);
 

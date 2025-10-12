@@ -10,50 +10,50 @@ The ultimate goal of the Ryan Meetup is gathering as many Ryans as possible in o
 
 As the Ryan Meetup has grown exponentially since its inception in early February, it became necessary for it to have its own website to capitalize on the internet traffic we were bringing in by (initially) hanging up flyers on the street in various cities around the world. Some of these cities have included, but are not limited to:
 
-* New York, NY
-* Los Angeles, CA
-* Austin, TX
-* New Orleans, LA
-* Omaha, NE
-* Chicago, IL
-* Miami, FL
-* Houston, TX
-* Washington, DC
-* Rome, Italy
-* Amsterdam, Netherlands
-* Athens, Greece
-* Berlin, Germany
-* Mexico City, Mexico
+- New York, NY
+- Los Angeles, CA
+- Austin, TX
+- New Orleans, LA
+- Omaha, NE
+- Chicago, IL
+- Miami, FL
+- Houston, TX
+- Washington, DC
+- Rome, Italy
+- Amsterdam, Netherlands
+- Athens, Greece
+- Berlin, Germany
+- Mexico City, Mexico
 
 ## Features
 
-* Keep up to date with upcoming Ryan Meetup events
-* Support the Ryan Meetup by purchasing merchandise through our Etsy store
-* View our gallery of photos from previous Ryan Meetups
-* Download our flyer pack in order to spread the word throughout your own city
-* Check out our Ryan Meetup World Map for real-time info of Ryans around the world, and where previous events have happened
-* Stay up to date with Ryan Meetup in the news
-* Dark and light mode
-* Get in contact with the Ryans behind the Ryan Meetup
-* Sign up for our mailing list to never miss out on the latest Ryan Meetup news
+- Keep up to date with upcoming Ryan Meetup events
+- Support the Ryan Meetup by purchasing merchandise through our Etsy store
+- View our gallery of photos from previous Ryan Meetups
+- Download our flyer pack in order to spread the word throughout your own city
+- Check out our Ryan Meetup World Map for real-time info of Ryans around the world, and where previous events have happened
+- Stay up to date with Ryan Meetup in the news
+- Dark and light mode
+- Get in contact with the Ryans behind the Ryan Meetup
+- Sign up for our mailing list to never miss out on the latest Ryan Meetup news
 
 ## Built With
 
-* React.js
-* Tailwind CSS
-* Next.js
-* Headless UI
-* TypeScript
-* Vercel
-* Email.js
-* Contentful
-* React-Query
-* React-Hook-Form
-* React Icons
-* Mailerlite
+- React.js
+- Tailwind CSS
+- Next.js
+- Headless UI
+- TypeScript
+- Vercel
+- Email.js
+- Contentful
+- React-Query
+- React-Hook-Form
+- React Icons
+- Mailerlite
 
 ## Credits
 
-* [Matt Sichterman](https://www.msich.dev/) - buying the original domain, scaffolding a basic application
-* [Ryan Le](https://ryanle.dev/) - design & development of the website 
-* [Lorena Pereira](https://lorenapereira.com/) - home page redesign
+- [Matt Sichterman](https://www.msich.dev/) - buying the original domain, scaffolding a basic application
+- [Ryan Le](https://ryanle.dev/) - design & development of the website
+- [Lorena Pereira](https://lorenapereira.com/) - home page redesign

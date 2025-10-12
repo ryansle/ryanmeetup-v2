@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 // Components
-import { Banner, Header, NewFooter } from '@/components/navigation';
-import { useTheme } from 'next-themes';
+import { Banner, Header, NewFooter } from "@/components/navigation";
+import { useTheme } from "next-themes";
 
 // Types
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 type LayoutProps = {
   className?: string;
@@ -30,11 +30,11 @@ const Layout = (props: LayoutProps) => {
     <main>
       {/* <Banner />g */}
       <Header />
-      <section 
+      <section
         className={`${className} 
                     text-white h-full flex flex-col 
-                    ${isClient && theme === 'light' ? "bg-[url('/crumbled.png')] bg-repeat bg-cover bg-white" : 'bg-white from-white bg-gradient-to-b from-neutral-00 to-neutral-200 to-neutral-00 dark:from-neutral-900 dark:to-black'} 
-                    ${fullscreen ? '' : 'py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]'}`}
+                    ${isClient && theme === "light" ? "bg-[url('/crumbled.png')] bg-repeat bg-cover bg-white" : "bg-white from-white bg-gradient-to-b from-neutral-00 to-neutral-200 to-neutral-00 dark:from-neutral-900 dark:to-black"} 
+                    ${fullscreen ? "" : "py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]"}`}
       >
         {children}
       </section>

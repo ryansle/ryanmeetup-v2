@@ -1,5 +1,5 @@
 // Types
-import type { ContentfulImage } from '@/lib/types';
+import type { ContentfulImage } from "@/lib/types";
 
 const convertDateToDateTimeString = (date: Date) => {
   const dateObject = new Date(date);
@@ -25,21 +25,22 @@ const convertImageUrl = (file: ContentfulImage) => {
   const route = file.fields?.file?.url;
 
   if (route) {
-    return `https://${route.replace('//', '')}`;
+    return `https://${route.replace("//", "")}`;
   }
 };
 
 const convertSlug = (slug: string) => {
-  let res = slug.replaceAll('-', ' ');
-  res = res.split(' ')
-    .map(word => word[0].toUpperCase() + word.slice(1))
-    .join(' ');
+  let res = slug.replaceAll("-", " ");
+  res = res
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
 
   return res;
 };
 
 const filterInstagram = (url: string) => {
-  const result = url.split('https://www.instagram.com/');
+  const result = url.split("https://www.instagram.com/");
 
   return result[1];
 };

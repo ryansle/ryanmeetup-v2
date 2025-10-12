@@ -12,196 +12,202 @@ import {
   FaScroll as Scroll,
   FaTiktok as TikTok,
   FaAddressCard as Card,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 import {
   FaPeopleGroup as Community,
   FaHandshakeSimple as Handshake,
   FaShirt as Shirt,
   FaThreads as Threads,
-} from 'react-icons/fa6';
+  FaPiggyBank as Charity,
+} from "react-icons/fa6";
 import {
   IoCalendarNumber as Calendar,
-  IoPersonAdd as Socials
-} from 'react-icons/io5';
-import { RiFilePaper2Line as Flyer } from 'react-icons/ri';
-import { HiOutlineMail as Email } from 'react-icons/hi';
-import { MdGroup as Group } from 'react-icons/md';
-import { GoSponsorTiers as Sponsor } from 'react-icons/go';
+  IoPersonAdd as Socials,
+} from "react-icons/io5";
+import { RiFilePaper2Line as Flyer } from "react-icons/ri";
+import { HiOutlineMail as Email } from "react-icons/hi";
+import { MdGroup as Group } from "react-icons/md";
+import { GoSponsorTiers as Sponsor } from "react-icons/go";
+import { text } from "stream/consumers";
 
 export const socials = [
   {
-    href: 'https://www.instagram.com/ryanmeetup/',
-    icon: <Instagram className='title' />,
-    text: 'Instagram',
+    href: "https://www.instagram.com/ryanmeetup/",
+    icon: <Instagram className="title" />,
+    text: "Instagram",
   },
-  // { 
+  // {
   //   href: 'https://partiful.com/u/sJG4HpH0wS3ZA3YkzaL5',
   //   icon: <NextImage src='/icons/partiful-black.png' alt='Partiful Icon' width={16} height={16} />,
   //   text: 'Partiful',
   // },
   {
-    href: 'https://www.youtube.com/@ryanmeetup',
-    icon: <YouTube className='title' />,
-    text: 'YouTube',
+    href: "https://www.youtube.com/@ryanmeetup",
+    icon: <YouTube className="title" />,
+    text: "YouTube",
   },
   {
-    icon: <TikTok className='title' />,
-    text: 'TikTok',
-    href: 'https://www.tiktok.com/@ryanmeetup/',
+    icon: <TikTok className="title" />,
+    text: "TikTok",
+    href: "https://www.tiktok.com/@ryanmeetup/",
   },
   {
-    icon: <Threads className='title' />,
-    text: 'Threads',
-    href: 'https://www.threads.net/@ryanmeetup',
+    icon: <Threads className="title" />,
+    text: "Threads",
+    href: "https://www.threads.net/@ryanmeetup",
   },
   {
-    icon: <Whatsapp className='title' />,
-    text: 'WhatsApp',
-    href: '/whatsapp',
+    icon: <Whatsapp className="title" />,
+    text: "WhatsApp",
+    href: "/whatsapp",
   },
 ];
 
 export const routes = [
   {
     icon: <Community />,
-    text: 'Community',
-    href: '',
+    text: "Community",
+    href: "",
     subroutes: [
       {
         icon: <Scroll />,
-        text: 'About',
-        href: '/about',
+        text: "About",
+        href: "/about",
       },
       {
         icon: <Calendar />,
-        text: 'Events',
-        href: '/events',
+        text: "Events",
+        href: "/events",
       },
       {
         icon: <Group />,
-        text: 'Chapters',
-        href: '/chapters',
+        text: "Chapters",
+        href: "/chapters",
       },
       {
         icon: <Gallery />,
-        text: 'Gallery',
-        href: '/gallery',
+        text: "Gallery",
+        href: "/gallery",
       },
       {
         icon: <Trophy />,
-        text: 'Awards',
-        href: '/awards',
+        text: "Awards",
+        href: "/awards",
       },
     ],
   },
   {
     icon: <Shirt />,
-    text: 'Merch',
-    href: 'https://ryanmeetup.etsy.com',
+    text: "Merch",
+    href: "https://ryanmeetup.etsy.com",
   },
   {
     icon: <Handshake />,
-    text: 'Support',
-    href: '',
+    text: "Support",
+    href: "",
     subroutes: [
-
       {
         icon: <Flyer />,
-        text: 'Flyers',
-        href: '/flyers',
+        text: "Flyers",
+        href: "/flyers",
       },
       {
         icon: <Help />,
-        text: 'Contribute',
-        href: '/contribute',
+        text: "Contribute",
+        href: "/contribute",
       },
       {
         icon: <Dollar />,
-        text: 'Donate',
-        href: '/donate',
+        text: "Donate",
+        href: "/donate",
       },
       {
         icon: <Sponsor />,
-        text: 'Sponsors',
-        href: '/sponsors'
+        text: "Sponsors",
+        href: "/sponsors",
+      },
+      {
+        icon: <Charity />,
+        text: "Charity",
+        href: "/charity",
       },
       {
         icon: <Card />,
-        text: 'Buy Card',
-        href: '/cards',
+        text: "Buy Card",
+        href: "/cards",
       },
     ],
   },
   {
     icon: <Map />,
-    text: 'Map',
-    href: '/map',
+    text: "Map",
+    href: "/map",
   },
   {
     icon: <News />,
-    text: 'Press',
-    href: '/press',
+    text: "Press",
+    href: "/press",
   },
   {
     icon: <Email />,
-    text: 'Contact Us',
-    href: '/contact',
+    text: "Contact Us",
+    href: "/contact",
   },
   {
     icon: <Socials />,
-    text: 'Social Media',
-    href: '',
+    text: "Social Media",
+    href: "",
     subroutes: socials,
   },
 ];
 
 export const gallery = [
   {
-    imageUrl: '/group-photos/ryanroundup.png',
-    title: 'Ryan Roundup, March 2023'
+    imageUrl: "/group-photos/ryanroundup.png",
+    title: "Ryan Roundup, March 2023",
   },
   {
-    imageUrl: '/group-photos/rendez.webp',
-    title: 'Ryan Rendezvous, May 2023',
+    imageUrl: "/group-photos/rendez.webp",
+    title: "Ryan Rendezvous, May 2023",
   },
   {
-    imageUrl: '/group-photos/retreat.webp',
-    title: 'Ryan Retreat, July 2023',
+    imageUrl: "/group-photos/retreat.webp",
+    title: "Ryan Retreat, July 2023",
   },
   {
-    imageUrl: '/group-photos/rave.webp',
-    title: 'Ryan Rave, September 2023',
+    imageUrl: "/group-photos/rave.webp",
+    title: "Ryan Rave, September 2023",
   },
   {
-    imageUrl: '/group-photos/claus.webp',
-    title: 'Ryan Claus, December 2023'
+    imageUrl: "/group-photos/claus.webp",
+    title: "Ryan Claus, December 2023",
   },
   {
-    imageUrl: '/group-photos/rodeo.webp',
-    title: 'Ryan Rodeo, February 2024',
+    imageUrl: "/group-photos/rodeo.webp",
+    title: "Ryan Rodeo, February 2024",
   },
   {
-    imageUrl: '/group-photos/stryan.webp',
-    title: 'St. Ryan\'s Day, March 2024'
+    imageUrl: "/group-photos/stryan.webp",
+    title: "St. Ryan's Day, March 2024",
   },
   {
-    imageUrl: '/group-photos/ryami.webp',
-    title: 'Ryami Vice, May 2024',
+    imageUrl: "/group-photos/ryami.webp",
+    title: "Ryami Vice, May 2024",
   },
   {
-    imageUrl: '/group-photos/deadpoolgroup.webp',
-    title: '150 Deadpools & Wolverine, July 2024',
+    imageUrl: "/group-photos/deadpoolgroup.webp",
+    title: "150 Deadpools & Wolverine, July 2024",
   },
   {
-    imageUrl: '/group-photos/royale.jpg',
-    title: 'Ryan Royale, September 2024',
+    imageUrl: "/group-photos/royale.jpg",
+    title: "Ryan Royale, September 2024",
   },
   {
-    imageUrl: '/group-photos/comedy.jpeg',
-    title: 'Last Ryan Standing, January 2025',
+    imageUrl: "/group-photos/comedy.jpeg",
+    title: "Last Ryan Standing, January 2025",
   },
   {
-    imageUrl: '/group-photos/gameshow.jpg',
-    title: 'Ryan\'s Game Show, January 2025',
+    imageUrl: "/group-photos/gameshow.jpg",
+    title: "Ryan's Game Show, January 2025",
   },
 ];
