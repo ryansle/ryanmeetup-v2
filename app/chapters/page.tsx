@@ -47,9 +47,10 @@ const ChaptersPage = async () => {
   const chapters = await fetchChapters();
   const events = await fetchEvents();
 
-  // @ts-ignore
+  
   const chapterEvents = events.filter(
     (event) =>
+      // @ts-ignore
       !event?.chapter?.includes("Main") &&
       new Date(event.date as unknown as string).getTime() >=
         new Date().getTime(),
