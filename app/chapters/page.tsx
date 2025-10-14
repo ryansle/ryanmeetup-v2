@@ -47,7 +47,6 @@ const ChaptersPage = async () => {
   const chapters = await fetchChapters();
   const events = await fetchEvents();
 
-  
   const chapterEvents = events.filter(
     (event) =>
       // @ts-ignore

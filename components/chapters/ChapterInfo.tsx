@@ -41,10 +41,14 @@ const ChapterInfo = (props: ChapterInfoProps) => {
             width={200}
             height={200}
             alt={`Ryan Meetup ${city}`}
-            className="rounded-full border shadow-xl"
+            className="rounded-full border shadow-xl dark:border-black"
           />
         </div>
       </div>
+
+      <Heading className="mb-4 text-3xl title" size="h1">
+        {city as string}
+      </Heading>
 
       <div className="grid grid-cols-9 gap-4">
         <div className="col-span-4">

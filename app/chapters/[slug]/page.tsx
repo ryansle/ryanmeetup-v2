@@ -97,12 +97,6 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
           <div className="flex-1 p-4">
             <Breadcrumbs className="hidden sm:flex" crumbs={breadcrumbs} />
 
-            <div className="">
-              <Heading className="mb-8 text-5xl title" size="h1">
-                Ryan Meetup {city as string}
-              </Heading>
-            </div>
-
             <div className="space-y-4 mt-4">
               <EventsContainer
                 events={events as unknown as RyanEvent[]}

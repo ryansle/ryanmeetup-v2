@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   description:
     "Ryan Meetup has raised money for various charitable organizations over the years.",
   keywords: [
-   "Ryan meetup charity",
-   "ryan meetup donations",
-   "ryan callahan foundation",
+    "Ryan meetup charity",
+    "ryan meetup donations",
+    "ryan callahan foundation",
     "charitable organizations",
     "fundraising",
     "non-profits",
