@@ -146,6 +146,12 @@ type Flyer = {
   src: string;
 };
 
+type EventFlyer = {
+  title: string;
+  date: Date;
+  src: ContentfulImage;
+};
+
 type RyanInNeed = {
   title: string;
   coverImage: ContentfulImage;
@@ -227,4 +233,5 @@ export type {
   Outlet,
   Testimonial,
   Charity,
+  EventFlyer,
 };

@@ -4,7 +4,6 @@ import NextImage from "next/image";
 import { Heading, Text } from "@/components/global";
 import { FaCity as City } from "react-icons/fa";
 import { MdLocationPin as Pin } from "react-icons/md";
-import { FaMeetup as Meetup } from "react-icons/fa";
 
 // Types
 import type { ContentfulImage, RyanEvent } from "@/lib/types";

@@ -7,6 +7,10 @@ import { Blurb } from "@/components/events";
 // Types
 import type { Metadata } from "next";
 
+// Utilities
+import { fetchFlyers } from "@/actions/fetchContent";
+import { EventFlyer, Flyer } from "@/lib/types";
+
 export const metadata: Metadata = {
   title: "Ryan Meetup - Flyers",
   description:
@@ -47,7 +51,7 @@ export const metadata: Metadata = {
   },
 };
 
-const flyers = [
+const flyers: Flyer[] = [
   { title: "OG Ryan Meetup Poster", src: "/posters/ogposter.png" },
   { title: "Variant Poster", src: "/posters/isyournameryan.jpg" },
   { title: "Calling all Ryans Poster", src: "/posters/CallingAllRyans.png" },
@@ -55,24 +59,9 @@ const flyers = [
   { title: "Know a Ryan Poster", src: "/posters/knowaryan.png" },
 ];
 
-const eventFlyers = [
-  { title: "St. Ryan's Day II", src: "/posters/stryan2.png" },
-  { title: "Ryan's Game Show", src: "/posters/rgs.png" },
-  { title: "Last Ryan Standing", src: "/posters/lastryanstanding.png" },
-  { title: "Ryan Royale", src: "/posters/RyanRoyale.png" },
-  { title: "150 Deadpools & Wolverine", src: "/posters/deadpool.jpeg" },
-  { title: "150 Deadpools & Wolverine", src: "/posters/rysup.png" },
-  { title: "Ryami Vice", src: "/posters/vice.png" },
-  { title: "St. Ryan's Day", src: "/posters/stryans.jpg" },
-  { title: "Ryan Rodeo", src: "/posters/rodeoposter2.png" },
-  { title: "Ryan Rodeo", src: "/posters/ryanrodeo.png" },
-  { title: "Rytoberfest", src: "/posters/rytoberfest.PNG" },
-  { title: "Ryan Rave", src: "/posters/raveposter-sponsored.png" },
-  { title: "Ryan Rave", src: "/posters/ryanrave.png" },
-  { title: "Ryan Retreat", src: "/posters/ryanretreat.png" },
-];
-
 const FlyersPage = async () => {
+  const eventFlyers = await fetchFlyers();
+
   return (
     <Layout>
       <Blurb
@@ -87,6 +76,7 @@ const FlyersPage = async () => {
       <PosterContainer
         title="Flyers"
         flyers={flyers}
+        variant="normal"
         download
         description="Interested in hanging up Ryan Meetup flyers in your city? Download our flyers here!"
       />
@@ -95,7 +85,8 @@ const FlyersPage = async () => {
 
       <PosterContainer
         title="Event Flyers"
-        flyers={eventFlyers}
+        flyers={eventFlyers as unknown as EventFlyer[]}
+        variant="event"
         description="Posters from previous events."
       />
     </Layout>

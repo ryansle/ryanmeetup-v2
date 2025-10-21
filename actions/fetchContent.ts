@@ -132,6 +132,16 @@ const fetchDonations = async () => {
   return data.items.map((entry) => entry.fields);
 };
 
+const fetchFlyers = async () => {
+  const data = await client.getEntries({ 
+    content_type: "flyer",
+    // @ts-ignore
+    order: "-fields.date",
+  });
+
+  return data.items.map((entry) => entry.fields);
+};
+
 export {
   fetchEvents,
   fetchFAQs,
@@ -148,4 +158,5 @@ export {
   fetchOutlets,
   fetchTestimonies,
   fetchDonations,
+  fetchFlyers,
 };
