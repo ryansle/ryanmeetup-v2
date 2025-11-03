@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const RSVPPage = () => {
-  redirect("https://partiful.com/e/dd0WtzSQ35uEIFxN3Pql");
+  redirect("https://partiful.com/e/5YxUmCHOlgP36YQIhfes");
 };
 
 export default RSVPPage;

@@ -28,7 +28,7 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <main>
-      {/* <Banner />g */}
+      <Banner />
       <Header />
       <section
         className={`${className} 
