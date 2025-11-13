@@ -6,17 +6,17 @@ import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Ryan Meetup - RSVP",
-  description: "RSVP to Rytoberfest II in New York, NY, on September 13th.",
+  description: "RSVP to Ryans Own Manhattan New York, NY, on December 13th.",
   openGraph: {
     url: "https://ryanmeetup.com/rsvp",
     title: "Ryan Meetup - RSVP",
-    description: "RSVP to Rytoberfest II in New York, NY, on September 13th.",
+    description: "RSVP to Ryans Own Manhattan in New York, NY, on December 13th.",
     siteName: "Ryan Meetup",
     images: [
       {
-        url: "https://ryanmeetup.com/logos/rytoberfest.avif",
-        width: 920,
-        height: 581,
+        url: "https://ryanmeetup.com/logos/owningman.png",
+        width: 2159,
+        height: 1201,
       },
     ],
     locale: "en_US",
