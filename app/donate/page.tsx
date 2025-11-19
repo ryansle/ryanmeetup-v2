@@ -48,7 +48,7 @@ const DonatePage = async () => {
         <br />
 
         <Text className="secondary text-lg px-0 lg:px-32">
-          Currently, our non-profit is sustained entirely by ticket and
+          Currently, our not-for-profit organization is sustained entirely by ticket and
           merchandise sales as well as donations.
         </Text>
 
