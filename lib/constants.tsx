@@ -131,11 +131,11 @@ export const routes = [
         text: "Charity",
         href: "/charity",
       },
-      {
-        icon: <Card />,
-        text: "Buy Card",
-        href: "/cards",
-      },
+      // {
+      //   icon: <Card />,
+      //   text: "Buy Card",
+      //   href: "/cards",
+      // },
     ],
   },
   {

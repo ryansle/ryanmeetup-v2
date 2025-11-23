@@ -57,14 +57,15 @@ const CardInfo = () => {
         </Text>
       </section>
 
-      <Button.Link
-        href="https://buy.stripe.com/3cIcN4fTP7BS0kzbXJ2kw0a"
+      <Button
+        // href="https://buy.stripe.com/3cIcN4fTP7BS0kzbXJ2kw0a"
         leftIcon={<Dollar className="w-5 h-5" />}
         className="mt-8"
-        // disabled
+        disabled
+        onClick={() => console.log( "Orders are temporarily paused" )}
       >
-        Buy now
-      </Button.Link>
+        ORDERS ARE TEMPORARILY PAUSED
+      </Button>
     </div>
   );
 };
