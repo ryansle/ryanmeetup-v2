@@ -58,7 +58,7 @@ const CharityPage = async () => {
         Our fundraising partners
       </Heading>
 
-      <section className="px-6 pb-20 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <section className="px-6 pb-20 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {donations.map((donation) => (
           <Donation
             key={donation.title as string}

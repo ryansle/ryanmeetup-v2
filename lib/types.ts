@@ -212,6 +212,8 @@ type Charity = {
   title: string;
   amount: string;
   href: string;
+  avatars?: ContentfulImage[];
+  hrefs?: string[];
 };
 
 export type {
