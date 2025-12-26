@@ -116,4 +116,3 @@ const ContributePage = async () => {
 
 export default ContributePage;
 
-export const revalidate = 300;

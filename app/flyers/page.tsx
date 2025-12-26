@@ -95,4 +95,3 @@ const FlyersPage = async () => {
 
 export default FlyersPage;
 
-export const revalidate = 300;

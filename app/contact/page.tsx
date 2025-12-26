@@ -57,4 +57,3 @@ const ContactPage = async () => {
 
 export default ContactPage;
 
-export const revalidate = 300;

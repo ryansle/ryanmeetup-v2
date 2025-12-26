@@ -100,4 +100,3 @@ const SponsorsPage = async () => {
 
 export default SponsorsPage;
 
-export const revalidate = 300;

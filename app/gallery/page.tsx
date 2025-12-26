@@ -99,4 +99,3 @@ const GalleryPage = async () => {
 
 export default GalleryPage;
 
-export const revalidate = 300;

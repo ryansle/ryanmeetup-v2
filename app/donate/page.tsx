@@ -99,4 +99,3 @@ const DonatePage = async () => {
 
 export default DonatePage;
 
-export const revalidate = 300;

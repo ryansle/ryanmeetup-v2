@@ -1,146 +1,213 @@
 "use server";
 
 import * as contentful from "contentful";
+import { unstable_cache } from "next/cache";
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID as string,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
 });
 
-const fetchEvents = async () => {
-  const data = await client.getEntries({
-    content_type: "event",
-    // @ts-ignore
-    order: "-fields.date",
-  });
+const CMS_REVALIDATE_SECONDS = 300;
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchEvents = unstable_cache(
+  async () => {
+    const data = await client.getEntries({
+      content_type: "event",
+      // @ts-ignore
+      order: "-fields.date",
+    });
 
-const fetchFAQs = async () => {
-  const data = await client.getEntries({ content_type: "faq" });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-events"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields).reverse();
-};
+const fetchFAQs = unstable_cache(
+  async () => {
+    const data = await client.getEntries({ content_type: "faq" });
 
-const fetchArticles = async () => {
-  const data = await client.getEntries({
-    content_type: "article",
-    // @ts-ignore
-    order: "-fields.publishDate",
-  });
+    return data.items.map((entry) => entry.fields).reverse();
+  },
+  ["contentful-faqs"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchArticles = unstable_cache(
+  async () => {
+    const data = await client.getEntries({
+      content_type: "article",
+      // @ts-ignore
+      order: "-fields.publishDate",
+    });
 
-const fetchMedia = async () => {
-  const data = await client.getEntries({
-    content_type: "gallery",
-    // @ts-ignore
-    order: "-fields.date",
-  });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-articles"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items;
-};
+const fetchMedia = unstable_cache(
+  async () => {
+    const data = await client.getEntries({
+      content_type: "gallery",
+      // @ts-ignore
+      order: "-fields.date",
+    });
 
-const fetchSingleMediaEvent = async (id: string) => {
-  const data = await client.getEntry(id);
+    return data.items;
+  },
+  ["contentful-media"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.fields;
-};
+const fetchSingleMediaEvent = unstable_cache(
+  async (id: string) => {
+    const data = await client.getEntry(id);
 
-const fetchLocations = async () => {
-  const data = await client.getEntries({
-    content_type: "locations",
-    limit: 1000,
-  });
+    return data.fields;
+  },
+  ["contentful-media-event"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchLocations = unstable_cache(
+  async () => {
+    const data = await client.getEntries({
+      content_type: "locations",
+      limit: 1000,
+    });
 
-const fetchFarthestRyans = async () => {
-  const data = await client.getEntries({
-    content_type: "farthest",
-    // @ts-ignore
-    order: "-fields.date",
-  });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-locations"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchFarthestRyans = unstable_cache(
+  async () => {
+    const data = await client.getEntries({
+      content_type: "farthest",
+      // @ts-ignore
+      order: "-fields.date",
+    });
 
-const fetchChampionRyans = async () => {
-  const data = await client.getEntries({
-    content_type: "champion",
-    // @ts-ignore
-    order: "-fields.date",
-  });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-farthest-ryans"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchChampionRyans = unstable_cache(
+  async () => {
+    const data = await client.getEntries({
+      content_type: "champion",
+      // @ts-ignore
+      order: "-fields.date",
+    });
 
-const fetchRepeatRyans = async () => {
-  const data = await client.getEntries({ content_type: "leaderboard" });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-champion-ryans"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchRepeatRyans = unstable_cache(
+  async () => {
+    const data = await client.getEntries({ content_type: "leaderboard" });
 
-const fetchChapters = async () => {
-  const data = await client.getEntries({ content_type: "chapter" });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-repeat-ryans"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchChapters = unstable_cache(
+  async () => {
+    const data = await client.getEntries({ content_type: "chapter" });
 
-const fetchSingleChapter = async (slug: string) => {
-  const entries = await client.getEntries({
-    content_type: "chapter",
-    "fields.slug": slug,
-    limit: 1,
-  });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-chapters"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  if (entries.items[0]) {
-    return entries.items[0].fields;
-  }
+const fetchSingleChapter = unstable_cache(
+  async (slug: string) => {
+    const entries = await client.getEntries({
+      content_type: "chapter",
+      "fields.slug": slug,
+      limit: 1,
+    });
 
-  return null;
-};
+    if (entries.items[0]) {
+      return entries.items[0].fields;
+    }
 
-const fetchSponsors = async () => {
-  const data = await client.getEntries({ content_type: "sponsor" });
+    return null;
+  },
+  ["contentful-single-chapter"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchSponsors = unstable_cache(
+  async () => {
+    const data = await client.getEntries({ content_type: "sponsor" });
 
-const fetchOutlets = async () => {
-  const data = await client.getEntries({
-    content_type: "outlets",
-    // @ts-ignore
-    order: "sys.updatedAt",
-  });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-sponsors"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchOutlets = unstable_cache(
+  async () => {
+    const data = await client.getEntries({
+      content_type: "outlets",
+      // @ts-ignore
+      order: "sys.updatedAt",
+    });
 
-const fetchTestimonies = async () => {
-  const data = await client.getEntries({ content_type: "testimony" });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-outlets"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchTestimonies = unstable_cache(
+  async () => {
+    const data = await client.getEntries({ content_type: "testimony" });
 
-const fetchDonations = async () => {
-  const data = await client.getEntries({ content_type: "charitableEfforts" });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-testimonies"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchDonations = unstable_cache(
+  async () => {
+    const data = await client.getEntries({ content_type: "charitableEfforts" });
 
-const fetchFlyers = async () => {
-  const data = await client.getEntries({ 
-    content_type: "flyer",
-    // @ts-ignore
-    order: "-fields.date",
-  });
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-donations"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
-  return data.items.map((entry) => entry.fields);
-};
+const fetchFlyers = unstable_cache(
+  async () => {
+    const data = await client.getEntries({
+      content_type: "flyer",
+      // @ts-ignore
+      order: "-fields.date",
+    });
+
+    return data.items.map((entry) => entry.fields);
+  },
+  ["contentful-flyers"],
+  { revalidate: CMS_REVALIDATE_SECONDS },
+);
 
 export {
   fetchEvents,

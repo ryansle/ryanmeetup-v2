@@ -143,4 +143,3 @@ const AwardsPage = async () => {
 
 export default AwardsPage;
 
-export const revalidate = 300;
