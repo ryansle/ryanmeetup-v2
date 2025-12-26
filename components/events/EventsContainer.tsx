@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+
 // Components
 import { Text, Divider, Heading } from "@/components/global";
 import { EventsSection } from "@/components/events";
@@ -23,23 +25,34 @@ const EventsContainer = (props: EventsContainerProps) => {
     showUpcomingSection = false,
   } = props;
 
+  const eventsWithMeta = useMemo(
+    () =>
+      events.map((event) => ({
+        event,
+        time: new Date(event.date as unknown as string).getTime(),
+        isMain: event.chapter.includes(eventType),
+      })),
+    [events, eventType],
+  );
+
   const now = Date.now();
+  const mainEvents: RyanEvent[] = [];
+  const chapterEvents: RyanEvent[] = [];
+  const activeEvents: RyanEvent[] = [];
+  const inactiveEvents: RyanEvent[] = [];
 
-  const mainEvents = events.filter((e) => e.chapter.includes(eventType));
-
-  const chapterEvents = events.filter(
-    (e) =>
-      !e.chapter.includes(eventType) &&
-      new Date(e.date as unknown as string).getTime() >= now,
-  );
-
-  const activeEvents = mainEvents.filter(
-    (e) => new Date(e.date as unknown as string).getTime() >= now,
-  );
-
-  const inactiveEvents = mainEvents.filter(
-    (e) => new Date(e.date as unknown as string).getTime() < now,
-  );
+  for (const item of eventsWithMeta) {
+    if (item.isMain) {
+      mainEvents.push(item.event);
+      if (item.time >= now) {
+        activeEvents.push(item.event);
+      } else {
+        inactiveEvents.push(item.event);
+      }
+    } else if (item.time >= now) {
+      chapterEvents.push(item.event);
+    }
+  }
 
   const showEmptyUpcomingBanner =
     showUpcomingSection &&

@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+
 // Components
 import { Sponsor } from "@/components/sponsors";
 import { Heading, Text } from "@/components/global";
@@ -15,7 +17,10 @@ type SponsorSectionProps = {
 const SponsorSection = (props: SponsorSectionProps) => {
   const { sponsors, tier } = props;
 
-  const sorted = sponsors.sort((a, b) => b.eventsSponsored - a.eventsSponsored);
+  const sorted = useMemo(
+    () => [...sponsors].sort((a, b) => b.eventsSponsored - a.eventsSponsored),
+    [sponsors],
+  );
 
   return (
     <section className="space-y-8">

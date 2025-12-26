@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
@@ -21,21 +23,27 @@ const SponsorCarousel = (props: SponsorCarousel) => {
 
   const { sponsors } = props;
 
+  const sponsorLogos = useMemo(
+    () =>
+      sponsors.map((sponsor) => ({
+        href: sponsor.href,
+        name: sponsor.name,
+        src:
+          theme === "light"
+            ? (convertImageUrl(sponsor.lightModeImage) as string)
+            : (convertImageUrl(sponsor.darkModeImage) as string),
+      })),
+    [sponsors, theme],
+  );
+
   return (
     <div className="-mt-4 -mb-8">
       <Marquee speed={50} gradient={false}>
-        {sponsors.map((sponsor: Sponsor, idx: number) => (
+        {sponsorLogos.map((sponsor, idx) => (
           <div key={idx} className="flex flex-col items-center justify-center">
-            <NextLink
-              href={sponsor.href}
-              className="p-4 timing hover:scale-105"
-            >
+            <NextLink href={sponsor.href} className="p-4 timing hover:scale-105">
               <NextImage
-                src={
-                  theme === "light"
-                    ? (convertImageUrl(sponsor.lightModeImage) as string)
-                    : (convertImageUrl(sponsor.darkModeImage) as string)
-                }
+                src={sponsor.src}
                 alt={sponsor.name}
                 width={70}
                 height={30}

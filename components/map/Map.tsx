@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 // Components
 import Map, { Marker, Popup } from "react-map-gl";
@@ -35,23 +35,39 @@ const Mapbox = (props: MapboxProps) => {
   const [showOwnedBusinesses, setShowOwnedBusinesses] = useState<boolean>(true);
   const [showChapters, setShowChapters] = useState<boolean>(true);
 
-  const meetupLocations = locations.filter(
-    (location) => location.locationType === "Event Location",
-  );
-  const hubLocations = locations.filter(
-    (location) => location.locationType === "Ryan Hub",
-  );
-  const namedBusinesses = locations.filter(
-    (location) => location.locationType === "Ryan-Named Business",
-  );
-  const ownedBusinesses = locations.filter(
-    (location) => location.locationType === "Ryan-Owned Business",
-  );
-  const chapters = locations.filter(
-    (location) => location.locationType === "Chapter",
-  );
+  const groupedLocations = useMemo(() => {
+    return locations.reduce(
+      (acc, location) => {
+        switch (location.locationType) {
+          case "Event Location":
+            acc.meetups.push(location);
+            break;
+          case "Ryan Hub":
+            acc.hubs.push(location);
+            break;
+          case "Ryan-Named Business":
+            acc.namedBusinesses.push(location);
+            break;
+          case "Ryan-Owned Business":
+            acc.ownedBusinesses.push(location);
+            break;
+          case "Chapter":
+            acc.chapters.push(location);
+            break;
+        }
+        return acc;
+      },
+      {
+        meetups: [] as Location[],
+        hubs: [] as Location[],
+        namedBusinesses: [] as Location[],
+        ownedBusinesses: [] as Location[],
+        chapters: [] as Location[],
+      },
+    );
+  }, [locations]);
 
-  const renderIcon = (type: string) => {
+  const renderIcon = useCallback((type: string) => {
     switch (type) {
       case "Event Location":
         return "/icons/partiful.webp";
@@ -64,17 +80,20 @@ const Mapbox = (props: MapboxProps) => {
       case "Chapter":
         return "/icons/invert.png";
     }
-  };
+  }, []);
 
-  const isBusiness =
-    selectedLocation?.locationType === "Ryan-Named Business" ||
-    selectedLocation?.locationType === "Ryan-Owned Business";
+  const isBusiness = useMemo(() => {
+    return (
+      selectedLocation?.locationType === "Ryan-Named Business" ||
+      selectedLocation?.locationType === "Ryan-Owned Business"
+    );
+  }, [selectedLocation]);
 
-  const convertToSlug = (city: string) => {
+  const convertToSlug = useCallback((city: string) => {
     let sanitized = city.substring(0, city.indexOf(",")).toLowerCase();
 
     return sanitized.replaceAll(" ", "-");
-  };
+  }, []);
 
   return (
     <div className="w-full h-[600px] md:h-[700px]">
@@ -90,7 +109,7 @@ const Mapbox = (props: MapboxProps) => {
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         {showRyans &&
-          hubLocations?.map((location) => (
+          groupedLocations.hubs.map((location) => (
             <Marker
               key={location.locationName}
               latitude={location.coordinates.lat}
@@ -111,7 +130,7 @@ const Mapbox = (props: MapboxProps) => {
           ))}
 
         {showMeetups &&
-          meetupLocations?.map((location) => (
+          groupedLocations.meetups.map((location) => (
             <Marker
               key={location.locationName}
               latitude={location.coordinates.lat}
@@ -131,7 +150,7 @@ const Mapbox = (props: MapboxProps) => {
           ))}
 
         {showNamedBusinesses &&
-          namedBusinesses?.map((location) => (
+          groupedLocations.namedBusinesses.map((location) => (
             <Marker
               key={location.locationName}
               latitude={location.coordinates.lat}
@@ -151,7 +170,7 @@ const Mapbox = (props: MapboxProps) => {
           ))}
 
         {showOwnedBusinesses &&
-          ownedBusinesses?.map((location) => (
+          groupedLocations.ownedBusinesses.map((location) => (
             <Marker
               key={location.locationName}
               latitude={location.coordinates.lat}
@@ -218,7 +237,7 @@ const Mapbox = (props: MapboxProps) => {
         )}
 
         {showChapters &&
-          chapters?.map((location) => (
+          groupedLocations.chapters.map((location) => (
             <Marker
               key={location.locationName}
               latitude={location.coordinates.lat}
