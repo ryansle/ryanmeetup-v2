@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 
 // Utilities
 import { fetchEvents } from "@/actions/fetchContent";
+import { getTestEvents } from "@/lib/test-fixtures/events";
 
 export const metadata: Metadata = {
   title: "Ryan Meetup - Events",
@@ -67,8 +68,15 @@ export const metadata: Metadata = {
   },
 };
 
-const EventsPage = async () => {
-  const events = await fetchEvents();
+const EventsPage = async ({
+  searchParams,
+}: {
+  searchParams?: { fixture?: string };
+}) => {
+  const events =
+    process.env.E2E_TESTS === "true"
+      ? getTestEvents(searchParams?.fixture)
+      : await fetchEvents();
 
   return (
     <Layout>
@@ -103,4 +111,3 @@ const EventsPage = async () => {
 };
 
 export default EventsPage;
-

@@ -25,6 +25,7 @@ const Mapbox = (props: MapboxProps) => {
   const { locations } = props;
 
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+  const isTestMode = process.env.NEXT_PUBLIC_E2E_TESTS === "true";
 
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null,
@@ -94,6 +95,73 @@ const Mapbox = (props: MapboxProps) => {
 
     return sanitized.replaceAll(" ", "-");
   }, []);
+
+  if (isTestMode) {
+    return (
+      <div className="relative w-full h-[600px] md:h-[700px]">
+        <div data-testid="map-markers" className="p-4 space-y-2">
+          {showMeetups &&
+            groupedLocations.meetups.map((location) => (
+              <div
+                key={`meetup-${location.locationName}`}
+                data-testid="marker-meetup"
+              >
+                {location.locationName}
+              </div>
+            ))}
+          {showRyans &&
+            groupedLocations.hubs.map((location) => (
+              <div
+                key={`hub-${location.locationName}`}
+                data-testid="marker-hub"
+              >
+                {location.locationName}
+              </div>
+            ))}
+          {showNamedBusinesses &&
+            groupedLocations.namedBusinesses.map((location) => (
+              <div
+                key={`named-${location.locationName}`}
+                data-testid="marker-named-business"
+              >
+                {location.locationName}
+              </div>
+            ))}
+          {showOwnedBusinesses &&
+            groupedLocations.ownedBusinesses.map((location) => (
+              <div
+                key={`owned-${location.locationName}`}
+                data-testid="marker-owned-business"
+              >
+                {location.locationName}
+              </div>
+            ))}
+          {showChapters &&
+            groupedLocations.chapters.map((location) => (
+              <div
+                key={`chapter-${location.locationName}`}
+                data-testid="marker-chapter"
+              >
+                {location.locationName}
+              </div>
+            ))}
+        </div>
+
+        <Legend
+          showMeetups={showMeetups}
+          showRyans={showRyans}
+          showNamedBusinesses={showNamedBusinesses}
+          showOwnedBusinesses={showOwnedBusinesses}
+          showChapters={showChapters}
+          setShowMeetups={setShowMeetups}
+          setShowRyans={setShowRyans}
+          setShowNamedBusinesses={setShowNamedBusinesses}
+          setShowOwnedBusinesses={setShowOwnedBusinesses}
+          setShowChapters={setShowChapters}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-[600px] md:h-[700px]">

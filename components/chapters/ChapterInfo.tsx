@@ -99,7 +99,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
         </Text>
       </div>
 
-      {whatsapp && (
+      {/* {whatsapp && (
         <div>
           <Divider margins="md" />
 
@@ -107,7 +107,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
             Join the WhatsApp Group
           </Button.Link>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

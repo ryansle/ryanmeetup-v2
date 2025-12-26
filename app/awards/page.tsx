@@ -16,6 +16,7 @@ import {
   fetchChampionRyans,
   fetchRepeatRyans,
 } from "@/actions/fetchContent";
+import { getAwardsFixture } from "@/lib/test-fixtures/awards";
 
 export const metadata: Metadata = {
   title: "Ryan Meetup - Awards",
@@ -52,9 +53,11 @@ export const metadata: Metadata = {
 };
 
 const AwardsPage = async () => {
-  const farthest = await fetchFarthestRyans();
-  const champs = await fetchChampionRyans();
-  const repeats = await fetchRepeatRyans();
+  const fixture =
+    process.env.E2E_TESTS === "true" ? getAwardsFixture() : null;
+  const farthest = fixture?.farthest ?? (await fetchFarthestRyans());
+  const champs = fixture?.champs ?? (await fetchChampionRyans());
+  const repeats = fixture?.repeats ?? (await fetchRepeatRyans());
 
   const anchorStyle = "block text-sm text-blue-600";
   const iconStyle = "w-5 h-5 fill-white dark:fill-black timing hover:scale-110";
@@ -142,4 +145,3 @@ const AwardsPage = async () => {
 };
 
 export default AwardsPage;
-

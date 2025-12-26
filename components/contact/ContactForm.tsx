@@ -29,9 +29,22 @@ const ContactForm = () => {
   } = useForm();
 
   const [loading, setLoading] = useState<boolean>(false);
+  const isTestMode = process.env.NEXT_PUBLIC_E2E_TESTS === "true";
 
   const send = (form: ContactFormFields) => {
     setLoading(true);
+
+    const completeSend = () => {
+      sendSuccessAlert();
+      setLoading(false);
+      reset();
+      toggleErrorFlags();
+    };
+
+    if (isTestMode) {
+      completeSend();
+      return;
+    }
 
     setTimeout(() => {
       const templateId = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID;
@@ -39,11 +52,7 @@ const ContactForm = () => {
       const serviceId = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID;
 
       emailjs.send(serviceId as string, templateId as string, form, userId);
-
-      sendSuccessAlert();
-      setLoading(false);
-      reset();
-      toggleErrorFlags();
+      completeSend();
     }, 1000);
   };
 

@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 
 // Utilities
 import { fetchChapters, fetchFAQs, fetchEvents } from "@/actions/fetchContent";
+import { getChaptersFixture } from "@/lib/test-fixtures/chapters";
 
 export const metadata: Metadata = {
   title: "Ryan Meetup - Chapters",
@@ -42,10 +43,19 @@ export const metadata: Metadata = {
   },
 };
 
-const ChaptersPage = async () => {
-  const faqs = await fetchFAQs();
-  const chapters = await fetchChapters();
-  const events = await fetchEvents();
+const ChaptersPage = async ({
+  searchParams,
+}: {
+  searchParams?: { fixture?: string };
+}) => {
+  const fixture =
+    process.env.E2E_TESTS === "true"
+      ? getChaptersFixture(searchParams?.fixture)
+      : null;
+
+  const faqs = fixture?.faqs ?? (await fetchFAQs());
+  const chapters = fixture?.chapters ?? (await fetchChapters());
+  const events = fixture?.events ?? (await fetchEvents());
 
   const chapterEvents = events.filter(
     (event) =>
@@ -104,4 +114,3 @@ const ChaptersPage = async () => {
 };
 
 export default ChaptersPage;
-

@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 
 // Utilities
 import { fetchLocations } from "@/actions/fetchContent";
+import { getMapFixtures } from "@/lib/test-fixtures/map";
 
 export const metadata: Metadata = {
   title: "Ryan Meetup - Map",
@@ -41,7 +42,10 @@ export const metadata: Metadata = {
 };
 
 const MapPage = async () => {
-  const locations = await fetchLocations();
+  const locations =
+    process.env.E2E_TESTS === "true"
+      ? getMapFixtures()
+      : await fetchLocations();
 
   return (
     <Layout fullscreen>
@@ -52,4 +56,3 @@ const MapPage = async () => {
 };
 
 export default MapPage;
-

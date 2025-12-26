@@ -117,6 +117,7 @@ const Legend = (props: LegendProps) => {
                 type="checkbox"
                 className="w-4 h-4"
                 checked={option.checked}
+                aria-label={option.text}
                 onClick={option.handler}
               />
 

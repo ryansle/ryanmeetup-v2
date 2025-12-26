@@ -13,13 +13,18 @@ import type { Metadata } from "next";
 // Utilities
 import { fetchEvents, fetchSingleChapter } from "@/actions/fetchContent";
 import { convertSlug } from "@/utils/convert";
+import { getChapterSlugFixture } from "@/lib/test-fixtures/chapters";
 
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
 }): Promise<Metadata | undefined> {
-  const content = await fetchSingleChapter(params.slug);
+  const fixture =
+    process.env.E2E_TESTS === "true"
+      ? getChapterSlugFixture(params.slug)
+      : null;
+  const content = fixture?.chapter ?? (await fetchSingleChapter(params.slug));
 
   if (content) {
     const { city, state } = content;
@@ -47,9 +52,19 @@ export async function generateMetadata({
   }
 }
 
-const ChapterPage = async ({ params }: { params: { slug: string } }) => {
-  const content = await fetchSingleChapter(params.slug);
-  const events = await fetchEvents();
+const ChapterPage = async ({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams?: { fixture?: string };
+}) => {
+  const fixture =
+    process.env.E2E_TESTS === "true"
+      ? getChapterSlugFixture(params.slug, searchParams?.fixture)
+      : null;
+  const content = fixture?.chapter ?? (await fetchSingleChapter(params.slug));
+  const events = fixture?.events ?? (await fetchEvents());
 
   // @ts-ignore
   const leaders = content?.chapterLeads;
@@ -115,4 +130,3 @@ const ChapterPage = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default ChapterPage;
-
