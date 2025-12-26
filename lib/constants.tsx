@@ -56,11 +56,11 @@ export const socials = [
     text: "Threads",
     href: "https://www.threads.net/@ryanmeetup",
   },
-  {
-    icon: <Whatsapp className="title" />,
-    text: "WhatsApp",
-    href: "/whatsapp",
-  },
+  // {
+  //   icon: <Whatsapp className="title" />,
+  //   text: "WhatsApp",
+  //   href: "/whatsapp",
+  // },
 ];
 
 export const routes = [

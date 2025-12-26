@@ -69,7 +69,6 @@ const ChapterPage = async ({
   // @ts-ignore
   const leaders = content?.chapterLeads;
   const city = content?.city;
-  const whatsapp = content?.whatsAppLink;
   const instagram = content?.instagram;
   const avatar = content?.avatar;
   const isActive = content?.active;
@@ -99,7 +98,6 @@ const ChapterPage = async ({
             <div className="sticky top-28">
               <ChapterInfo
                 leaders={leaders as string[]}
-                whatsapp={whatsapp as string}
                 instagram={instagram as string}
                 avatar={avatar as ContentfulImage}
                 city={city as string}

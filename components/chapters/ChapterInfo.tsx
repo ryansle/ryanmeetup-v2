@@ -1,8 +1,7 @@
 "use client";
 
 // Components
-import { Heading, Text, Divider, Button } from "@/components/global";
-import { FaWhatsapp as Whatsapp } from "react-icons/fa";
+import { Heading, Text } from "@/components/global";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
@@ -14,7 +13,6 @@ import { convertImageUrl, filterInstagram } from "@/utils/convert";
 
 type ChapterInfoProps = {
   leaders: string[];
-  whatsapp: string;
   instagram: string;
   avatar: ContentfulImage;
   city: string;
@@ -22,7 +20,7 @@ type ChapterInfoProps = {
 };
 
 const ChapterInfo = (props: ChapterInfoProps) => {
-  const { leaders, whatsapp, instagram, avatar, city, isActive } = props;
+  const { leaders, instagram, avatar, city, isActive } = props;
 
   return (
     <div className="border rounded-3xl border-gray-400 p-4 dark:border-gray-700 bg-white overflow-hidden relative dark:bg-black">
