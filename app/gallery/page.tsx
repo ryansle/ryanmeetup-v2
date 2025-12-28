@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     "pictures of ryan meetup",
     "ryan photos",
     "ryans",
+    "ryan meetup photo gallery",
+    "ryan meetup event photos",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/gallery",

@@ -3,7 +3,7 @@
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
-import { Heading, Divider, Text, Pill, Card } from "@/components/global";
+import { Heading, Divider, Text, Pill, Card, Button } from "@/components/global";
 import { Transition } from "@headlessui/react";
 import {
   FaArrowRight as ArrowRight,
@@ -22,7 +22,6 @@ const Info = () => {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <Pill>Ryan Meetup</Pill>
         <Heading
           className="text-5xl title"
           size="h1"
@@ -63,20 +62,17 @@ const Info = () => {
 const Actions = () => {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-      <NextLink
+      <Button.Link
         href="/newsletter"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
+        leftIcon={<Newsletter className="h-5 w-5" />}
+        variant="primary"
+        size="md"
+        fullWidth
+        className="w-full"
+        newTab={false}
       >
-        <Newsletter className="h-5 w-5" />
         Sign up for our newsletter
-      </NextLink>
-      <NextLink
-        href="/events"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
-      >
-        <Calendar className="h-5 w-5" />
-        View Upcoming events
-      </NextLink>
+      </Button.Link>
     </div>
   );
 };

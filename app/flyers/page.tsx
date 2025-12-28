@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     "do you know a ryan",
     "meet other ryans",
     "absolutely no bryans",
+    "ryan meetup flyer download",
+    "ryan meetup poster download",
+    "ryan meetup printable flyer",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/flyers",

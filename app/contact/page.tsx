@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "big and important ryan topics",
     "ryan",
     "ryan meetup",
+    "ryan meetup contact",
+    "ryan meetup email",
+    "ryan meetup message",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/contact",

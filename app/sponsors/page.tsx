@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider, Pill, Card } from "@/components/global";
+import { Heading, Text, Divider, Pill, Card, Button } from "@/components/global";
 import { BiMailSend as Send } from "react-icons/bi";
 import {
   FaBullhorn as Megaphone,
@@ -11,7 +11,6 @@ import {
   FaMapMarkedAlt as Footprint,
 } from "react-icons/fa";
 import { SponsorSection } from "@/components/sponsors";
-import NextLink from "next/link";
 
 // Types
 import { Sponsor } from "@/lib/types";
@@ -32,6 +31,9 @@ export async function generateMetadata(): Promise<Metadata> {
       ...sponsors.map(
         (sponsor) => (sponsor.name as string)?.toLowerCase() || "",
       ),
+      "ryan meetup sponsors",
+      "ryan meetup sponsorship",
+      "ryan meetup partners",
     ],
     openGraph: {
       url: "https://ryanmeetup.com/sponsors",
@@ -128,13 +130,17 @@ const SponsorsPage = async () => {
           ))}
         </Card>
         <div className="flex justify-center">
-          <NextLink
+          <Button.Link
             href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-black px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+            leftIcon={<Send className="h-4 w-4" />}
+            variant="primary"
+            size="md"
+            fullWidth
+            className="max-w-3xl"
+            newTab={false}
           >
-            <Send className="h-4 w-4" />
             Partner with us
-          </NextLink>
+          </Button.Link>
         </div>
       </section>
 

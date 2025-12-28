@@ -50,6 +50,9 @@ export const metadata: Metadata = {
     "ryan relay",
     "society of ryans",
     "ryan red carpet",
+    "ryan meetup schedule",
+    "ryan meetup calendar",
+    "ryan meetup upcoming events",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/events",

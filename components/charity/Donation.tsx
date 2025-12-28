@@ -1,7 +1,7 @@
 // Components
 import NextLink from "next/link";
 import NextImage from "next/image";
-import { Text, Card } from "@/components/global";
+import { Text, Card, Button } from "@/components/global";
 
 // Types
 import type { Charity } from "@/lib/types";
@@ -59,14 +59,15 @@ const Donation = (props: DonationProps) => {
           </Text>
         </div>
         <div className="mt-5 sm:mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <NextLink
+          <Button.Link
             href={href}
-            target="_blank"
-            rel="noreferrer"
-            className="order-2 sm:order-none w-full sm:w-auto text-center rounded-lg bg-white text-neutral-900 px-4 py-2.5 font-semibold hover:bg-white/90 transition"
+            newTab
+            variant="secondary"
+            size="sm"
+            className="order-2 sm:order-none w-full sm:w-auto"
           >
             See organization
-          </NextLink>
+          </Button.Link>
 
           {avatars && hrefs && (
             <div className="order-1 sm:order-none flex flex-wrap justify-start gap-2 sm:flex-nowrap sm:justify-end gap-0 -space-x-2">

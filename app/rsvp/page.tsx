@@ -7,6 +7,12 @@ import { redirect } from "next/navigation";
 export const metadata: Metadata = {
   title: "Ryan Meetup - RSVP",
   description: "RSVP to Ryans Own Manhattan New York, NY, on December 13th.",
+  keywords: [
+    "ryan meetup rsvp",
+    "ryan meetup tickets",
+    "ryan meetup event registration",
+    "ryan meetup signup",
+  ],
   openGraph: {
     url: "https://ryanmeetup.com/rsvp",
     title: "Ryan Meetup - RSVP",

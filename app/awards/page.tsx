@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     "little king of St. Ryans Day",
     "mr ryami",
     "ms. ryami",
+    "ryan meetup awards",
+    "ryan meetup winners",
+    "ryan meetup leaderboard",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/awards",

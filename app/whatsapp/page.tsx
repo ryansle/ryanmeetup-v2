@@ -7,7 +7,12 @@ import { redirect } from "next/navigation";
 export const metadata: Metadata = {
   title: "Ryan Meetup - WhatsApp",
   description: "Join the official Ryan Meetup WhatsApp group.",
-  keywords: ["ryan meetup whatsapp", "ryan whatsapp"],
+  keywords: [
+    "ryan meetup whatsapp",
+    "ryan whatsapp",
+    "ryan meetup group chat",
+    "ryan meetup whatsapp group",
+  ],
   openGraph: {
     url: "https://ryanmeetup.com/whatsapp",
     title: "Ryan Meetup - WhatsApp",

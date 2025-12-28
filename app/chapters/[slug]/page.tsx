@@ -32,7 +32,14 @@ export async function generateMetadata({
     return {
       title: `Ryan Meetup - ${city} Chapter`,
       description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
-      keywords: ["ryan meetup", `ryan meetup ${city}`, `ryan meetup ${state}`],
+      keywords: [
+        "ryan meetup",
+        `ryan meetup ${city}`,
+        `ryan meetup ${state}`,
+        "ryan meetup chapter",
+        `ryan meetup ${city} events`,
+        `ryan meetup ${city} chapter`,
+      ],
       openGraph: {
         url: `https://ryanmeetup.com/chapters/${params.slug}`,
         title: `Ryan Meetup - ${city} Chapter`,

@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     "ryan meetup donate",
     "ryan meetup fundraising",
     "ryan meetup not-for-profit",
+    "ryan meetup charity partners",
+    "ryan meetup fundraising partners",
+    "ryan meetup philanthropy",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/charity",

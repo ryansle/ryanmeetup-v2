@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Pill, Card } from "@/components/global";
+import { Heading, Text, Pill, Card, Button } from "@/components/global";
 import QRCode from "react-qr-code";
 import NextLink from "next/link";
 import NextImage from "next/image";
@@ -12,6 +12,14 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Donate to the Ryan Meetup",
   description: "Donate to the Ryan Meetup to help keep events funded.",
+  keywords: [
+    "donate to ryan meetup",
+    "ryan meetup donation",
+    "ryan meetup donate",
+    "ryan meetup venmo",
+    "ryan meetup zelle",
+    "ryan meetup support",
+  ],
   openGraph: {
     url: "https://ryanmeetup.com/donate",
     title: "Donate to the Ryan Meetup",
@@ -136,12 +144,14 @@ const DonatePage = async () => {
               Purchase Ryan Meetup merchandise directly to support future
               events and community growth.
             </Text>
-            <NextLink
+            <Button.Link
               href="/merch"
-              className="mt-4 inline-flex items-center justify-center rounded-lg border border-black/15 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40"
+              variant="secondary"
+              size="sm"
+              newTab={false}
             >
               Shop merch
-            </NextLink>
+            </Button.Link>
           </Card>
           <Card variant="soft" size="md">
             <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">

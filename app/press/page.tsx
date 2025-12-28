@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     "miami new times",
     "houston chronicle",
     "los angeles times",
+    "ryan meetup press kit",
+    "ryan meetup media coverage",
+    "ryan meetup news coverage",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/press",

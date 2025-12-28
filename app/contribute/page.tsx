@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider, Pill, Card } from "@/components/global";
+import { Heading, Text, Divider, Pill, Card, Button } from "@/components/global";
 import {
   FaHandsHelping as Help,
   FaDollarSign as Dollar,
@@ -11,7 +11,6 @@ import {
   FaPrint as Print,
 } from "react-icons/fa";
 import { FaGear as Gear } from "react-icons/fa6";
-import NextLink from "next/link";
 import { RiFilePaper2Line as Flyer } from "react-icons/ri";
 import { IoPersonAdd as Socials } from "react-icons/io5";
 import { MdMovie as Video, MdDesignServices as Design } from "react-icons/md";
@@ -28,6 +27,9 @@ export const metadata: Metadata = {
     "ryan meetup zelle",
     "ryan meetup money",
     "contribute to ryan meetup",
+    "ryan meetup volunteer",
+    "ryan meetup team",
+    "ryan meetup contributions",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/contribute",
@@ -152,13 +154,16 @@ const ContributePage = async () => {
           ))}
         </div>
         <div className="mt-6">
-          <NextLink
+          <Button.Link
             href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40"
+            leftIcon={<Socials className="h-4 w-4" />}
+            variant="primary"
+            size="md"
+            fullWidth
+            newTab={false}
           >
-            <Socials className="h-4 w-4" />
             Join the team
-          </NextLink>
+          </Button.Link>
         </div>
       </Card>
 

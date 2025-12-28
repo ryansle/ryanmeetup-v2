@@ -82,7 +82,13 @@ const FollowUs = () => {
         <Text className="text-lg secondary">ryan@ryanmeetup.com</Text>
       </NextLink>
 
-      <Button.Link href="/newsletter" leftIcon={<News />}>
+      <Button.Link
+        href="/newsletter"
+        leftIcon={<News />}
+        variant="secondary"
+        size="md"
+        newTab={false}
+      >
         Sign up for our newsletter
       </Button.Link>
     </div>

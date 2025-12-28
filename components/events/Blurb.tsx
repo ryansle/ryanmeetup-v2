@@ -56,6 +56,10 @@ const Blurb = (props: BlurbProps) => {
               className="col-span-12 xl:col-span-10"
               href={href}
               leftIcon={icon}
+              variant="primary"
+              size="md"
+              fullWidth
+              newTab={false}
             >
               {hrefText}
             </Button.Link>

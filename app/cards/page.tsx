@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   title: "Buy Membership Card",
   description:
     "You've always been a member, and now you have the card to prove it.",
+  keywords: [
+    "ryan meetup membership card",
+    "ryan meetup card",
+    "ryan meetup merch card",
+    "ryan meetup membership",
+  ],
   openGraph: {
     url: "https://ryanmeetup.com/cards",
     title: "Buy Membership Card",

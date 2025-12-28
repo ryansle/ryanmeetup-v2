@@ -7,6 +7,12 @@ import { redirect } from "next/navigation";
 export const metadata: Metadata = {
   title: "Ryan Meetup - Guidelines",
   description: "Guidelines for starting your own chapter of the Ryan Meetup.",
+  keywords: [
+    "ryan meetup guidelines",
+    "ryan meetup chapter guide",
+    "ryan meetup rules",
+    "start a ryan meetup chapter",
+  ],
   openGraph: {
     url: "https://ryanmeetup.com/guidelines",
     title: "Ryan Meetup - Guidelines",

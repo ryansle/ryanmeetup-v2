@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "ryan meetup",
     "who started the ryan meetup",
     "about ryan meetup",
+    "ryan meetup story",
+    "ryan meetup history",
+    "ryan meetup founders",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/about",
