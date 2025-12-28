@@ -23,12 +23,12 @@ const FAQ = (props: FAQProps) => {
   const { data, toggleable = false, showTitle = false } = props;
 
   return (
-    <section className="relative overflow-hidden p-6 dark:bg-black">
+    <section className="relative overflow-hidden dark:bg-black">
       <div className="relative">
         {showTitle && (
           <div className="mx-auto mb-8 text-center">
-            <Heading className="mt-4 text-4xl title sm:text-5xl">
-              Frequently asked questions
+            <Heading className="text-4xl title sm:text-5xl">
+              Frequently Asked Questions
             </Heading>
             <Text className="mt-3 text-base text-black/70 dark:text-white/70">
               Everything you&apos;re probably wondering before meeting up with other Ryans.

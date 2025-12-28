@@ -87,9 +87,9 @@ const ContactForm = () => {
         </div>
         <div className="col-span-10 pl-4 pr-6">
           <h1 className="text-lg text-semibold font-cooper">Email sent!</h1>
-          <p className="text-sm tracking-wide">
+          <Text className="text-sm tracking-wide">
             Expect an email back from Ryan soon!
-          </p>
+          </Text>
         </div>
       </div>
     ));

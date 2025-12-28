@@ -70,7 +70,7 @@ const DonatePage = async () => {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <p className={labelStyle}>theryanmeetup@gmail.com</p>
+          <Text className={labelStyle}>theryanmeetup@gmail.com</Text>
         </div>
         <div className={cardStyle}>
           <QRCode
@@ -98,4 +98,3 @@ const DonatePage = async () => {
 };
 
 export default DonatePage;
-

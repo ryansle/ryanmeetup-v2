@@ -87,9 +87,9 @@ const Leaderboard = (props: LeaderboardProps) => {
                   </Text>
                 </td>
                 <td>
-                  <p className="text-4xl text-center pr-2 md:pr-8 text-gray-700 dark:text-white">
+                  <Text className="text-4xl text-center pr-2 md:pr-8 text-gray-700 dark:text-white">
                     {ryan.eventsAttended.length}
-                  </p>
+                  </Text>
                 </td>
                 <td className="p-2 hidden xl:block">
                   <div className="flex gap-x-1 flex-wrap items-center">

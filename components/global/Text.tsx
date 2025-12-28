@@ -12,7 +12,16 @@ type TextProps = {
 const Text = (props: TextProps) => {
   const { className, children } = props;
 
-  return <p className={`${className} tracking-wide font-medium`}>{children}</p>;
+  return (
+    <p
+      className={clsx(
+        "text-base leading-relaxed tracking-wide text-black/70 dark:text-white/70",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
 };
 
 export { Text };

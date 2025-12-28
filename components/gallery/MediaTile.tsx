@@ -38,7 +38,7 @@ const MediaTile = (props: MediaTileProps) => {
             </Heading>
           </div>
           {credits && (
-            <Text className="absolute bottom-0 left-0 text-white p-2 font-cooper text-sm">
+            <Heading className="absolute bottom-0 left-0 p-2 font-cooper text-sm">
               Addl. photo credits to{" "}
               {credits.map((credit, index) => (
                 <span key={credit}>
@@ -46,7 +46,7 @@ const MediaTile = (props: MediaTileProps) => {
                   {credits.length > 1 && index !== credits.length - 1 && ","}
                 </span>
               ))}
-            </Text>
+            </Heading>
           )}
         </div>
       </div>

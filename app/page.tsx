@@ -47,28 +47,28 @@ const HomePage = async () => {
 
   return (
     <Layout fullscreen>
-      <section className="dark:bg-black dark:text-white">
-        <div className="py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
-          <Landing stats={stats} />
+      <section className="mb-12">
+      <div className="py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
+        <Landing stats={stats} />
 
-          <Divider margins="xl" />
+        <Divider margins="xl" />
 
-          <Heading className="text-center text-4xl title" size="h4">
-            We&apos;re supported by Ryans at:
-          </Heading>
-        </div>
+        <Heading className="text-center text-4xl title" size="h4">
+          We&apos;re supported by Ryans at:
+        </Heading>
+      </div>
 
-        <SponsorCarousel sponsors={sponsors} />
+      <SponsorCarousel sponsors={sponsors} />
 
-        <div className="px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
-          <Divider margins="xl" />
+      <div className="px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
+        <Divider margins="xl" />
 
-          <TestimonyContainer testimonies={testimonies} />
+        <TestimonyContainer testimonies={testimonies} />
 
-          <Divider margins="xl" />
+        <Divider margins="xl" />
 
-          <FAQ showTitle data={homeFaqs} />
-        </div>
+        <FAQ showTitle data={homeFaqs} />
+      </div>
       </section>
     </Layout>
   );

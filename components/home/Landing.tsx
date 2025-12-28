@@ -34,12 +34,12 @@ const Info = () => {
       </div>
 
       <div className="space-y-4 text-base sm:text-lg text-black/70 dark:text-white/70">
-        <p>
+        <Text>
           Welcome to the Ryan Meetup — a not-for-profit organization run by
           Ryans, for Ryans, with the ultimate goal of assembling as many
           Ryans as possible.
-        </p>
-        <p>
+        </Text>
+        <Text>
             One day, we aim to host RyanCon, and break the world record for
             the{" "}
             <NextLink
@@ -49,8 +49,8 @@ const Info = () => {
               largest same name gathering
             </NextLink>{" "}
             in history.
-          </p>
-          <p>See you soon, Ryan.</p>
+          </Text>
+          <Text>See you soon, Ryan.</Text>
       </div>
     </div>
   );
@@ -104,10 +104,10 @@ const Overview = (props: { stats: StatItem[] }) => {
             key={stat.label}
             className="rounded-2xl border border-black/10 bg-white/80 px-3 py-4 shadow-sm dark:border-white/10 dark:bg-white/5 space-y-2"
           >
-            <p className="text-4xl font-cooper">{stat.value}</p>
-            <p className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+            <Text className="text-4xl font-cooper">{stat.value}</Text>
+            <Text className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
               {stat.label}
-            </p>
+            </Text>
           </div>
         ))}
       </div>
@@ -217,9 +217,9 @@ const Landing = (props: LandingProps) => {
                       <ArrowRight className="h-3 w-3" />
                     </NextLink>
                   </div>
-                  <p className="text-base text-black/70 dark:text-white/70">
+                  <Text className="text-base text-black/70 dark:text-white/70">
                     {item.body}
-                  </p>
+                  </Text>
                 </div>
               </Transition>
             ))}

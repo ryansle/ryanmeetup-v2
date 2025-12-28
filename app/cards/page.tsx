@@ -47,9 +47,9 @@ const BuyCardsPageRedirect = () => {
                 fill
               />
             </div>
-            <p className="mt-8 font-semibold">
+            <Text className="mt-8 font-semibold">
               Shown: front / back of the membership card
-            </p>
+            </Text>
           </div>
 
           <CardInfo />
@@ -64,9 +64,9 @@ const BuyCardsPageRedirect = () => {
             width={768}
           />
 
-          <p className="mt-8 font-semibold">
+          <Text className="mt-8 font-semibold">
             Shown: front / back of the membership card
-          </p>
+          </Text>
 
           <CardInfo />
         </div>

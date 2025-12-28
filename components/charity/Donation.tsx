@@ -1,6 +1,7 @@
 // Components
 import NextLink from "next/link";
 import NextImage from "next/image";
+import { Text } from "@/components/global";
 
 // Types
 import type { Charity } from "@/lib/types";
@@ -42,7 +43,7 @@ const Donation = (props: DonationProps) => {
           {title}
         </h2>
         <div className="flex flex-1 items-center">
-          <p
+          <Text
             className={`flex flex-wrap items-baseline gap-x-2 text-3xl sm:text-4xl md:text-5xl font-extrabold tabular-nums ${color}`}
           >
             <span className="whitespace-nowrap">
@@ -51,7 +52,7 @@ const Donation = (props: DonationProps) => {
             <span className="text-white/70 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0">
               Raised to date
             </span>
-          </p>
+          </Text>
         </div>
         <div className="mt-5 sm:mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <NextLink
