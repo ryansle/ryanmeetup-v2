@@ -1,7 +1,7 @@
 // Components
 import NextLink from "next/link";
 import NextImage from "next/image";
-import { Text } from "@/components/global";
+import { Text, Card } from "@/components/global";
 
 // Types
 import type { Charity } from "@/lib/types";
@@ -31,7 +31,11 @@ const Donation = (props: DonationProps) => {
     });
 
   return (
-    <article className="relative h-full overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 p-5 sm:p-6 md:p-8 flex flex-col">
+    <Card
+      variant="soft"
+      size="md"
+      className="relative h-full overflow-hidden border-0 bg-white/5 p-5 shadow-none ring-1 ring-white/10 sm:p-6 md:p-8 flex flex-col"
+    >
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -88,7 +92,7 @@ const Donation = (props: DonationProps) => {
           )}  
         </div>
       </div>
-    </article>
+    </Card>
   );
 };
 

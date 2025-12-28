@@ -1,6 +1,7 @@
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
+import { Card } from "@/components/global";
 
 // Types
 import type { Sponsor } from "@/lib/types";
@@ -25,7 +26,12 @@ const Sponsor = (props: SponsorProps) => {
       href={href}
       className={`group flex w-full ${className}`}
     >
-      <div className="w-full rounded-2xl border border-black/10 bg-white/80 p-6 text-center shadow-sm transition group-hover:-translate-y-1 group-hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:group-hover:border-white/40">
+      <Card
+        variant="soft"
+        size="md"
+        hover
+        className="w-full text-center"
+      >
         <div className="relative mx-auto h-48 w-full max-w-[660px] sm:h-[216px]">
           <NextImage
             src={
@@ -39,7 +45,7 @@ const Sponsor = (props: SponsorProps) => {
             sizes="(min-width: 1280px) 660px, (min-width: 640px) 540px, 480px"
           />
         </div>
-      </div>
+      </Card>
     </NextLink>
   );
 };

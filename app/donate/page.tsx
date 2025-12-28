@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Pill } from "@/components/global";
+import { Heading, Text, Pill, Card } from "@/components/global";
 import QRCode from "react-qr-code";
 import NextLink from "next/link";
 import NextImage from "next/image";
@@ -42,7 +42,7 @@ const DonateOptionCard = (props: DonateOptionCardProps) => {
   const { visual, logoSrc, logoAlt, value, valueHref, method } = props;
 
   return (
-    <div className="rounded-2xl border border-black/10 bg-white/80 p-5 text-center shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40">
+    <Card variant="soft" size="md" hover className="text-center">
       <div className="mx-auto flex h-[200px] w-[200px] items-center justify-center rounded-2xl border border-black/10 bg-white p-3 dark:border-white/10 dark:bg-white/90">
         {visual}
       </div>
@@ -69,7 +69,7 @@ const DonateOptionCard = (props: DonateOptionCardProps) => {
       <Text className="mt-1 text-xs uppercase tracking-[0.3em] text-black/50 dark:text-white/50">
         {method}
       </Text>
-    </div>
+    </Card>
   );
 };
 
@@ -128,7 +128,7 @@ const DonatePage = async () => {
             Our not-for-profit organization is sustained by donations and
             community support.
           </Text>
-          <div className="rounded-2xl border border-black/10 bg-white/80 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+          <Card variant="soft" size="md">
             <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
               Prefer merch instead?
             </Text>
@@ -142,8 +142,8 @@ const DonatePage = async () => {
             >
               Shop merch
             </NextLink>
-          </div>
-          <div className="rounded-2xl border border-black/10 bg-white/80 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+          </Card>
+          <Card variant="soft" size="md">
             <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
               Where does all the money go?
             </Text>
@@ -171,9 +171,9 @@ const DonatePage = async () => {
               materials, and logistics all add up. In short: every cent goes
               back into Ryans, not pockets.
             </Text>
-          </div>
+          </Card>
 
-          <div className="rounded-2xl border border-black/10 bg-white/80 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+          <Card variant="soft" size="md">
             <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
               What kinds of things does Ryan Meetup spend money on?
             </Text>
@@ -191,7 +191,7 @@ const DonatePage = async () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </Card>
         </div>
 
         <div className="space-y-4 lg:sticky lg:top-24">

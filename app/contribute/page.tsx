@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider, Pill } from "@/components/global";
+import { Heading, Text, Divider, Pill, Card } from "@/components/global";
 import {
   FaHandsHelping as Help,
   FaDollarSign as Dollar,
@@ -123,7 +123,11 @@ const ContributePage = async () => {
         </Text>
       </section>
 
-      <section className="rounded-2xl border border-black/10 bg-white/80 p-6 shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] dark:border-white/10 dark:bg-white/5 lg:p-10">
+      <Card
+        variant="soft"
+        size="lg"
+        className="shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] lg:p-10"
+      >
         <div className="space-y-4">
           <Heading className="text-3xl title sm:text-4xl" size="h2">
             Team & Skills
@@ -134,21 +138,18 @@ const ContributePage = async () => {
           </Text>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {composed.map((role) => (
-              <div
-                key={role.title}
-                className="rounded-2xl border border-black/10 bg-white/90 p-5 shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
-                    {role.icon}
-                  </span>
-                  <Text className="text-sm uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-                    {role.title} Ryan
-                  </Text>
-                </div>
+          {composed.map((role) => (
+            <Card key={role.title} variant="solid" size="md" hover>
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
+                  {role.icon}
+                </span>
+                <Text className="text-sm uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
+                  {role.title} Ryan
+                </Text>
               </div>
-            ))}
+            </Card>
+          ))}
         </div>
         <div className="mt-6">
           <NextLink
@@ -159,21 +160,22 @@ const ContributePage = async () => {
             Join the team
           </NextLink>
         </div>
-      </section>
+      </Card>
 
       <Divider margins="xl" />
 
-      <section className="rounded-2xl border border-black/10 bg-white/80 p-6 shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] dark:border-white/10 dark:bg-white/5 lg:p-10">
+      <Card
+        variant="soft"
+        size="lg"
+        className="shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] lg:p-10"
+      >
         <div className="space-y-6">
           <Heading className="text-3xl title sm:text-4xl" size="h2">
             Ways to Contribute
           </Heading>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {waysToSupport.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-black/10 bg-white/90 p-5 shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40"
-              >
+              <Card key={item.title} variant="solid" size="md" hover>
                 <div className="flex items-center gap-3">
                   <span className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
                     {item.icon}
@@ -185,11 +187,11 @@ const ContributePage = async () => {
                 <Text className="mt-3 text-sm text-black/70 dark:text-white/70">
                   {item.body}
                 </Text>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
-      </section>
+      </Card>
     </Layout>
   );
 };

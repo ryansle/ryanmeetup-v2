@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider, Pill } from "@/components/global";
+import { Heading, Text, Divider, Pill, Card } from "@/components/global";
 import NextImage from "next/image";
 
 // Types
@@ -116,10 +116,7 @@ const AboutPage = () => {
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
             {gallery.map((photo, index) => (
-              <div
-                className="rounded-2xl border border-black/10 bg-white/80 p-3 shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40"
-                key={index}
-              >
+              <Card key={index} variant="soft" size="sm" hover>
                 <div className="relative w-full max-h-[420px] aspect-w-3 aspect-h-2 overflow-hidden rounded-2xl">
                   <NextImage
                     src={photo.imageUrl}
@@ -136,7 +133,7 @@ const AboutPage = () => {
                 <Text className="text-center mt-3 text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
                   {photo.title}
                 </Text>
-              </div>
+              </Card>
             ))}
           </div>
         </section>

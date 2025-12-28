@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider, Pill } from "@/components/global";
+import { Heading, Text, Divider, Pill, Card } from "@/components/global";
 import { BiMailSend as Send } from "react-icons/bi";
 import {
   FaBullhorn as Megaphone,
@@ -76,10 +76,14 @@ const SponsorsPage = async () => {
         </Heading>
         <Text className="mx-auto text-lg text-black/70 dark:text-white/70">
           Thanks to our incredible sponsors, Ryan Meetup has grown across the
-          country. Want to help power the next one? We'd love to partner with
+          country. Want to help power the next one? We&apos;d love to partner with
           you.
         </Text>
-        <div className="mx-auto grid w-full gap-4 rounded-2xl border border-black/10 bg-white/80 p-5 text-left shadow-sm dark:border-white/10 dark:bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
+        <Card
+          variant="soft"
+          size="md"
+          className="mx-auto grid w-full gap-4 text-left sm:grid-cols-2 lg:grid-cols-3"
+        >
           <div className="sm:col-span-3">
             <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
               Partnership perks
@@ -111,10 +115,7 @@ const SponsorsPage = async () => {
               text: "Audience growth through regional momentum.",
             },
           ].map((item) => (
-            <div
-              key={item.text}
-              className="rounded-2xl border border-black/10 bg-white/90 p-4 shadow-sm dark:border-white/10 dark:bg-white/5"
-            >
+            <Card key={item.text} variant="solid" size="sm">
               <div className="flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
                   {item.icon}
@@ -123,9 +124,9 @@ const SponsorsPage = async () => {
                   {item.text}
                 </Text>
               </div>
-            </div>
+            </Card>
           ))}
-        </div>
+        </Card>
         <div className="flex justify-center">
           <NextLink
             href="/contact"

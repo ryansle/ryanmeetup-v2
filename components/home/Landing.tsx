@@ -3,7 +3,7 @@
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
-import { Heading, Divider, Text } from "@/components/global";
+import { Heading, Divider, Text, Pill, Card } from "@/components/global";
 import { Transition } from "@headlessui/react";
 import {
   FaArrowRight as ArrowRight,
@@ -22,6 +22,7 @@ const Info = () => {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
+        <Pill>Ryan Meetup</Pill>
         <Heading
           className="text-5xl title"
           size="h1"
@@ -188,8 +189,11 @@ const Landing = (props: LandingProps) => {
                 enterFrom="opacity-0 translate-y-6"
                 enterTo="opacity-100 translate-y-0"
               >
-                <div
-                  className={`flex flex-col gap-3 rounded-2xl border border-black/10 bg-white/80 p-4 shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40 ${
+                <Card
+                  variant="soft"
+                  size="sm"
+                  hover
+                  className={`flex flex-col gap-3 ${
                     index === 0
                       ? "delay-100"
                       : index === 1
@@ -215,7 +219,7 @@ const Landing = (props: LandingProps) => {
                   <Text className="text-base text-black/70 dark:text-white/70">
                     {item.body}
                   </Text>
-                </div>
+                </Card>
               </Transition>
             ))}
           </div>

@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Pill } from "@/components/global";
+import { Heading, Text, Pill, Card } from "@/components/global";
 import { MediaTile } from "@/components/gallery";
 import { FaQuestionCircle as Question } from "react-icons/fa";
 import NextLink from "next/link";
@@ -65,7 +65,7 @@ const GalleryPage = async () => {
         </Text>
       </section>
 
-      <div className="mt-10 rounded-2xl border border-black/10 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/5">
+      <Card variant="soft" size="sm" className="mt-10">
         <div className="flex items-start gap-4">
           <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/80 dark:border-white/15 dark:bg-white/10">
             <Question className="h-5 w-5 fill-yellow-500" />
@@ -87,7 +87,7 @@ const GalleryPage = async () => {
             </Text>
           </div>
         </div>
-      </div>
+      </Card>
 
         <div className="grid grid-cols-1 gap-4 mt-10 md:grid-cols-2 xl:grid-cols-3">
           {tiles?.map((content, index) => (

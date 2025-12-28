@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Divider, Heading } from "@/components/global";
+import { Divider, Heading, Text, Card } from "@/components/global";
 import { TotalCount, Donation } from "@/components/charity";
 
 // Types
@@ -54,9 +54,13 @@ const CharityPage = async () => {
 
       <Divider />
 
-      <Heading size="h1" className="text-4xl mb-8 text-center title">
+
+      <Heading size="h1" className="text-4xl text-center title">
         Our fundraising partners
       </Heading>
+      <Text className="mt-3 text-base text-center text-black/70 dark:text-white/70 mb-8">
+        The organizations we have rallied behind with Ryan Meetup donations.
+      </Text>
 
       <section className="px-6 pb-20 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {donations.map((donation) => (
