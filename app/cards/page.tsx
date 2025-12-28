@@ -1,9 +1,8 @@
 // Components
 import { Layout } from "@/components/navigation";
 import NextImage from "next/image";
-import { Backdrop, Heading, Text } from "@/components/global";
+import { Backdrop, Heading, Text, Pill, Card, Button } from "@/components/global";
 import { CardInfo } from "@/components/cards";
-import NextLink from "next/link";
 
 // Types
 import type { Metadata } from "next";
@@ -42,56 +41,54 @@ const BuyCardsPageRedirect = () => {
   return (
     <Layout fullscreen>
       <Backdrop imageSrc="/backdrop.png">
-        <div className="hidden lg:grid grid-cols-12 gap-16 py-8 lg:px-32 2xl:px-56 3xl:px-[320px] 4xl:px-[500px]">
-          <div className="col-span-12 xl:col-span-6 flex items-center flex-col justify-center">
-            <div className="relative lg:h-[500px] w-full">
-              <NextImage
-                src="/cards.png"
-                alt="Ryan Meetup Membership Card"
-                className="flex justify-center"
-                objectFit="contain"
-                fill
-              />
-            </div>
-            <Text className="mt-8 font-semibold">
-              Shown: front / back of the membership card
+        <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center py-8 lg:px-32 2xl:px-56 3xl:px-[320px] 4xl:px-[500px]">
+          <div className="space-y-6">
+            <Pill>Membership</Pill>
+            <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
+              The Ryan Meetup Membership Card
+            </Heading>
+            <Text className="text-lg text-black/70 dark:text-white/80">
+              You’ve always been a member — now you can prove it.
             </Text>
+
+              <div className="relative h-[360px] w-full sm:h-[480px]">
+                <NextImage
+                  src="/cards.png"
+                  alt="Ryan Meetup Membership Card"
+                  className="object-contain"
+                  fill
+                />
+              </div>
+
+            <Card
+              variant="outline"
+              size="sm"
+              className="border-black/10 bg-white/80 text-black/70 dark:border-white/20 dark:bg-white/10 dark:text-white/80"
+            >
+              Shown: front / back of the membership card.
+            </Card>
           </div>
 
-          <CardInfo />
-        </div>
-
-        <div className="block lg:hidden space-y-8">
-          <NextImage
-            src="/cards.png"
-            alt="Ryan Meetup Membership Card"
-            className="flex justify-center"
-            height={1024}
-            width={768}
-          />
-
-          <Text className="mt-8 font-semibold">
-            Shown: front / back of the membership card
-          </Text>
-
-          <CardInfo />
-        </div>
+          <div className="space-y-6">
+            <CardInfo />
+          </div>
+        </section>
       </Backdrop>
 
-      <section className="text-center py-4 border-t-2 border-gray-400 dark:border-gray-700 px-4 md:py-8 lg:px-32 xl:px-72 3xl:px-[350px] 4xl:px-[650px]">
-        <Heading className="mb-6 text-4xl title">
-          Need help with your order?
-        </Heading>
-
-        <Text className="text-lg secondary">
-          <NextLink
-            href="/contact"
-            className="font-semibold underline underline-offset-2 text-blue-700 dark:text-blue-500 hover:cursor-pointer"
-          >
-            Get in touch
-          </NextLink>{" "}
-          with our team and we&apos;ll make things right.
-        </Text>
+      <section className="px-4 py-10 lg:px-32 xl:px-72 3xl:px-[350px] 4xl:px-[650px]">
+        <Card variant="soft" size="lg" className="text-center">
+          <Heading className="text-3xl title sm:text-4xl">
+            Need help with your order?
+          </Heading>
+          <Text className="mt-3 text-lg text-black/70 dark:text-white/70">
+            We can help with orders, shipping questions, and card details.
+          </Text>
+          <div className="mt-6 flex justify-center">
+            <Button.Link href="/contact" newTab={false} variant="secondary" size="md">
+              Get in touch
+            </Button.Link>
+          </div>
+        </Card>
       </section>
     </Layout>
   );
