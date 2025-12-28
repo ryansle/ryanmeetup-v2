@@ -1,7 +1,7 @@
 // Components
 import NextLink from "next/link";
 import NextImage from "next/image";
-import { Heading, Text } from "@/components/global";
+import { Heading, Text, Card } from "@/components/global";
 
 // Types
 import type { Article } from "@/lib/types";
@@ -23,13 +23,12 @@ const ArticleImage = (props: ArticleImageProps) => {
   const { imageSrc, title } = props;
 
   return (
-    <div className="w-full max-h-[200px] aspect-w-2 aspect-h-1">
+    <div className="w-full max-h-[200px] aspect-w-2 aspect-h-1 overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
       <NextImage
-        className="rounded-2xl shadow-xl border border-gray-400 dark:border-gray-700"
+        className="h-full w-full object-cover"
         src={imageSrc}
         fill
         alt={title}
-        style={{ objectFit: "cover" }}
       />
     </div>
   );
@@ -39,40 +38,58 @@ const Article = (props: ArticleProps) => {
   const { title, author, outlet, href, publishedOn, thumbnail } = props.article;
 
   const highlight = "font-semibold text-blue-700 dark:text-blue-500";
+  const publishedYear = new Date(publishedOn).getFullYear();
 
   const imageUrl = convertImageUrl(thumbnail);
 
   const isNew = !isMoreThanTwoWeeksAgo(publishedOn);
 
   return (
-    <NextLink href={href} target="_blank">
-      <div className="mb-2 timing hover:scale-102">
-        <div className="grid grid-cols-5">
-          <div className="col-span-5 xl:col-span-2">
+    <NextLink href={href} target="_blank" className="block">
+      <Card variant="soft" size="md" hover className="group relative">
+        <div className="absolute left-6 top-6 flex items-center gap-2">
+          <span className="rounded-full border border-black/10 bg-white/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60 dark:border-white/10 dark:bg-white/10 dark:text-white/60">
+            Featured
+          </span>
+          <span className="rounded-full border border-black/10 bg-white/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60 dark:border-white/10 dark:bg-white/10 dark:text-white/60">
+            {outlet}
+          </span>
+        </div>
+        <div className="grid gap-6 xl:grid-cols-[1.4fr_2fr] xl:items-stretch">
+          <div className="xl:self-center">
             <ArticleImage imageSrc={imageUrl ?? "/trophy.png"} title={title} />
           </div>
 
-          <div className="col-span-5 mt-2 xl:col-span-3 xl:ml-8 xl:mt-0">
-            <div className="flex items-center space-x-4">
-              <Text className="text-lg secondary">{publishedOn}</Text>
+          <div className="flex h-full flex-col">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:border-white/10 dark:bg-white/10 dark:text-white/60">
+                {publishedOn}
+              </span>
               {isNew && (
-                <span className="text-green-500 border border-green-500 text-sm font-medium px-2 rounded bg-green-900 text-white">
-                  NEW
+                <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-emerald-600 dark:text-emerald-300">
+                  New
                 </span>
               )}
             </div>
 
-            <Heading className="title text-3xl md:text-4xl" size="h2">
-              {title}
-            </Heading>
+            <div className="mt-4 flex-1 space-y-3">
+              <Heading className="title text-3xl sm:text-4xl" size="h2">
+                {title}
+              </Heading>
 
-            <Text className="text-base mt-4 secondary md:text-xl">
-              by <span className={highlight}>{author}</span> at{" "}
-              <span className={highlight}>{outlet}</span>
-            </Text>
+              <Text className="text-lg text-black/70 dark:text-white/70">
+                by <span className={highlight}>{author}</span> at{" "}
+                <span className={highlight}>{outlet}</span>
+              </Text>
+            </div>
+
+            <div className="mt-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-black/60 transition group-hover:text-black dark:text-white/60 dark:group-hover:text-white">
+              Read
+              <span className="text-base">→</span>
+            </div>
           </div>
         </div>
-      </div>
+      </Card>
     </NextLink>
   );
 };

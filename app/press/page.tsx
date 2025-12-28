@@ -1,7 +1,7 @@
 // Components
 import { Layout } from "@/components/navigation";
 import { Heading, Text, Divider, Pill } from "@/components/global";
-import { Article, FeaturedIn } from "@/components/press";
+import { FeaturedIn, PressFeed } from "@/components/press";
 
 // Types
 import type { Article as RyanArticle, Outlet } from "@/lib/types";
@@ -72,13 +72,13 @@ const PressPage = async () => {
           <Pill>Press</Pill>
         </div>
         <Heading
-          className="mb-4 text-center title text-4xl md:text-7xl"
+          className="mb-3 text-center title text-4xl md:text-7xl"
           size="h1"
         >
           RYAN MEETUP
         </Heading>
 
-        <Text className="secondary text-center italic text-xl">
+        <Text className="text-center text-lg italic text-black/70 dark:text-white/70">
           has been proudly featured in:
         </Text>
       </div>
@@ -88,17 +88,7 @@ const PressPage = async () => {
       <div className="px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
         <Divider />
 
-        <div className="flex flex-col gap-y-8 mb-8 xl:gap-y-4">
-          {articles?.map((article, index) => (
-            <div key={index}>
-              <Article article={article as unknown as RyanArticle} />
-
-              {index !== articles.length && (
-                <Divider className="block xl:hidden" />
-              )}
-            </div>
-          ))}
-        </div>
+        <PressFeed articles={articles as unknown as RyanArticle[]} />
       </div>
     </Layout>
   );
