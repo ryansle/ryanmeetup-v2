@@ -1,5 +1,5 @@
 // Components
-import { Heading, Text } from "@/components/global";
+import { Heading, Text, Pill } from "@/components/global";
 import NextLink from "next/link";
 
 // Types
@@ -26,6 +26,9 @@ const Info = (props: InfoProps) => {
 
   return (
     <section className="text-center py-4 border-t-2 border-gray-400 dark:border-gray-700 px-4 md:py-8 lg:px-32 xl:px-72 3xl:px-[350px] 4xl:px-[650px]">
+      <div className="mb-4 flex justify-center">
+        <Pill>Map</Pill>
+      </div>
       <Heading className="mb-6 text-4xl title">Ryan Meetup Worldwide</Heading>
       <Text className="text-lg secondary">
         Our growing network of Ryans currently spans across{" "}

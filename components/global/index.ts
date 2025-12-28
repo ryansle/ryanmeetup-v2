@@ -12,3 +12,4 @@ export * from "./Note";
 export * from "./List";
 export * from "./Breadcrumbs";
 export * from "./Backdrop";
+export * from "./Pill";

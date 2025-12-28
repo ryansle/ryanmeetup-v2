@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 
 // Components
-import { Heading, Text } from "@/components/global";
+import { Heading, Text, Pill } from "@/components/global";
 
 // Types
 import type { Charity } from "@/lib/types";
@@ -36,6 +36,11 @@ const TotalCount = (props: TotalCountProps) => {
 
   return (
     <div className="px-6 text-center max-w-7xl mx-auto">
+      <div className="mb-4 flex justify-center">
+        <Pill className="border-white/20 bg-white/10 text-white/80 dark:border-white/20 dark:bg-white/10 dark:text-white/80">
+          Charity
+        </Pill>
+      </div>
       <Heading
         className="mb-6 text-center text-4xl xl:text-7xl title"
         size="h1"

@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider } from "@/components/global";
+import { Heading, Text, Divider, Pill } from "@/components/global";
 import {
   FaHandsHelping as Help,
   FaDollarSign as Dollar,
@@ -108,6 +108,9 @@ const ContributePage = async () => {
   return (
     <Layout>
       <section className="space-y-4 text-center mb-8">
+        <div className="flex justify-center">
+          <Pill>Contribute</Pill>
+        </div>
         <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
           Contribute to the Ryan Meetup
         </Heading>

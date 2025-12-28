@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider } from "@/components/global";
+import { Heading, Text, Divider, Pill } from "@/components/global";
 import NextImage from "next/image";
 
 // Types
@@ -52,9 +52,9 @@ const AboutPage = () => {
           <div className="absolute -top-24 right-10 hidden h-64 w-64 rounded-full border border-black/10 bg-white/60 blur-3xl dark:border-white/10 dark:bg-white/10 lg:block" />
           <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:border-white/15 dark:bg-white/5 dark:text-white/70">
+              <Pill className="px-3 py-1 text-xs dark:border-white/15 dark:bg-white/5">
                 How it all started
-              </div>
+              </Pill>
               <Heading className="text-4xl title sm:text-5xl" size="h1">
                 About Ryan Meetup
               </Heading>

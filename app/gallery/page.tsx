@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text } from "@/components/global";
+import { Heading, Text, Pill } from "@/components/global";
 import { MediaTile } from "@/components/gallery";
 import { FaQuestionCircle as Question } from "react-icons/fa";
 import NextLink from "next/link";
@@ -52,7 +52,10 @@ const GalleryPage = async () => {
 
   return (
     <Layout>
-      <section className="space-y-4">
+      <section className="space-y-4 text-center">
+        <div className="flex justify-center">
+          <Pill>Gallery</Pill>
+        </div>
         <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
           Photo Gallery
         </Heading>

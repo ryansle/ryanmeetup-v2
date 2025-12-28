@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider } from "@/components/global";
+import { Heading, Text, Divider, Pill } from "@/components/global";
 import { Article, FeaturedIn } from "@/components/press";
 
 // Types
@@ -68,6 +68,9 @@ const PressPage = async () => {
   return (
     <Layout fullscreen>
       <div className="pt-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
+        <div className="mb-4 flex justify-center">
+          <Pill>Press</Pill>
+        </div>
         <Heading
           className="mb-4 text-center title text-4xl md:text-7xl"
           size="h1"
@@ -102,4 +105,3 @@ const PressPage = async () => {
 };
 
 export default PressPage;
-

@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text } from "@/components/global";
+import { Heading, Text, Pill } from "@/components/global";
 import QRCode from "react-qr-code";
 import NextLink from "next/link";
 import NextImage from "next/image";
@@ -114,6 +114,7 @@ const DonatePage = async () => {
     <Layout className="space-y-10">
       <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <div className="space-y-6">
+          <Pill>Donate</Pill>
           <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
             Help power the next Ryan Meetup.
           </Heading>

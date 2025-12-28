@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Divider, Text } from "@/components/global";
+import { Heading, Divider, Text, Pill } from "@/components/global";
 import { FAQ } from "@/components/home";
 import { ChapterTile, CalendarButton } from "@/components/chapters";
 
@@ -81,6 +81,9 @@ const ChaptersPage = async ({
   return (
     <Layout>
       <div className="space-y-6">
+        <div className="flex justify-center">
+          <Pill>Chapters</Pill>
+        </div>
         <Heading className="text-center text-5xl title" size="h1">
           Ryan Meetup Chapters
         </Heading>

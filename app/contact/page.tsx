@@ -39,7 +39,11 @@ export const metadata: Metadata = {
 const ContactPage = async () => {
   return (
     <Layout>
-      <Blurb fullHeadline="Contact the Ryans" smallHeadline="Contact the Ryans">
+      <Blurb
+        fullHeadline="Contact the Ryans"
+        smallHeadline="Contact the Ryans"
+        tag="Contact"
+      >
         <Text className="secondary text-xl mx-0 sm:mx-24 lg:mx-0">
           One of our Ryans will get back to you as soon as we can.
         </Text>
@@ -56,4 +60,3 @@ const ContactPage = async () => {
 };
 
 export default ContactPage;
-
