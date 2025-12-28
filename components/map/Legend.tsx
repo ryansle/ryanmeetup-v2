@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import type { Dispatch, SetStateAction } from "react";
 
 // Components
-import { Heading, Text } from "@/components/global";
+import { Heading, Text, Card } from "@/components/global";
 import NextImage from "next/image";
 
 type LegendProps = {
@@ -105,34 +105,37 @@ const Legend = (props: LegendProps) => {
   );
 
   return (
-    <div className="absolute bottom-2 right-2 bg-white p-3 rounded-2xl shadow-md text-black w-48 font-semibold lg:bottom-8 lg:right-8">
-      <Heading className="font-semibold mb-2 text-lg text-black" size="h3">
-        Legend
-      </Heading>
-      <div className="space-y-1">
-        {options.map((option) => (
-          <div className="flex justify-between" key={option.text}>
-            <div className="flex">
-              <input
-                type="checkbox"
-                className="w-4 h-4"
-                checked={option.checked}
-                aria-label={option.text}
-                onClick={option.handler}
+    <div className="absolute bottom-2 right-2 w-52 lg:bottom-8 lg:right-8">
+      <Card variant="soft" size="sm" className="bg-white/95 dark:bg-black/70">
+        <Heading className="mb-2 text-base font-semibold text-black dark:text-white" size="h3">
+          Legend
+        </Heading>
+        <div className="space-y-2">
+          {options.map((option) => (
+            <div className="flex items-center justify-between gap-2" key={option.text}>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  className="h-4 w-4 accent-black dark:accent-white"
+                  checked={option.checked}
+                  aria-label={option.text}
+                  onClick={option.handler}
+                />
+                <Text className="text-xs text-black/70 dark:text-white/70">
+                  {option.text}
+                </Text>
+              </label>
+              <NextImage
+                className={`flex shrink-0 ${option.text === "Local Chapter" ? "rounded-full" : ""}`}
+                src={option.icon}
+                width={20}
+                height={20}
+                alt={option.alt}
               />
-
-              <Text className="ml-2 text-xs text-black">{option.text}</Text>
             </div>
-            <NextImage
-              className={`flex shrink-0 ${option.text === "Local Chapter" && "rounded-full"}`}
-              src={option.icon}
-              width={20}
-              height={20}
-              alt="Ryans have met up in this city before"
-            />
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Card>
     </div>
   );
 };
