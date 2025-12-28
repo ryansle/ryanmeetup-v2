@@ -47,7 +47,7 @@ const AboutPage = () => {
   return (
     <Layout>
       <div className="xl:px-20 space-y-12">
-        <section className="relative overflow-hidden rounded-[32px] border border-black/10 bg-white/80 p-6 shadow-[0_30px_60px_-40px_rgba(0,0,0,0.6)] dark:border-white/10 dark:bg-white/5 lg:p-10">
+        <section className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/80 p-6 shadow-[0_30px_60px_-40px_rgba(0,0,0,0.6)] dark:border-white/10 dark:bg-white/5 lg:p-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.08),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_60%)]" />
           <div className="absolute -top-24 right-10 hidden h-64 w-64 rounded-full border border-black/10 bg-white/60 blur-3xl dark:border-white/10 dark:bg-white/10 lg:block" />
           <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
@@ -120,7 +120,7 @@ const AboutPage = () => {
                 className="rounded-2xl border border-black/10 bg-white/80 p-3 shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40"
                 key={index}
               >
-                <div className="relative w-full max-h-[420px] aspect-w-3 aspect-h-2 overflow-hidden rounded-xl">
+                <div className="relative w-full max-h-[420px] aspect-w-3 aspect-h-2 overflow-hidden rounded-2xl">
                   <NextImage
                     src={photo.imageUrl}
                     fill

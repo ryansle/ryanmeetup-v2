@@ -23,7 +23,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
   const { leaders, instagram, avatar, city, isActive } = props;
 
   return (
-    <div className="border rounded-3xl border-gray-400 p-4 dark:border-gray-700 bg-white overflow-hidden relative dark:bg-black">
+    <div className="border rounded-2xl border-gray-400 p-4 dark:border-gray-700 bg-white overflow-hidden relative dark:bg-black">
       {!isActive && (
         <div className="absolute top-8 -left-[100px] -rotate-45 z-10">
           <div className="px-2 text-xl text-center rounded-lg font-semibold uppercase w-[300px] h-10 flex items-center justify-center bg-red-500 text-sm">

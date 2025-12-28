@@ -64,14 +64,14 @@ const Actions = () => {
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
       <NextLink
         href="/newsletter"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
       >
         <Newsletter className="h-5 w-5" />
         Sign up for our newsletter
       </NextLink>
       <NextLink
         href="/events"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
       >
         <Calendar className="h-5 w-5" />
         View Upcoming events

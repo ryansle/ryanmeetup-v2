@@ -31,7 +31,7 @@ const Donation = (props: DonationProps) => {
     });
 
   return (
-    <article className="relative h-full overflow-hidden rounded-3xl bg-white/5 ring-1 ring-white/10 p-5 sm:p-6 md:p-8 flex flex-col">
+    <article className="relative h-full overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 p-5 sm:p-6 md:p-8 flex flex-col">
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -59,7 +59,7 @@ const Donation = (props: DonationProps) => {
             href={href}
             target="_blank"
             rel="noreferrer"
-            className="order-2 sm:order-none w-full sm:w-auto text-center rounded-xl bg-white text-neutral-900 px-4 py-2.5 font-semibold hover:bg-white/90 transition"
+            className="order-2 sm:order-none w-full sm:w-auto text-center rounded-lg bg-white text-neutral-900 px-4 py-2.5 font-semibold hover:bg-white/90 transition"
           >
             See organization
           </NextLink>

@@ -34,7 +34,7 @@ const Sponsor = (props: SponsorProps) => {
         width={1000}
         height={1000}
         alt={name}
-        className="rounded-xl"
+        className="rounded-2xl"
       />
     </NextLink>
   );

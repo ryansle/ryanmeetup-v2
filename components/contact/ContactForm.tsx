@@ -80,7 +80,7 @@ const ContactForm = () => {
       <div
         className={`${
           t.visible ? "animate-enter" : "animate-leave"
-        } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5 text-black grid grid-cols-12 p-4 -pb-1`}
+        } max-w-md w-full bg-white shadow-lg rounded-2xl pointer-events-auto flex ring-1 ring-black ring-opacity-5 text-black grid grid-cols-12 p-4 -pb-1`}
       >
         <div className="col-span-1 flex items-center justify-center">
           <Check className="h-8 w-8 fill-green-500 shrink-0" />
@@ -96,7 +96,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <form className="w-full grid grid-cols-2 gap-x-8 gap-y-8 mb-4 border border-gray-700 p-8 rounded-xl bg-white dark:bg-black col-span-2 md:col-span-1">
+      <form className="w-full grid grid-cols-2 gap-x-8 gap-y-8 mb-4 border border-gray-700 p-8 rounded-2xl bg-white dark:bg-black col-span-2 md:col-span-1">
         <div className="col-span-1">
           <Input
             label="First Name"

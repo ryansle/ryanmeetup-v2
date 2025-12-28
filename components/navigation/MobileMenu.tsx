@@ -47,7 +47,7 @@ const MobileMenu = (props: MobileMenuProps) => {
             leaveTo="opacity-0 translate-y-1"
           >
             <PopoverPanel
-              className="z-50 bg-white w-48 rounded-lg border border-gray-700 p-2 mt-2 "
+              className="z-50 bg-white w-48 rounded-2xl border border-gray-700 p-2 mt-2 "
               anchor="bottom end"
             >
               {content.map((row) =>

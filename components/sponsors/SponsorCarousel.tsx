@@ -43,7 +43,7 @@ const SponsorCarousel = (props: SponsorCarousel) => {
           <div key={idx} className="flex flex-col items-center justify-center py-6">
             <NextLink
               href={sponsor.href}
-              className="group mx-6 flex h-56 w-[22rem] items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-2 transition hover:-translate-y-1 hover:border-white/30 hover:bg-white/10"
+              className="group mx-6 flex h-56 w-[22rem] items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-2 transition hover:-translate-y-1 hover:border-white/30 hover:bg-white/10"
             >
               <NextImage
                 src={sponsor.src}

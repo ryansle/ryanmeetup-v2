@@ -6,7 +6,7 @@ import { FaDollarSign as Dollar } from "react-icons/fa";
 
 const CardInfo = () => {
   return (
-    <div className="col-span-12 xl:col-span-6 text-black h-full border border-gray-400 bg-white dark:bg-black rounded-xl w-full p-4 lg:p-8 text-left dark:border-gray-700">
+    <div className="col-span-12 xl:col-span-6 text-black h-full border border-gray-400 bg-white dark:bg-black rounded-2xl w-full p-4 lg:p-8 text-left dark:border-gray-700">
       <Heading
         className="text-2xl text-center title lg:text-left lg:text-3xl font-semibold mb-4"
         size="h1"

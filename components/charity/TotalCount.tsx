@@ -42,7 +42,7 @@ const TotalCount = (props: TotalCountProps) => {
       >
         Ryan Meetup <span className="hidden xl:inline-block">has raised</span>
       </Heading>
-      <div className="inline-flex items-center justify-center rounded-3xl bg-white/5 ring-1 ring-white/10 px-6 py-4 md:p-8">
+      <div className="inline-flex items-center justify-center rounded-2xl bg-white/5 ring-1 ring-white/10 px-6 py-4 md:p-8">
         <div className="text-left">
           <div className="block xl:hidden text-lg xl:text-xl uppercase tracking-widest text-white/70 mb-4 text-center">
             HAS RAISED

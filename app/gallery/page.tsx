@@ -1,10 +1,9 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Note } from "@/components/global";
+import { Heading, Text } from "@/components/global";
 import { MediaTile } from "@/components/gallery";
 import { FaQuestionCircle as Question } from "react-icons/fa";
 import NextLink from "next/link";
-import { Blurb } from "@/components/events";
 
 // Types
 import type { MediaEvent } from "@/lib/types";
@@ -53,49 +52,51 @@ const GalleryPage = async () => {
 
   return (
     <Layout>
-      <Heading
-        className="mb-6 text-5xl text-center title lg:text-left"
-        size="h1"
-      >
-        Ryan Media
-      </Heading>
-
-      <Text className="text-xl mb-4 text-center title lg:text-left">
-        Our gallery of Ryan media from previous events.
-      </Text>
-
-      <Note>
-        <Text className="secondary flex items-center text-lg">
-          <Question className="mr-4 fill-yellow-500 w-6 h-6 mb-2 lg:mb-0 lg:w-4 lg:w-4" />
-          <span className="secondary text-base">
-            Who is photographing all of these Ryan Meetups?
-          </span>
+      <section className="space-y-4">
+        <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
+          Photo Gallery
+        </Heading>
+        <Text className="text-lg text-black/70 dark:text-white/70">
+          A living archive of Ryan Meetup memories across cities, chapters, and
+          unforgettable events.
         </Text>
-        <Text className="secondary text-sm">
-          Ryan Rose is the official photographer for the Ryan Meetup. You can
-          book a gig with her{" "}
-          <NextLink
-            className="font-semibold text-blue-700 dark:text-blue-500 underline"
-            href="mailto:justryanrose@gmail.com"
-          >
-            here
-          </NextLink>
-          .
-        </Text>
-      </Note>
+      </section>
 
-      <div className="grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3">
-        {tiles?.map((content, index) => (
-          <MediaTile
-            key={index}
-            id={content.sys.id}
-            data={content.fields as unknown as MediaEvent}
-          />
-        ))}
+      <div className="mt-10 rounded-2xl border border-black/10 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/5">
+        <div className="flex items-start gap-4">
+          <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/80 dark:border-white/15 dark:bg-white/10">
+            <Question className="h-5 w-5 fill-yellow-500" />
+          </div>
+          <div>
+            <Text className="text-base font-semibold text-black dark:text-white">
+              Who is photographing all of these Ryan Meetups?
+            </Text>
+            <Text className="mt-1 text-sm text-black/70 dark:text-white/70">
+              Ryan Rose is the official photographer for the Ryan Meetup. You
+              can book a gig with her{" "}
+              <NextLink
+                className="font-semibold text-blue-700 dark:text-blue-500 underline"
+                href="mailto:justryanrose@gmail.com"
+              >
+                here
+              </NextLink>
+              .
+            </Text>
+          </div>
+        </div>
       </div>
+
+        <div className="grid grid-cols-1 gap-4 mt-10 md:grid-cols-2 xl:grid-cols-3">
+          {tiles?.map((content, index) => (
+            <MediaTile
+              key={index}
+              id={content.sys.id}
+              data={content.fields as unknown as MediaEvent}
+            />
+          ))}
+        </div>
     </Layout>
   );
 };
 
 export default GalleryPage;
-

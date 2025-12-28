@@ -35,7 +35,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {label} {required && <span className="text-red-500">*</span>}
         </label>
         <input
-          className="border bg-white dark:bg-black border-gray-700 dark:text-white text-black text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 ring-inset placeholder-gray-700 shadow-lg"
+          className="border bg-white dark:bg-black border-gray-700 dark:text-white text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 ring-inset placeholder-gray-700 shadow-lg"
           id={name}
           name={name}
           placeholder={placeholder}

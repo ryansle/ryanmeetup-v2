@@ -90,7 +90,7 @@ const AwardsPage = async () => {
       </Blurb>
 
       <div className="fixed bottom-3 right-3 z-50 lg:right-32 lg:bottom-8">
-        <div className="dark:bg-white border border-gray-700 bg-black shadow-lg rounded-lg p-2 space-y-4">
+        <div className="dark:bg-white border border-gray-700 bg-black shadow-lg rounded-2xl p-2 space-y-4">
           {anchors.map((anchor) => (
             <div key={anchor.href} className="relative group">
               <a href={anchor.href} className={anchorStyle}>

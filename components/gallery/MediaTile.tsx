@@ -18,10 +18,10 @@ const MediaTile = (props: MediaTileProps) => {
   const { title, eventDate, bgImage, photoUrl, credits } = props.data;
 
   return (
-    <NextLink href={photoUrl}>
-      <div className="border flex flex-col items-center justify-center shadow-xl border-gray-700 rounded-xl h-full timing hover:border-white hover:scale-102">
-        <div className="relative w-full flex items-center justify-center rounded-xl h-80 overflow-hidden bg-center">
-          <div className="w-full h-full brightness-30">
+    <NextLink href={photoUrl} className="group">
+      <div className="border flex flex-col items-center justify-center shadow-xl border-gray-700 rounded-2xl h-full timing hover:border-white hover:scale-102">
+        <div className="relative w-full flex items-center justify-center rounded-2xl h-80 overflow-hidden bg-center">
+          <div className="w-full h-full brightness-30 transition group-hover:brightness-50">
             <NextImage
               src={convertImageUrl(bgImage) ?? "/trophy.png"}
               alt={title}

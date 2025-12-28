@@ -105,7 +105,7 @@ const Legend = (props: LegendProps) => {
   );
 
   return (
-    <div className="absolute bottom-2 right-2 bg-white p-3 rounded-md shadow-md text-black w-48 font-semibold lg:bottom-8 lg:right-8">
+    <div className="absolute bottom-2 right-2 bg-white p-3 rounded-2xl shadow-md text-black w-48 font-semibold lg:bottom-8 lg:right-8">
       <Heading className="font-semibold mb-2 text-lg text-black" size="h3">
         Legend
       </Heading>
