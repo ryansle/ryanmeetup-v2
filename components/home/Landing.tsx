@@ -14,6 +14,9 @@ import {
   MdGroups as Community,
   MdVolunteerActivism as Heart,
 } from "react-icons/md";
+import {
+  IoCalendarNumber as Calendar,
+} from "react-icons/io5";
 
 const Info = () => {
   return (
@@ -70,8 +73,8 @@ const Actions = () => {
         href="/events"
         className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
       >
-        Upcoming events
-        <ArrowRight className="h-4 w-4" />
+        <Calendar className="h-5 w-5" />
+        View Upcoming events
       </NextLink>
     </div>
   );
@@ -104,7 +107,7 @@ const Overview = (props: { stats: StatItem[] }) => {
             key={stat.label}
             className="rounded-2xl border border-black/10 bg-white/80 px-3 py-4 shadow-sm dark:border-white/10 dark:bg-white/5 space-y-2"
           >
-            <Text className="text-4xl font-cooper">{stat.value}</Text>
+            <Heading className="text-4xl font-cooper">{stat.value}</Heading>
             <Text className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
               {stat.label}
             </Text>
@@ -144,23 +147,15 @@ const Landing = (props: LandingProps) => {
 
   return (
     <section className="relative overflow-hidden text-black dark:text-white">
-      <div className="relative flex flex-col gap-10 px-6 lg:grid xl:grid-cols-2 lg:items-center">
+      <div className="relative flex flex-col gap-8 lg:gap-16 lg:grid lg:grid-cols-2 lg:items-center">
         <div className="order-2 flex flex-col gap-6 lg:order-1">
-          <div className="order-1">
-            <Info />
-          </div>
-          <div className="order-4 lg:order-2">
-            <Actions />
-          </div>
-          <div className="order-2 lg:order-3">
-            <Divider />
-          </div>
-          <div className="order-3 lg:order-4">
-            <Overview stats={stats} />
-          </div>
+          <Info />
+          <Actions />
+          <Divider />
+          <Overview stats={stats} />
         </div>
 
-        <div className="order-1 space-y-6 lg:order-2">
+        <div className="order-1 flex flex-col space-y-6 lg:order-2">
           <Transition
             appear={true}
             show={true}
@@ -183,7 +178,7 @@ const Landing = (props: LandingProps) => {
             </div>
           </Transition>
 
-          <div className="grid gap-4">
+          <div className="hidden gap-4 lg:grid">
             {highlights.map((item, index) => (
               <Transition
                 key={item.title}
