@@ -93,7 +93,7 @@ const Info = (props: InfoProps) => {
         </div>
 
         <Heading className="mt-8 text-2xl title sm:text-3xl" size="h3">
-          Don't see your city?
+          Don&apos;t see your city?
         </Heading>
         <Text className="mt-3 text-base text-black/70 dark:text-white/70">
           <NextLink

@@ -27,15 +27,17 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     } = props;
 
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-2">
         <label
-          className={`font-medium mb-1 ${!ignoreColorMode && "text-black dark:text-white"}`}
+          className={`text-xs font-semibold uppercase tracking-[0.3em] ${
+            !ignoreColorMode ? "text-black/70 dark:text-white/70" : ""
+          }`}
           htmlFor={name}
         >
           {label} {required && <span className="text-red-500">*</span>}
         </label>
         <input
-          className="border bg-white dark:bg-black border-gray-700 dark:text-white text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 ring-inset placeholder-gray-700 shadow-lg"
+          className="w-full rounded-lg border border-black/10 bg-white/80 px-4 py-2.5 text-sm text-black shadow-sm transition placeholder:text-black/40 focus:border-black/40 focus:outline-none focus:ring-2 focus:ring-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40 dark:focus:border-white/50 dark:focus:ring-white/10"
           id={name}
           name={name}
           placeholder={placeholder}
