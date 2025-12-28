@@ -14,19 +14,23 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header className="flex justify-between items-center py-5 px-4 border-b border-gray-400 dark:border-gray-700 bg-white dark:bg-black sticky relative top-0 right-0 left-0 z-20 lg:px-32 2xl:px-48 3xl:px-[350px] 4xl:px-[500px]">
+    <header className="sticky top-0 z-30 flex justify-between border-b border-gray-400 dark:border-gray-700 px-4 py-4 bg-white dark:bg-black lg:px-32 2xl:px-48 3xl:px-[350px] 4xl:px-[500px]">
       <NextLink href="/" className="title timing hover:scale-105">
         <Heading className="text-4xl" size="h1">
           RYAN
         </Heading>
       </NextLink>
 
-      <div className="hidden 2xl:flex space-x-4 overflow-y-scroll">
+      <div className="ml-auto hidden 2xl:flex items-center space-x-4 overflow-y-scroll">
         {routes.map((route) =>
           !route.subroutes ? (
             <NextLink
               key={route.text}
-              className={`${route.href.includes(pathname) && pathname !== "/" && "bg-gray-300 dark:bg-gray-800"} text-sm flex items-center font-semibold rounded-lg text-black tracking-wide gap-x-2 px-2 py-1 border border-white dark:border-black timing hover:border hover:border-gray-700 2xl:text-base dark:text-white`}
+              className={`text-sm flex items-center font-semibold rounded-lg text-black tracking-wide gap-x-2 px-3 py-1.5 border transition hover:border-black/40 hover:shadow-sm dark:text-white/80 dark:hover:text-white dark:hover:border-white/30 2xl:text-base ${
+                route.href.includes(pathname) && pathname !== "/"
+                  ? "border-black/30 bg-black text-white dark:border-white/30 dark:bg-white/10 dark:text-white"
+                  : "border-black/10 bg-white/80 dark:border-white/10 dark:bg-white/5"
+              }`}
               href={route.href}
             >
               {route.icon} {route.text}
@@ -45,7 +49,7 @@ const Header = () => {
         <ThemeToggle />
       </div>
 
-      <div className="flex gap-x-4 2xl:hidden">
+      <div className="ml-auto flex gap-x-4 2xl:hidden">
         <MobileMenu content={routes} />
         <ThemeToggle />
       </div>
