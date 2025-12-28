@@ -40,15 +40,18 @@ const SponsorCarousel = (props: SponsorCarousel) => {
     <div className="-mt-4 -mb-8">
       <Marquee speed={50} gradient={false}>
         {sponsorLogos.map((sponsor, idx) => (
-          <div key={idx} className="flex flex-col items-center justify-center">
-            <NextLink href={sponsor.href} className="p-4 timing hover:scale-105">
+          <div key={idx} className="flex flex-col items-center justify-center py-6">
+            <NextLink
+              href={sponsor.href}
+              className="group mx-6 flex h-56 w-[22rem] items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-2 transition hover:-translate-y-1 hover:border-white/30 hover:bg-white/10"
+            >
               <NextImage
                 src={sponsor.src}
                 alt={sponsor.name}
-                width={70}
-                height={30}
-                className="h-28 md:h-40 w-auto object-contain rounded-xl"
-                sizes="(max-width: 768px) 100px, 300px"
+                width={320}
+                height={160}
+                className="h-40 w-auto object-contain"
+                sizes="(max-width: 768px) 320px, 420px"
               />
             </NextLink>
           </div>

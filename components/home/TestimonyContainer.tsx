@@ -1,6 +1,6 @@
 // Components
 import { Testimony } from "@/components/home";
-import { Heading } from "@/components/global";
+import { Heading, Text } from "@/components/global";
 
 // Types
 import { Testimonial } from "@/lib/types";
@@ -13,15 +13,19 @@ const TestimonyContainer = (props: TestimonyContainerProps) => {
   const { testimonies } = props;
 
   return (
-    <section>
-      <Heading className="text-center text-4xl mb-8 title" size="h4">
-        Hear what Ryans have to say about the Ryan Meetup:
-      </Heading>
+    <section className="relative overflow-hidden p-6">
+      <div className="relative">
+        <div className="mx-auto mb-8 text-center">
+          <Heading className="mt-4 text-4xl title" size="h4">
+            Hear what Ryans have to say about the Ryan Meetup:
+          </Heading>
+        </div>
 
-      <div className="columns-1 sm:columns-2 xl:columns-3">
-        {testimonies.map((item) => (
-          <Testimony key={item.lastName} testimony={item} />
-        ))}
+        <div className="columns-1 gap-4 sm:columns-2 xl:columns-3">
+          {testimonies.map((item) => (
+            <Testimony key={item.lastName} testimony={item} />
+          ))}
+        </div>
       </div>
     </section>
   );

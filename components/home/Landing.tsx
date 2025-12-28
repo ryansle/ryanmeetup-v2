@@ -3,77 +3,230 @@
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
-import { Button, Heading } from "@/components/global";
+import { Heading, Divider, Text } from "@/components/global";
 import { Transition } from "@headlessui/react";
-import { FaRegNewspaper as Newsletter } from "react-icons/fa6";
+import {
+  FaArrowRight as ArrowRight,
+  FaRegNewspaper as Newsletter,
+} from "react-icons/fa6";
+import {
+  MdOutlineEvent as Event,
+  MdGroups as Community,
+  MdVolunteerActivism as Heart,
+} from "react-icons/md";
 
-const Landing = () => {
+const Info = () => {
   return (
-    <div className="relative">
-      <div className="grid grid-cols-12 h-full flex items-center">
-        <div className="col-span-12 order-last xl:order-first xl:col-span-7">
-          <div className="space-y-2">
-            <Heading className="text-5xl title" size="h1">
-              If your name is Ryan,
-            </Heading>
-            <Heading className="text-3xl title" size="h2">
-              you&apos;re in the right place.
-            </Heading>
+    <div className="space-y-8">
+      <div className="space-y-2">
+        <Heading
+          className="text-5xl title"
+          size="h1"
+        >
+            If your name is Ryan,
+        </Heading>
+        <Heading
+          className="text-3xl title"
+          size="h2"
+        >
+          you&apos;re in the right place.
+        </Heading>
+      </div>
+
+      <div className="space-y-4 text-base sm:text-lg text-black/70 dark:text-white/70">
+        <p>
+          Welcome to the Ryan Meetup — a not-for-profit organization run by
+          Ryans, for Ryans, with the ultimate goal of assembling as many
+          Ryans as possible.
+        </p>
+        <p>
+            One day, we aim to host RyanCon, and break the world record for
+            the{" "}
+            <NextLink
+              href="https://www.guinnessworldrecords.com/world-records/largest-same-name-gathering-first-name"
+              className="font-medium text-blue-700 dark:text-blue-500 hover:underline"
+            >
+              largest same name gathering
+            </NextLink>{" "}
+            in history.
+          </p>
+          <p>See you soon, Ryan.</p>
+      </div>
+    </div>
+  );
+};
+
+const Actions = () => {
+  return (
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <NextLink
+        href="/newsletter"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
+      >
+        <Newsletter className="h-5 w-5" />
+        Sign up for our newsletter
+      </NextLink>
+      <NextLink
+        href="/events"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black/15 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-black transition hover:-translate-y-0.5 hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40 sm:w-auto"
+      >
+        Upcoming events
+        <ArrowRight className="h-4 w-4" />
+      </NextLink>
+    </div>
+  );
+};
+
+type StatItem = {
+  value: string;
+  label: string;
+};
+
+type LandingProps = {
+  stats: StatItem[];
+};
+
+const Overview = (props: { stats: StatItem[] }) => {
+  const { stats } = props;
+
+  return (
+    <div>
+      <Heading className="text-3xl title" size="h2">
+        Community snapshot
+      </Heading>
+      <Text className="mt-2 text-sm uppercase tracking-widest text-black/60 dark:text-white/60">
+        Real numbers from Ryan Meetup
+      </Text>
+
+      <div className="grid grid-cols-2 gap-3 pt-4 text-center sm:text-left">
+        {stats.map((stat) => (
+          <div
+            key={stat.label}
+            className="rounded-2xl border border-black/10 bg-white/80 px-3 py-4 shadow-sm dark:border-white/10 dark:bg-white/5 space-y-2"
+          >
+            <p className="text-4xl font-cooper">{stat.value}</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+              {stat.label}
+            </p>
           </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-          <div className="my-4 text-xl text-gray-700 dark:text-gray-400 xl:mr-32">
-            <div className="space-y-4">
-              <p>
-                Welcome to the Ryan Meetup — a not-for-profit organization run by
-                Ryans, for Ryans, with the ultimate goal of assembling as many
-                Ryans as possible.
-              </p>
-              <p>
-                One day, we aim to host RyanCon, and break the world record for
-                the{" "}
-                <NextLink
-                  href="https://www.guinnessworldrecords.com/world-records/largest-same-name-gathering-first-name"
-                  className="font-medium text-blue-700 dark:text-blue-500 hover:underline"
-                >
-                  largest same name gathering
-                </NextLink>{" "}
-                in history.
-              </p>
-              <p>See you soon, Ryan.</p>
-            </div>
+const Landing = (props: LandingProps) => {
+  const { stats } = props;
 
-            <div className="w-full my-4 timing hover:border-white hover:scale-102">
-              <Button.Link
-                className="w-full font-cooper text-white"
-                href="/newsletter"
-                leftIcon={<Newsletter className="w-5 h-5" />}
-              >
-                Sign up for our newsletter
-              </Button.Link>
-            </div>
+  const highlights = [
+    {
+      icon: <Event className="h-5 w-5" />,
+      title: "Ryan Meetup Events",
+      body: "Don\'t miss the chance to attend the only party where everyone knows your name.",
+      href: "/events",
+      cta: "Explore events",
+    },
+    {
+      icon: <Community className="h-5 w-5" />,
+      title: "Local Chapters",
+      body: "Find Ryans near you and build community in your own city.",
+      href: "/chapters",
+      cta: "Find a chapter",
+    },
+    {
+      icon: <Heart className="h-5 w-5" />,
+      title: "Support With Merch",
+      body: "Grab official Ryan Meetup gear and help power our next gatherings.",
+      href: "/merch",
+      cta: "Shop the store",
+    },
+  ];
+
+  return (
+    <section className="relative overflow-hidden text-black dark:text-white">
+      <div className="relative flex flex-col gap-10 px-6 lg:grid xl:grid-cols-2 lg:items-center">
+        <div className="order-2 flex flex-col gap-6 lg:order-1">
+          <div className="order-1">
+            <Info />
+          </div>
+          <div className="order-4 lg:order-2">
+            <Actions />
+          </div>
+          <div className="order-2 lg:order-3">
+            <Divider />
+          </div>
+          <div className="order-3 lg:order-4">
+            <Overview stats={stats} />
           </div>
         </div>
-        <div className="col-span-12 order-first mb-4 xl:col-span-5 xl:order-last xl:mb-0">
+
+        <div className="order-1 space-y-6 lg:order-2">
           <Transition
             appear={true}
             show={true}
             enter="transition-opacity ease-linear duration-1000"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
+            enterFrom="opacity-0 translate-y-4"
+            enterTo="opacity-100 translate-y-0"
           >
-            <div className="relative w-full h-56 xl:h-96">
+            <div className="relative h-60 overflow-hidden rounded-3xl border border-black/10 shadow-2xl sm:h-80 lg:h-[360px] dark:border-white/10">
               <NextImage
-                className="rounded-xl shadow"
+                className="rounded-3xl"
                 src="/nametags.jpeg"
                 fill
                 alt="Ryan Roundup, March 2023"
                 style={{ objectFit: "cover" }}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute right-4 top-4 rounded-full border border-white/30 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-white">
+                Established 2023
+              </div>
             </div>
           </Transition>
+
+          <div className="grid gap-4">
+            {highlights.map((item, index) => (
+              <Transition
+                key={item.title}
+                appear={true}
+                show={true}
+                enter="transition duration-700 ease-out"
+                enterFrom="opacity-0 translate-y-6"
+                enterTo="opacity-100 translate-y-0"
+              >
+                <div
+                  className={`flex flex-col gap-3 rounded-2xl border border-black/10 bg-white/80 p-4 shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40 ${
+                    index === 0
+                      ? "delay-100"
+                      : index === 1
+                        ? "delay-200"
+                        : "delay-300"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3 text-base font-semibold uppercase tracking-wider">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
+                        {item.icon}
+                      </span>
+                      {item.title}
+                    </div>
+                    <NextLink
+                      href={item.href}
+                      className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white"
+                    >
+                      {item.cta}
+                      <ArrowRight className="h-3 w-3" />
+                    </NextLink>
+                  </div>
+                  <p className="text-base text-black/70 dark:text-white/70">
+                    {item.body}
+                  </p>
+                </div>
+              </Transition>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
