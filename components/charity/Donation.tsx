@@ -1,7 +1,7 @@
 // Components
 import NextLink from "next/link";
 import NextImage from "next/image";
-import { Text, Card, Button } from "@/components/global";
+import { Text, Card, Button, Heading } from "@/components/global";
 
 // Types
 import type { Charity } from "@/lib/types";
@@ -43,14 +43,14 @@ const Donation = (props: DonationProps) => {
         }}
       />
       <div className="relative flex h-full flex-col">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-black dark:text-white mb-2">
+        <Heading className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-black dark:text-white mb-2" variant="normal">
           {title}
-        </h2>
+        </Heading>
         <div className="flex flex-1 items-center">
           <Text
-            className={`flex flex-wrap items-baseline gap-x-2 text-3xl sm:text-4xl md:text-5xl font-extrabold tabular-nums ${color}`}
+            className="flex flex-wrap items-baseline gap-x-2 text-3xl sm:text-4xl md:text-5xl font-extrabold tabular-nums"
           >
-            <span className="whitespace-nowrap">
+            <span className={`whitespace-nowrap ${color}`}>
               {fmt(parseCurrency(amount))}
             </span>
             <span className="text-black/60 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0 dark:text-white/70">
@@ -62,7 +62,6 @@ const Donation = (props: DonationProps) => {
           <Button.Link
             href={href}
             newTab
-            variant="secondary"
             size="sm"
             className="order-2 sm:order-none w-full sm:w-auto"
           >

@@ -44,7 +44,7 @@ const Info = (props: InfoProps) => {
     { label: "Locations", value: locations.length },
     { label: "Cities", value: uniqueCities.size },
     { label: "Countries", value: uniqueCountries.size },
-    { label: "Events", value: locationTypeCounts["Event Location"] },
+    { label: "National Events", value: locationTypeCounts["Event Location"] + 2 },
     { label: "Chapters", value: locationTypeCounts["Chapter"] },
     {
       label: "Businesses",

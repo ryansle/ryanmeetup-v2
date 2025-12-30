@@ -49,8 +49,6 @@ export const metadata: Metadata = {
 const CharityPage = async () => {
   const donations = await fetchDonations();
 
-  // const colors = ["text-sky-400", "text-amber-400",];
-
   return (
     <Layout>
       <TotalCount donations={donations as Charity[]} />
@@ -70,8 +68,7 @@ const CharityPage = async () => {
           <Donation
             key={donation.title as string}
             donation={donation as Charity}
-            // color={colors[Math.floor(Math.random() * colors.length)]}
-            color="text-amber-400"
+            color="text-amber-600 dark:text-amber-300"
           />
         ))}
       </section>

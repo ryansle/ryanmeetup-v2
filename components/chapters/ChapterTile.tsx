@@ -18,7 +18,7 @@ const ChapterTile = (props: ChapterTileProps) => {
 
   return (
     <NextLink href={`/chapters/${slug}`} className="group">
-      <div className="border flex flex-col relative overflow-hidden items-center justify-center shadow-xl border-gray-700 rounded-2xl h-72 timing hover:border-white hover:scale-102">
+      <div className="border flex flex-col relative overflow-hidden items-center justify-center rounded-2xl h-72 timing border-black/15 bg-amber-50/80 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40">
         {showBanner && (
           <div className="absolute top-12 -left-[40px] -rotate-45 z-10">
             <div className="px-2 text-md text-center rounded-lg font-semibold uppercase w-[200px] h-6 flex items-center justify-center bg-red-500 text-sm">

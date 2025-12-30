@@ -19,7 +19,7 @@ const MediaTile = (props: MediaTileProps) => {
 
   return (
     <NextLink href={photoUrl} className="group">
-      <div className="border flex flex-col items-center justify-center shadow-xl border-gray-700 rounded-2xl h-full timing hover:border-white hover:scale-102">
+      <div className="border flex flex-col items-center justify-center rounded-2xl h-full timing border-black/15 bg-amber-50/80 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40">
         <div className="relative w-full flex items-center justify-center rounded-2xl h-80 overflow-hidden bg-center">
           <div className="w-full h-full brightness-30 transition group-hover:brightness-50">
             <NextImage
