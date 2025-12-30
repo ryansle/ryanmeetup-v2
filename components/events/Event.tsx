@@ -31,7 +31,7 @@ const Event = (props: EventProps) => {
             </div>
           </div>
         )} */}
-        <div className="relative w-full max-h-[450px] aspect-w-2 aspect-h-1 overflow-hidden">
+        <div className="relative w-full max-h-[450px] aspect-w-2 aspect-h-1 overflow-hidden border-b border-black/10 dark:border-white/10">
           <NextImage
             className="rounded-t-2xl"
             src={imageUrl ?? "/trophy.png"}

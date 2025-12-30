@@ -1,3 +1,5 @@
+"use client";
+
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
@@ -19,8 +21,9 @@ const Sponsor = (props: SponsorProps) => {
   const { name, darkModeImage, lightModeImage, href } = props.sponsor;
   const { className } = props;
 
-  const { theme } = useTheme();
-
+  const { resolvedTheme } = useTheme();
+  const isLight = (resolvedTheme ?? "light") === "light";
+  
   return (
     <NextLink
       href={href}
@@ -35,7 +38,7 @@ const Sponsor = (props: SponsorProps) => {
         <div className="relative mx-auto h-48 w-full max-w-[660px] sm:h-[216px]">
           <NextImage
             src={
-              theme === "light"
+              isLight
                 ? (convertImageUrl(lightModeImage) as string)
                 : (convertImageUrl(darkModeImage) as string)
             }

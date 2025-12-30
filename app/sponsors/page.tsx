@@ -136,7 +136,6 @@ const SponsorsPage = async () => {
             variant="primary"
             size="md"
             fullWidth
-            className="max-w-3xl"
             newTab={false}
           >
             Partner with us

@@ -4,6 +4,7 @@ import { Heading, Text, Pill, Card, Button } from "@/components/global";
 import QRCode from "react-qr-code";
 import NextLink from "next/link";
 import NextImage from "next/image";
+import { FaShirt as Shirt } from "react-icons/fa6";
 
 // Types
 import type { Metadata } from "next";
@@ -137,7 +138,7 @@ const DonatePage = async () => {
             community support.
           </Text>
           <Card variant="soft" size="md">
-            <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-sm font-semibold uppercase tracking-[0.25em] text-black/80 dark:text-white/80">
               Prefer merch instead?
             </Text>
             <Text className="mt-3 text-sm text-black/70 dark:text-white/70">
@@ -148,13 +149,15 @@ const DonatePage = async () => {
               href="/merch"
               variant="secondary"
               size="sm"
-              newTab={false}
+              fullWidth
+              className="mt-4"
+              leftIcon={<Shirt className="w-4 h-4" />}
             >
               Shop merch
             </Button.Link>
           </Card>
           <Card variant="soft" size="md">
-            <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-sm font-semibold uppercase tracking-[0.25em] text-black/80 dark:text-white/80">
               Where does all the money go?
             </Text>
             <Text className="mt-3 text-sm text-black/70 dark:text-white/70">
@@ -184,7 +187,7 @@ const DonatePage = async () => {
           </Card>
 
           <Card variant="soft" size="md">
-            <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-sm font-semibold uppercase tracking-[0.25em] text-black/80 dark:text-white/80">
               What kinds of things does Ryan Meetup spend money on?
             </Text>
             <Text className="mt-3 text-sm text-black/70 dark:text-white/70">

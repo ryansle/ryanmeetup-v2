@@ -85,7 +85,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
               variant="secondary"
               size="sm"
             >
-              @{filterInstagram(instagram)}
+              {filterInstagram(instagram)}
             </Button.Link>
           </div>
         </div>

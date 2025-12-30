@@ -68,7 +68,7 @@ const Champion = (props: ChampionProps) => {
           </div>
         )}
       </div>
-      <Heading className="mt-3 text-xl tracking-[0.3em]" size="h4">
+      <Heading className="mt-3 text-xl dark:text-white text-black tracking-[0.3em]" size="h4">
         {title}
       </Heading>
       <Text className="mt-2 text-sm text-black/70 dark:text-white/70">

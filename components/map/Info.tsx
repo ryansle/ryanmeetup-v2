@@ -56,11 +56,18 @@ const Info = (props: InfoProps) => {
 
   return (
     <section className="px-4 pb-12 pt-6">
-      <Card variant="soft" size="lg" className="mx-auto max-w-5xl text-center">
+      <Card
+        variant="soft"
+        size="lg"
+        className="mx-auto max-w-5xl text-center bg-white/90 ring-1 ring-black/10 dark:bg-white/5 dark:ring-white/10"
+      >
         <div className="mb-4 flex justify-center">
           <Pill>Map</Pill>
         </div>
-        <Heading className="text-3xl title sm:text-4xl" size="h2">
+        <Heading
+          className="text-3xl title text-black sm:text-4xl dark:text-white"
+          size="h2"
+        >
           Ryan Meetup Worldwide
         </Heading>
         <Text className="mt-3 text-lg text-black/70 dark:text-white/70">
@@ -81,8 +88,16 @@ const Info = (props: InfoProps) => {
 
         <div className="mt-6 grid gap-3 grid-cols-2 lg:grid-cols-3">
           {stats.map((stat) => (
-            <Card key={stat.label} variant="solid" size="sm">
-              <Heading className="text-3xl font-cooper" size="h3">
+            <Card
+              key={stat.label}
+              variant="solid"
+              size="sm"
+              className="bg-white/90 ring-1 ring-black/10 dark:bg-white/5 dark:ring-white/10"
+            >
+              <Heading
+                className="text-3xl font-cooper text-black dark:text-white"
+                size="h3"
+              >
                 {stat.value}
               </Heading>
               <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
@@ -92,13 +107,16 @@ const Info = (props: InfoProps) => {
           ))}
         </div>
 
-        <Heading className="mt-8 text-2xl title sm:text-3xl" size="h3">
+        <Heading
+          className="mt-8 text-2xl title text-black sm:text-3xl dark:text-white"
+          size="h3"
+        >
           Don&apos;t see your city?
         </Heading>
         <Text className="mt-3 text-base text-black/70 dark:text-white/70">
           <NextLink
             href="/contact"
-            className="font-semibold underline underline-offset-2 text-blue-700 dark:text-blue-500 hover:cursor-pointer"
+            className="font-semibold underline underline-offset-2 text-blue-700 hover:cursor-pointer hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400"
           >
             Contact Ryan
           </NextLink>{" "}

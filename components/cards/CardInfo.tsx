@@ -58,7 +58,7 @@ const CardInfo = () => {
 
       <Button
         // href="https://buy.stripe.com/3cIcN4fTP7BS0kzbXJ2kw0a"
-        leftIcon={<Dollar className="w-5 h-5" />}
+        leftIcon={<Dollar className="w-4 h-4" />}
         className="mt-8 w-full"
         variant="primary"
         size="md"

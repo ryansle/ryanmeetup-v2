@@ -60,7 +60,7 @@ const ContactPage = async () => {
           <Card
             variant="solid"
             size="lg"
-            className="shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)]"
+            className="bg-white/95 shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] dark:bg-black/80 dark:border-white/15"
           >
             <Heading className="text-2xl title" size="h2">
               Send a message

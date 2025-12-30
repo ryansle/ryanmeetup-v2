@@ -86,8 +86,7 @@ const FollowUs = () => {
         href="/newsletter"
         leftIcon={<News />}
         variant="secondary"
-        size="md"
-        newTab={false}
+        className="w-full"
       >
         Sign up for our newsletter
       </Button.Link>

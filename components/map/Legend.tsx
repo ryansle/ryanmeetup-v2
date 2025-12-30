@@ -106,7 +106,11 @@ const Legend = (props: LegendProps) => {
 
   return (
     <div className="absolute bottom-2 right-2 w-52 lg:bottom-8 lg:right-8">
-      <Card variant="soft" size="sm" className="bg-white/95 dark:bg-black/70">
+      <Card
+        variant="soft"
+        size="sm"
+        className="bg-white/95 dark:bg-black/90 dark:border-white/20"
+      >
         <Heading className="mb-2 text-base font-semibold text-black dark:text-white" size="h3">
           Legend
         </Heading>

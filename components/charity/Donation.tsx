@@ -34,7 +34,7 @@ const Donation = (props: DonationProps) => {
     <Card
       variant="soft"
       size="md"
-      className="relative h-full overflow-hidden border-0 bg-white/5 p-5 shadow-none ring-1 ring-white/10 sm:p-6 md:p-8 flex flex-col"
+      className="relative h-full overflow-hidden border border-black/10 bg-white/90 p-5 shadow-none ring-1 ring-black/10 sm:p-6 md:p-8 flex flex-col dark:border-white/10 dark:bg-white/5 dark:ring-white/10"
     >
       <div
         className="absolute inset-0 opacity-30"
@@ -43,7 +43,7 @@ const Donation = (props: DonationProps) => {
         }}
       />
       <div className="relative flex h-full flex-col">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-black dark:text-white mb-2">
           {title}
         </h2>
         <div className="flex flex-1 items-center">
@@ -53,7 +53,7 @@ const Donation = (props: DonationProps) => {
             <span className="whitespace-nowrap">
               {fmt(parseCurrency(amount))}
             </span>
-            <span className="text-white/70 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0">
+            <span className="text-black/60 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0 dark:text-white/70">
               Raised to date
             </span>
           </Text>
@@ -70,7 +70,7 @@ const Donation = (props: DonationProps) => {
           </Button.Link>
 
           {avatars && hrefs && (
-            <div className="order-1 sm:order-none flex flex-wrap justify-start gap-2 sm:flex-nowrap sm:justify-end gap-0 -space-x-2">
+            <div className="order-1 sm:order-none flex flex-wrap justify-start gap-2 sm:flex-nowrap sm:justify-end gap-0 -space-x-4">
               {avatars.map((avatar, index) => (
                 <NextLink
                   key={index}
@@ -78,7 +78,7 @@ const Donation = (props: DonationProps) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="w-8 h-8 rounded-full ring-2 relative overflow-hidden timing hover:scale-110 ring-white/20">
+                  <div className="w-8 h-8 rounded-full ring-2 relative overflow-hidden timing hover:scale-110 ring-black/15 dark:ring-white/20">
                     <NextImage
                       src={convertImageUrl(avatar) || "/ryanavatar.png"}
                       alt={avatar.fields.title}

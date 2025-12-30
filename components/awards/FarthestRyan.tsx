@@ -66,7 +66,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
         </span>
       </Text>
       <Text className="mt-2 text-black/70 dark:text-white/70">
-        <span className="font-cooper text-white">{event}</span> • {eventDate}
+        <span className="font-cooper text-black dark:text-white">{event}</span> • {eventDate}
       </Text>
     </div>
   );

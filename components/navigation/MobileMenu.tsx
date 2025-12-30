@@ -34,7 +34,7 @@ const MobileMenu = (props: MobileMenuProps) => {
     <div className="flex items-center justify-center">
       <div className="relative inline-block text-left z-10">
         <Popover className="relative">
-          <PopoverButton className="text-sm flex items-center font-semibold rounded-lg title tracking-wide gap-x-2 p-2 shrink-0 border border-gray-700 timing 2xl:text-base timing hover:bg-gray-300 dark:hover:bg-gray-800">
+          <PopoverButton className="text-sm flex items-center font-semibold rounded-lg title tracking-wide gap-x-2 p-2 shrink-0 border border-gray-700 timing 2xl:text-base text-black dark:text-white/80 hover:bg-black/5 dark:hover:bg-white/10">
             <Hamburger />
             Menu
           </PopoverButton>
