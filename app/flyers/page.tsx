@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 
 const flyers: Flyer[] = [
   { title: "OG Ryan Meetup Poster", src: "/posters/ogposter.png" },
-  { title: "Variant Poster", src: "/posters/isyournameryan.jpg" },
+  { title: "Variant Poster", src: "/posters/isyournameryan.png" },
   { title: "Calling all Ryans Poster", src: "/posters/CallingAllRyans.png" },
   { title: "Uncle Sam Poster", src: "/posters/unclesam.png" },
   { title: "Know a Ryan Poster", src: "/posters/knowaryan.png" },

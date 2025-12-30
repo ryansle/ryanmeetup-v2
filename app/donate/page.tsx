@@ -66,12 +66,12 @@ const DonateOptionCard = (props: DonateOptionCardProps) => {
       {valueHref ? (
         <NextLink
           href={valueHref}
-          className="mt-2 inline-flex text-lg font-semibold text-blue-700 hover:underline dark:text-blue-500"
+          className="mt-2 inline-flex text-base lg:text-lg font-semibold text-blue-700 hover:underline dark:text-blue-500"
         >
           {value}
         </NextLink>
       ) : (
-        <Text className="mt-2 text-lg font-semibold text-blue-700 dark:text-blue-500">
+        <Text className="mt-2 text-base lg:text-lg font-semibold text-blue-700 dark:text-blue-500">
           {value}
         </Text>
       )}
@@ -122,7 +122,7 @@ const DonatePage = async () => {
   return (
     <Layout className="space-y-10">
       <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div className="space-y-6">
+        <div className="order-2 space-y-6 lg:order-1">
           <Pill>Donate</Pill>
           <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
             Help power the next Ryan Meetup.
@@ -169,7 +169,7 @@ const DonatePage = async () => {
             <ul className="mt-4 space-y-2">
               {backendItems.map((item) => (
                 <li key={item.title} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-black dark:bg-white" />
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-black dark:bg-white" />
                   <Text className="text-sm text-black/70 dark:text-white/70">
                     <span className="font-semibold text-black dark:text-white">
                       {item.title}
@@ -197,7 +197,7 @@ const DonatePage = async () => {
             <ul className="mt-4 space-y-2">
               {eventItems.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-black dark:bg-white" />
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-black dark:bg-white" />
                   <Text className="text-sm text-black/70 dark:text-white/70">
                     {item}
                   </Text>
@@ -207,16 +207,16 @@ const DonatePage = async () => {
           </Card>
         </div>
 
-        <div className="space-y-4 lg:sticky lg:top-24">
-          <div className="flex items-center justify-between text-center sm:text-left">
-            <Heading className="text-2xl title sm:text-3xl" size="h2">
+        <div className="order-1 space-y-4 lg:order-2 lg:sticky lg:top-24">
+          <div className="flex items-center justify-center sm:justify-between sm:text-left">
+            <Heading className="text-2xl title text-center sm:text-3xl" size="h2">
               Two easy ways to donate
             </Heading>
             <Text className="hidden text-xs font-semibold uppercase tracking-[0.3em] text-black/50 dark:text-white/50 sm:inline-block">
               2 options
             </Text>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid gap-4 grid-cols-2 lg:grid-cols-1">
             <DonateOptionCard
               method="Zelle"
               value="theryanmeetup@gmail.com"
