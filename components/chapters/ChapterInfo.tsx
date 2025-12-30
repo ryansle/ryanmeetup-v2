@@ -71,21 +71,22 @@ const ChapterInfo = (props: ChapterInfoProps) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-7 gap-3">
+        <div className="grid grid-cols-7 gap-3 flex items-center">
           <div className="col-span-3">
             <Text className="text-sm font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
               Instagram
             </Text>
           </div>
 
-          <div className="col-span-4">
+          <div className="col-span-4 -ml-10">
             <Button.Link
               href={instagram}
               leftIcon={<Instagram className="h-4 w-4" />}
-              variant="secondary"
+              variant="ghost"
               size="sm"
+              className="w-full justify-start overflow-hidden"
             >
-              {filterInstagram(instagram)}
+              <span className="truncate">{filterInstagram(instagram)}</span>
             </Button.Link>
           </div>
         </div>

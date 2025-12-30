@@ -13,6 +13,9 @@ type BlurbProps = {
   href?: string;
   icon?: ReactNode;
   hrefText?: string;
+  secondaryHref?: string;
+  secondaryIcon?: ReactNode;
+  secondaryHrefText?: string;
   tag?: string;
 };
 
@@ -24,6 +27,9 @@ const Blurb = (props: BlurbProps) => {
     href,
     icon,
     hrefText,
+    secondaryHref,
+    secondaryIcon,
+    secondaryHrefText,
     tag,
   } = props;
 
@@ -50,20 +56,31 @@ const Blurb = (props: BlurbProps) => {
         {children}
 
         {href && (
-          <div className="grid grid-cols-12">
-            <div className="col-span-0 xl:col-span-1" />
+          <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
+            {secondaryHref && secondaryHrefText && (
+              <Button.Link
+                className="sm:min-w-[220px]"
+                href={secondaryHref}
+                leftIcon={secondaryIcon}
+                variant="primary"
+                size="md"
+                fullWidth
+                newTab={false}
+              >
+                {secondaryHrefText}
+              </Button.Link>
+            )}
             <Button.Link
-              className="col-span-12 xl:col-span-10"
+              className="sm:min-w-[220px]"
               href={href}
               leftIcon={icon}
-              variant="primary"
+              variant="secondary"
               size="md"
               fullWidth
               newTab={false}
             >
               {hrefText}
             </Button.Link>
-            <div className="col-span-0 xl:col-span-1" />
           </div>
         )}
       </div>

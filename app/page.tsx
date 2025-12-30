@@ -49,22 +49,22 @@ const HomePage = async () => {
     { 
       value: formatCount(activeChapters.length), 
       label: "Chapters",
-      icon: <Group className="w-8 h-8" />
+      icon: <Group className="w-4 h-4 xl:w-8 xl:h-8" />
     },
     { 
       value: formatCount(cityCount), 
       label: "Cities",
-      icon: <City className="w-8 h-8" />
+      icon: <City className="w-4 h-4 xl:w-8 xl:h-8" />
     },
     { 
       value: formatCount(countryCount), 
       label: "Countries",
-      icon: <Flag className="w-8 h-8" />
+      icon: <Flag className="w-4 h-4 xl:w-8 xl:h-8" />
     },
     { 
       value: formatCount(events.length), 
       label: "Events hosted",
-      icon: <Party className="w-8 h-8" />
+      icon: <Party className="w-4 h-4 xl:w-8 xl:h-8" />
     },
   ];
 

@@ -57,7 +57,7 @@ const Event = (props: EventProps) => {
             {description}
           </Text>
 
-          <div className="mt-5 grid grid-cols-1 gap-2 text-black/60 dark:text-white/60 sm:grid-cols-2">
+          <div className="mt-5 grid grid-cols-2 gap-2 text-black/60 dark:text-white/60">
             <div className="flex items-center gap-2">
               <City />
               <Text className="text-xs uppercase tracking-[0.2em]">

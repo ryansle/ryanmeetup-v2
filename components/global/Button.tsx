@@ -57,7 +57,7 @@ const getBaseClasses = (
     outline:
       "border border-black/60 bg-black/80 text-white hover:border-black/80 hover:bg-black/70 dark:border-white/20 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/10",
     ghost:
-      "bg-black/70 text-white hover:bg-black/60 dark:text-white dark:hover:bg-white/10",
+      "text-black dark:text-white bg-transparent border-none shadow-none hover:text-black/70 dark:hover:text-white/70",
   };
 
   return `${base} ${sizeStyles[size]} ${variantStyles[variant]} ${width}`;

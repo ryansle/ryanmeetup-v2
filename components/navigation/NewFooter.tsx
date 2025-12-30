@@ -9,16 +9,16 @@ const NewFooter = () => {
   return (
     <footer className="relative border-t border-black/10 bg-white px-4 py-10 dark:border-white/10 dark:bg-black/80 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
       <div className="grid gap-10 xl:grid-cols-[1.2fr_1fr]">
-        <div className="space-y-4">
+        <div className="space-y-4 text-center xl:text-left">
           <NextLink href="/" className="inline-flex flex-col items-center gap-1 sm:items-start">
             <Heading
-              className="text-4xl text-center sm:text-left xl:text-6xl xl:text-center title"
+              className="text-4xl sm:text-left xl:text-6xl xl:text-center title"
               size="h1"
             >
               RYAN MEETUP
             </Heading>
             <Heading
-              className="mt-[2px] uppercase font-cooper text-lg text-center sm:text-left xl:text-3xl xl:text-center title ml-14"
+              className="mt-[2px] uppercase font-cooper text-lg sm:text-left xl:text-3xl xl:text-center title xl:ml-14"
               size="h2"
             >
               NO BRYANS ALLOWED

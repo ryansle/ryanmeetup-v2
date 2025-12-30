@@ -71,7 +71,8 @@ const Actions = () => {
         className="w-full"
         newTab={false}
       >
-        Sign up for our newsletter
+        <span className="sm:hidden">Join newsletter</span>
+        <span className="hidden sm:inline">Sign up for our newsletter</span>
       </Button.Link>
     </div>
   );
@@ -105,12 +106,12 @@ const Overview = (props: { stats: StatItem[] }) => {
             key={stat.label}
             className="rounded-2xl border border-black/10 bg-white/80 px-3 py-4 shadow-sm dark:border-white/10 dark:bg-white/5 flex items-center gap-4"
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-black/10 bg-black/5 text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/80">
+            <div className="flex h-12 w-12 xl:h-16 xl:w-16 items-center justify-center rounded-2xl border border-black/10 bg-black/5 text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/80">
               <span className="text-4xl">{stat.icon}</span>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 text-left">
               <Heading className="text-4xl font-cooper">{stat.value}</Heading>
-              <Text className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+              <Text className="text-xs xl:text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
                 {stat.label}
               </Text>
             </div>

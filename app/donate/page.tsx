@@ -208,11 +208,11 @@ const DonatePage = async () => {
         </div>
 
         <div className="space-y-4 lg:sticky lg:top-24">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between text-center sm:text-left">
             <Heading className="text-2xl title sm:text-3xl" size="h2">
               Two easy ways to donate
             </Heading>
-            <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/50 dark:text-white/50">
+            <Text className="hidden text-xs font-semibold uppercase tracking-[0.3em] text-black/50 dark:text-white/50 sm:inline-block">
               2 options
             </Text>
           </div>

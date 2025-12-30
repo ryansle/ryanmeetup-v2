@@ -15,11 +15,12 @@ import { useTheme } from "next-themes";
 type SponsorProps = {
   sponsor: Sponsor;
   className?: string;
+  imageWrapperClassName?: string;
 };
 
 const Sponsor = (props: SponsorProps) => {
   const { name, darkModeImage, lightModeImage, href } = props.sponsor;
-  const { className } = props;
+  const { className, imageWrapperClassName } = props;
 
   const { resolvedTheme } = useTheme();
   const isLight = (resolvedTheme ?? "light") === "light";
@@ -35,7 +36,9 @@ const Sponsor = (props: SponsorProps) => {
         hover
         className="w-full text-center"
       >
-        <div className="relative mx-auto h-48 w-full max-w-[660px] sm:h-[216px]">
+        <div
+          className={`relative mx-auto h-48 w-full max-w-[660px] sm:h-[216px] ${imageWrapperClassName ?? ""}`}
+        >
           <NextImage
             src={
               isLight

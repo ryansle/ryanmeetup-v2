@@ -34,7 +34,7 @@ const MobileMenu = (props: MobileMenuProps) => {
     <div className="flex items-center justify-center">
       <div className="relative inline-block text-left z-10">
         <Popover className="relative">
-          <PopoverButton className="text-sm flex items-center font-semibold rounded-lg title tracking-wide gap-x-2 p-2 shrink-0 border border-gray-700 timing 2xl:text-base text-black dark:text-white/80 hover:bg-black/5 dark:hover:bg-white/10">
+          <PopoverButton className="text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-3 py-1.5 transition hover:shadow-sm hover:bg-black/5 text-black dark:text-white dark:hover:text-white dark:hover:bg-white/10">
             <Hamburger />
             Menu
           </PopoverButton>
@@ -47,37 +47,55 @@ const MobileMenu = (props: MobileMenuProps) => {
             leaveTo="opacity-0 translate-y-1"
           >
             <PopoverPanel
-              className="z-50 bg-white w-48 rounded-2xl border border-gray-700 p-2 mt-2 "
+              className="z-50 w-56 rounded-xl border border-black/10 bg-white/95 p-3 shadow-xl backdrop-blur dark:border-white/10 dark:bg-black/95"
               anchor="bottom end"
             >
-              {content.map((row) =>
+              {content.map((row, idx) =>
                 !row.subroutes ? (
                   <NextLink
                     key={row.text}
-                    className="text-gray-900 flex items-center w-full px-4 py-2 gap-x-2 text-sm leading-5 text-left hover:bg-gray-200 hover:rounded"
+                    className={`group flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-semibold tracking-wide text-black transition hover:bg-black/5 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10 ${
+                      idx % 2 === 0 ? "bg-black/5 dark:bg-white/5" : ""
+                    }`}
                     href={row.href}
                   >
-                    {row.icon} {row.text}
+                    <span className="flex items-center gap-2">
+                      {row.icon} {row.text}
+                    </span>
+                    <span className="text-xs opacity-0 transition group-hover:opacity-100">
+                      →
+                    </span>
                   </NextLink>
                 ) : (
                   <Disclosure key={row.text}>
                     {({ open }) => (
                       <>
-                        <DisclosureButton className="text-gray-900 flex items-center w-full px-4 py-2 gap-x-2 text-sm leading-5 text-left hover:bg-gray-200 hover:rounded">
-                          {row.icon} {row.text}{" "}
+                        <DisclosureButton
+                          className={`flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-semibold tracking-wide text-black transition hover:bg-black/5 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10 ${
+                            idx % 2 === 0 ? "bg-black/5 dark:bg-white/5" : ""
+                          }`}
+                        >
+                          <span className="flex items-center gap-2">
+                            {row.icon} {row.text}
+                          </span>
                           <ChevronDown
-                            className={`h-3 w-3 fill-gray-700 timing ${open && "-rotate-180"}`}
+                            className={`h-3 w-3 fill-gray-700 timing dark:fill-gray-200 ${open && "-rotate-180"}`}
                           />
                         </DisclosureButton>
-                        <DisclosurePanel className="pl-6">
+                        <DisclosurePanel className="pl-4">
                           {row.subroutes &&
                             row.subroutes.map((route) => (
                               <NextLink
                                 key={route.text}
-                                className="text-gray-900 flex items-center w-full px-4 py-2 gap-x-2 text-sm leading-5 text-left hover:bg-gray-200 hover:rounded"
+                                className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-semibold tracking-wide text-black transition hover:bg-black/5 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10"
                                 href={route.href}
                               >
-                                {route.icon} {route.text}
+                                <span className="flex items-center gap-2">
+                                  {route.icon} {route.text}
+                                </span>
+                                <span className="text-xs opacity-0 transition group-hover:opacity-100">
+                                  →
+                                </span>
                               </NextLink>
                             ))}
                         </DisclosurePanel>

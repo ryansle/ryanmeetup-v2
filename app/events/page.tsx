@@ -3,6 +3,7 @@ import { Layout } from "@/components/navigation";
 import { Divider, Text } from "@/components/global";
 import { Blurb, EventsContainer } from "@/components/events";
 import { FaRegNewspaper as News } from "react-icons/fa";
+import { FaUserPlus as Join } from "react-icons/fa6";
 
 // Types
 import type { RyanEvent } from "@/lib/types";
@@ -89,7 +90,10 @@ const EventsPage = async ({
         tag="Events"
         href="/newsletter"
         icon={<News />}
-        hrefText="Get notified of future events"
+        hrefText="Get event updates"
+        secondaryHref="/join"
+        secondaryIcon={<Join />}
+        secondaryHrefText="Join the Ryan Meetup"
       >
         <Text className="secondary text-xl mb-6 xl:mx-32">
           <span className="hidden md:inline-block">

@@ -43,14 +43,14 @@ const Donation = (props: DonationProps) => {
         }}
       />
       <div className="relative flex h-full flex-col">
-        <Heading className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-black dark:text-white mb-2" variant="normal">
+        <Heading className="text-xl sm:text-xl md:text-2xl font-semibold tracking-tight text-black dark:text-white mb-2" variant="normal">
           {title}
         </Heading>
         <div className="flex flex-1 items-center">
           <Text
-            className="flex flex-wrap items-baseline gap-x-2 text-3xl sm:text-4xl md:text-5xl font-extrabold tabular-nums"
+            className="flex flex-wrap items-baseline gap-x-2 text-5xl font-extrabold tabular-nums"
           >
-            <span className={`whitespace-nowrap ${color}`}>
+            <span className={`whitespace-nowrap text-4xl ${color}`}>
               {fmt(parseCurrency(amount))}
             </span>
             <span className="text-black/60 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0 dark:text-white/70">

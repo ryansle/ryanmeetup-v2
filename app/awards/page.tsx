@@ -99,7 +99,7 @@ const AwardsPage = async () => {
           </Text>
         </section>
 
-        <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-3 lg:right-24 lg:bottom-8">
+        <div className="fixed bottom-4 right-1 z-50 flex flex-col gap-3 lg:right-24 lg:bottom-8">
           {anchors.map((anchor) => (
             <div key={anchor.href} className="relative group">
               <a href={anchor.href} className={anchorStyle}>

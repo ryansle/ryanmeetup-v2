@@ -88,7 +88,8 @@ const FollowUs = () => {
         variant="secondary"
         className="w-full"
       >
-        Sign up for our newsletter
+        <span className="sm:hidden">Join newsletter</span>
+        <span className="hidden sm:inline">Sign up for our newsletter</span>
       </Button.Link>
     </div>
   );
