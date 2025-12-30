@@ -17,8 +17,8 @@ const ChapterTile = (props: ChapterTileProps) => {
   const { showBanner = false } = props;
 
   return (
-    <NextLink href={`/chapters/${slug}`}>
-      <div className="border flex flex-col relative overflow-hidden items-center justify-center shadow-xl border-gray-700 rounded-xl h-72 timing hover:border-white hover:scale-102">
+    <NextLink href={`/chapters/${slug}`} className="group">
+      <div className="border flex flex-col relative overflow-hidden items-center justify-center rounded-2xl h-72 timing border-black/15 bg-amber-50/80 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40">
         {showBanner && (
           <div className="absolute top-12 -left-[40px] -rotate-45 z-10">
             <div className="px-2 text-md text-center rounded-lg font-semibold uppercase w-[200px] h-6 flex items-center justify-center bg-red-500 text-sm">
@@ -26,8 +26,8 @@ const ChapterTile = (props: ChapterTileProps) => {
             </div>
           </div>
         )}
-        <div className="relative w-full flex items-center justify-center rounded-xl h-80 overflow-hidden bg-center">
-          <div className="w-full h-full brightness-30">
+        <div className="relative w-full flex items-center justify-center rounded-2xl h-80 overflow-hidden bg-center">
+          <div className="w-full h-full brightness-30 transition group-hover:brightness-50">
             <NextImage
               src={
                 convertImageUrl(coverImage) ?? "/group-photos/ryanroundup.png"

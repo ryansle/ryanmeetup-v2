@@ -27,12 +27,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     } = props;
 
     return (
-      <div className="flex flex-col">
-        <label className="font-medium mb-1 title" htmlFor={name}>
+      <div className="flex flex-col gap-2">
+        <label className="text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70" htmlFor={name}>
           {label} {required && <span className="text-red-500">*</span>}
         </label>
         <textarea
-          className="border bg-white dark:bg-black border-gray-700 title text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 ring-inset placeholder-gray-700 shadow-lg"
+          className="w-full rounded-lg border border-black/20 bg-white px-4 py-2.5 text-sm text-black shadow-sm transition placeholder:text-black/50 focus:border-black/40 focus:outline-none focus:ring-2 focus:ring-black/20 dark:border-white/20 dark:bg-white/10 dark:text-white dark:placeholder:text-white/50 dark:focus:border-white/50 dark:focus:ring-white/20"
           id={id}
           name={id}
           placeholder={placeholder}

@@ -1,7 +1,7 @@
 "use client";
 
 // Components
-import { Heading, Button } from "@/components/global";
+import { Heading, Button, Pill } from "@/components/global";
 
 // Types
 import type { ReactNode } from "react";
@@ -13,6 +13,7 @@ type BlurbProps = {
   href?: string;
   icon?: ReactNode;
   hrefText?: string;
+  tag?: string;
 };
 
 const Blurb = (props: BlurbProps) => {
@@ -23,10 +24,16 @@ const Blurb = (props: BlurbProps) => {
     href,
     icon,
     hrefText,
+    tag,
   } = props;
 
   return (
     <div>
+      {tag && (
+        <div className="mb-4 flex justify-center">
+          <Pill>{tag}</Pill>
+        </div>
+      )}
       <div className="hidden xl:block">
         <Heading className="mb-6 text-center text-7xl title" size="h1">
           {fullHeadline}
@@ -49,6 +56,10 @@ const Blurb = (props: BlurbProps) => {
               className="col-span-12 xl:col-span-10"
               href={href}
               leftIcon={icon}
+              variant="primary"
+              size="md"
+              fullWidth
+              newTab={false}
             >
               {hrefText}
             </Button.Link>

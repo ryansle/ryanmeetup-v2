@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     "do you know a ryan",
     "meet other ryans",
     "absolutely no bryans",
+    "ryan meetup flyer download",
+    "ryan meetup poster download",
+    "ryan meetup printable flyer",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/flyers",
@@ -67,6 +70,7 @@ const FlyersPage = async () => {
       <Blurb
         fullHeadline="Ryan Meetup Flyers"
         smallHeadline="Ryan Meetup Flyers"
+        tag="Flyers"
       >
         <Text className="secondary text-xl mx-0 sm:mx-24 lg:mx-0">
           Interested in hanging up Ryan Meetup flyers in your city? Download our
@@ -94,4 +98,3 @@ const FlyersPage = async () => {
 };
 
 export default FlyersPage;
-

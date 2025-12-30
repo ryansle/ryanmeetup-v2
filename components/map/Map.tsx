@@ -164,7 +164,7 @@ const Mapbox = (props: MapboxProps) => {
   }
 
   return (
-    <div className="w-full h-[600px] md:h-[700px]">
+    <div className="w-full h-[600px] md:h-[700px] border-b-4 border-black/20 dark:border-white/10">
       <Map
         mapboxAccessToken={token}
         initialViewState={{

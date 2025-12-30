@@ -1,6 +1,9 @@
+"use client";
+
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
+import { Card } from "@/components/global";
 
 // Types
 import type { Sponsor } from "@/lib/types";
@@ -18,24 +21,34 @@ const Sponsor = (props: SponsorProps) => {
   const { name, darkModeImage, lightModeImage, href } = props.sponsor;
   const { className } = props;
 
-  const { theme } = useTheme();
-
+  const { resolvedTheme } = useTheme();
+  const isLight = (resolvedTheme ?? "light") === "light";
+  
   return (
     <NextLink
       href={href}
-      className={`flex flex-col items-center w-full justify-start timing hover:scale-105 ${className}`}
+      className={`group flex w-full ${className}`}
     >
-      <NextImage
-        src={
-          theme === "light"
-            ? (convertImageUrl(lightModeImage) as string)
-            : (convertImageUrl(darkModeImage) as string)
-        }
-        width={1000}
-        height={1000}
-        alt={name}
-        className="rounded-xl"
-      />
+      <Card
+        variant="soft"
+        size="md"
+        hover
+        className="w-full text-center"
+      >
+        <div className="relative mx-auto h-48 w-full max-w-[660px] sm:h-[216px]">
+          <NextImage
+            src={
+              isLight
+                ? (convertImageUrl(lightModeImage) as string)
+                : (convertImageUrl(darkModeImage) as string)
+            }
+            fill
+            alt={name}
+            className="object-contain"
+            sizes="(min-width: 1280px) 660px, (min-width: 640px) 540px, 480px"
+          />
+        </div>
+      </Card>
     </NextLink>
   );
 };

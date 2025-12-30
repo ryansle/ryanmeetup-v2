@@ -7,6 +7,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Ryan Meetup - No Bryans Allowed!",
   description: "No Bryans allowed at the Ryan Meetup!",
+  keywords: [
+    "no bryans allowed",
+    "ryan meetup rules",
+    "ryan meetup bryan",
+    "ryan meetup policy",
+  ],
   openGraph: {
     url: "https://ryanmeetup.com/goodbye",
     title: "Ryan Meetup - No Bryans Allowed!",

@@ -6,8 +6,8 @@ import { Heading, Text } from "@/components/global";
 const Chapters = () => {
   return (
     <NextLink href="/chapters">
-      <div className="border flex flex-col items-center justify-center shadow-xl border-gray-700 rounded-xl min-h-96 h-full timing hover:border-white hover:scale-102">
-        <div className="relative w-full flex items-center justify-center rounded-xl h-full overflow-hidden bg-center">
+      <div className="border flex flex-col items-center justify-center shadow-xl border-gray-700 rounded-2xl min-h-96 h-full timing hover:border-white hover:scale-102">
+        <div className="relative w-full flex items-center justify-center rounded-2xl h-full overflow-hidden bg-center">
           <div className="w-full h-96 md:h-full brightness-30">
             <NextImage
               src={"/group-photos/ryanroundup.png"}

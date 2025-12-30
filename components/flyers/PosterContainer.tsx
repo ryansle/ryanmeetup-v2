@@ -40,7 +40,7 @@ const PosterContainer = (props: PosterContainerProps) => {
         <Button
           onClick={() => window.open("/posters/posters.zip")}
           leftIcon={<Download />}
-          className="mt-8"
+          className="mt-8 w-full"
         >
           Download Flyer Bundle
         </Button>

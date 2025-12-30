@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "ryan meetup canada",
     "ryan meetup australia",
     "ryan meetup america",
+    "ryan meetup map",
+    "ryan meetup locations",
+    "ryan meetup cities",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/map",

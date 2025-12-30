@@ -22,8 +22,8 @@ const Event = (props: EventProps) => {
   const imageUrl = convertImageUrl(coverImage as ContentfulImage);
 
   return (
-    <NextLink href={href}>
-      <div className="border border-gray-400 relative bg-white dark:bg-black dark:border-gray-700 rounded-3xl flex flex-col h-full overflow-hidden break-inside-avoid-column timing hover:border-black dark:hover:border-white hover:scale-102">
+    <NextLink href={href} className="group block">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white/90 shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40">
         {/* {isPartnerEvent && (
           <div className='absolute top-6 -left-[60px] -rotate-45 z-10'>
             <div className='px-2 text-md text-center rounded-lg font-semibold uppercase w-[200px] h-6 flex items-center justify-center bg-red-500 text-sm'>
@@ -31,9 +31,9 @@ const Event = (props: EventProps) => {
             </div>
           </div>
         )} */}
-        <div className="w-full max-h-[450px] aspect-w-2 aspect-h-1 overflow-hidden">
+        <div className="relative w-full max-h-[450px] aspect-w-2 aspect-h-1 overflow-hidden border-b border-black/10 dark:border-white/10">
           <NextImage
-            className="rounded-t-3xl border-b border-gray-400 dark:border-gray-700"
+            className="rounded-t-2xl"
             src={imageUrl ?? "/trophy.png"}
             fill={true}
             alt={title}
@@ -42,26 +42,34 @@ const Event = (props: EventProps) => {
         </div>
 
         {/* Event Description */}
-        <div className="px-5 py-3">
-          <div className="flex items-center justify-between mb-3">
-            <div>
-              <Text className="text-sm secondary">{dateTime}</Text>
-              <Heading className="text-xl title" size="h3">
+        <div className="px-5 py-4">
+          <div className="flex items-center justify-between mb-4">
+            <div className="space-y-1">
+              <Text className="text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+                {dateTime}
+              </Text>
+              <Heading className="text-2xl title" size="h3">
                 {title}
               </Heading>
             </div>
           </div>
-          <Text className="min-h-[85px] text-sm secondary">{description}</Text>
+          <Text className="min-h-[85px] text-sm text-black/70 dark:text-white/70">
+            {description}
+          </Text>
 
-          <div className="grid grid-cols-12 text-gray-400 mt-4">
-            <div className="col-span-6 lg:col-span-5 flex items-center space-x-2">
+          <div className="mt-5 grid grid-cols-1 gap-2 text-black/60 dark:text-white/60 sm:grid-cols-2">
+            <div className="flex items-center gap-2">
               <City />
-              <Text className="text-xs secondary">{city}</Text>
+              <Text className="text-xs uppercase tracking-[0.2em]">
+                {city}
+              </Text>
             </div>
 
-            <div className="col-span-6 lg:col-span-7 flex items-center space-x-2">
+            <div className="flex items-center gap-2">
               <Pin />
-              <Text className="text-xs secondary">{venue}</Text>
+              <Text className="text-xs uppercase tracking-[0.2em]">
+                {venue}
+              </Text>
             </div>
           </div>
         </div>

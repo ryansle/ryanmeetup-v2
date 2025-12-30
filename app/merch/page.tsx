@@ -7,6 +7,12 @@ import { redirect } from "next/navigation";
 export const metadata: Metadata = {
   title: "Ryan Meetup - Merch",
   description: "Buy official Ryan Meetup merchandise!",
+  keywords: [
+    "ryan meetup merch",
+    "ryan meetup store",
+    "ryan meetup shirts",
+    "ryan meetup gear",
+  ],
   openGraph: {
     url: "https://ryanmeetup.etsy.com",
     title: "Ryan Meetup - Merch",

@@ -34,7 +34,7 @@ const RouteMenu = (props: RouteMenuProps) => {
         pathname.includes("/chapters")) &&
       title === "Community"
     ) {
-      return "bg-gray-300 dark:bg-gray-800";
+      return "bg-black/10 text-black dark:bg-white/10 dark:text-white";
     } else if (
       (pathname === "/flyers" ||
         pathname === "/contribute" ||
@@ -44,7 +44,7 @@ const RouteMenu = (props: RouteMenuProps) => {
         pathname === "/donate") &&
       title === "Support"
     ) {
-      return "bg-gray-300 dark:bg-gray-800";
+      return "bg-black/10 text-black dark:bg-white/10 dark:text-white";
     }
   };
 
@@ -53,7 +53,9 @@ const RouteMenu = (props: RouteMenuProps) => {
       {({ open }) => (
         <>
           <PopoverButton
-            className={`${isSelected(pathname)} text-sm flex items-center text-black font-semibold rounded-lg tracking-wide gap-x-2 px-2 py-1 border border-white timing hover:border hover:border-gray-700 2xl:text-base dark:text-white dark:border-black`}
+            className={`text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-3 py-1.5 transition hover:shadow-sm hover:bg-black/5 2xl:text-base text-black dark:text-white dark:hover:bg-white/10 ${
+              isSelected(pathname) ?? "bg-white/80 dark:bg-white/5"
+            }`}
           >
             {icon} {title}{" "}
             <ChevronDown
@@ -70,16 +72,21 @@ const RouteMenu = (props: RouteMenuProps) => {
             leaveTo="opacity-0 translate-y-1"
           >
             <PopoverPanel
-              className="z-50 bg-white dark:bg-black w-fit rounded-lg border border-gray-700 p-2 mt-2"
+              className="z-50 w-fit rounded-xl border border-black/10 bg-white/95 p-3 shadow-xl backdrop-blur dark:border-white/10 dark:bg-black/95"
               anchor="bottom"
             >
               {routes.map((route, index) => (
                 <div key={route.text}>
                   <NextLink
-                    className="flex title items-center font-semibold tracking-wide gap-x-2 px-2 py-1 hover:bg-gray-300 dark:hover:bg-gray-700 hover:rounded"
+                    className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-semibold tracking-wide text-black transition hover:bg-black/5 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10"
                     href={route.href}
                   >
-                    {route.icon} {route.text}
+                    <span className="flex items-center gap-2">
+                      {route.icon} {route.text}
+                    </span>
+                    <span className="text-xs opacity-0 transition group-hover:opacity-100">
+                      →
+                    </span>
                   </NextLink>
                   {index !== routes.length - 1 && <Divider margins="sm" />}
                 </div>

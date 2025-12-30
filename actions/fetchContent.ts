@@ -8,7 +8,7 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
 });
 
-const CMS_REVALIDATE_SECONDS = 300;
+const CMS_REVALIDATE_SECONDS = 600;
 
 const fetchEvents = unstable_cache(
   async () => {

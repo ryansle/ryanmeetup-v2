@@ -1,6 +1,7 @@
 // Components
-import { Heading, Text } from "@/components/global";
+import { Heading, Text, Card, Pill } from "@/components/global";
 import NextLink from "next/link";
+import { getCountryFromLocation } from "@/utils/stats";
 
 // Types
 import { Location } from "@/lib/types";
@@ -12,52 +13,116 @@ type InfoProps = {
 const Info = (props: InfoProps) => {
   const { locations } = props;
 
-  const uniqueCountries = new Set(["Canada", "United States"]);
+  const uniqueCountries = new Set<string>();
+  const uniqueCities = new Set<string>();
+  const locationTypeCounts: Record<string, number> = {
+    "Event Location": 0,
+    "Ryan Hub": 0,
+    "Ryan-Named Business": 0,
+    "Ryan-Owned Business": 0,
+    Chapter: 0,
+  };
 
   locations?.forEach((location) => {
-    const commaIndex = location.locationName.indexOf(", ");
-    const stateOrCountry: string = location.locationName.substring(
-      commaIndex + 1,
-    );
-    if (stateOrCountry.length !== 2 && stateOrCountry.length !== 3) {
-      uniqueCountries.add(stateOrCountry);
+    const cityName =
+      location.city ?? location.locationName.split(",")[0].trim();
+    if (cityName) {
+      uniqueCities.add(cityName);
+    }
+
+    if (locationTypeCounts[location.locationType] !== undefined) {
+      locationTypeCounts[location.locationType] += 1;
+    }
+
+    const country = getCountryFromLocation(location);
+    if (country) {
+      uniqueCountries.add(country);
     }
   });
 
+  const stats = [
+    { label: "Locations", value: locations.length },
+    { label: "Cities", value: uniqueCities.size },
+    { label: "Countries", value: uniqueCountries.size },
+    { label: "National Events", value: locationTypeCounts["Event Location"] + 2 },
+    { label: "Chapters", value: locationTypeCounts["Chapter"] },
+    {
+      label: "Businesses",
+      value:
+        locationTypeCounts["Ryan-Named Business"] +
+        locationTypeCounts["Ryan-Owned Business"],
+    },
+  ];
+
   return (
-    <section className="text-center py-4 border-t-2 border-gray-400 dark:border-gray-700 px-4 md:py-8 lg:px-32 xl:px-72 3xl:px-[350px] 4xl:px-[650px]">
-      <Heading className="mb-6 text-4xl title">Ryan Meetup Worldwide</Heading>
-      <Text className="text-lg secondary">
-        Our growing network of Ryans currently spans across{" "}
-        <span className="font-semibold text-blue-700 dark:text-blue-500">
-          50+ countries
-        </span>{" "}
-        and{" "}
-        <span className="font-semibold text-blue-700 dark:text-blue-500">
-          800+ cities
-        </span>{" "}
-        worldwide.
-      </Text>
-
-      <br />
-
-      <Text className="text-lg secondary">
-        Help us expand as we gear up for RyanCon, the soon-to-be largest same
-        name gathering in history.
-      </Text>
-
-      <Heading className="mt-8 mb-6 text-3xl title" size="h2">
-        Don&apos;t see your city?
-      </Heading>
-      <Text className="text-lg secondary">
-        <NextLink
-          href="/contact"
-          className="font-semibold underline underline-offset-2 text-blue-700 dark:text-blue-500 hover:cursor-pointer"
+    <section className="px-4 pb-12 pt-6">
+      <Card
+        variant="soft"
+        size="lg"
+        className="mx-auto max-w-5xl text-center bg-white/90 ring-1 ring-black/10 dark:bg-white/5 dark:ring-white/10"
+      >
+        <div className="mb-4 flex justify-center">
+          <Pill>Map</Pill>
+        </div>
+        <Heading
+          className="text-3xl title text-black sm:text-4xl dark:text-white"
+          size="h2"
         >
-          Contact Ryan
-        </NextLink>{" "}
-        to have your city added to the map.
-      </Text>
+          Ryan Meetup Worldwide
+        </Heading>
+        <Text className="mt-3 text-lg text-black/70 dark:text-white/70">
+          Our growing network of Ryans spans across{" "}
+          <span className="font-semibold text-blue-700 dark:text-blue-500">
+            {uniqueCountries.size} countries
+          </span>{" "}
+          and{" "}
+          <span className="font-semibold text-blue-700 dark:text-blue-500">
+            {uniqueCities.size} cities
+          </span>{" "}
+          worldwide.
+        </Text>
+        <Text className="mt-3 text-base text-black/60 dark:text-white/60">
+          Help us expand as we gear up for RyanCon, the soon-to-be largest same
+          name gathering in history.
+        </Text>
+
+        <div className="mt-6 grid gap-3 grid-cols-2 lg:grid-cols-3">
+          {stats.map((stat) => (
+            <Card
+              key={stat.label}
+              variant="solid"
+              size="sm"
+              className="bg-white/90 ring-1 ring-black/10 dark:bg-white/5 dark:ring-white/10"
+            >
+              <Heading
+                className="text-3xl font-cooper text-black dark:text-white"
+                size="h3"
+              >
+                {stat.value}
+              </Heading>
+              <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+                {stat.label}
+              </Text>
+            </Card>
+          ))}
+        </div>
+
+        <Heading
+          className="mt-8 text-2xl title text-black sm:text-3xl dark:text-white"
+          size="h3"
+        >
+          Don&apos;t see your city?
+        </Heading>
+        <Text className="mt-3 text-base text-black/70 dark:text-white/70">
+          <NextLink
+            href="/contact"
+            className="font-semibold underline underline-offset-2 text-blue-700 hover:cursor-pointer hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400"
+          >
+            Contact Ryan
+          </NextLink>{" "}
+          to have your city added to the map.
+        </Text>
+      </Card>
     </section>
   );
 };

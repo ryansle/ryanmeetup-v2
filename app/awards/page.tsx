@@ -1,10 +1,9 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider } from "@/components/global";
+import { Heading, Text, Divider, Pill } from "@/components/global";
 import { FarthestRyan, Champion, Leaderboard } from "@/components/awards";
 import { MdLeaderboard as Leader } from "react-icons/md";
 import { FaTrophy as Trophy, FaPlaneArrival as Plane } from "react-icons/fa";
-import { Blurb } from "@/components/events";
 
 // Types
 import type { TravelingRyan, ChampionRyan, RepeatRyan } from "@/lib/types";
@@ -33,6 +32,9 @@ export const metadata: Metadata = {
     "little king of St. Ryans Day",
     "mr ryami",
     "ms. ryami",
+    "ryan meetup awards",
+    "ryan meetup winners",
+    "ryan meetup leaderboard",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/awards",
@@ -59,8 +61,9 @@ const AwardsPage = async () => {
   const champs = fixture?.champs ?? (await fetchChampionRyans());
   const repeats = fixture?.repeats ?? (await fetchRepeatRyans());
 
-  const anchorStyle = "block text-sm text-blue-600";
-  const iconStyle = "w-5 h-5 fill-white dark:fill-black timing hover:scale-110";
+  const anchorStyle =
+    "group flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/90 text-black shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/15 dark:bg-black dark:text-white dark:hover:border-white/40";
+  const iconStyle = "h-5 w-5";
 
   const anchors = [
     {
@@ -82,63 +85,73 @@ const AwardsPage = async () => {
 
   return (
     <Layout>
-      <div id="farthest" />
-      <Blurb fullHeadline="Hall of Ryans" smallHeadline="Hall of Ryans">
-        <Text className="text-xl secondary">
-          Honoring Ryan Meetup award winning Ryans and more.
-        </Text>
-      </Blurb>
+      <div className="relative space-y-12">
+        <section className="space-y-4 text-center">
+          <div className="flex justify-center">
+            <Pill>Awards</Pill>
+          </div>
+          <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
+            Hall of Ryans
+          </Heading>
+          <Text className="text-lg text-black/70 dark:text-white/70">
+            Honoring the Ryans who traveled the farthest, earned top titles, and
+            showed up again and again.
+          </Text>
+        </section>
 
-      <div className="fixed bottom-3 right-3 z-50 lg:right-32 lg:bottom-8">
-        <div className="dark:bg-white border border-gray-700 bg-black shadow-lg rounded-lg p-2 space-y-4">
+        <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-3 lg:right-24 lg:bottom-8">
           {anchors.map((anchor) => (
             <div key={anchor.href} className="relative group">
               <a href={anchor.href} className={anchorStyle}>
                 {anchor.icon}
               </a>
-              <span className="absolute right-full mr-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-xs rounded px-2 py-1 transition-opacity mr-4">
+              <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-black px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-white opacity-0 transition group-hover:opacity-100 dark:bg-white dark:text-black">
                 {anchor.tooltip}
               </span>
             </div>
           ))}
         </div>
-      </div>
 
-      <Divider />
+        <Divider />
 
-      <Heading className="mb-6 text-center text-4xl title">
-        Farthest Traveling Ryans
-      </Heading>
+        <div id="farthest" />
+        <section className="space-y-6">
+          <Heading className="text-center text-3xl title sm:text-4xl">
+            Farthest Traveling Ryans
+          </Heading>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {farthest?.map((ryan, index) => (
+              <FarthestRyan key={index} ryan={ryan as unknown as TravelingRyan} />
+            ))}
+          </div>
+        </section>
 
-      <div className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
-        {farthest?.map((ryan, index) => (
-          <FarthestRyan key={index} ryan={ryan as unknown as TravelingRyan} />
-        ))}
-      </div>
-
-      <div id="champions" />
-
-      <Divider margins="xl" />
-
-      <div>
-        <Heading className="mb-6 text-center text-4xl title">
-          Ryan Meetup Champions
-        </Heading>
-        <Text className="mb-10 text-center text-xl secondary">
-          Ryans that overcame great obstacles to take home the championship
-          titles.
-        </Text>
-
-        <div className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
-          {champs?.map((ryan, index) => (
-            <Champion key={index} ryan={ryan as unknown as ChampionRyan} />
-          ))}
-        </div>
-
-        <div id="leaderboard" />
         <Divider margins="xl" />
 
-        <Leaderboard ryans={repeats as RepeatRyan[]} />
+        <div id="champions" />
+        <section className="space-y-6">
+          <div className="space-y-2 text-center">
+            <Heading className="text-3xl title sm:text-4xl">
+              Ryan Meetup Champions
+            </Heading>
+            <Text className="text-base text-black/70 dark:text-white/70">
+              Ryans that overcame great obstacles to take home the championship
+              titles.
+            </Text>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {champs?.map((ryan, index) => (
+              <Champion key={index} ryan={ryan as unknown as ChampionRyan} />
+            ))}
+          </div>
+        </section>
+
+        <Divider margins="xl" />
+
+        <div id="leaderboard" />
+        <section className="space-y-6">
+          <Leaderboard ryans={repeats as RepeatRyan[]} />
+        </section>
       </div>
     </Layout>
   );

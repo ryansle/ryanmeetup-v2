@@ -1,9 +1,19 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, List, Divider } from "@/components/global";
-import { FaHandshake as Handshake } from "react-icons/fa";
-import NextLink from "next/link";
-import { GoDotFill as Bullet } from "react-icons/go";
+import { Heading, Text, Divider, Pill, Card, Button } from "@/components/global";
+import {
+  FaHandsHelping as Help,
+  FaDollarSign as Dollar,
+  FaCamera as Camera,
+  FaPenNib as Pen,
+  FaLaptopCode as Code,
+  FaBullhorn as Bullhorn,
+  FaPrint as Print,
+} from "react-icons/fa";
+import { FaGear as Gear } from "react-icons/fa6";
+import { RiFilePaper2Line as Flyer } from "react-icons/ri";
+import { IoPersonAdd as Socials } from "react-icons/io5";
+import { MdMovie as Video, MdDesignServices as Design } from "react-icons/md";
 
 // Types
 import type { Metadata } from "next";
@@ -17,6 +27,9 @@ export const metadata: Metadata = {
     "ryan meetup zelle",
     "ryan meetup money",
     "contribute to ryan meetup",
+    "ryan meetup volunteer",
+    "ryan meetup team",
+    "ryan meetup contributions",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/contribute",
@@ -38,81 +51,154 @@ export const metadata: Metadata = {
 const ContributePage = async () => {
   const waysToSupport = [
     {
-      main: "Invite more Ryans.",
-      sub: "The goal is gathering as many Ryans as possible, and this is the easiest way to expand our network.",
+      title: "Invite more Ryans",
+      body: "The goal is gathering as many Ryans as possible, and this is the easiest way to expand our network.",
+      icon: <Socials className="h-5 w-5" />,
     },
     {
-      main: "Hang up flyers.",
-      sub: "This is how it all started for us, and it's an effective way to reach Ryans in the wild.",
+      title: "Hang up flyers",
+      body: "This is how it all started for us, and it's an effective way to reach Ryans in the wild.",
+      icon: <Flyer className="h-5 w-5" />,
     },
     {
-      main: "Share your skills.",
-      sub: "Combining all of our capabilities will make us a well-rounded, well-oiled machine.",
+      title: "Share your skills",
+      body: "Combining our capabilities makes the Ryan Meetup stronger and more self-sustaining.",
+      icon: <Help className="h-5 w-5" />,
     },
     {
-      main: "Buy our merchandise.",
-      sub: "Become a walking advertisement for the Ryan movement. And rest assured, all of our designs were created by fellow Ryans.",
+      title: "Support the mission",
+      body: "Merch purchases and donations help fund future events and community growth.",
+      icon: <Dollar className="h-5 w-5" />,
     },
   ];
 
   const composed = [
-    { main: "Photographer/Videographer Ryan," },
-    { main: "Senior Copywriter/Creative Director Ryan," },
-    { main: "Software Engineer & Technology Ryan," },
-    { main: "Producer/Writer Ryan," },
-    { main: "Digital Marketing & Outreach Ryan," },
-    { main: "Graphic Design Ryan," },
-    { main: "and Printing Ryan." },
+    {
+      title: "Photo / Video",
+      icon: <Camera className="h-5 w-5" />,
+    },
+    {
+      title: "Creative Director",
+      icon: <Pen className="h-5 w-5" />,
+    },
+    {
+      title: "Engineering",
+      icon: <Code className="h-5 w-5" />,
+    },
+    {
+      title: "Production / Writing",
+      icon: <Video className="h-5 w-5" />,
+    },
+    {
+      title: "Marketing / Outreach",
+      icon: <Bullhorn className="h-5 w-5" />,
+    },
+    {
+      title: "Graphic Design",
+      icon: <Design className="h-5 w-5" />,
+    },
+    {
+      title: "Printing",
+      icon: <Print className="h-5 w-5" />,
+    },
+    {
+      title: "Logistics",
+      icon: <Gear className="h-5 w-5" />,
+    },
   ];
 
   return (
     <Layout>
-      <div className="space-y-6">
-        <Heading className="text-4xl title">
+      <section className="space-y-4 text-center mb-8">
+        <div className="flex justify-center">
+          <Pill>Contribute</Pill>
+        </div>
+        <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
           Contribute to the Ryan Meetup
         </Heading>
-
-        <Text className="text-lg secondary">
-          We have an army of Ryans at our disposal, so let&apos;s take advantage
-          of it. The more Ryans who pitch in, the faster we&apos;ll grow.
+        <Text className="text-lg text-black/70 dark:text-white/70">
+          We have an army of Ryans at our disposal. The more Ryans who pitch in,
+          the faster we&apos;ll grow.
         </Text>
-
-        <Text className="text-lg secondary">
-          If you believe you have a relevant skill that can help to further
-          expand the Ryan Meetup, please reach out to us on our{" "}
-          <NextLink
-            className="text-blue-700 dark:text-blue-500 underline font-semibold"
-            href="/contact"
-          >
-            /contact
-          </NextLink>{" "}
-          page. Our small team of Ryans is currently composed of:
+        <Text className="text-lg text-black/60 dark:text-white/60">
+          Our entire team is 100% volunteer-based.
         </Text>
+      </section>
 
-        <List
-          icon={
-            <Bullet className="fill-gray-700 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0" />
-          }
-          content={composed}
-        />
-      </div>
-
-      <Divider margins="lg" />
-
-      <div className="space-y-6">
-        <Heading className="text-4xl title">Ways to Contribute</Heading>
-        <div className="col-span-12 space-y-4">
-          <List
-            icon={
-              <Handshake className="fill-gray-700 dark:fill-white mt-1 mr-4 w-5 h-5 flex-shrink-0" />
-            }
-            content={waysToSupport}
-          />
+      <Card
+        variant="soft"
+        size="lg"
+        className="shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] lg:p-10"
+      >
+        <div className="space-y-4">
+          <Heading className="text-3xl title sm:text-4xl" size="h2">
+            Team & Skills
+          </Heading>
+          <Text className="text-base text-black/70 dark:text-white/70">
+            These cards represent the Ryans currently on the team. If you have
+            a relevant skill, we&apos;d love for you to join our volunteer crew.
+          </Text>
         </div>
-      </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {composed.map((role) => (
+            <Card key={role.title} variant="solid" size="md" hover>
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
+                  {role.icon}
+                </span>
+                <Text className="text-sm uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
+                  {role.title} Ryan
+                </Text>
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-6">
+          <Button.Link
+            href="/contact"
+            leftIcon={<Socials className="h-4 w-4" />}
+            variant="primary"
+            size="md"
+            fullWidth
+            newTab={false}
+          >
+            Join the team
+          </Button.Link>
+        </div>
+      </Card>
+
+      <Divider margins="xl" />
+
+      <Card
+        variant="soft"
+        size="lg"
+        className="shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] lg:p-10"
+      >
+        <div className="space-y-6">
+          <Heading className="text-3xl title sm:text-4xl" size="h2">
+            Ways to Contribute
+          </Heading>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {waysToSupport.map((item) => (
+              <Card key={item.title} variant="solid" size="md" hover>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
+                    {item.icon}
+                  </span>
+                  <Text className="text-sm uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
+                    {item.title}
+                  </Text>
+                </div>
+                <Text className="mt-3 text-sm text-black/70 dark:text-white/70">
+                  {item.body}
+                </Text>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Card>
     </Layout>
   );
 };
 
 export default ContributePage;
-

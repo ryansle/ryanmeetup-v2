@@ -1,6 +1,7 @@
 // Components
 import NextLink from "next/link";
 import NextImage from "next/image";
+import { Text, Card, Button, Heading } from "@/components/global";
 
 // Types
 import type { Charity } from "@/lib/types";
@@ -30,7 +31,11 @@ const Donation = (props: DonationProps) => {
     });
 
   return (
-    <article className="relative h-full overflow-hidden rounded-3xl bg-white/5 ring-1 ring-white/10 p-5 sm:p-6 md:p-8 flex flex-col">
+    <Card
+      variant="soft"
+      size="md"
+      className="relative h-full overflow-hidden border border-black/10 bg-white/90 p-5 shadow-none ring-1 ring-black/10 sm:p-6 md:p-8 flex flex-col dark:border-white/10 dark:bg-white/5 dark:ring-white/10"
+    >
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -38,33 +43,33 @@ const Donation = (props: DonationProps) => {
         }}
       />
       <div className="relative flex h-full flex-col">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight">
+        <Heading className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-black dark:text-white mb-2" variant="normal">
           {title}
-        </h2>
+        </Heading>
         <div className="flex flex-1 items-center">
-          <p
-            className={`flex flex-wrap items-baseline gap-x-2 text-3xl sm:text-4xl md:text-5xl font-extrabold tabular-nums ${color}`}
+          <Text
+            className="flex flex-wrap items-baseline gap-x-2 text-3xl sm:text-4xl md:text-5xl font-extrabold tabular-nums"
           >
-            <span className="whitespace-nowrap">
+            <span className={`whitespace-nowrap ${color}`}>
               {fmt(parseCurrency(amount))}
             </span>
-            <span className="text-white/70 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0">
+            <span className="text-black/60 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0 dark:text-white/70">
               Raised to date
             </span>
-          </p>
+          </Text>
         </div>
         <div className="mt-5 sm:mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <NextLink
+          <Button.Link
             href={href}
-            target="_blank"
-            rel="noreferrer"
-            className="order-2 sm:order-none w-full sm:w-auto text-center rounded-xl bg-white text-neutral-900 px-4 py-2.5 font-semibold hover:bg-white/90 transition"
+            newTab
+            size="sm"
+            className="order-2 sm:order-none w-full sm:w-auto"
           >
             See organization
-          </NextLink>
+          </Button.Link>
 
           {avatars && hrefs && (
-            <div className="order-1 sm:order-none flex flex-wrap justify-start gap-2 sm:flex-nowrap sm:justify-end gap-0 -space-x-2">
+            <div className="order-1 sm:order-none flex flex-wrap justify-start gap-2 sm:flex-nowrap sm:justify-end gap-0 -space-x-4">
               {avatars.map((avatar, index) => (
                 <NextLink
                   key={index}
@@ -72,7 +77,7 @@ const Donation = (props: DonationProps) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="w-8 h-8 rounded-full ring-2 relative overflow-hidden timing hover:scale-110 ring-white/20">
+                  <div className="w-8 h-8 rounded-full ring-2 relative overflow-hidden timing hover:scale-110 ring-black/15 dark:ring-white/20">
                     <NextImage
                       src={convertImageUrl(avatar) || "/ryanavatar.png"}
                       alt={avatar.fields.title}
@@ -87,7 +92,7 @@ const Donation = (props: DonationProps) => {
           )}  
         </div>
       </div>
-    </article>
+    </Card>
   );
 };
 

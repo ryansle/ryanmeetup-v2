@@ -1,3 +1,6 @@
+// Components
+import { Text } from "@/components/global";
+
 // Types
 import type { Testimonial } from "@/lib/types";
 
@@ -14,22 +17,15 @@ const Testimony = (props: TestimonyProps) => {
   } = props.testimony;
 
   return (
-    <div className="rounded-xl border bg-white border-gray-400 break-inside-avoid-column shadow-xl p-4 mb-4 h-max dark:border-gray-700 dark:bg-black timing hover:scale-102">
-      <div className="grid grid-cols-5 gap-4">
-        {/* <div className='col-span-1'>
-          <NextImage 
-            src={headshot ? convertImageUrl(headshot) as string : '/icons/ryanicon.png'}
-            height={50}
-            width={50}
-            alt={`Ryan ${lastName} Headshot`}
-            className='rounded-full object-cover'
-          />
-        </div> */}
-        <div className="col-span-5">
-          <p className="text-gray-700 text-base dark:text-gray-400">{quote}</p>
-          <h3 className="text-lg font-semibold text-lg mt-2 text-right">
-            - Ryan from {location}
-          </h3>
+    <div className="relative mb-4 break-inside-avoid-column rounded-2xl border border-black/10 bg-white/90 p-5 shadow-[0_20px_40px_-30px_rgba(0,0,0,0.7)] transition hover:-translate-y-1 hover:border-black/25 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/30">
+      <div className="space-y-4">
+        <Text className="text-base leading-relaxed text-black/70 dark:text-white/70">
+          &quot;{quote}&quot;
+        </Text>
+        <div className="flex items-center justify-end">
+          <Text className="text-sm font-semibold text-black dark:text-white">
+            Ryan from {location}
+          </Text>
         </div>
       </div>
     </div>

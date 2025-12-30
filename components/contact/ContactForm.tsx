@@ -51,7 +51,7 @@ const ContactForm = () => {
       const userId = process.env.NEXT_PUBLIC_EMAIL_USER_ID;
       const serviceId = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID;
 
-      emailjs.send(serviceId as string, templateId as string, form, userId);
+      // emailjs.send(serviceId as string, templateId as string, form, userId);
       completeSend();
     }, 1000);
   };
@@ -80,23 +80,23 @@ const ContactForm = () => {
       <div
         className={`${
           t.visible ? "animate-enter" : "animate-leave"
-        } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5 text-black grid grid-cols-12 p-4 -pb-1`}
+        } max-w-md w-full rounded-2xl bg-white/95 text-black shadow-lg pointer-events-auto grid grid-cols-12 p-4 dark:bg-black/80 dark:text-white`}
       >
         <div className="col-span-1 flex items-center justify-center">
-          <Check className="h-8 w-8 fill-green-500 shrink-0" />
+          <Check className="h-7 w-7 fill-emerald-500 shrink-0" />
         </div>
         <div className="col-span-10 pl-4 pr-6">
-          <h1 className="text-lg text-semibold font-cooper">Email sent!</h1>
-          <p className="text-sm tracking-wide">
+          <h1 className="text-lg font-cooper">Email sent!</h1>
+          <Text className="text-sm text-black/70 dark:text-white/70">
             Expect an email back from Ryan soon!
-          </p>
+          </Text>
         </div>
       </div>
     ));
 
   return (
     <>
-      <form className="w-full grid grid-cols-2 gap-x-8 gap-y-8 mb-4 border border-gray-700 p-8 rounded-xl bg-white dark:bg-black col-span-2 md:col-span-1">
+      <form className="w-full grid grid-cols-2 gap-x-6 gap-y-6">
         <div className="col-span-1">
           <Input
             label="First Name"
@@ -140,8 +140,8 @@ const ContactForm = () => {
             })}
           />
           {errors.email && (
-            <Text className="mt-2 text-red-500 text-sm">
-              {errors.email.message as ReactNode}
+            <Text className="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-red-500">
+              {errors.email.message as string}
             </Text>
           )}
         </div>
@@ -178,9 +178,12 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <Text className="text-xs uppercase tracking-[0.3em] text-black/50 dark:text-white/50">
+            All fields required
+          </Text>
           <Button
-            className="w-full"
+            className="w-full sm:w-auto sm:min-w-[180px]"
             leftIcon={loading ? <Loader /> : <Send />}
             onClick={handleSubmit((data) => send(data as ContactFormFields))}
             disabled={Object.keys(errors).length !== 0}

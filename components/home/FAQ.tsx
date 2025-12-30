@@ -1,7 +1,7 @@
 "use client";
 
 // Components
-import { Heading, Text, Divider } from "@/components/global";
+import { Heading, Text } from "@/components/global";
 import {
   Disclosure,
   DisclosureButton,
@@ -23,61 +23,71 @@ const FAQ = (props: FAQProps) => {
   const { data, toggleable = false, showTitle = false } = props;
 
   return (
-    <div>
-      {showTitle && (
-        <Heading className="mb-6 text-4xl title">
-          Frequently Asked Questions
-        </Heading>
-      )}
+    <section className="relative overflow-hidden dark:bg-black">
+      <div className="relative">
+        {showTitle && (
+          <div className="mx-auto mb-8 text-center">
+            <Heading className="text-4xl title sm:text-5xl">
+              Frequently Asked Questions
+            </Heading>
+            <Text className="mt-3 text-base text-black/70 dark:text-white/70">
+              Everything you&apos;re probably wondering before meeting up with other Ryans.
+            </Text>
+          </div>
+        )}
 
-      <div>
-        {data?.map((pair, index) =>
-          toggleable ? (
-            <Disclosure as="div" className="w-full mb-8" key={index}>
-              {({ open }) => (
-                <>
-                  <DisclosureButton className="grid grid-cols-10 gap-x-4 text-xl font-semibold tracking-wider mb-2 text-black text-left border-gray-700 w-full timing hover:underline hover:scale-102 dark:text-white">
-                    <span className="col-span-9">{pair.question}</span>
-                    <div className="col-span-1 flex justify-end">
+        <div className="space-y-4">
+          {data?.map((pair, index) =>
+            toggleable ? (
+              <Disclosure
+                as="div"
+                className="rounded-2xl border border-black/10 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/5"
+                key={index}
+              >
+                {({ open }) => (
+                  <>
+                    <DisclosureButton className="flex w-full items-center justify-between gap-4 text-left text-lg font-semibold tracking-wider text-black transition hover:opacity-80 dark:text-white">
+                      <span>{pair.question}</span>
                       <ChevronDown
-                        className={`timing ${open && "-rotate-180"}`}
+                        className={`h-4 w-4 transition ${open && "-rotate-180"}`}
                       />
+                    </DisclosureButton>
+                    <div className="overflow-hidden">
+                      <Transition
+                        enter="duration-200 ease-in-out"
+                        enterFrom="opacity-0 -translate-y-4"
+                        enterTo="opacity-100 translate-y-0"
+                        leave="duration-200 ease-in-out"
+                        leaveFrom="opacity-100 translate-y-0"
+                        leaveTo="opacity-0 -translate-y-4"
+                      >
+                        <DisclosurePanel className="origin-top pt-3">
+                          <Text className="text-sm text-black/70 dark:text-white/70">
+                            {pair.answer}
+                          </Text>
+                        </DisclosurePanel>
+                      </Transition>
                     </div>
-                  </DisclosureButton>
-                  <div className="overflow-hidden">
-                    <Transition
-                      enter="duration-200 ease-in-out"
-                      enterFrom="opacity-0 -translate-y-6"
-                      enterTo="opacity-100 translate-y-0"
-                      leave="duration-300 ease-in-out"
-                      leaveFrom="opacity-100 translate-y-0"
-                      leaveTo="opacity-0 -translate-y-6"
-                    >
-                      <DisclosurePanel className="origin-top transition">
-                        <Text className="secondary">{pair.answer}</Text>
-                      </DisclosurePanel>
-                    </Transition>
-                  </div>
-
-                  <Divider margins="md" />
-                </>
-              )}
-            </Disclosure>
-          ) : (
-            <div key={index}>
-              <>
-                <div className="text-xl font-semibold tracking-wider mb-2 title">
+                  </>
+                )}
+              </Disclosure>
+            ) : (
+              <div
+                key={index}
+                className="rounded-2xl border border-black/10 bg-white/80 p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
+              >
+                <div className="text-xl font-semibold tracking-wider text-black dark:text-white">
                   {pair.question}
                 </div>
-                <div className="text-lg mb-10 text-gray-700 dark:text-gray-400">
+                <div className="mt-2 text-lg text-black/70 dark:text-white/70">
                   {pair.answer}
                 </div>
-              </>
-            </div>
-          ),
-        )}
+              </div>
+            ),
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

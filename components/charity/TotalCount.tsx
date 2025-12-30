@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 
 // Components
-import { Heading, Text } from "@/components/global";
+import { Heading, Text, Pill } from "@/components/global";
 
 // Types
 import type { Charity } from "@/lib/types";
@@ -36,26 +36,29 @@ const TotalCount = (props: TotalCountProps) => {
 
   return (
     <div className="px-6 text-center max-w-7xl mx-auto">
+      <div className="mb-4 flex justify-center">
+        <Pill>Charity</Pill>
+      </div>
       <Heading
         className="mb-6 text-center text-4xl xl:text-7xl title"
         size="h1"
       >
         Ryan Meetup <span className="hidden xl:inline-block">has raised</span>
       </Heading>
-      <div className="inline-flex items-center justify-center rounded-3xl bg-white/5 ring-1 ring-white/10 px-6 py-4 md:p-8">
+      <div className="inline-flex items-center justify-center rounded-2xl bg-white/80 ring-1 ring-black/10 px-6 py-4 md:p-8 dark:bg-white/5 dark:ring-white/10">
         <div className="text-left">
-          <div className="block xl:hidden text-lg xl:text-xl uppercase tracking-widest text-white/70 mb-4 text-center">
+          <div className="block xl:hidden text-lg xl:text-xl uppercase tracking-widest text-black/60 mb-4 text-center dark:text-white/70">
             HAS RAISED
           </div>
-          <div className="mt-2 text-6xl md:text-[10rem] font-black text-center leading-none">
+          <div className="mt-2 text-6xl md:text-[10rem] font-black text-center leading-none text-black/90 dark:text-white">
             {fmt(animatedGrand)}
           </div>
-          <div className="text-lg xl:text-xl uppercase tracking-widest text-white/70 mt-4 xl:mt-10 text-center">
+          <div className="text-lg xl:text-xl uppercase tracking-widest text-black/60 mt-4 xl:mt-10 text-center dark:text-white/70">
             FOR CHARITABLE CAUSES WORLDWIDE
           </div>
         </div>
       </div>
-      <Text className="mt-4 text-sm text-white/60">
+      <Text className="mt-4 text-sm text-black/60 dark:text-white/60">
         Last updated: {new Date().toLocaleDateString()}
       </Text>
     </div>

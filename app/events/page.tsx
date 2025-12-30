@@ -50,6 +50,9 @@ export const metadata: Metadata = {
     "ryan relay",
     "society of ryans",
     "ryan red carpet",
+    "ryan meetup schedule",
+    "ryan meetup calendar",
+    "ryan meetup upcoming events",
   ],
   openGraph: {
     url: "https://ryanmeetup.com/events",
@@ -83,6 +86,7 @@ const EventsPage = async ({
       <Blurb
         fullHeadline="Join the Ryan Meetup"
         smallHeadline="Our Events"
+        tag="Events"
         href="/newsletter"
         icon={<News />}
         hrefText="Get notified of future events"

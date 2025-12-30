@@ -7,6 +7,12 @@ import { redirect } from "next/navigation";
 export const metadata: Metadata = {
   title: "Ryan Meetup - Join",
   description: "Wanna meet other Ryans?",
+  keywords: [
+    "join ryan meetup",
+    "ryan meetup rsvp",
+    "ryan meetup signup",
+    "ryan meetup tickets",
+  ],
   openGraph: {
     url: "https://partiful.com/u/sJG4HpH0wS3ZA3YkzaL5",
     title: "Ryan Meetup - Join",

@@ -26,44 +26,47 @@ const FarthestRyan = (props: FarthestRyanProps) => {
     instagram,
   } = props.ryan;
 
-  const semibold = "font-semibold text-blue-700 dark:text-blue-500";
-
   const imageUrl = convertImageUrl(headshot);
 
   return (
-    <div className="text-center flex justify-center flex-col items-center">
-      <div className="relative w-80 h-80 mb-4">
+    <div className="group rounded-2xl border border-black/10 bg-white/90 p-6 text-center shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] transition space-y-1 hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40">
+      <div className="relative mx-auto mb-5 h-72 w-72 overflow-hidden rounded-full ring-1 ring-black/10 dark:ring-white/10">
         <NextImage
-          className="rounded-full shadow-xl"
+          className="rounded-full"
           src={imageUrl ?? "/trophy.png"}
           fill={true}
           alt={fullName}
           style={{ objectFit: "cover" }}
         />
       </div>
-      <div className="flex items-center">
-        <Heading className="mb-2 text-3xl title" size="h3">
+      <div className="flex items-center justify-center gap-2">
+        <Heading className="text-2xl title" size="h3">
           {fullName}
         </Heading>
         {instagram && (
           <NextLink
-            className="ml-2"
+            className="inline-flex items-center justify-center rounded-full p-1 transition hover:bg-blue-500/15"
             href={instagram}
             aria-label={`${fullName}'s Instagram`}
           >
-            <Instagram className="fill-black dark:fill-white timing hover:scale-105 hover:fill-blue-500" />
+            <Instagram className="h-4 w-4 fill-black transition hover:fill-blue-500 dark:fill-white" />
           </NextLink>
         )}
       </div>
-      <Text className="secondary text-base">
-        Traveled {milesTraveled} miles from
+      <Text className="mt-3 text-sm uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+        {milesTraveled} miles traveled
       </Text>
-      <Text className="secondary text-base">
-        <span className={semibold}>{traveledFrom}</span> to{" "}
-        <span className={semibold}>{traveledTo}</span>
+      <Text className="mt-2 text-black/70 dark:text-white/70">
+        <span className="font-semibold text-lg text-blue-700 dark:text-blue-500">
+          {traveledFrom}
+        </span>{" "}
+        →{" "}
+        <span className="font-semibold text-lg text-blue-700 dark:text-blue-500">
+          {traveledTo}
+        </span>
       </Text>
-      <Text className="secondary text-base">
-        for <span className="font-cooper title">{event}</span> on {eventDate}
+      <Text className="mt-2 text-black/70 dark:text-white/70">
+        <span className="font-cooper text-black dark:text-white">{event}</span> • {eventDate}
       </Text>
     </div>
   );

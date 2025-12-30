@@ -30,41 +30,48 @@ const Champion = (props: ChampionProps) => {
   const imageUrl = convertImageUrl(headshot);
 
   return (
-    <div className="text-center flex justify-center flex-col items-center">
-      <div className="relative w-80 h-80 mb-4">
+    <div className="group rounded-2xl border border-black/10 bg-white/90 p-6 text-center shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)] transition hover:-translate-y-1 hover:border-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/40">
+      <div className="relative mx-auto mb-5 h-72 w-72 overflow-hidden rounded-full ring-1 ring-black/10 dark:ring-white/10">
         <NextImage
-          className="rounded-full shadow-xl"
+          className="rounded-full"
           src={imageUrl ?? "/trophy.png"}
           fill={true}
           alt={fullName}
           style={{ objectFit: "cover" }}
         />
       </div>
-      <div className="flex items-center">
-        <div>
-          <h3
-            className={`${fullName2 ? "text-md" : fullName.length > 15 ? "text-2xl" : "text-3xl"} mb-2 font-cooper tracking-wider title`}
-          >
-            {fullName}
-          </h3>
-        </div>
-        <div className={`flex ml-2 space-x-2 ${fullName2 ? "mb-2" : "mb-1"}`}>
-          {instagram && (
-            <NextLink href={instagram} aria-label={`${fullName}'s Instagram`}>
-              <Instagram className="fill-black dark:fill-white timing hover:scale-105 hover:fill-blue-500" />
-            </NextLink>
-          )}
-          {instagram2 && (
-            <NextLink href={instagram2} aria-label={`${fullName2}'s Instagram`}>
-              <Instagram className="fill-black dark:fill-white timing hover:scale-105 hover:fill-blue-500" />
-            </NextLink>
-          )}
-        </div>
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <Heading className="text-3xl title leading-tight" size="h3">
+          {fullName}
+          {fullName2 && ` & ${fullName2}`}
+        </Heading>
+        {(instagram || instagram2) && (
+          <div className="inline-flex items-center gap-2">
+            {instagram && (
+              <NextLink
+                href={instagram}
+                aria-label={`${fullName}'s Instagram`}
+                className="inline-flex items-center justify-center rounded-full p-1 transition hover:bg-blue-500/15"
+              >
+                <Instagram className="h-4 w-4 dark:fill-white fill-black transition hover:fill-blue-500" />
+              </NextLink>
+            )}
+            {instagram2 && (
+              <NextLink
+                href={instagram2}
+                aria-label={`${fullName2}'s Instagram`}
+                className="inline-flex items-center justify-center rounded-full p-1 transition hover:bg-blue-500/15"
+              >
+                <Instagram className="h-4 w-4 dark:fill-white fill-black transition hover:fill-blue-500" />
+              </NextLink>
+            )}
+          </div>
+        )}
       </div>
-      <Heading className="text-xl mb-1 title" size="h4">
+      <Heading className="mt-3 text-xl dark:text-white text-black tracking-[0.3em]" size="h4">
         {title}
       </Heading>
-      <Text className="secondary text-base">
+      <Text className="mt-2 text-sm text-black/70 dark:text-white/70">
         {location} {location2 && `, & ${location2} `}• {eventDate}
       </Text>
     </div>
