@@ -2,6 +2,14 @@
 import { Layout } from "@/components/navigation";
 import { Landing, FAQ, TestimonyContainer } from "@/components/home";
 import { Divider, Heading } from "@/components/global";
+import { SponsorCarousel } from "@/components/sponsors";
+import { 
+  FaCity as City, 
+  FaUserGroup as Group,
+  FaFlag as Flag,
+} from "react-icons/fa6";
+import { BiParty as Party } from "react-icons/bi";
+
 
 // Types
 import type {
@@ -22,7 +30,6 @@ import {
   fetchEvents,
   fetchLocations,
 } from "@/actions/fetchContent";
-import { SponsorCarousel } from "@/components/sponsors";
 import { formatCount, getLocationStats } from "@/utils/stats";
 
 const HomePage = async () => {
@@ -39,10 +46,26 @@ const HomePage = async () => {
   const { cityCount, countryCount } = getLocationStats(locations);
 
   const stats = [
-    { value: formatCount(activeChapters.length), label: "Chapters" },
-    { value: formatCount(cityCount), label: "Cities" },
-    { value: formatCount(countryCount), label: "Countries" },
-    { value: formatCount(events.length), label: "Events hosted" },
+    { 
+      value: formatCount(activeChapters.length), 
+      label: "Chapters",
+      icon: <Group className="w-8 h-8" />
+    },
+    { 
+      value: formatCount(cityCount), 
+      label: "Cities",
+      icon: <City className="w-8 h-8" />
+    },
+    { 
+      value: formatCount(countryCount), 
+      label: "Countries",
+      icon: <Flag className="w-8 h-8" />
+    },
+    { 
+      value: formatCount(events.length), 
+      label: "Events hosted",
+      icon: <Party className="w-8 h-8" />
+    },
   ];
 
   return (

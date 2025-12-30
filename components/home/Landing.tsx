@@ -3,7 +3,7 @@
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
-import { Heading, Divider, Text, Pill, Card, Button } from "@/components/global";
+import { Heading, Divider, Text, Card, Button } from "@/components/global";
 import { Transition } from "@headlessui/react";
 import {
   FaArrowRight as ArrowRight,
@@ -14,9 +14,9 @@ import {
   MdGroups as Community,
   MdVolunteerActivism as Heart,
 } from "react-icons/md";
-import {
-  IoCalendarNumber as Calendar,
-} from "react-icons/io5";
+
+// Types
+import type { ReactNode } from "react";
 
 const Info = () => {
   return (
@@ -26,7 +26,7 @@ const Info = () => {
           className="text-5xl title"
           size="h1"
         >
-            If your name is Ryan,
+          If your name is Ryan,
         </Heading>
         <Heading
           className="text-3xl title"
@@ -80,6 +80,7 @@ const Actions = () => {
 type StatItem = {
   value: string;
   label: string;
+  icon: ReactNode;
 };
 
 type LandingProps = {
@@ -92,22 +93,27 @@ const Overview = (props: { stats: StatItem[] }) => {
   return (
     <div>
       <Heading className="text-3xl title" size="h2">
-        Community snapshot
+        Built by Ryans
       </Heading>
       <Text className="mt-2 text-sm uppercase tracking-widest text-black/60 dark:text-white/60">
-        Real numbers from Ryan Meetup
+        What this community has grown into
       </Text>
 
       <div className="grid grid-cols-2 gap-3 pt-4 text-center sm:text-left">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-2xl border border-black/10 bg-white/80 px-3 py-4 shadow-sm dark:border-white/10 dark:bg-white/5 space-y-2"
+            className="rounded-2xl border border-black/10 bg-white/80 px-3 py-4 shadow-sm dark:border-white/10 dark:bg-white/5 flex items-center gap-4"
           >
-            <Heading className="text-4xl font-cooper">{stat.value}</Heading>
-            <Text className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
-              {stat.label}
-            </Text>
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-black/10 bg-black/5 text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/80">
+              <span className="text-4xl">{stat.icon}</span>
+            </div>
+            <div className="space-y-1">
+              <Heading className="text-4xl font-cooper">{stat.value}</Heading>
+              <Text className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+                {stat.label}
+              </Text>
+            </div>
           </div>
         ))}
       </div>
@@ -145,7 +151,7 @@ const Landing = (props: LandingProps) => {
   return (
     <section className="relative overflow-hidden text-black dark:text-white">
       <div className="relative flex flex-col gap-8 lg:gap-16 lg:grid lg:grid-cols-2 lg:items-center">
-        <div className="order-2 flex flex-col gap-6 lg:order-1">
+        <div className="order-2 flex flex-col gap-4 lg:order-1">
           <Info />
           <Actions />
           <Divider />

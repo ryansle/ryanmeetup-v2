@@ -1,6 +1,7 @@
 // Components
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { MdClose as Close } from "react-icons/md";
+import { Button } from "@/components/global";
 
 // Types
 import type { ReactNode } from "react";
@@ -33,23 +34,22 @@ const Modal = (props: ModalProps) => {
   } = props;
 
   return (
-    <Dialog
-      open={open}
-      onClose={() => setIsOpen(false)}
-      className="relative z-50 text-black border"
-    >
-      <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
+    <Dialog open={open} onClose={() => setIsOpen(false)} className="relative z-50">
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" aria-hidden="true" />
 
       <div className="fixed inset-0 flex items-center justify-center p-4 w-screen">
-        <DialogPanel className="mx-auto w-[500px] rounded-2xl bg-white flex flex-col p-4 border border-gray-700 ">
-          <div className="flex justify-between w-full mb-4">
-            <DialogTitle className="font-semibold text-xl font-cooper md:text-2xl">
+        <DialogPanel className="mx-auto w-full max-w-lg rounded-2xl border border-black/10 bg-white/95 p-6 shadow-2xl dark:border-white/15 dark:bg-black/85">
+          <div className="flex justify-between w-full mb-4 items-start gap-4">
+            <DialogTitle className="text-xl font-cooper text-black md:text-2xl dark:text-white">
               {title}
             </DialogTitle>
 
             {closable && (
-              <button className="w-6 h-6" onClick={() => setIsOpen(false)}>
-                <Close className="w-6 h-6" />
+              <button
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-black transition hover:bg-black/5 dark:border-white/10 dark:text-white dark:hover:bg-white/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <Close className="h-5 w-5" />
               </button>
             )}
           </div>
@@ -57,21 +57,18 @@ const Modal = (props: ModalProps) => {
           <div>
             {children}
 
-            <div className="flex space-x-4 mt-4 font-cooper">
-              <button
-                className="border rounded-lg w-full py-2 border-gray-700 uppercase"
-                onClick={cancelAction}
-              >
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Button variant="secondary" fullWidth onClick={cancelAction}>
                 {cancelButtonText}
-              </button>
-
-              <button
-                className="border rounded-lg w-full py-2 border-gray-700 uppercase bg-black text-white disabled:text-gray-400 disabled:cursor-not-allowed"
+              </Button>
+              <Button
+                variant="primary"
+                fullWidth
                 disabled={isContinueDisabled}
                 onClick={continueAction}
               >
                 {continueButtonText}
-              </button>
+              </Button>
             </div>
           </div>
         </DialogPanel>

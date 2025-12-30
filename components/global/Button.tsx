@@ -51,13 +51,13 @@ const getBaseClasses = (
 
   const variantStyles: Record<ButtonVariant, string> = {
     primary:
-      "border border-black/15 bg-white text-black shadow-sm hover:border-black/30 hover:shadow-lg hover:-translate-y-0.5 dark:border-white/10 dark:bg-white dark:text-black",
+      "border border-black/60 bg-black text-white shadow-lg hover:border-black/80 hover:bg-black/90 hover:-translate-y-0.5 dark:border-white/10 dark:bg-white dark:text-black dark:hover:bg-white/90 dark:hover:text-black",
     secondary:
-      "border border-black/15 bg-white/80 text-black hover:border-black/30 hover:bg-black/5 hover:shadow-sm dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/10",
+      "border border-black/50 bg-black/90 text-white hover:border-black/70 hover:bg-black/80 hover:shadow-sm dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/10",
     outline:
-      "border border-black/20 text-black hover:border-black/40 hover:bg-black/5 dark:border-white/20 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/10",
+      "border border-black/60 bg-black/80 text-white hover:border-black/80 hover:bg-black/70 dark:border-white/20 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/10",
     ghost:
-      "text-black hover:bg-black/5 dark:text-white dark:hover:bg-white/10",
+      "bg-black/70 text-white hover:bg-black/60 dark:text-white dark:hover:bg-white/10",
   };
 
   return `${base} ${sizeStyles[size]} ${variantStyles[variant]} ${width}`;
