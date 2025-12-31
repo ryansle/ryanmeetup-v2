@@ -170,9 +170,9 @@ const Landing = (props: LandingProps) => {
             <div className="relative h-60 overflow-hidden rounded-3xl border border-black/10 shadow-2xl sm:h-80 lg:h-[360px] dark:border-white/10">
               <NextImage
                 className="rounded-3xl"
-                src="/nametags.jpeg"
+                src="/rockies.jpg"
                 fill
-                alt="Ryan Roundup, March 2023"
+                alt="Ryan @ Rockies, June 2025"
                 style={{ objectFit: "cover" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
