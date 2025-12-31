@@ -96,6 +96,10 @@ const Mapbox = (props: MapboxProps) => {
     return sanitized.replaceAll(" ", "-");
   }, []);
 
+  const markerWrapClass =
+    "flex h-6 w-6 items-center justify-center rounded-full border border-black/15 bg-white shadow-md transition hover:scale-110 dark:border-white/20 dark:bg-white";
+  const markerImageClass = "h-4 w-4 object-contain";
+
   if (isTestMode) {
     return (
       <div className="relative w-full h-[600px] md:h-[700px]">
@@ -187,13 +191,15 @@ const Mapbox = (props: MapboxProps) => {
                 setSelectedLocation(location);
               }}
             >
-              <NextImage
-                src={renderIcon(location.locationType) as string}
-                alt={location.locationType}
-                width={16}
-                height={16}
-                className="rounded-full border border-black"
-              />
+              <div className={markerWrapClass}>
+                <NextImage
+                  src={renderIcon(location.locationType) as string}
+                  alt={location.locationType}
+                  width={16}
+                  height={16}
+                  className={markerImageClass}
+                />
+              </div>
             </Marker>
           ))}
 
@@ -208,12 +214,15 @@ const Mapbox = (props: MapboxProps) => {
                 setSelectedLocation(location);
               }}
             >
-              <NextImage
-                src={renderIcon(location.locationType) as string}
-                alt={location.locationType}
-                width={20}
-                height={20}
-              />
+              <div className={markerWrapClass}>
+                <NextImage
+                  src={renderIcon(location.locationType) as string}
+                  alt={location.locationType}
+                  width={16}
+                  height={16}
+                  className={markerImageClass}
+                />
+              </div>
             </Marker>
           ))}
 
@@ -228,12 +237,15 @@ const Mapbox = (props: MapboxProps) => {
                 setSelectedLocation(location);
               }}
             >
-              <NextImage
-                src={renderIcon(location.locationType) as string}
-                alt={location.locationType}
-                width={20}
-                height={20}
-              />
+              <div className={markerWrapClass}>
+                <NextImage
+                  src={renderIcon(location.locationType) as string}
+                  alt={location.locationType}
+                  width={16}
+                  height={16}
+                  className={markerImageClass}
+                />
+              </div>
             </Marker>
           ))}
 
@@ -248,12 +260,15 @@ const Mapbox = (props: MapboxProps) => {
                 setSelectedLocation(location);
               }}
             >
-              <NextImage
-                src={renderIcon(location.locationType) as string}
-                alt={location.locationType}
-                width={20}
-                height={20}
-              />
+              <div className={markerWrapClass}>
+                <NextImage
+                  src={renderIcon(location.locationType) as string}
+                  alt={location.locationType}
+                  width={16}
+                  height={16}
+                  className={markerImageClass}
+                />
+              </div>
             </Marker>
           ))}
 
@@ -264,36 +279,36 @@ const Mapbox = (props: MapboxProps) => {
             onClose={() => setSelectedLocation(null)}
             closeButton={false}
           >
-            <div className="text-black">
+            <div className="rounded-lg border border-black/10 bg-white/95 p-1.5 text-black shadow-md dark:border-white/20 dark:bg-black/90 dark:text-white">
               {selectedLocation.image && (
                 <NextImage
-                  className="mb-2"
+                  className="mb-2 rounded-md"
                   src={
                     convertImageUrl(selectedLocation.image) ?? "/trophy.webp"
                   }
                   alt={selectedLocation.eventName}
-                  width={200}
-                  height={200}
+                  width={180}
+                  height={180}
                 />
               )}
 
-              <Heading className="text-lg text-black" size="h3">
+              <Heading className="text-base text-black dark:text-white" size="h3">
                 {isBusiness
                   ? selectedLocation.locationName
                   : (selectedLocation.eventName ?? selectedLocation.city)}
               </Heading>
-              <Text className="text-gray-700 text-sm">
+              <Text className="text-xs text-black/70 dark:text-white/70">
                 {isBusiness && (
                   <>
                     <span>{selectedLocation.locationType}</span>
-                    <span className="flex mt-1">
-                      <Pin className="fill-red-500 mr-1" />{" "}
+                    <span className="mt-1 flex items-center gap-1">
+                      <Pin className="fill-red-500" />{" "}
                       {selectedLocation.city}
                     </span>
                   </>
                 )}
                 {selectedLocation.eventDate && (
-                  <span className="-mt-1 text-gray-700">
+                  <span className="-mt-1 text-black/70 dark:text-white/70">
                     {new Date(selectedLocation.eventDate).toLocaleDateString()}{" "}
                     •
                   </span>
@@ -316,13 +331,11 @@ const Mapbox = (props: MapboxProps) => {
               }}
             >
               <NextLink href={`/chapters/${convertToSlug(location.city)}`}>
-                <NextImage
-                  src={renderIcon(location.locationType) as string}
-                  alt={location.locationType}
-                  className="rounded-full"
-                  width={20}
-                  height={20}
-                />
+                <div className={markerWrapClass}>
+                  <span className="text-sm leading-none" aria-label="Local Chapter">
+                    📍
+                  </span>
+                </div>
               </NextLink>
             </Marker>
           ))}
