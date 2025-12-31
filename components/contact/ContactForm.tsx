@@ -10,7 +10,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { FaCheckCircle as Check } from "react-icons/fa";
 
 // Types
-import type { ReactNode } from "react";
 import type { ContactFormFields } from "@/lib/types";
 
 // Utilities
@@ -51,7 +50,7 @@ const ContactForm = () => {
       const userId = process.env.NEXT_PUBLIC_EMAIL_USER_ID;
       const serviceId = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID;
 
-      // emailjs.send(serviceId as string, templateId as string, form, userId);
+      emailjs.send(serviceId as string, templateId as string, form, userId);
       completeSend();
     }, 1000);
   };

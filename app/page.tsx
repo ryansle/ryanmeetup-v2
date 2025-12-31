@@ -7,9 +7,11 @@ import {
   FaCity as City, 
   FaUserGroup as Group,
   FaFlag as Flag,
+  FaCommentDollar as Dollar
 } from "react-icons/fa6";
 import { BiParty as Party } from "react-icons/bi";
-
+import { Button } from "@/components/global";
+import { GoSponsorTiers as SponsorIcon } from "react-icons/go";
 
 // Types
 import type {
@@ -82,6 +84,28 @@ const HomePage = async () => {
       </div>
 
       <SponsorCarousel sponsors={sponsors} />
+      <div className="flex flex-col items-center justify-center gap-3 sm:flex-row px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px] mt-12">
+        <Button.Link 
+          href="/sponsors" 
+          variant="secondary" 
+          size="sm" 
+          className="w-full" 
+          newTab={false}
+          leftIcon={<SponsorIcon className="w-4 h-4"/>}
+        >
+          View all sponsors
+        </Button.Link>
+        <Button.Link 
+          href="/contact" 
+          variant="primary" 
+          size="sm" 
+          className="w-full"
+          newTab={false}
+          leftIcon={<Dollar className="w-4 h-4"/>}
+        >
+          Become a sponsor
+        </Button.Link>
+      </div>
 
       <div className="px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
         <Divider margins="xl" />

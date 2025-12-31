@@ -20,7 +20,7 @@ import type { ReactNode } from "react";
 
 const Info = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 xl:space-y-8">
       <div className="space-y-2">
         <Heading
           className="text-5xl title"

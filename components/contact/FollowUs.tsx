@@ -11,6 +11,8 @@ import { FaThreads as Threads } from "react-icons/fa6";
 import { HiOutlineMail as Email } from "react-icons/hi";
 import { Divider, Text, Button } from "@/components/global";
 import { FaRegNewspaper as News } from "react-icons/fa";
+import { PiLetterCirclePBold as Party } from "react-icons/pi";
+
 import NextLink from "next/link";
 
 // Utilities
@@ -30,7 +32,9 @@ const FollowUs = () => {
       case "Threads":
         return <Threads className={iconStyle} />;
       case "WhatsApp":
-        return <Whatsapp className={iconStyle} />;
+        return <Whatsapp className={iconStyle} />;    
+      case "Partiful":
+        return <Party className={iconStyle} />;
       default:
         return;
     }
@@ -48,6 +52,8 @@ const FollowUs = () => {
         return "Follow";
       case "WhatsApp":
         return "Join the conversation";
+      case "Partiful":
+        return "Follow"
       default:
         return;
     }
@@ -72,15 +78,6 @@ const FollowUs = () => {
       </div>
 
       <Divider />
-
-      <NextLink
-        href="mailto:ryan@ryanmeetup.com"
-        className="flex space-x-4 timing hover:scale-102 mb-8"
-      >
-        <Email className="h-8 w-8" />
-
-        <Text className="text-lg secondary">ryan@ryanmeetup.com</Text>
-      </NextLink>
 
       <Button.Link
         href="/newsletter"

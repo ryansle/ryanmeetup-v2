@@ -97,8 +97,9 @@ const AwardsPage = async () => {
             Honoring the Ryans who traveled the farthest, earned top titles, and
             showed up again and again.
           </Text>
+          <div id="farthest" />
         </section>
-
+        
         <div className="fixed bottom-4 right-1 z-50 flex flex-col gap-3 lg:right-24 lg:bottom-8">
           {anchors.map((anchor) => (
             <div key={anchor.href} className="relative group">
@@ -114,21 +115,20 @@ const AwardsPage = async () => {
 
         <Divider />
 
-        <div id="farthest" />
         <section className="space-y-6">
           <Heading className="text-center text-3xl title sm:text-4xl">
             Farthest Traveling Ryans
-          </Heading>
+          </Heading>          
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {farthest?.map((ryan, index) => (
               <FarthestRyan key={index} ryan={ryan as unknown as TravelingRyan} />
             ))}
           </div>
+          <div id="champions" />
         </section>
 
         <Divider margins="xl" />
-
-        <div id="champions" />
+        
         <section className="space-y-6">
           <div className="space-y-2 text-center">
             <Heading className="text-3xl title sm:text-4xl">
@@ -144,11 +144,11 @@ const AwardsPage = async () => {
               <Champion key={index} ryan={ryan as unknown as ChampionRyan} />
             ))}
           </div>
+          <div id="leaderboard" />
         </section>
 
         <Divider margins="xl" />
-
-        <div id="leaderboard" />
+        
         <section className="space-y-6">
           <Leaderboard ryans={repeats as RepeatRyan[]} />
         </section>

@@ -13,7 +13,7 @@ const TestimonyContainer = (props: TestimonyContainerProps) => {
   const { testimonies } = props;
 
   return (
-    <section className="relative overflow-hidden p-6">
+    <section className="relative overflow-hidden xl:p-6">
       <div className="relative">
         <div className="mx-auto mb-8 text-center">
           <Heading className="text-4xl title" size="h4">

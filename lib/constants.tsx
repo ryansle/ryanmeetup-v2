@@ -8,7 +8,6 @@ import {
   FaRegNewspaper as News,
   FaMapMarkedAlt as Map,
   FaDollarSign as Dollar,
-  FaWhatsapp as Whatsapp,
   FaScroll as Scroll,
   FaTiktok as TikTok,
   FaAddressCard as Card,
@@ -28,7 +27,7 @@ import { RiFilePaper2Line as Flyer } from "react-icons/ri";
 import { HiOutlineMail as Email } from "react-icons/hi";
 import { MdGroup as Group } from "react-icons/md";
 import { GoSponsorTiers as Sponsor } from "react-icons/go";
-import { text } from "stream/consumers";
+import { PiLetterCirclePBold as Party } from "react-icons/pi";
 
 export const socials = [
   {
@@ -36,11 +35,11 @@ export const socials = [
     icon: <Instagram className="title" />,
     text: "Instagram",
   },
-  // {
-  //   href: 'https://partiful.com/u/sJG4HpH0wS3ZA3YkzaL5',
-  //   icon: <NextImage src='/icons/partiful-black.png' alt='Partiful Icon' width={16} height={16} />,
-  //   text: 'Partiful',
-  // },
+  {
+    href: 'https://partiful.com/u/sJG4HpH0wS3ZA3YkzaL5',
+    icon: <Party className="title" />,
+    text: 'Partiful',
+  },
   {
     href: "https://www.youtube.com/@ryanmeetup",
     icon: <YouTube className="title" />,

@@ -69,7 +69,7 @@ const GalleryPage = async () => {
 
       <Card variant="soft" size="sm" className="mt-10">
         <div className="flex items-start gap-4">
-          <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/80 dark:border-white/15 dark:bg-white/10">
+          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 bg-white/80 dark:border-white/15 dark:bg-white/10">
             <Question className="h-5 w-5 fill-yellow-500" />
           </div>
           <div>

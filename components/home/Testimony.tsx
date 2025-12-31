@@ -24,7 +24,7 @@ const Testimony = (props: TestimonyProps) => {
         </Text>
         <div className="flex items-center justify-end">
           <Text className="text-sm font-semibold text-black dark:text-white">
-            Ryan from {location}
+            — Ryan from {location}
           </Text>
         </div>
       </div>
