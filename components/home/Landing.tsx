@@ -84,6 +84,7 @@ type StatItem = {
   value: string;
   label: string;
   icon: ReactNode;
+  href: string;
 };
 
 type LandingProps = {
@@ -96,7 +97,7 @@ const Overview = (props: { stats: StatItem[] }) => {
   return (
     <div>
       <Heading className="text-3xl title" size="h2">
-        Built by Ryans
+        RYAN MEETUP
       </Heading>
       <Text className="mt-2 text-sm uppercase tracking-widest text-black/60 dark:text-white/60">
         What this community has grown into
@@ -104,20 +105,23 @@ const Overview = (props: { stats: StatItem[] }) => {
 
       <div className="grid grid-cols-2 gap-3 pt-4 text-center sm:text-left">
         {stats.map((stat) => (
-          <div
+          <NextLink
             key={stat.label}
-            className="rounded-2xl border border-black/10 bg-white/80 px-3 py-4 shadow-sm dark:border-white/10 dark:bg-white/5 flex items-center gap-4"
+            href={stat.href}
+            className="rounded-2xl border border-black/10 bg-white/80 px-3 py-4 shadow-sm dark:border-white/10 dark:bg-white/5 flex flex-col items-start gap-3 transition hover:-translate-y-1 hover:shadow-lg hover:bg-black/5 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 dark:focus-visible:ring-white/40"
           >
-            <div className="flex h-12 w-12 xl:h-16 xl:w-16 items-center justify-center rounded-2xl border border-black/10 bg-black/5 text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/80">
-              <span className="text-4xl">{stat.icon}</span>
+            <div className="flex w-full items-center gap-3 sm:w-auto">
+              <div className="flex h-12 w-12 md:h-10 md:w-10 lg:w-8 lg:h-8 xl:h-16 xl:w-16 shrink-0 items-center justify-center rounded-2xl border border-black/10 bg-black/5 text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/80">
+                <span className="text-4xl">{stat.icon}</span>
+              </div>
+              <Heading className="text-2xl md:text-3xl xl:text-4xl font-cooper">
+                {stat.value}
+              </Heading>
             </div>
-            <div className="space-y-1 text-left">
-              <Heading className="text-4xl font-cooper">{stat.value}</Heading>
-              <Text className="text-xs xl:text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
-                {stat.label}
-              </Text>
-            </div>
-          </div>
+            <Text className="w-full text-left text-xs sm:w-auto md:text-sm lg:text-[10px] xl:text-sm uppercase tracking-[0.12em] sm:tracking-[0.2em] whitespace-nowrap text-black/60 dark:text-white/60">
+              {stat.label}
+            </Text>
+          </NextLink>
         ))}
       </div>
     </div>

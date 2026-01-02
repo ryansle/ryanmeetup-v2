@@ -4,10 +4,10 @@ import { Landing, FAQ, TestimonyContainer } from "@/components/home";
 import { Divider, Heading } from "@/components/global";
 import { SponsorCarousel } from "@/components/sponsors";
 import { 
-  FaCity as City, 
   FaUserGroup as Group,
-  FaFlag as Flag,
-  FaCommentDollar as Dollar
+  FaCommentDollar as Dollar,
+  FaRegNewspaper as Press,
+  FaHandHoldingHeart as Heart
 } from "react-icons/fa6";
 import { BiParty as Party } from "react-icons/bi";
 import { Button } from "@/components/global";
@@ -16,11 +16,11 @@ import { GoSponsorTiers as SponsorIcon } from "react-icons/go";
 // Types
 import type {
   FrequentlyAskedQuestion,
-  Location,
   RyanChapter,
   RyanEvent,
   Sponsor,
   Testimonial,
+  Charity,
 } from "@/lib/types";
 
 // Utilities
@@ -30,9 +30,10 @@ import {
   fetchTestimonies,
   fetchChapters,
   fetchEvents,
-  fetchLocations,
+  fetchArticles,
+  fetchDonations,
 } from "@/actions/fetchContent";
-import { formatCount, getLocationStats } from "@/utils/stats";
+import { formatCount } from "@/utils/stats";
 
 const HomePage = async () => {
   const faqs = (await fetchFAQs()) as FrequentlyAskedQuestion[];
@@ -40,33 +41,54 @@ const HomePage = async () => {
   const testimonies = (await fetchTestimonies()) as Testimonial[];
   const chapters = (await fetchChapters()) as (RyanChapter & { active?: boolean })[];
   const events = (await fetchEvents()) as RyanEvent[];
-  const locations = (await fetchLocations()) as unknown as Location[];
+  const articles = await fetchArticles();
+  const donations = (await fetchDonations()) as Charity[];
 
   const homeFaqs = faqs.filter((faq) => faq.type === "home");
   const activeChapters = chapters.filter((chapter) => chapter.active);
 
-  const { cityCount, countryCount } = getLocationStats(locations);
+  const totalRaised = donations.reduce((sum, item) => {
+    const amount = parseFloat(item.amount.replace(/[^0-9.-]+/g, ""));
+    return sum + amount;
+  }, 0);
+
+  const formatDollars = (value: number) => {
+    if (value >= 1000) {
+      return `$${Math.floor(value / 1000)}k+`;
+    }
+    if (value >= 100) {
+      return `$${Math.floor(value / 10) * 10}+`;
+    }
+    if (value >= 20) {
+      return `$${Math.floor(value / 5) * 5}+`;
+    }
+    return `$${Math.floor(value)}+`;
+  };
 
   const stats = [
     { 
       value: formatCount(activeChapters.length), 
-      label: "Chapters",
-      icon: <Group className="w-4 h-4 xl:w-8 xl:h-8" />
-    },
-    { 
-      value: formatCount(cityCount), 
-      label: "Cities",
-      icon: <City className="w-4 h-4 xl:w-8 xl:h-8" />
-    },
-    { 
-      value: formatCount(countryCount), 
-      label: "Countries",
-      icon: <Flag className="w-4 h-4 xl:w-8 xl:h-8" />
+      label: "Active chapters",
+      icon: <Group className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
+      href: "/chapters",
     },
     { 
       value: formatCount(events.length), 
       label: "Events hosted",
-      icon: <Party className="w-4 h-4 xl:w-8 xl:h-8" />
+      icon: <Party className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
+      href: "/events",
+    },
+    { 
+      value: formatCount(articles.length), 
+      label: "Press features",
+      icon: <Press className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
+      href: "/press",
+    },
+    { 
+      value: formatDollars(totalRaised),
+      label: "Raised for charity",
+      icon: <Heart className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
+      href: "/charity",
     },
   ];
 
