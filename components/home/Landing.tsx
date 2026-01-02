@@ -5,6 +5,7 @@ import NextImage from "next/image";
 import NextLink from "next/link";
 import { Heading, Divider, Text, Card, Button } from "@/components/global";
 import { Transition } from "@headlessui/react";
+import { gallery } from "@/lib/constants";
 import {
   FaArrowRight as ArrowRight,
   FaRegNewspaper as Newsletter,
@@ -16,6 +17,7 @@ import {
 } from "react-icons/md";
 
 // Types
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
 const Info = () => {
@@ -124,6 +126,7 @@ const Overview = (props: { stats: StatItem[] }) => {
 
 const Landing = (props: LandingProps) => {
   const { stats } = props;
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const highlights = [
     {
@@ -149,6 +152,53 @@ const Landing = (props: LandingProps) => {
     },
   ];
 
+  const slides = gallery.map((photo) => ({
+    src: photo.imageUrl,
+    alt: photo.title,
+  }));
+
+  const animationVariants = {
+    flip: {
+      enter: "transition duration-700 ease-out",
+      enterFrom: "opacity-0 [transform:rotateY(-90deg)]",
+      enterTo: "opacity-100 [transform:rotateY(0deg)]",
+      leave: "transition duration-700 ease-in",
+      leaveFrom: "opacity-100 [transform:rotateY(0deg)]",
+      leaveTo: "opacity-0 [transform:rotateY(90deg)]",
+    },
+    slide: {
+      enter: "transition duration-700 ease-out",
+      enterFrom: "opacity-0 translate-x-10",
+      enterTo: "opacity-100 translate-x-0",
+      leave: "transition duration-700 ease-in",
+      leaveFrom: "opacity-100 translate-x-0",
+      leaveTo: "opacity-0 -translate-x-10",
+    },
+    zoom: {
+      enter: "transition duration-700 ease-out",
+      enterFrom: "opacity-0 scale-95",
+      enterTo: "opacity-100 scale-100",
+      leave: "transition duration-700 ease-in",
+      leaveFrom: "opacity-100 scale-100",
+      leaveTo: "opacity-0 scale-105",
+    },
+  };
+
+  const animationStyle = animationVariants.slide;
+  const prevIndex = (activeSlide - 1 + slides.length) % slides.length;
+  const nextIndex = (activeSlide + 1) % slides.length;
+  const handleDotClick = (index: number) => {
+    setActiveSlide(index);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   return (
     <section className="relative overflow-hidden text-black dark:text-white">
       <div className="relative flex flex-col gap-8 lg:gap-16 lg:grid lg:grid-cols-2 lg:items-center">
@@ -160,27 +210,66 @@ const Landing = (props: LandingProps) => {
         </div>
 
         <div className="order-1 flex flex-col space-y-6 lg:order-2">
-          <Transition
-            appear={true}
-            show={true}
-            enter="transition-opacity ease-linear duration-1000"
-            enterFrom="opacity-0 translate-y-4"
-            enterTo="opacity-100 translate-y-0"
-          >
-            <div className="relative h-60 overflow-hidden rounded-3xl border border-black/10 shadow-2xl sm:h-80 lg:h-[360px] dark:border-white/10">
+          <div className="relative h-60 overflow-hidden rounded-3xl border border-black/10 shadow-2xl sm:h-80 lg:h-[360px] dark:border-white/10 [perspective:1200px]">
+            <div className="pointer-events-none absolute inset-y-6 left-2 z-0 w-16 -translate-x-1 overflow-hidden rounded-2xl border border-white/20 bg-black/10 opacity-60 shadow-lg sm:inset-y-8 sm:left-3 sm:w-20 sm:-translate-x-2">
               <NextImage
-                className="rounded-3xl"
-                src="/rockies.jpg"
+                className="h-full w-full object-cover"
+                src={slides[prevIndex].src}
                 fill
-                alt="Ryan @ Rockies, June 2025"
-                style={{ objectFit: "cover" }}
+                alt={slides[prevIndex].alt}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute right-4 top-4 rounded-full border border-white/30 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-white">
-                Established 2023
-              </div>
             </div>
-          </Transition>
+            <div className="pointer-events-none absolute inset-y-6 right-2 z-0 w-16 translate-x-1 overflow-hidden rounded-2xl border border-white/20 bg-black/10 opacity-60 shadow-lg sm:inset-y-8 sm:right-3 sm:w-20 sm:translate-x-2">
+              <NextImage
+                className="h-full w-full object-cover"
+                src={slides[nextIndex].src}
+                fill
+                alt={slides[nextIndex].alt}
+              />
+            </div>
+            {slides.map((slide, index) => (
+              <Transition
+                key={slide.src}
+                appear={true}
+                show={activeSlide === index}
+                enter={animationStyle.enter}
+                enterFrom={animationStyle.enterFrom}
+                enterTo={animationStyle.enterTo}
+                leave={animationStyle.leave}
+                leaveFrom={animationStyle.leaveFrom}
+                leaveTo={animationStyle.leaveTo}
+              >
+                <div className="absolute inset-0 z-10 [transform-style:preserve-3d] [backface-visibility:hidden]">
+                  <NextImage
+                    className="rounded-3xl"
+                    src={slide.src}
+                    fill
+                    alt={slide.alt}
+                    style={{ objectFit: "cover" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                </div>
+              </Transition>
+            ))}
+            <div className="absolute right-4 top-4 rounded-full border border-white/30 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-white">
+              Established 2023
+            </div>
+            <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full border border-white/20 bg-black/50 px-3 py-2 backdrop-blur">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.src}
+                  type="button"
+                  onClick={() => handleDotClick(index)}
+                  aria-label={`Show slide ${index + 1}`}
+                  className={`h-2 w-2 rounded-full transition ${
+                    activeSlide === index
+                      ? "bg-white"
+                      : "bg-white/40 hover:bg-white/70"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
 
           <div className="hidden gap-4 lg:grid">
             {highlights.map((item, index) => (
