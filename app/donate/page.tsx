@@ -216,7 +216,7 @@ const DonatePage = async () => {
               2 options
             </Text>
           </div>
-          <div className="grid gap-4 grid-cols-2 lg:grid-cols-1">
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-1">
             <DonateOptionCard
               method="Zelle"
               value="theryanmeetup@gmail.com"
