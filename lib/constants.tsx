@@ -209,4 +209,67 @@ export const gallery = [
     imageUrl: "/group-photos/gameshow.jpg",
     title: "Ryan's Game Show, January 2025",
   },
+  {
+    imageUrl: "/group-photos/stryan2.jpg",
+    title: "St. Ryans Day II, March 2025",
+  },
+  {
+    imageUrl: "/rockies.jpg",
+    title: "Ryans @ Rockies, June 2025",
+  },
+  {
+    imageUrl: "/group-photos/summit.jpg",
+    title: "Ryan Summit, June 2025",
+  },
+  {
+    imageUrl: "/group-photos/rytober.jpg",
+    title: "Rytoberfest II, September 2025",
+  },
+  {
+    imageUrl: "/serhant.jpg",
+    title: "Ryans Own Manhattan, December 2025",
+  },
+];
+
+export const landingGallery = [
+  {
+    imageUrl: "/rockies.jpg",
+    title: "Ryan at the Rockies, June 2025",
+  },
+  {
+    imageUrl: "/group-photos/ryanroundup.png",
+    title: "Ryan Roundup, March 2023",
+  },
+  {
+    imageUrl: "/group-photos/rave.webp",
+    title: "Ryan Rave, September 2023",
+  },
+  {
+    imageUrl: "/serhant.jpg",
+    title: "Ryans Own Manhattan, December 2025",
+  },
+  {
+    imageUrl: "/group-photos/comedy.jpeg",
+    title: "Last Ryan Standing, January 2025",
+  },
+  {
+    imageUrl: "/group-photos/gameshow.jpg",
+    title: "Ryan's Game Show, January 2025",
+  },
+  {
+    imageUrl: "/group-photos/stryan.webp",
+    title: "St. Ryan's Day, March 2024",
+  },
+  {
+    imageUrl: "/group-photos/deadpoolgroup.webp",
+    title: "150 Deadpools & Wolverine, July 2024",
+  },
+  {
+    imageUrl: "/group-photos/royale.jpg",
+    title: "Ryan Royale, September 2024",
+  },
+  {
+    imageUrl: "/group-photos/rytober.jpg",
+    title: "Rytoberfest II, September 2025",
+  },
 ];

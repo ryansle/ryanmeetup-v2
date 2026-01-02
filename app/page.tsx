@@ -4,12 +4,11 @@ import { Landing, FAQ, TestimonyContainer } from "@/components/home";
 import { Divider, Heading } from "@/components/global";
 import { SponsorCarousel } from "@/components/sponsors";
 import { 
-  FaUserGroup as Group,
   FaCommentDollar as Dollar,
   FaRegNewspaper as Press,
-  FaHandHoldingHeart as Heart
 } from "react-icons/fa6";
 import { BiParty as Party } from "react-icons/bi";
+import { MdGroups as Community, MdVolunteerActivism as Heart } from "react-icons/md";
 import { Button } from "@/components/global";
 import { GoSponsorTiers as SponsorIcon } from "react-icons/go";
 
@@ -69,7 +68,7 @@ const HomePage = async () => {
     { 
       value: formatCount(activeChapters.length), 
       label: "Active chapters",
-      icon: <Group className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
+      icon: <Community className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
       href: "/chapters",
     },
     { 

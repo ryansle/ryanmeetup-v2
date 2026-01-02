@@ -5,16 +5,16 @@ import NextImage from "next/image";
 import NextLink from "next/link";
 import { Heading, Divider, Text, Card, Button } from "@/components/global";
 import { Transition } from "@headlessui/react";
-import { gallery } from "@/lib/constants";
+import { landingGallery } from "@/lib/constants";
 import {
   FaArrowRight as ArrowRight,
+  FaChevronLeft as ChevronLeft,
+  FaChevronRight as ChevronRight,
   FaRegNewspaper as Newsletter,
+  FaShirt as Shirt,
 } from "react-icons/fa6";
-import {
-  MdOutlineEvent as Event,
-  MdGroups as Community,
-  MdVolunteerActivism as Heart,
-} from "react-icons/md";
+import { MdGroups as Community } from "react-icons/md";
+import { BiParty as Party } from "react-icons/bi";
 
 // Types
 import { useEffect, useState } from "react";
@@ -128,13 +128,109 @@ const Overview = (props: { stats: StatItem[] }) => {
   );
 };
 
+type HighlightsProps = {
+  highlights: {
+    icon: ReactNode;
+    title: string;
+    body: string;
+    href: string;
+    cta: string;
+  }[];
+}
+
+const Highlights = (props: HighlightsProps) => {
+  const { highlights } = props;
+  const [isLarge, setIsLarge] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    const handleChange = (event: MediaQueryListEvent | MediaQueryList) => {
+      setIsLarge(event.matches);
+    };
+
+    handleChange(mediaQuery);
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleChange);
+    } else {
+      mediaQuery.addListener(handleChange);
+    }
+
+    return () => {
+      if (typeof mediaQuery.removeEventListener === "function") {
+        mediaQuery.removeEventListener("change", handleChange);
+      } else {
+        mediaQuery.removeListener(handleChange);
+      }
+    };
+  }, []);
+
+  if (!isLarge) {
+    return null;
+  }
+
+  return (
+    <div className="grid gap-4">
+      {highlights.map((item, index) => (
+        <Transition
+          key={item.title}
+          appear={true}
+          show={isLarge}
+          enter="transition duration-700 ease-out"
+          enterFrom="opacity-0 translate-y-6"
+          enterTo="opacity-100 translate-y-0"
+        >
+          <Card
+            variant="soft"
+            size="sm"
+            hover
+            className={`flex flex-col gap-3 ${
+              index === 0
+                ? "delay-100"
+                : index === 1
+                  ? "delay-200"
+                  : "delay-300"
+            }`}
+          >
+            <div className="flex items-center justify-between gap-3 text-sm xl:text-base font-semibold uppercase tracking-wider">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
+                {item.icon}
+              </span>
+              <span className="flex-1">{item.title}</span>
+              <NextLink
+                href={item.href}
+                className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white"
+              >
+                {item.cta}
+                <ArrowRight className="h-3 w-3" />
+              </NextLink>
+            </div>
+            <Text className="text-base text-black/70 dark:text-white/70">
+              {item.body}
+            </Text>
+            <div className="flex justify-end xl:hidden">
+              <NextLink
+                href={item.href}
+                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white"
+              >
+                {item.cta}
+                <ArrowRight className="h-3 w-3" />
+              </NextLink>
+            </div>
+          </Card>
+        </Transition>
+      ))}
+    </div>
+  );
+}
+
 const Landing = (props: LandingProps) => {
   const { stats } = props;
   const [activeSlide, setActiveSlide] = useState(0);
 
   const highlights = [
     {
-      icon: <Event className="h-5 w-5" />,
+      icon: <Party className="h-5 w-5" />,
       title: "Ryan Meetup Events",
       body: "Don\'t miss the chance to attend the only party where everyone knows your name.",
       href: "/events",
@@ -148,7 +244,7 @@ const Landing = (props: LandingProps) => {
       cta: "Find a chapter",
     },
     {
-      icon: <Heart className="h-5 w-5" />,
+      icon: <Shirt className="h-5 w-5" />,
       title: "Support With Merch",
       body: "Grab official Ryan Meetup gear and help power our next gatherings.",
       href: "/merch",
@@ -156,7 +252,7 @@ const Landing = (props: LandingProps) => {
     },
   ];
 
-  const slides = gallery.map((photo) => ({
+  const slides = landingGallery.map((photo) => ({
     src: photo.imageUrl,
     alt: photo.title,
   }));
@@ -194,6 +290,16 @@ const Landing = (props: LandingProps) => {
   const handleDotClick = (index: number) => {
     setActiveSlide(index);
   };
+  const handlePrevSlide = () => {
+    setActiveSlide((current) => (current - 1 + slides.length) % slides.length);
+  };
+  const handleNextSlide = () => {
+    setActiveSlide((current) => (current + 1) % slides.length);
+  };
+
+  useEffect(() => {
+    setActiveSlide(0);
+  }, [slides.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -258,6 +364,22 @@ const Landing = (props: LandingProps) => {
             <div className="absolute right-4 top-4 rounded-full border border-white/30 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-white">
               Established 2023
             </div>
+            <button
+              type="button"
+              onClick={handlePrevSlide}
+              aria-label="Show previous photo"
+              className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/60 text-white shadow-lg backdrop-blur transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={handleNextSlide}
+              aria-label="Show next photo"
+              className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/60 text-white shadow-lg backdrop-blur transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </button>
             <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full border border-white/20 bg-black/50 px-3 py-2 backdrop-blur">
               {slides.map((slide, index) => (
                 <button
@@ -275,50 +397,7 @@ const Landing = (props: LandingProps) => {
             </div>
           </div>
 
-          <div className="hidden gap-4 lg:grid">
-            {highlights.map((item, index) => (
-              <Transition
-                key={item.title}
-                appear={true}
-                show={true}
-                enter="transition duration-700 ease-out"
-                enterFrom="opacity-0 translate-y-6"
-                enterTo="opacity-100 translate-y-0"
-              >
-                <Card
-                  variant="soft"
-                  size="sm"
-                  hover
-                  className={`flex flex-col gap-3 ${
-                    index === 0
-                      ? "delay-100"
-                      : index === 1
-                        ? "delay-200"
-                        : "delay-300"
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3 text-base font-semibold uppercase tracking-wider">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-black text-white dark:border-white/10 dark:bg-white dark:text-black">
-                        {item.icon}
-                      </span>
-                      {item.title}
-                    </div>
-                    <NextLink
-                      href={item.href}
-                      className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white"
-                    >
-                      {item.cta}
-                      <ArrowRight className="h-3 w-3" />
-                    </NextLink>
-                  </div>
-                  <Text className="text-base text-black/70 dark:text-white/70">
-                    {item.body}
-                  </Text>
-                </Card>
-              </Transition>
-            ))}
-          </div>
+          <Highlights highlights={highlights} />
         </div>
       </div>
     </section>
