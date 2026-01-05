@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
 // Types
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, ReactNode } from "react";
 
 type InputProps = {
   label: string;
@@ -12,6 +12,8 @@ type InputProps = {
   required?: boolean;
   ignoreColorMode?: boolean;
   value?: string;
+  leadingIcon?: ReactNode;
+  inputClassName?: string;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -24,8 +26,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       placeholder,
       required = false,
       ignoreColorMode = false,
+      leadingIcon,
+      inputClassName,
       ...rest
     } = props;
+
+    const iconPadding = leadingIcon ? "pl-10" : "";
 
     return (
       <div className="flex flex-col gap-2">
@@ -38,17 +44,24 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <span>{label}</span>
           {required && <span className="shrink-0 text-red-500">*</span>}
         </label>
-        <input
-          className="w-full rounded-lg border border-black/20 bg-white px-4 py-2.5 text-sm text-black shadow-sm transition placeholder:text-black/50 focus:border-black/40 focus:outline-none focus:ring-2 focus:ring-black/20 dark:border-white/20 dark:bg-white/10 dark:text-white dark:placeholder:text-white/50 dark:focus:border-white/50 dark:focus:ring-white/20"
-          id={name}
-          name={name}
-          placeholder={placeholder}
-          onChange={onChange}
-          required={required}
-          type={type}
-          ref={ref}
-          {...rest}
-        />
+        <div className="relative">
+          {leadingIcon && (
+            <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-black/50 dark:text-white/50">
+              {leadingIcon}
+            </span>
+          )}
+          <input
+            className={`w-full rounded-lg border border-black/20 bg-white px-4 py-2.5 text-sm text-black shadow-sm transition placeholder:text-black/50 focus:border-black/40 focus:outline-none focus:ring-2 focus:ring-black/20 dark:border-white/20 dark:bg-white/10 dark:text-white dark:placeholder:text-white/50 dark:focus:border-white/50 dark:focus:ring-white/20 ${iconPadding} ${inputClassName ?? ""}`}
+            id={name}
+            name={name}
+            placeholder={placeholder}
+            onChange={onChange}
+            required={required}
+            type={type}
+            ref={ref}
+            {...rest}
+          />
+        </div>
       </div>
     );
   },

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { Input, Text } from "@/components/global";
+import { FaMagnifyingGlass as Search } from "react-icons/fa6";
 import { ChapterTile } from "@/components/chapters";
 import type { RyanChapter } from "@/lib/types";
 
@@ -88,6 +89,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
             label="Search chapters"
             name="chapter-search"
             placeholder="Search by city or state..."
+            leadingIcon={<Search className="h-4 w-4" />}
             onChange={(event) => {
               const value = event.target.value;
               startTransition(() => {
