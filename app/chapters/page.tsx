@@ -2,7 +2,7 @@
 import { Layout } from "@/components/navigation";
 import { Heading, Divider, Text, Pill } from "@/components/global";
 import { FAQ } from "@/components/home";
-import { ChapterTile, CalendarButton } from "@/components/chapters";
+import { ChapterDirectory, CalendarButton } from "@/components/chapters";
 
 // Types
 import type { FrequentlyAskedQuestion, RyanChapter } from "@/lib/types";
@@ -97,15 +97,10 @@ const ChaptersPage = async ({
           closer to home.
         </Text>
 
-        <div className="grid grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-3 xl:grid-cols-4">
-          {activeChapters?.map((chapter, index) => (
-            <ChapterTile
-              key={index}
-              chapter={chapter as unknown as RyanChapter}
-              showBanner={upcomingEvents.has(chapter.city)}
-            />
-          ))}
-        </div>
+        <ChapterDirectory
+          chapters={activeChapters as RyanChapter[]}
+          upcomingCities={[...upcomingEvents]}
+        />
 
         <CalendarButton />
       </div>

@@ -11,6 +11,7 @@ type InputProps = {
   placeholder?: string;
   required?: boolean;
   ignoreColorMode?: boolean;
+  value?: string;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
