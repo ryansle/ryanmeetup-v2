@@ -1,13 +1,10 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider, Pill, Card } from "@/components/global";
-import NextImage from "next/image";
+import { Text, Divider, HeroCard } from "@/components/global";
+import { Moments } from "@/components/about";
 
 // Types
 import type { Metadata } from "next";
-
-// Utilities
-import { gallery } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Ryan Meetup - About",
@@ -50,53 +47,18 @@ const AboutPage = () => {
   return (
     <Layout>
       <div className="xl:px-20 space-y-12">
-        <section className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/80 p-6 shadow-[0_30px_60px_-40px_rgba(0,0,0,0.6)] dark:border-white/10 dark:bg-white/5 lg:p-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.08),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_60%)]" />
-          <div className="absolute -top-24 right-10 hidden h-64 w-64 rounded-full border border-black/10 bg-white/60 blur-3xl dark:border-white/10 dark:bg-white/10 lg:block" />
-          <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div className="space-y-6">
-              <Pill className="px-3 py-1 text-xs dark:border-white/15 dark:bg-white/5">
-                How it all started
-              </Pill>
-              <Heading className="text-4xl title sm:text-5xl" size="h1">
-                About Ryan Meetup
-              </Heading>
-              <Text className="text-lg text-black/70 dark:text-white/70">
-                A community built by Ryans, for Ryans, with a mission to unite
-                the most Ryans in one place and make history together.
-              </Text>
-              <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
-                <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 dark:border-white/15 dark:bg-white/5">
-                  Founded 2023
-                </span>
-                <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 dark:border-white/15 dark:bg-white/5">
-                  Brooklyn, NY
-                </span>
-                <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 dark:border-white/15 dark:bg-white/5">
-                  Not-for-profit
-                </span>
-              </div>
-            </div>
-            <div className="relative h-56 overflow-hidden rounded-3xl border border-black/10 shadow-2xl sm:h-80 lg:h-[360px] dark:border-white/10">
-              <NextImage
-                className="rounded-3xl"
-                fill
-                src="/ryankickoff.png"
-                alt="The first Ryan Meetup"
-                style={{ objectFit: "cover" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute bottom-5 left-5 space-y-1">
-                <Text className="text-xs uppercase tracking-[0.25em] text-white/70">
-                  First meetup
-                </Text>
-                <Text className="text-xl font-cooper text-white">
-                  Ryan Kickoff 2023
-                </Text>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HeroCard
+          eyebrow="How it all started"
+          title="About Ryan Meetup"
+          description="A community built by Ryans, for Ryans, with a mission to unite the most Ryans in one place and make history together."
+          badges={["Founded 2023", "Brooklyn, NY", "Not-for-profit"]}
+          image={{
+            src: "/ryankickoff.png",
+            alt: "The first Ryan Meetup",
+            eyebrow: "First meetup",
+            title: "Ryan Kickoff 2023",
+          }}
+        />
 
         <section className="space-y-6">
           {story.map((paragraph, index) => (
@@ -108,38 +70,7 @@ const AboutPage = () => {
 
         <Divider />
 
-        <section className="space-y-6">
-          <div className="text-center">
-            <Heading className="text-4xl title" size="h2">
-              Moments from the meetup
-            </Heading>
-            <Text className="mt-2 text-base text-black/70 dark:text-white/70">
-              A growing archive of Ryans showing up for each other.
-            </Text>
-          </div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {gallery.map((photo, index) => (
-              <Card key={index} variant="soft" size="sm" hover>
-                <div className="relative w-full max-h-[420px] aspect-w-3 aspect-h-2 overflow-hidden rounded-2xl">
-                  <NextImage
-                    src={photo.imageUrl}
-                    fill
-                    alt={photo.title}
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 640px) 100vw,
-                      (max-width: 768px) 100vw,
-                      (max-width: 1024px) 100vw,
-                      (max-width: 1280px) 100vw,
-                      (max-width: 1536px) 100vw"
-                  />
-                </div>
-                <Text className="text-center mt-3 text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
-                  {photo.title}
-                </Text>
-              </Card>
-            ))}
-          </div>
-        </section>
+        <Moments />
       </div>
     </Layout>
   );

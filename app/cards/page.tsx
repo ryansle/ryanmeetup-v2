@@ -35,9 +35,7 @@ export const metadata: Metadata = {
   },
 };
 
-const BuyCardsPageRedirect = () => {
-  // redirect('https://buy.stripe.com/3cIcN4fTP7BS0kzbXJ2kw0a');
-
+const BuyCardsPage = () => {
   return (
     <Layout fullscreen>
       <Backdrop imageSrc="/backdrop.png">
@@ -94,4 +92,4 @@ const BuyCardsPageRedirect = () => {
   );
 };
 
-export default BuyCardsPageRedirect;
+export default BuyCardsPage;

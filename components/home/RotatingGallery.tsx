@@ -1,13 +1,15 @@
 "use client";
 
 import NextImage from "next/image";
+import { useEffect, useState } from "react";
+import { Transition } from "@headlessui/react";
 import { Badge } from "@/components/global";
-import { useEffect, useRef, useState } from "react";
+import { FaChevronLeft as ChevronLeft, FaChevronRight as ChevronRight } from "react-icons/fa6";
 
 type GalleryItem = {
   src: string;
   alt: string;
-  subtitle?: string;
+  title?: string;
   city?: string;
 };
 
@@ -16,81 +18,142 @@ type RotatingGalleryProps = {
   intervalMs?: number;
 };
 
-const TRANSITION_MS = 900;
-
 const RotatingGallery = (props: RotatingGalleryProps) => {
-  const { items, intervalMs = 6500 } = props;
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const timeoutRef = useRef<number | null>(null);
+  const { items, intervalMs = 6000 } = props;
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const animationVariants = {
+    flip: {
+      enter: "transition duration-700 ease-out",
+      enterFrom: "opacity-0 [transform:rotateY(-90deg)]",
+      enterTo: "opacity-100 [transform:rotateY(0deg)]",
+      leave: "transition duration-700 ease-in",
+      leaveFrom: "opacity-100 [transform:rotateY(0deg)]",
+      leaveTo: "opacity-0 [transform:rotateY(90deg)]",
+    },
+    slide: {
+      enter: "transition duration-700 ease-out",
+      enterFrom: "opacity-0 translate-x-10",
+      enterTo: "opacity-100 translate-x-0",
+      leave: "transition duration-700 ease-in",
+      leaveFrom: "opacity-100 translate-x-0",
+      leaveTo: "opacity-0 -translate-x-10",
+    },
+    zoom: {
+      enter: "transition duration-700 ease-out",
+      enterFrom: "opacity-0 scale-95",
+      enterTo: "opacity-100 scale-100",
+      leave: "transition duration-700 ease-in",
+      leaveFrom: "opacity-100 scale-100",
+      leaveTo: "opacity-0 scale-105",
+    },
+  };
+
+  const animationStyle = animationVariants.slide;
+
+  useEffect(() => {
+    setActiveSlide(0);
+  }, [items.length]);
 
   useEffect(() => {
     if (items.length <= 1) {
-      return;
+      return undefined;
     }
 
-    const intervalId = window.setInterval(() => {
-      setIsTransitioning(true);
-      timeoutRef.current = window.setTimeout(() => {
-        setActiveIndex((current) => (current + 1) % items.length);
-        setIsTransitioning(false);
-      }, TRANSITION_MS);
+    const interval = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % items.length);
     }, intervalMs);
 
-    return () => {
-      window.clearInterval(intervalId);
-      if (timeoutRef.current) {
-        window.clearTimeout(timeoutRef.current);
-      }
-    };
+    return () => clearInterval(interval);
   }, [intervalMs, items.length]);
 
   if (items.length === 0) {
     return null;
   }
 
-  const prevIndex = (activeIndex - 1 + items.length) % items.length;
-  const nextIndex = (activeIndex + 1) % items.length;
-  const activeItem = items[activeIndex];
-  const nextItem = items[nextIndex];
-  const prevItem = items[prevIndex];
-  const badgeSubtitle = activeItem.subtitle;
-  const badgeCity = activeItem.city;
+  const prevIndex = (activeSlide - 1 + items.length) % items.length;
+  const nextIndex = (activeSlide + 1) % items.length;
 
   return (
-    <div className="relative h-60 overflow-visible sm:h-80 lg:h-[360px]">
-      {(badgeSubtitle || badgeCity) && (
-        <div className="pointer-events-none absolute right-6 top-6 z-30 flex flex-col items-end gap-2">
-          {badgeSubtitle && <Badge>{badgeSubtitle}</Badge>}
-          {badgeCity && <Badge>📍 {badgeCity} shit balls fuck</Badge>}
+    <div className="relative h-60 overflow-hidden rounded-3xl border border-black/10 shadow-2xl sm:h-80 lg:h-[360px] dark:border-white/10 [perspective:1200px]">
+      <div className="pointer-events-none absolute inset-y-6 left-2 z-0 w-16 -translate-x-1 overflow-hidden rounded-2xl border border-white/20 bg-black/10 opacity-60 shadow-lg sm:inset-y-8 sm:left-3 sm:w-20 sm:-translate-x-2">
+        <NextImage
+          className="h-full w-full object-cover"
+          src={items[prevIndex].src}
+          fill
+          alt={items[prevIndex].alt}
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-y-6 right-2 z-0 w-16 translate-x-1 overflow-hidden rounded-2xl border border-white/20 bg-black/10 opacity-60 shadow-lg sm:inset-y-8 sm:right-3 sm:w-20 sm:translate-x-2">
+        <NextImage
+          className="h-full w-full object-cover"
+          src={items[nextIndex].src}
+          fill
+          alt={items[nextIndex].alt}
+        />
+      </div>
+      {items.map((slide, index) => (
+        <Transition
+          key={slide.src}
+          appear={true}
+          show={activeSlide === index}
+          enter={animationStyle.enter}
+          enterFrom={animationStyle.enterFrom}
+          enterTo={animationStyle.enterTo}
+          leave={animationStyle.leave}
+          leaveFrom={animationStyle.leaveFrom}
+          leaveTo={animationStyle.leaveTo}
+        >
+          <div className="absolute inset-0 z-10 [transform-style:preserve-3d] [backface-visibility:hidden]">
+            <NextImage
+              className="rounded-3xl"
+              src={slide.src}
+              fill
+              alt={slide.alt}
+              style={{ objectFit: "cover" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+          </div>
+        </Transition>
+      ))}
+      {items[activeSlide]?.title && (
+        <div className="pointer-events-none absolute right-4 top-4 z-20">
+          <Badge>{items[activeSlide].title}</Badge>
         </div>
       )}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="absolute left-0 top-1/2 z-0 h-[82%] w-[78%] -translate-y-1/2 -translate-x-6 rotate-[-4deg] overflow-hidden rounded-3xl border border-black/10 shadow-xl dark:border-white/10">
-          <NextImage src={prevItem.src} alt={prevItem.alt} fill className="object-cover brightness-90" />
+      {items[activeSlide]?.city && (
+        <div className="pointer-events-none absolute left-4 top-4 z-20">
+          <Badge>📍 {items[activeSlide].city}</Badge>
         </div>
-
-        <div className="absolute right-0 top-1/2 z-0 h-[82%] w-[78%] -translate-y-1/2 translate-x-6 rotate-[4deg] overflow-hidden rounded-3xl border border-black/10 shadow-xl dark:border-white/10">
-          <NextImage src={nextItem.src} alt={nextItem.alt} fill className="object-cover brightness-90" />
-        </div>
-
-        <div
-          className="relative z-10 h-full w-[88%] overflow-hidden rounded-3xl border border-black/10 bg-black/5 shadow-2xl dark:border-white/10"
-        >
-          <div className="absolute inset-0">
-            <NextImage src={nextItem.src} alt={nextItem.alt} fill className="object-cover" />
-          </div>
-          <div
-            className={`absolute inset-0 transition-opacity ease-in-out [will-change:opacity] ${
-              isTransitioning ? "opacity-0" : "opacity-100"
+      )}
+      <button
+        type="button"
+        onClick={() => setActiveSlide((current) => (current - 1 + items.length) % items.length)}
+        aria-label="Show previous photo"
+        className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/60 text-white shadow-lg backdrop-blur transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+      >
+        <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        onClick={() => setActiveSlide((current) => (current + 1) % items.length)}
+        aria-label="Show next photo"
+        className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/60 text-white shadow-lg backdrop-blur transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+      >
+        <ChevronRight className="h-4 w-4" aria-hidden="true" />
+      </button>
+      <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full border border-white/20 bg-black/50 px-3 py-2 backdrop-blur">
+        {items.map((slide, index) => (
+          <button
+            key={slide.src}
+            type="button"
+            onClick={() => setActiveSlide(index)}
+            aria-label={`Show slide ${index + 1}`}
+            className={`h-2 w-2 rounded-full transition ${
+              activeSlide === index ? "bg-white" : "bg-white/40 hover:bg-white/70"
             }`}
-            style={{ transitionDuration: `${TRANSITION_MS}ms` }}
-          >
-            <NextImage src={activeItem.src} alt={activeItem.alt} fill className="object-cover" />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-        </div>
+          />
+        ))}
       </div>
     </div>
   );

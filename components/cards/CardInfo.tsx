@@ -2,9 +2,17 @@
 
 // Components
 import { Heading, Text, Button, Card, Pill } from "@/components/global";
+import NextImage from "next/image";
 import { FaDollarSign as Dollar } from "react-icons/fa";
+import { useTheme } from "next-themes";
 
 const CardInfo = () => {
+  const { resolvedTheme } = useTheme();
+  const isLight = (resolvedTheme ?? "light") === "light";
+  const transitionLogoSrc = isLight
+    ? "/logos/transition-marketing-light.png"
+    : "/logos/transition-marketing-dark.png";
+
   return (
     <Card
       variant="solid"
@@ -26,7 +34,7 @@ const CardInfo = () => {
 
         <Text>
           But it&apos;s more than just another flex on your non-Ryan
-          &quot;friends.&quot; Your card comes with Ryan Pre-Check, letting you
+          friends. Your card comes with Ryan Pre-Check, letting you
           breeze past secu-Ry-ty at our events without having to show your Ry-D.
         </Text>
 
