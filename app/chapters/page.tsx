@@ -99,7 +99,7 @@ const ChaptersPage = async ({
 
         <ChapterDirectory
           chapters={activeChapters as RyanChapter[]}
-          upcomingCities={[...upcomingEvents]}
+          upcomingCities={Array.from(upcomingEvents)}
         />
 
         <CalendarButton />
