@@ -235,41 +235,61 @@ export const landingGallery = [
   {
     imageUrl: "/rockies.jpg",
     title: "Ryan at the Rockies, June 2025",
+    city: "Denver, CO",
   },
   {
     imageUrl: "/group-photos/ryanroundup.png",
     title: "Ryan Roundup, March 2023",
+    city: "New York, NY",
   },
   {
     imageUrl: "/group-photos/rave.webp",
     title: "Ryan Rave, September 2023",
+    city: "Los Angeles, CA",
   },
   {
     imageUrl: "/serhant.jpg",
     title: "Ryans Own Manhattan, December 2025",
+    city: "New York, NY",
   },
   {
     imageUrl: "/group-photos/comedy.jpeg",
     title: "Last Ryan Standing, January 2025",
+    city: "San Diego, CA",
   },
   {
     imageUrl: "/group-photos/gameshow.jpg",
     title: "Ryan's Game Show, January 2025",
+    city: "San Diego, CA",
   },
   {
     imageUrl: "/group-photos/stryan.webp",
     title: "St. Ryan's Day, March 2024",
+    city: "Chicago, IL",
   },
   {
     imageUrl: "/group-photos/deadpoolgroup.webp",
     title: "150 Deadpools & Wolverine, July 2024",
+    city: "New York, NY",
   },
   {
     imageUrl: "/group-photos/royale.jpg",
     title: "Ryan Royale, September 2024",
+    city: "Toronto, ON",
   },
   {
     imageUrl: "/group-photos/rytober.jpg",
     title: "Rytoberfest II, September 2025",
+    city: "New York, NY",
+  },
+  {
+    imageUrl: "/group-photos/rodeo.webp",
+    title: "Ryan Rodeo, February 2024",
+    city: "Austin, TX",
+  },
+  {
+    imageUrl: "/group-photos/ryami.webp",
+    title: "Ryami Vice, May 2024",
+    city: "Miami, FL",
   },
 ];

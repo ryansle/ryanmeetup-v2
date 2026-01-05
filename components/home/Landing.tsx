@@ -3,7 +3,7 @@
 // Components
 import NextImage from "next/image";
 import NextLink from "next/link";
-import { Heading, Divider, Text, Card, Button } from "@/components/global";
+import { Heading, Divider, Text, Card, Button, Badge } from "@/components/global";
 import { Transition } from "@headlessui/react";
 import { landingGallery } from "@/lib/constants";
 import {
@@ -96,9 +96,14 @@ const Overview = (props: { stats: StatItem[] }) => {
 
   return (
     <div>
-      <Heading className="text-3xl title" size="h2">
-        RYAN MEETUP
-      </Heading>
+      <div className="flex items-center gap-4">
+        <Heading className="text-3xl title" size="h2">
+          RYAN MEETUP
+        </Heading>
+        <div className="inline-flex items-center rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
+          Established 2023
+        </div>
+      </div>
       <Text className="mt-2 text-sm uppercase tracking-widest text-black/60 dark:text-white/60">
         What this community has grown into
       </Text>
@@ -255,6 +260,8 @@ const Landing = (props: LandingProps) => {
   const slides = landingGallery.map((photo) => ({
     src: photo.imageUrl,
     alt: photo.title,
+    title: photo.title,
+    city: photo.city,
   }));
 
   const animationVariants = {
@@ -361,9 +368,16 @@ const Landing = (props: LandingProps) => {
                 </div>
               </Transition>
             ))}
-            <div className="absolute right-4 top-4 rounded-full border border-white/30 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-white">
-              Established 2023
-            </div>
+            {slides[activeSlide]?.title && (
+              <div className="pointer-events-none absolute right-4 top-4 z-20">
+                <Badge>{slides[activeSlide].title}</Badge>
+              </div>
+            )}
+            {slides[activeSlide]?.city && (
+              <div className="pointer-events-none absolute left-4 top-4 z-20">
+                <Badge>📍 {slides[activeSlide].city}</Badge>
+              </div>
+            )}
             <button
               type="button"
               onClick={handlePrevSlide}

@@ -13,4 +13,5 @@ export * from "./List";
 export * from "./Breadcrumbs";
 export * from "./Backdrop";
 export * from "./Pill";
+export * from "./Badge";
 export * from "./Card";
