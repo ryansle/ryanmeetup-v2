@@ -116,14 +116,18 @@ const RotatingGallery = (props: RotatingGalleryProps) => {
           </div>
         </Transition>
       ))}
-      {items[activeSlide]?.title && (
-        <div className="pointer-events-none absolute right-4 top-4 z-20">
-          <Badge>{items[activeSlide].title}</Badge>
-        </div>
-      )}
-      {items[activeSlide]?.city && (
-        <div className="pointer-events-none absolute left-4 top-4 z-20">
-          <Badge>📍 {items[activeSlide].city}</Badge>
+      {(items[activeSlide]?.title || items[activeSlide]?.city) && (
+        <div className="pointer-events-none absolute right-4 top-4 z-20 flex flex-col items-end gap-2">
+          {items[activeSlide]?.title && (
+            <Badge className="text-[9px] sm:text-[10px]">
+              {items[activeSlide].title}
+            </Badge>
+          )}
+          {items[activeSlide]?.city && (
+            <Badge className="text-[9px] sm:text-[10px]">
+              📍 {items[activeSlide].city}
+            </Badge>
+          )}
         </div>
       )}
       <button

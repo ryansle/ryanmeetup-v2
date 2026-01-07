@@ -95,11 +95,11 @@ const Overview = (props: { stats: StatItem[] }) => {
 
   return (
     <div>
-      <div className="flex items-center gap-4">
-        <Heading className="text-3xl title" size="h2">
+      <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-4">
+        <Heading className="text-3xl title order-2 sm:order-1" size="h2">
           RYAN MEETUP
         </Heading>
-        <div className="inline-flex items-center rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
+        <div className="order-1 inline-flex items-center rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70 sm:order-2">
           Established 2023
         </div>
       </div>
