@@ -64,15 +64,18 @@ const HomePage = async () => {
     return `$${Math.floor(value)}+`;
   };
 
+  const formatCountNoPlus = (value: number) =>
+    formatCount(value).replace(/\+$/, "");
+
   const stats = [
     { 
-      value: formatCount(activeChapters.length), 
+      value: formatCountNoPlus(activeChapters.length), 
       label: "Active chapters",
       icon: <Community className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
       href: "/chapters",
     },
     { 
-      value: formatCount(events.length), 
+      value: formatCountNoPlus(events.length), 
       label: "Events hosted",
       icon: <Party className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
       href: "/events",

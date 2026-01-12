@@ -78,6 +78,23 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
     });
   }, [chapters, normalizedUpcoming, onlyUpcoming, query, stateFilter]);
 
+  const sortedChapters = useMemo(() => {
+    const withUpcoming = filteredChapters.map((chapter, index) => ({
+      chapter,
+      index,
+      hasUpcoming: normalizedUpcoming.has((chapter.city ?? "").toLowerCase()),
+    }));
+
+    withUpcoming.sort((a, b) => {
+      if (a.hasUpcoming === b.hasUpcoming) {
+        return a.index - b.index;
+      }
+      return a.hasUpcoming ? -1 : 1;
+    });
+
+    return withUpcoming.map(({ chapter }) => chapter);
+  }, [filteredChapters, normalizedUpcoming]);
+
   const handleClear = () => {
     startTransition(() => {
       setQuery("");
@@ -183,7 +200,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
             />
           ))}
         </div>
-      ) : filteredChapters.length === 0 ? (
+      ) : sortedChapters.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-black/20 p-6 text-center dark:border-white/20">
           <Text className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
             No chapters match your search.
@@ -191,7 +208,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-3 xl:grid-cols-4">
-          {filteredChapters.map((chapter, index) => (
+          {sortedChapters.map((chapter, index) => (
             <ChapterTile
               key={index}
               chapter={chapter}
