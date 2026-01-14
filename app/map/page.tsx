@@ -44,15 +44,54 @@ export const metadata: Metadata = {
   },
 };
 
-const MapPage = async () => {
+type MapPageProps = {
+  searchParams?: Record<string, string | string[] | undefined>;
+};
+
+const parseBooleanParam = (
+  value: string | string[] | undefined,
+  fallback: boolean,
+) => {
+  const normalized = Array.isArray(value) ? value[0] : value;
+  if (!normalized) {
+    return fallback;
+  }
+
+  if (normalized === "1" || normalized === "true") {
+    return true;
+  }
+
+  if (normalized === "0" || normalized === "false") {
+    return false;
+  }
+
+  return fallback;
+};
+
+const MapPage = async ({ searchParams }: MapPageProps) => {
   const locations =
     process.env.E2E_TESTS === "true"
       ? getMapFixtures()
       : await fetchLocations();
 
+  const showLegend = parseBooleanParam(searchParams?.legend, true);
+  const showMeetups = parseBooleanParam(searchParams?.meetups, true);
+  const showRyans = parseBooleanParam(searchParams?.hubs, true);
+  const showNamedBusinesses = parseBooleanParam(searchParams?.named, true);
+  const showOwnedBusinesses = parseBooleanParam(searchParams?.owned, true);
+  const showChapters = parseBooleanParam(searchParams?.chapters, true);
+
   return (
     <Layout fullscreen>
-      <Mapbox locations={locations as unknown as Location[]} />
+      <Mapbox
+        locations={locations as unknown as Location[]}
+        showLegend={showLegend}
+        initialShowMeetups={showMeetups}
+        initialShowRyans={showRyans}
+        initialShowNamedBusinesses={showNamedBusinesses}
+        initialShowOwnedBusinesses={showOwnedBusinesses}
+        initialShowChapters={showChapters}
+      />
       <Info locations={locations as unknown as Location[]} />
     </Layout>
   );

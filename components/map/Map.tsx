@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 // Components
 import Map, { Marker, Popup } from "react-map-gl";
@@ -9,6 +9,7 @@ import { Heading, Text } from "@/components/global";
 import { Legend } from "@/components/map";
 import { FaMapPin as Pin } from "react-icons/fa";
 import NextLink from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 
 // Types
 import type { Location } from "@/lib/types";
@@ -19,22 +20,92 @@ import { convertImageUrl } from "@/utils/convert";
 
 type MapboxProps = {
   locations: Location[];
+  showLegend?: boolean;
+  initialShowMeetups?: boolean;
+  initialShowRyans?: boolean;
+  initialShowNamedBusinesses?: boolean;
+  initialShowOwnedBusinesses?: boolean;
+  initialShowChapters?: boolean;
 };
 
 const Mapbox = (props: MapboxProps) => {
-  const { locations } = props;
+  const {
+    locations,
+    showLegend = true,
+    initialShowMeetups = true,
+    initialShowRyans = true,
+    initialShowNamedBusinesses = true,
+    initialShowOwnedBusinesses = true,
+    initialShowChapters = true,
+  } = props;
 
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
   const isTestMode = process.env.NEXT_PUBLIC_E2E_TESTS === "true";
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const hasMounted = useRef(false);
 
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null,
   );
-  const [showRyans, setShowRyans] = useState<boolean>(true);
-  const [showMeetups, setShowMeetups] = useState<boolean>(true);
-  const [showNamedBusinesses, setShowNamedBusinesses] = useState<boolean>(true);
-  const [showOwnedBusinesses, setShowOwnedBusinesses] = useState<boolean>(true);
-  const [showChapters, setShowChapters] = useState<boolean>(true);
+  const [showRyans, setShowRyans] = useState<boolean>(initialShowRyans);
+  const [showMeetups, setShowMeetups] = useState<boolean>(initialShowMeetups);
+  const [showNamedBusinesses, setShowNamedBusinesses] = useState<boolean>(
+    initialShowNamedBusinesses,
+  );
+  const [showOwnedBusinesses, setShowOwnedBusinesses] = useState<boolean>(
+    initialShowOwnedBusinesses,
+  );
+  const [showChapters, setShowChapters] = useState<boolean>(initialShowChapters);
+  const [showLegendVisible, setShowLegendVisible] =
+    useState<boolean>(showLegend);
+  const [legendCollapsed, setLegendCollapsed] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isTestMode) {
+      return;
+    }
+
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+
+    const params = new URLSearchParams(searchParams?.toString());
+    const desiredParams = [
+      ["legend", showLegendVisible ? "1" : "0"],
+      ["meetups", showMeetups ? "1" : "0"],
+      ["hubs", showRyans ? "1" : "0"],
+      ["named", showNamedBusinesses ? "1" : "0"],
+      ["owned", showOwnedBusinesses ? "1" : "0"],
+      ["chapters", showChapters ? "1" : "0"],
+    ] as const;
+
+    let hasChanges = false;
+    desiredParams.forEach(([key, value]) => {
+      if (params.get(key) !== value) {
+        params.set(key, value);
+        hasChanges = true;
+      }
+    });
+
+    if (!hasChanges) {
+      return;
+    }
+
+    const nextQuery = params.toString();
+    router.replace(nextQuery ? `?${nextQuery}` : "?", { scroll: false });
+  }, [
+    showMeetups,
+    showRyans,
+    showNamedBusinesses,
+    showOwnedBusinesses,
+    showChapters,
+    showLegendVisible,
+    router,
+    searchParams,
+    isTestMode,
+  ]);
 
   const groupedLocations = useMemo(() => {
     return locations.reduce(
@@ -88,6 +159,9 @@ const Mapbox = (props: MapboxProps) => {
       selectedLocation?.locationType === "Ryan-Named Business" ||
       selectedLocation?.locationType === "Ryan-Owned Business"
     );
+  }, [selectedLocation]);
+  const isChapter = useMemo(() => {
+    return selectedLocation?.locationType === "Chapter";
   }, [selectedLocation]);
 
   const convertToSlug = useCallback((city: string) => {
@@ -151,18 +225,22 @@ const Mapbox = (props: MapboxProps) => {
             ))}
         </div>
 
-        <Legend
-          showMeetups={showMeetups}
-          showRyans={showRyans}
-          showNamedBusinesses={showNamedBusinesses}
-          showOwnedBusinesses={showOwnedBusinesses}
-          showChapters={showChapters}
-          setShowMeetups={setShowMeetups}
-          setShowRyans={setShowRyans}
-          setShowNamedBusinesses={setShowNamedBusinesses}
-          setShowOwnedBusinesses={setShowOwnedBusinesses}
-          setShowChapters={setShowChapters}
-        />
+        {showLegendVisible && (
+          <Legend
+            showMeetups={showMeetups}
+            showRyans={showRyans}
+            showNamedBusinesses={showNamedBusinesses}
+            showOwnedBusinesses={showOwnedBusinesses}
+            showChapters={showChapters}
+            isCollapsed={legendCollapsed}
+            onToggleCollapse={() => setLegendCollapsed((prev) => !prev)}
+            setShowMeetups={setShowMeetups}
+            setShowRyans={setShowRyans}
+            setShowNamedBusinesses={setShowNamedBusinesses}
+            setShowOwnedBusinesses={setShowOwnedBusinesses}
+            setShowChapters={setShowChapters}
+          />
+        )}
       </div>
     );
   }
@@ -293,11 +371,19 @@ const Mapbox = (props: MapboxProps) => {
               )}
 
               <Heading className="text-base text-black dark:text-white" size="h3">
-                {isBusiness
-                  ? selectedLocation.locationName
-                  : (selectedLocation.eventName ?? selectedLocation.city)}
+                {isChapter
+                  ? (selectedLocation.locationName ?? selectedLocation.city)
+                  : isBusiness
+                    ? selectedLocation.locationName
+                    : (selectedLocation.eventName ?? selectedLocation.city)}
               </Heading>
               <Text className="text-xs text-black/70 dark:text-white/70">
+                {isChapter && (
+                  <span className="mt-1 flex items-center gap-1">
+                    <Pin className="fill-red-500" />{" "}
+                    {selectedLocation.city}
+                  </span>
+                )}
                 {isBusiness && (
                   <>
                     <span>{selectedLocation.locationType}</span>
@@ -315,6 +401,14 @@ const Mapbox = (props: MapboxProps) => {
                 )}{" "}
                 {selectedLocation.eventName ? selectedLocation.city : ""}
               </Text>
+              {isChapter && (
+                <NextLink
+                  className="mt-2 inline-flex items-center rounded-md bg-black px-2.5 py-1 text-xs font-semibold text-white transition hover:bg-black/80 dark:bg-white dark:text-black dark:hover:bg-white/90"
+                  href={`/chapters/${convertToSlug(selectedLocation.city)}`}
+                >
+                  View chapter
+                </NextLink>
+              )}
             </div>
           </Popup>
         )}
@@ -330,28 +424,32 @@ const Mapbox = (props: MapboxProps) => {
                 setSelectedLocation(location);
               }}
             >
-              <NextLink href={`/chapters/${convertToSlug(location.city)}`}>
-                <div className={markerWrapClass}>
-                  <span className="text-sm leading-none" aria-label="Local Chapter">
-                    📍
-                  </span>
-                </div>
-              </NextLink>
+              <button
+                type="button"
+                className={markerWrapClass}
+                aria-label={`${location.city} chapter`}
+              >
+                <span className="text-sm leading-none">📍</span>
+              </button>
             </Marker>
           ))}
 
-        <Legend
-          showMeetups={showMeetups}
-          showRyans={showRyans}
-          showNamedBusinesses={showNamedBusinesses}
-          showOwnedBusinesses={showOwnedBusinesses}
-          showChapters={showChapters}
-          setShowMeetups={setShowMeetups}
-          setShowRyans={setShowRyans}
-          setShowNamedBusinesses={setShowNamedBusinesses}
-          setShowOwnedBusinesses={setShowOwnedBusinesses}
-          setShowChapters={setShowChapters}
-        />
+        {showLegendVisible && (
+          <Legend
+            showMeetups={showMeetups}
+            showRyans={showRyans}
+            showNamedBusinesses={showNamedBusinesses}
+            showOwnedBusinesses={showOwnedBusinesses}
+            showChapters={showChapters}
+            isCollapsed={legendCollapsed}
+            onToggleCollapse={() => setLegendCollapsed((prev) => !prev)}
+            setShowMeetups={setShowMeetups}
+            setShowRyans={setShowRyans}
+            setShowNamedBusinesses={setShowNamedBusinesses}
+            setShowOwnedBusinesses={setShowOwnedBusinesses}
+            setShowChapters={setShowChapters}
+          />
+        )}
       </Map>
     </div>
   );
