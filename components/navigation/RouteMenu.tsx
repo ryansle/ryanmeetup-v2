@@ -34,7 +34,7 @@ const RouteMenu = (props: RouteMenuProps) => {
         pathname.includes("/chapters")) &&
       title === "Community"
     ) {
-      return "bg-black/10 text-black dark:bg-white/10 dark:text-white";
+      return "bg-black/15 text-black shadow-sm dark:bg-white/15 dark:text-white";
     } else if (
       (pathname === "/flyers" ||
         pathname === "/contribute" ||
@@ -44,7 +44,7 @@ const RouteMenu = (props: RouteMenuProps) => {
         pathname === "/donate") &&
       title === "Support"
     ) {
-      return "bg-black/10 text-black dark:bg-white/10 dark:text-white";
+      return "bg-black/15 text-black shadow-sm dark:bg-white/15 dark:text-white";
     }
   };
 
@@ -54,7 +54,7 @@ const RouteMenu = (props: RouteMenuProps) => {
         <>
           <PopoverButton
             className={`text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-3 py-1.5 transition hover:shadow-sm hover:bg-black/5 2xl:text-base text-black dark:text-white dark:hover:bg-white/10 ${
-              isSelected(pathname) ?? "bg-white/80 dark:bg-white/5"
+              isSelected(pathname) ?? ""
             }`}
           >
             {icon} {title}{" "}

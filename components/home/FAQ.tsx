@@ -23,7 +23,7 @@ const FAQ = (props: FAQProps) => {
   const { data, toggleable = false, showTitle = false } = props;
 
   return (
-    <section className="relative overflow-hidden dark:bg-black">
+    <section className="relative overflow-hidden">
       <div className="relative">
         {showTitle && (
           <div className="mx-auto mb-8 text-center">

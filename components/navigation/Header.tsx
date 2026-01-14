@@ -28,8 +28,8 @@ const Header = () => {
               key={route.text}
               className={`text-sm flex items-center font-semibold rounded-lg text-black timing tracking-wide gap-x-2 px-3 py-1.5 transition hover:shadow-sm hover:bg-black/5 dark:text-white dark:hover:bg-white/10 2xl:text-base ${
                 route.href.includes(pathname) && pathname !== "/"
-                  ? "bg-black/10 text-black dark:bg-white/10 dark:text-white"
-                  : "bg-white/80 dark:bg-white/5"
+                  ? "bg-black/15 text-black shadow-sm dark:bg-white/15 dark:text-white"
+                  : ""
               }`}
               href={route.href}
             >
