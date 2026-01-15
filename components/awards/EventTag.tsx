@@ -37,6 +37,10 @@ const EventTag = (props: EventTagProps) => {
         return "border-[#483d79]";
       case "Ryan Summit":
         return "border-white";
+      case "Rytoberfest II":
+        return "border-blue-500";
+      case "Ryans Own Manhattan":
+        return "#1d1b7a";
       default:
         return "border-gray-700 secondary";
     }

@@ -1,6 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider, Pill } from "@/components/global";
+import { AnchorNav, Heading, Text, Divider, Pill } from "@/components/global";
 import { FarthestRyan, Champion, Leaderboard } from "@/components/awards";
 import { MdLeaderboard as Leader } from "react-icons/md";
 import { FaTrophy as Trophy, FaPlaneArrival as Plane } from "react-icons/fa";
@@ -61,8 +61,6 @@ const AwardsPage = async () => {
   const champs = fixture?.champs ?? (await fetchChampionRyans());
   const repeats = fixture?.repeats ?? (await fetchRepeatRyans());
 
-  const anchorStyle =
-    "group flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/90 text-black shadow-sm transition hover:-translate-y-1 hover:border-black/30 dark:border-white/15 dark:bg-black dark:text-white dark:hover:border-white/40";
   const iconStyle = "h-5 w-5";
 
   const anchors = [
@@ -100,18 +98,7 @@ const AwardsPage = async () => {
           <div id="farthest" />
         </section>
         
-        <div className="fixed bottom-4 right-1 z-50 flex flex-col gap-3 lg:right-24 lg:bottom-8">
-          {anchors.map((anchor) => (
-            <div key={anchor.href} className="relative group">
-              <a href={anchor.href} className={anchorStyle}>
-                {anchor.icon}
-              </a>
-              <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-black px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-white opacity-0 transition group-hover:opacity-100 dark:bg-white dark:text-black">
-                {anchor.tooltip}
-              </span>
-            </div>
-          ))}
-        </div>
+        <AnchorNav items={anchors} />
 
         <Divider />
 

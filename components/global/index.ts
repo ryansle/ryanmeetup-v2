@@ -16,3 +16,4 @@ export * from "./Pill";
 export * from "./HeroCard";
 export * from "./Badge";
 export * from "./Card";
+export * from "./AnchorNav";

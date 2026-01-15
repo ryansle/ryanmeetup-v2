@@ -234,7 +234,7 @@ export const gallery = [
 export const landingGallery = [
   {
     imageUrl: "/rockies.jpg",
-    title: "Ryan at the Rockies, June 2025",
+    title: "Ryans @ Rockies, June 2025",
     city: "Denver, CO",
   },
   {

@@ -42,7 +42,7 @@ const Event = (props: EventProps) => {
         </div>
 
         {/* Event Description */}
-        <div className="px-5 py-4">
+        <div className="flex flex-1 flex-col px-5 py-4">
           <div className="flex items-center justify-between mb-4">
             <div className="space-y-1">
               <Text className="text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
@@ -57,7 +57,7 @@ const Event = (props: EventProps) => {
             {description}
           </Text>
 
-          <div className="mt-5 grid grid-cols-2 gap-2 text-black/60 dark:text-white/60">
+          <div className="mt-auto grid grid-cols-2 gap-2 pt-5 text-black/60 dark:text-white/60">
             <div className="flex items-center gap-2">
               <City />
               <Text className="text-xs uppercase tracking-[0.2em]">

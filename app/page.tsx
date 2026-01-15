@@ -45,6 +45,7 @@ const HomePage = async () => {
 
   const homeFaqs = faqs.filter((faq) => faq.type === "home");
   const activeChapters = chapters.filter((chapter) => chapter.active);
+  const mainEvents = events.filter((event) => event.chapter.includes("Main"));
 
   const totalRaised = donations.reduce((sum, item) => {
     const amount = parseFloat(item.amount.replace(/[^0-9.-]+/g, ""));
@@ -75,7 +76,7 @@ const HomePage = async () => {
       href: "/chapters",
     },
     { 
-      value: formatCountNoPlus(events.length), 
+      value: formatCount(mainEvents.length), 
       label: "Events hosted",
       icon: <Party className="w-5 h-5 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:h-4 lg:w-4 xl:w-7 xl:h-7" />,
       href: "/events",
