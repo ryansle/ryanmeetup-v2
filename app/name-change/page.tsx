@@ -34,7 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-// TODO: publicize page on the website, under 'Community' section
 const NameChangePage = () => {
   const anchorIconStyle = "h-5 w-5";
   const anchors = [
@@ -54,6 +53,11 @@ const NameChangePage = () => {
     <Layout fullscreen>
       <div className="relative">
         <AnchorNav items={anchors} />
+        <div className="fixed top-[120px] -left-[52px] lg:top-12 lg:-left-[40px] -rotate-45 z-20 lg:z-40">
+          <div className="px-2 text-center rounded-lg font-semibold uppercase w-[200px] h-6 flex items-center justify-center bg-red-500 text-sm">
+            Coming Soon
+          </div>
+        </div>
         <section className="px-4 pb-20 pt-8 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
           <NameChangeHero />
 

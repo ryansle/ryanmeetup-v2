@@ -29,6 +29,7 @@ const RouteMenu = (props: RouteMenuProps) => {
         pathname.includes("/gallery") ||
         pathname === "/awards" ||
         pathname === "/about" ||
+        pathname === "/name-change" ||
         pathname === "/holidays" ||
         pathname === "/rsvp" ||
         pathname.includes("/chapters")) &&

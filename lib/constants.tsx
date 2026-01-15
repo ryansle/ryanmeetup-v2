@@ -18,6 +18,7 @@ import {
   FaShirt as Shirt,
   FaThreads as Threads,
   FaPiggyBank as Charity,
+  FaRegFileLines as FileLines,
 } from "react-icons/fa6";
 import {
   IoCalendarNumber as Calendar,
@@ -92,6 +93,11 @@ export const routes = [
         icon: <Trophy />,
         text: "Awards",
         href: "/awards",
+      },
+      {
+        icon: <FileLines />,
+        text: "Name Change",
+        href: "/name-change",
       },
     ],
   },
