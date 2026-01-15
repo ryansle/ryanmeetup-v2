@@ -55,8 +55,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://ryanmeetup.com/meta/press.png",
-        width: 3360,
-        height: 1854,
+        width: 2056,
+        height: 1161,
       },
     ],
     locale: "en_US",

@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://ryanmeetup.com/meta/chapters.png",
-        width: 3360,
-        height: 1854,
+        width: 2056,
+        height: 1162,
       },
     ],
     locale: "en_US",

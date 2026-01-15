@@ -23,7 +23,7 @@ import type { Metadata } from "next";
 //     siteName: "Ryan Meetup",
 //     images: [
 //       {
-//         url: "https://ryanmeetup.com/merch.png",
+//         url: "https://ryanmeetup.com/meta/merch.png",
 //         width: 2202,
 //         height: 1282,
 //       },
@@ -38,7 +38,7 @@ const StorePage = () => {
     {
       title: "Apparel",
       description: "Tees, hoodies, and crewnecks built for the meetup.",
-      image: "/merch.png",
+      image: "/meta/merch.png",
     },
     {
       title: "Membership Card",
@@ -111,7 +111,7 @@ const StorePage = () => {
           >
             <div className="relative h-72 w-full sm:h-96">
               <NextImage
-                src="/merch.png"
+                src="/meta/merch.png"
                 alt="Ryan Meetup merch preview"
                 fill
                 className="object-cover"

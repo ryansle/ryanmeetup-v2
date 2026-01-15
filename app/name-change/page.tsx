@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     siteName: "Ryan Meetup",
     images: [
       {
-        url: "https://ryanmeetup.com/meta/name-change.png",
-        width: 3360,
-        height: 1854,
+        url: "https://ryanmeetup.com/meta/name-change.jpg",
+        width: 1341,
+        height: 958,
       },
     ],
     locale: "en_US",

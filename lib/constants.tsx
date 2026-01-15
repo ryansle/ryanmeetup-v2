@@ -220,7 +220,7 @@ export const gallery = [
     title: "St. Ryans Day II, March 2025",
   },
   {
-    imageUrl: "/rockies.jpg",
+    imageUrl: "/group-photos/rockies.jpg",
     title: "Ryans @ Rockies, June 2025",
   },
   {
@@ -232,14 +232,14 @@ export const gallery = [
     title: "Rytoberfest II, September 2025",
   },
   {
-    imageUrl: "/serhant.jpg",
+    imageUrl: "/group-photos/serhant.jpg",
     title: "Ryans Own Manhattan, December 2025",
   },
 ];
 
 export const landingGallery = [
   {
-    imageUrl: "/rockies.jpg",
+    imageUrl: "/group-photos/rockies.jpg",
     title: "Ryans @ Rockies, June 2025",
     city: "Denver, CO",
   },
@@ -254,7 +254,7 @@ export const landingGallery = [
     city: "Los Angeles, CA",
   },
   {
-    imageUrl: "/serhant.jpg",
+    imageUrl: "/group-photos/serhant.jpg",
     title: "Ryans Own Manhattan, December 2025",
     city: "New York, NY",
   },

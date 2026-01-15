@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Ryan Meetup",
     images: [
       {
-        url: "https://ryanmeetup.com/ryankickoff.png",
+        url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
         width: 1600,
         height: 800,
       },
@@ -53,7 +53,7 @@ const AboutPage = () => {
           description="A community built by Ryans, for Ryans, with a mission to unite the most Ryans in one place and make history together."
           badges={["Founded 2023", "Brooklyn, NY", "Not-for-profit"]}
           image={{
-            src: "/ryankickoff.png",
+            src: "/group-photos/ryankickoff.png",
             alt: "The first Ryan Meetup",
             eyebrow: "First meetup",
             title: "Ryan Kickoff 2023",

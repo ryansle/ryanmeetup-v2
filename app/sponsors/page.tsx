@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
         {
           url: "https://ryanmeetup.com/meta/sponsors.png",
           width: 2056,
-          height: 1163,
+          height: 1162,
         },
       ],
       locale: "en_US",
