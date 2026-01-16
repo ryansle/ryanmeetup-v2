@@ -109,14 +109,21 @@ const DonatePage = async () => {
       body:
         "After 3+ years of storing event materials between our own apartments, it has become necessary to have a dedicated space.",
     },
+    {
+      title: "Financial and legal filings",
+      body: "Required compliance and paperwork to keep the organization in good standing.",
+    },
   ];
 
   const eventItems = [
     "Venue rentals.",
+    "Food vendors and catering.",
     "Decorations: balloons, backdrops, and the little touches around the venue.",
     "Prizes and supplies: from beer for the St. Ryan’s Day chug competition to beer steins and sausages for Rytoberfest.",
     "Props and details that make events feel special and thematic.",
     "Entertainment: DJs, performers, and other talent to keep the party going.",
+    "Local Ryan artists: graphic design, tattoos, and other creative collaborations.",
+    "Event marketing to reach more Ryans.",
   ];
 
   return (
@@ -127,16 +134,26 @@ const DonatePage = async () => {
           <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
             Help power the next Ryan Meetup.
           </Heading>
+
+          <Text className="text-lg text-black/70 dark:text-white/70">
+            Our not-for-profit organization is sustained by donations and
+            community support. Form 8283 is available on request for tax-free
+            charitable donation write-offs. As a not-for-profit, we can provide
+            that form for eligible donations, and many large companies budget
+            specifically for 8283 donations each year.
+          </Text>
+
           <Text className="text-lg text-black/70 dark:text-white/70">
             All donations go towards setting up future Ryan Meetup events (ie:
             renting out spaces, buying name tags, trophies, decorations, etc, as
             well as tightening up security against potential Bryan intruders at
             our events).
           </Text>
-          <Text className="text-base text-black/60 dark:text-white/60">
-            Our not-for-profit organization is sustained by donations and
-            community support.
+
+          <Text className="text-lg text-black/70 dark:text-white/70">
+            In short: every cent goes back into Ryans, not pockets.
           </Text>
+
           <Card variant="soft" size="md">
             <Text className="text-sm font-semibold uppercase tracking-[0.25em] text-black/80 dark:text-white/80">
               Prefer merch instead?
@@ -181,8 +198,7 @@ const DonatePage = async () => {
             </ul>
             <Text className="mt-4 text-sm text-black/70 dark:text-white/70">
               On top of that, large-scale events aren’t cheap — venues,
-              materials, and logistics all add up. In short: every cent goes
-              back into Ryans, not pockets.
+              materials, and logistics all add up. 
             </Text>
           </Card>
 
