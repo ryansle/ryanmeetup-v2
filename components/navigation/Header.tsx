@@ -58,15 +58,15 @@ const Header = () => {
         </nav>
 
         <div className="ml-auto flex flex-none items-center gap-x-4">
-          <div className="xl:hidden">
-            <MobileMenu content={headerRoutes} />
-          </div>
           <NextLink
             href="/donate"
-            className="hidden items-center rounded-full bg-black px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-sm transition hover:scale-[1.02] hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 md:inline-flex xl:text-sm"
+            className="inline-flex items-center rounded-full bg-black px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-sm transition hover:scale-[1.02] hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 xl:text-sm"
           >
             <Dollar className="mr-2" /> Donate
           </NextLink>
+          <div className="xl:hidden">
+            <MobileMenu content={headerRoutes} />
+          </div>
           <ThemeToggle />
         </div>
       </div>
