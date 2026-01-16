@@ -8,6 +8,7 @@ import {
   CANADA_PROVINCES,
 } from "@/components/name-change";
 import { FaCanadianMapleLeaf, FaFlagUsa } from "react-icons/fa6";
+import { layoutPaddingX } from "@/lib/constants";
 
 // Types
 import type { Metadata } from "next";
@@ -58,7 +59,7 @@ const NameChangePage = () => {
             Coming Soon
           </div>
         </div>
-        <section className="px-4 pb-20 pt-8 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
+        <section className={`pb-20 pt-8 ${layoutPaddingX}`}>
           <NameChangeHero />
 
           <Divider margins="xl" />

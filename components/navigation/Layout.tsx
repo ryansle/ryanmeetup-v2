@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 // Components
 import { Banner, Header, NewFooter } from "@/components/navigation";
 import { useTheme } from "next-themes";
+import { layoutPaddingX } from "@/lib/constants";
 
 // Types
 import type { ReactNode } from "react";
@@ -34,7 +35,7 @@ const Layout = (props: LayoutProps) => {
         className={`${className} 
                     text-white h-full flex flex-col dark:bg-black dark:text-white
                     ${isClient && theme === "light" ? "bg-[url('/crumbled.png')] bg-repeat bg-cover bg-white" : "bg-white from-white bg-gradient-to-b from-neutral-00 to-neutral-200 to-neutral-00 dark:from-neutral-900 dark:to-black"} 
-                    ${fullscreen ? "bg-black" : "py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]"}`}
+                    ${fullscreen ? "bg-black" : `py-8 ${layoutPaddingX}`}`}
       >
         {children}
       </section>

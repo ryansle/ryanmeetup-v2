@@ -3,6 +3,7 @@ import { Layout } from "@/components/navigation";
 import NextImage from "next/image";
 import { Backdrop, Heading, Text, Pill, Card, Button } from "@/components/global";
 import { CardInfo } from "@/components/cards";
+import { layoutPaddingX } from "@/lib/constants";
 
 // Types
 import type { Metadata } from "next";
@@ -39,7 +40,7 @@ const BuyCardsPage = () => {
   return (
     <Layout fullscreen>
       <Backdrop imageSrc="/backdrop.png">
-        <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center py-8 lg:px-32 2xl:px-56 3xl:px-[320px] 4xl:px-[500px]">
+        <section className={`grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center py-8 ${layoutPaddingX}`}>
           <div className="space-y-6">
             <Pill>Membership</Pill>
             <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
@@ -49,14 +50,14 @@ const BuyCardsPage = () => {
               You’ve always been a member — now you can prove it.
             </Text>
 
-              <div className="relative h-[360px] w-full sm:h-[480px]">
-                <NextImage
-                  src="/cards.png"
-                  alt="Ryan Meetup Membership Card"
-                  className="object-contain"
-                  fill
-                />
-              </div>
+            <div className="relative h-[360px] w-full sm:h-[480px]">
+              <NextImage
+                src="/cards.png"
+                alt="Ryan Meetup Membership Card"
+                className="object-contain"
+                fill
+              />
+            </div>
 
             <Card
               variant="outline"
@@ -73,7 +74,7 @@ const BuyCardsPage = () => {
         </section>
       </Backdrop>
 
-      <section className="px-4 py-10 lg:px-32 xl:px-72 3xl:px-[350px] 4xl:px-[650px]">
+      <section className={`py-10 ${layoutPaddingX}`}>
         <Card variant="soft" size="lg" className="text-center">
           <Heading className="text-3xl title sm:text-4xl">
             Need help with your order?

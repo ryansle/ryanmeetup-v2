@@ -11,6 +11,7 @@ import { BiParty as Party } from "react-icons/bi";
 import { MdGroups as Community, MdVolunteerActivism as Heart } from "react-icons/md";
 import { Button } from "@/components/global";
 import { GoSponsorTiers as SponsorIcon } from "react-icons/go";
+import { layoutPaddingX } from "@/lib/constants";
 
 // Types
 import type {
@@ -98,49 +99,49 @@ const HomePage = async () => {
   return (
     <Layout fullscreen>
       <section className="mb-12">
-      <div className="py-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
-        <Landing stats={stats} />
+        <div className={`py-8 ${layoutPaddingX}`}>
+          <Landing stats={stats} />
 
         <Divider margins="xl" />
 
         <Heading className="text-center text-4xl title" size="h4">
           We&apos;re supported by Ryans at:
         </Heading>
-      </div>
+        </div>
 
-      <SponsorCarousel sponsors={sponsors} />
-      <div className="flex flex-col items-center justify-center gap-3 sm:flex-row px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px] mt-12">
-        <Button.Link 
-          href="/sponsors" 
-          variant="secondary" 
-          size="sm" 
-          className="w-full" 
-          newTab={false}
-          leftIcon={<SponsorIcon className="w-4 h-4"/>}
-        >
-          View all sponsors
-        </Button.Link>
-        <Button.Link 
-          href="/contact" 
-          variant="primary" 
-          size="sm" 
-          className="w-full"
-          newTab={false}
-          leftIcon={<Dollar className="w-4 h-4"/>}
-        >
-          Become a sponsor
-        </Button.Link>
-      </div>
+        <SponsorCarousel sponsors={sponsors} />
+        <div className={`flex flex-col items-center justify-center gap-3 sm:flex-row mt-12 ${layoutPaddingX}`}>
+          <Button.Link 
+            href="/sponsors" 
+            variant="secondary" 
+            size="sm" 
+            className="w-full" 
+            newTab={false}
+            leftIcon={<SponsorIcon className="w-4 h-4"/>}
+          >
+            View all sponsors
+          </Button.Link>
+          <Button.Link 
+            href="/contact" 
+            variant="primary" 
+            size="sm" 
+            className="w-full"
+            newTab={false}
+            leftIcon={<Dollar className="w-4 h-4"/>}
+          >
+            Become a sponsor
+          </Button.Link>
+        </div>
 
-      <div className="px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
-        <Divider margins="xl" />
+        <div className={`${layoutPaddingX}`}>
+          <Divider margins="xl" />
 
-        <TestimonyContainer testimonies={testimonies} />
+          <TestimonyContainer testimonies={testimonies} />
 
-        <Divider margins="xl" />
+          <Divider margins="xl" />
 
-        <FAQ showTitle data={homeFaqs} />
-      </div>
+          <FAQ showTitle data={homeFaqs} />
+        </div>
       </section>
     </Layout>
   );

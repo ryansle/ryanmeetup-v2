@@ -3,11 +3,11 @@ import NextLink from "next/link";
 import { Heading, Divider } from "@/components/global";
 
 // Utilities
-import { socials } from "@/lib/constants";
+import { layoutPaddingX, socials } from "@/lib/constants";
 
 const NewFooter = () => {
   return (
-    <footer className="relative border-t border-black/10 bg-white px-4 py-10 dark:border-white/10 dark:bg-black/80 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
+    <footer className={`relative border-t border-black/10 bg-white py-10 dark:border-white/10 dark:bg-black/80 ${layoutPaddingX}`}>
       <div className="grid gap-10 xl:grid-cols-[1.2fr_1fr]">
         <div className="space-y-4 text-center">
           <NextLink href="/" className="flex-col items-center gap-1">

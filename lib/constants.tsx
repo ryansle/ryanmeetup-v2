@@ -30,6 +30,9 @@ import { MdGroup as Group } from "react-icons/md";
 import { GoSponsorTiers as Sponsor } from "react-icons/go";
 import { PiLetterCirclePBold as Party } from "react-icons/pi";
 
+export const layoutPaddingX =
+  "px-4 lg:px-32 2xl:px-56 3xl:px-[350px]"
+
 export const socials = [
   {
     href: "https://www.instagram.com/ryanmeetup/",

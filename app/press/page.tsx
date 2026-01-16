@@ -2,6 +2,7 @@
 import { Layout } from "@/components/navigation";
 import { Heading, Text, Divider, Pill } from "@/components/global";
 import { FeaturedIn, PressFeed } from "@/components/press";
+import { layoutPaddingX } from "@/lib/constants";
 
 // Types
 import type { Article as RyanArticle, Outlet } from "@/lib/types";
@@ -70,7 +71,7 @@ const PressPage = async () => {
 
   return (
     <Layout fullscreen>
-      <div className="pt-8 px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
+      <div className={`pt-8 ${layoutPaddingX}`}>
         <div className="mb-4 flex justify-center">
           <Pill>Press</Pill>
         </div>
@@ -88,7 +89,7 @@ const PressPage = async () => {
 
       <FeaturedIn outlets={outlets as Outlet[]} />
 
-      <div className="px-4 lg:px-32 2xl:px-56 3xl:px-[350px] 4xl:px-[500px]">
+      <div className={`${layoutPaddingX}`}>
         <Divider />
 
         <PressFeed articles={articles as unknown as RyanArticle[]} />
