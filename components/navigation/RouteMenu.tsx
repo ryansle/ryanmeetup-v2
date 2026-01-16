@@ -54,7 +54,7 @@ const RouteMenu = (props: RouteMenuProps) => {
       {({ open }) => (
         <>
           <PopoverButton
-            className={`text-sm flex items-center font-semibold rounded-full tracking-wide gap-x-2 px-4 py-2 transition hover:shadow-sm hover:bg-black/5 2xl:text-base text-black dark:text-white dark:hover:bg-white/10 ${
+            className={`flex items-center gap-x-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide text-black transition hover:bg-black/5 hover:shadow-sm dark:text-white dark:hover:bg-white/10 xl:text-sm ${
               isSelected(pathname) ?? ""
             }`}
           >
@@ -79,13 +79,13 @@ const RouteMenu = (props: RouteMenuProps) => {
               {routes.map((route, index) => (
                 <div key={route.text}>
                   <NextLink
-                    className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-semibold tracking-wide text-black transition hover:bg-black/5 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10"
+                    className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-xs font-semibold tracking-wide text-black transition hover:bg-black/5 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10 xl:text-sm"
                     href={route.href}
                   >
                     <span className="flex items-center gap-2">
                       {route.icon} {route.text}
                     </span>
-                    <span className="text-xs opacity-0 transition group-hover:opacity-100">
+                    <span className="text-[10px] opacity-0 transition group-hover:opacity-100 xl:text-xs">
                       →
                     </span>
                   </NextLink>

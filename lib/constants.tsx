@@ -31,7 +31,7 @@ import { GoSponsorTiers as Sponsor } from "react-icons/go";
 import { PiLetterCirclePBold as Party } from "react-icons/pi";
 
 export const layoutPaddingX =
-  "px-4 lg:px-32 2xl:px-56 3xl:px-[350px]"
+  "px-4 lg:px-32 2xl:px-56 3xl:px-[320px]"
 
 export const socials = [
   {
