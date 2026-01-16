@@ -5,6 +5,7 @@ import { Heading } from "@/components/global";
 import { RouteMenu, ThemeToggle } from "@/components/navigation";
 import NextLink from "next/link";
 import { MobileMenu } from "@/components/navigation";
+import { FaDollarSign as Dollar } from "react-icons/fa";
 
 // Utilities
 import { usePathname } from "next/navigation";
@@ -12,6 +13,8 @@ import { layoutPaddingX, routes } from "@/lib/constants";
 
 const Header = () => {
   const pathname = usePathname();
+
+  const headerRoutes = routes;
 
   return (
     <header className="sticky top-0 z-30 relative border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-black/70">
@@ -28,7 +31,7 @@ const Header = () => {
 
         <nav className="hidden min-w-0 flex-1 items-center justify-center xl:flex">
           <div className="flex max-w-full items-center gap-2 overflow-x-auto rounded-full border border-black/10 bg-white/70 p-1.5 shadow-sm backdrop-blur dark:border-white/20 dark:bg-white/10 dark:ring-1 dark:ring-white/10">
-            {routes.map((route) =>
+            {headerRoutes.map((route) =>
               !route.subroutes ? (
                 <NextLink
                   key={route.text}
@@ -56,8 +59,14 @@ const Header = () => {
 
         <div className="ml-auto flex flex-none items-center gap-x-4">
           <div className="xl:hidden">
-            <MobileMenu content={routes} />
+            <MobileMenu content={headerRoutes} />
           </div>
+          <NextLink
+            href="/donate"
+            className="hidden items-center rounded-full bg-black px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-sm transition hover:scale-[1.02] hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 md:inline-flex xl:text-sm"
+          >
+            <Dollar className="mr-2" /> Donate
+          </NextLink>
           <ThemeToggle />
         </div>
       </div>

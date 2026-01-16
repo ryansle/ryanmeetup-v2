@@ -111,7 +111,7 @@ export const routes = [
   },
   {
     icon: <Handshake />,
-    text: "Support",
+    text: "Get Involved",
     href: "",
     subroutes: [
       {
@@ -160,12 +160,6 @@ export const routes = [
     icon: <Email />,
     text: "Contact Us",
     href: "/contact",
-  },
-  {
-    icon: <Socials />,
-    text: "Social Media",
-    href: "",
-    subroutes: socials,
   },
 ];
 
