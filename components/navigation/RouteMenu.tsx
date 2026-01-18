@@ -54,7 +54,7 @@ const RouteMenu = (props: RouteMenuProps) => {
       {({ open }) => (
         <>
           <PopoverButton
-            className={`flex items-center gap-x-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide text-black transition hover:bg-black/5 hover:shadow-sm dark:text-white dark:hover:bg-white/10 xl:text-sm ${
+            className={`flex items-center gap-x-2 rounded-full px-3 py-2 text-xs font-semibold tracking-wide text-black transition hover:bg-black/5 hover:shadow-sm dark:text-white dark:hover:bg-white/10 2xl:px-4 2xl:text-sm ${
               isSelected(pathname) ?? ""
             }`}
           >

@@ -11,6 +11,7 @@ import {
 import NextLink from "next/link";
 import { GiHamburgerMenu as Hamburger } from "react-icons/gi";
 import { FaChevronDown as ChevronDown } from "react-icons/fa6";
+import { FaDollarSign as Dollar } from "react-icons/fa";
 
 // Types
 import type { ReactNode } from "react";
@@ -50,6 +51,12 @@ const MobileMenu = (props: MobileMenuProps) => {
               className="z-50 w-56 rounded-xl border border-black/10 bg-white/95 p-3 shadow-xl backdrop-blur dark:border-white/10 dark:bg-black/95"
               anchor="bottom end"
             >
+              <NextLink
+                href="/donate"
+                className="mb-2 flex w-full items-center justify-center gap-2 rounded-lg bg-black px-3 py-2 text-sm font-semibold tracking-wide text-white shadow-sm transition hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+              >
+                <Dollar className="h-4 w-4" /> Donate
+              </NextLink>
               {content.map((row, idx) =>
                 !row.subroutes ? (
                   <NextLink

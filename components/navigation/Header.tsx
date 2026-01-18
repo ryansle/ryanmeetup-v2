@@ -30,12 +30,12 @@ const Header = () => {
         </NextLink>
 
         <nav className="hidden min-w-0 flex-1 items-center justify-center xl:flex">
-          <div className="flex max-w-full items-center gap-2 overflow-x-auto rounded-full border border-black/10 bg-white/70 p-1.5 shadow-sm backdrop-blur dark:border-white/20 dark:bg-white/10 dark:ring-1 dark:ring-white/10">
+          <div className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-black/10 bg-white/70 p-1 shadow-sm backdrop-blur dark:border-white/20 dark:bg-white/10 dark:ring-1 dark:ring-white/10 2xl:gap-2 2xl:p-1.5">
             {headerRoutes.map((route) =>
               !route.subroutes ? (
                 <NextLink
                   key={route.text}
-                  className={`flex items-center gap-x-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide text-black transition timing hover:bg-black/5 hover:shadow-sm dark:text-white dark:hover:bg-white/10 xl:text-sm ${
+                  className={`flex items-center gap-x-2 rounded-full px-3 py-2 text-xs font-semibold tracking-wide text-black transition timing hover:bg-black/5 hover:shadow-sm dark:text-white dark:hover:bg-white/10 2xl:px-4 2xl:text-sm ${
                     route.href.includes(pathname) && pathname !== "/"
                       ? "bg-black/15 text-black shadow-sm ring-1 ring-black/10 dark:bg-white/25 dark:text-white dark:ring-white/20"
                       : ""
@@ -60,7 +60,7 @@ const Header = () => {
         <div className="ml-auto flex flex-none items-center gap-x-4">
           <NextLink
             href="/donate"
-            className="inline-flex items-center rounded-full bg-black px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-sm transition hover:scale-[1.02] hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 xl:text-sm"
+            className="hidden items-center rounded-full bg-black px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-sm transition hover:scale-[1.02] hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 xl:inline-flex xl:text-sm"
           >
             <Dollar className="mr-2" /> Donate
           </NextLink>
