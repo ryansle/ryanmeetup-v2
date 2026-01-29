@@ -187,8 +187,8 @@ type Outlet = {
 };
 
 type Testimonial = {
-  lastName: string;
-  headshot: ContentfulImage;
+  lastName?: string;
+  headshot?: ContentfulImage;
   quote: string;
   location: string;
 };

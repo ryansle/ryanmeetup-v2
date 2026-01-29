@@ -19,7 +19,10 @@ const Event = (props: EventProps) => {
   const { title, coverImage, description, href, city, dateTime, venue } =
     props.event;
 
-  const imageUrl = convertImageUrl(coverImage as ContentfulImage);
+  const imageUrl =
+    typeof coverImage === "string"
+      ? coverImage
+      : convertImageUrl(coverImage as ContentfulImage);
 
   return (
     <NextLink href={href} className="group block">

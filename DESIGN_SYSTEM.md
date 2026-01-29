@@ -1,9 +1,40 @@
-# Design System Guide
+# Design System Transfer Guide
 
-This document captures the design tokens, theme conventions, and component usage
-needed to build UI that matches this app’s look and feel.
+Use this document to recreate the look and feel of this app in another
+repository. It focuses on the exact design tokens, assets, and component
+patterns that control the visual signature.
 
-## Core Tokens
+## 1) Non-negotiables (must copy)
+
+### Fonts
+- Primary display font: `Cooper`
+- Source file: `assets/fonts/COOPBL.woff`
+- Global CSS setup:
+  - `app/globals.css` defines the `@font-face` and `font-family: "Cooper"`.
+  - Headings use `font-cooper` and the shared `.title` class.
+
+### Tailwind Extensions
+Copy the following from `tailwind.config.ts` into the target app:
+- `fontFamily.cooper`
+- `fontSize.display`, `display2`, `display3`, `display4` (fluidType)
+- `colors.nametag`
+- `screens`: `1xl`, `3xl`, `4xl`
+- `animation.disco` + `keyframes.disco`
+- `scale.102`
+- `brightness.20`, `.25`, `.30`
+- `@tailwindcss/aspect-ratio` plugin
+
+### Global Utility Classes
+From `app/globals.css`:
+- `.timing` for base transitions
+- `.title` for heading color
+- `.secondary` for subheading/body color
+
+### Theme Mode
+- Dark mode uses Tailwind `dark` class on `html` or `body`.
+- Color choices are opacity-based (black/white with alpha).
+
+## 2) Core Tokens (use these class values)
 
 ### Text
 - Primary: `text-black` or `text-black/90`
@@ -25,53 +56,55 @@ needed to build UI that matches this app’s look and feel.
 ### Shadows
 - Low elevation: `shadow-sm`
 - Floating: `shadow-xl`
-- Hero: `shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)]`
+- Hero glow: `shadow-[0_25px_50px_-40px_rgba(0,0,0,0.6)]`
 
 ### Hover Affordance
 - Lift: `hover:-translate-y-1`
 - Border emphasize: `hover:border-black/30 dark:hover:border-white/40`
 
-### Typography
-- Meta label: `text-xs font-semibold uppercase tracking-[0.2em–0.3em]`
-- Headings: `Heading` + `title` class, often `font-cooper`
-- Body copy: `Text` with `text-black/70 dark:text-white/70`
+### Meta Label
+- `text-xs font-semibold uppercase tracking-[0.3em]`
 
-## Component Usage
+## 3) Typography Rules
+
+- Headings: `Heading` component + `.title` + `font-cooper`.
+- Body copy: `Text` component with `text-black/70 dark:text-white/70`.
+- Avoid raw `h1`/`p` unless necessary.
+
+## 4) Layout Patterns
+
+- Section spacing: `space-y-6` or `space-y-12`.
+- Grids: `gap-4` or `gap-6`.
+- Use `sm:` breakpoints early to keep mobile readable.
+
+## 5) Component Inventory (must mirror)
+
+Use the same component APIs if possible. If recreating, match the
+classes and variants.
 
 ### Buttons
-Use `components/global/Button.tsx`.
-- Primary: strong contrast, use `variant="primary"`.
-- Secondary: light outline in light mode, use `variant="secondary"`.
-- Outline: minimal emphasis, use `variant="outline"`.
-- Ghost: text only, use `variant="ghost"`.
+File: `components/global/Button.tsx`
+- `variant="primary"`
+- `variant="secondary"`
+- `variant="outline"`
+- `variant="ghost"`
 
 ### Cards
-Use `components/global/Card.tsx`.
-- `variant="soft"` or `variant="solid"` for most cards.
-- Avoid custom backgrounds unless required for a unique section.
+File: `components/global/Card.tsx`
+- `variant="soft"` or `variant="solid"`
+- Avoid custom backgrounds unless a section is meant to stand out.
 
 ### Pill
-Use `components/global/Pill.tsx` for tags and labels.
+File: `components/global/Pill.tsx`
 
 ### Typography
-Always use `Heading` and `Text` from `components/global`.
-Avoid raw `h1`/`p` unless necessary.
+Files: `components/global/Heading.tsx`, `components/global/Text.tsx`
 
 ### Inputs
-Use `components/global/Input.tsx` and `components/global/Textarea.tsx`.
-Required labels keep the asterisk inline and reduce tracking on mobile.
+Files: `components/global/Input.tsx`, `components/global/Textarea.tsx`
+- Required labels keep the asterisk inline.
 
-## Theme Guidance
-- Prefer `resolvedTheme` when swapping images based on theme.
-- Light mode should be soft and readable, not high‑contrast.
-- Dark mode should not flip to bright unless explicitly requested.
-
-## Layout Patterns
-- Sections often use `space-y-6` or `space-y-12`.
-- Grids usually use `gap-4` or `gap-6`.
-- Use `sm:` breakpoints for early responsiveness and to keep mobile readable.
-
-## Common Class Snippets
+## 6) Common Class Snippets (copy verbatim)
 
 ### Soft Card Container
 ```
@@ -88,13 +121,31 @@ text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/6
 transition hover:-translate-y-1 hover:border-black/30 dark:hover:border-white/40
 ```
 
-## Reference Files
-- Buttons: `components/global/Button.tsx`
-- Cards: `components/global/Card.tsx`
-- Typography: `components/global/Heading.tsx`, `components/global/Text.tsx`
-- Pills: `components/global/Pill.tsx`
-- Inputs: `components/global/Input.tsx`, `components/global/Textarea.tsx`
-- Hero + stats: `components/home/Landing.tsx`
-- Sponsor marquee: `components/sponsors/SponsorCarousel.tsx`
-- Map markers + popups: `components/map/Map.tsx`
+## 7) Visual Behavior Notes
 
+- Light mode is soft, not high contrast.
+- Dark mode uses subtle white-on-black; avoid bright surfaces.
+- Most surfaces are translucent (white with alpha).
+- Use the `nametag` red only for small accents or highlights.
+
+## 8) Checklist for a New Repo
+
+- Copy `assets/fonts/COOPBL.woff` and the `@font-face` rule.
+- Port Tailwind `extend` values and plugin.
+- Recreate `.timing`, `.title`, `.secondary` in global CSS.
+- Match the `Heading`, `Text`, `Button`, `Card`, `Pill` APIs.
+- Use the same opacity-based text and surface classes.
+
+## Reference Files in This Repo
+- `components/global/Button.tsx`
+- `components/global/Card.tsx`
+- `components/global/Heading.tsx`
+- `components/global/Text.tsx`
+- `components/global/Pill.tsx`
+- `components/global/Input.tsx`
+- `components/global/Textarea.tsx`
+- `components/home/Landing.tsx`
+- `components/sponsors/SponsorCarousel.tsx`
+- `components/map/Map.tsx`
+- `tailwind.config.ts`
+- `app/globals.css`

@@ -1,7 +1,7 @@
 "use client";
 
 // Components
-import { Heading } from "@/components/global";
+import { Heading, Text } from "@/components/global";
 import { Event, Chapters } from "@/components/events";
 import {
   Disclosure,
@@ -23,6 +23,8 @@ type EventsSectionProps = {
   eventType: string;
   hidePastEvents?: boolean;
   showChapters: boolean;
+  chapterEventCount?: number;
+  mainEventCount?: number;
 };
 
 type ContainerProps = {
@@ -67,7 +69,23 @@ const EventsSection = (props: EventsSectionProps) => {
     eventType,
     hidePastEvents = false,
     showChapters,
+    chapterEventCount = 0,
+    mainEventCount = events.length,
   } = props;
+
+  const isUpcomingMainSection =
+    title === "Upcoming Events" && eventType === "Main";
+  const hasOnlyChapterUpcoming =
+    isUpcomingMainSection && showChapters && chapterEventCount > 0 && mainEventCount === 0;
+  const displayCount =
+    isUpcomingMainSection && showChapters
+      ? chapterEventCount + mainEventCount
+      : events.length;
+  const eventCountLabel = hasOnlyChapterUpcoming
+    ? `${chapterEventCount} chapter event${
+        chapterEventCount === 1 ? "" : "s"
+      }`
+    : `${displayCount} event${displayCount === 1 ? "" : "s"}`;
 
   return (
     <div className="mb-10">
@@ -76,12 +94,14 @@ const EventsSection = (props: EventsSectionProps) => {
           {({ open }) => (
             <>
               <DisclosureButton className="gap-x-4 mb-2 w-full flex items-center hover:underline hover:scale-102 timing">
-                <Heading
-                  className="mb-4 text-center text-3xl title lg:text-4xl lg:text-left"
-                  size="h2"
-                >
-                  {title}
-                </Heading>
+                <div className="flex flex-1 flex-col gap-2 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
+                  <Heading className="text-3xl title lg:text-4xl" size="h2">
+                    {title}
+                  </Heading>
+                  <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+                    {eventCountLabel}
+                  </Text>
+                </div>
 
                 <div className="flex justify-end">
                   <ChevronDown className={`timing ${open && "-rotate-180"}`} />
@@ -112,12 +132,14 @@ const EventsSection = (props: EventsSectionProps) => {
         </Disclosure>
       ) : (
         <div>
-          <Heading
-            className="mb-4 text-center text-3xl title lg:text-4xl lg:text-left"
-            size="h2"
-          >
-            {title}
-          </Heading>
+          <div className="mb-4 flex flex-col gap-2 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
+            <Heading className="text-3xl title lg:text-4xl" size="h2">
+              {title}
+            </Heading>
+            <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+              {eventCountLabel}
+            </Text>
+          </div>
 
           <Container
             eventType={eventType}

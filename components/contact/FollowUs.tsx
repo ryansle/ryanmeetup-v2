@@ -8,7 +8,6 @@ import {
   FaTiktok as TikTok,
 } from "react-icons/fa";
 import { FaThreads as Threads } from "react-icons/fa6";
-import { HiOutlineMail as Email } from "react-icons/hi";
 import { Divider, Text, Button } from "@/components/global";
 import { FaRegNewspaper as News } from "react-icons/fa";
 import { PiLetterCirclePBold as Party } from "react-icons/pi";

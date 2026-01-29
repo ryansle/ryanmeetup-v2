@@ -4,7 +4,7 @@ import { useMemo } from "react";
 
 // Components
 import { Text, Divider, Heading } from "@/components/global";
-import { EventsSection } from "@/components/events";
+import { Event, EventsSection } from "@/components/events";
 import NextLink from "next/link";
 
 // Types
@@ -15,6 +15,8 @@ type EventsContainerProps = {
   eventType?: string;
   hidePastEvents?: boolean;
   showUpcomingSection?: boolean;
+  showChapters?: boolean;
+  displayMode?: "sectioned" | "flat";
 };
 
 const EventsContainer = (props: EventsContainerProps) => {
@@ -23,6 +25,8 @@ const EventsContainer = (props: EventsContainerProps) => {
     eventType = "Main",
     hidePastEvents = false,
     showUpcomingSection = false,
+    showChapters = true,
+    displayMode = "sectioned",
   } = props;
 
   const eventsWithMeta = useMemo(
@@ -34,6 +38,64 @@ const EventsContainer = (props: EventsContainerProps) => {
       })),
     [events, eventType],
   );
+
+  if (displayMode === "flat") {
+    const now = Date.now();
+    const activeEvents = eventsWithMeta
+      .filter((item) => item.time >= now)
+      .map((item) => item.event);
+    const inactiveEvents = eventsWithMeta
+      .filter((item) => item.time < now)
+      .map((item) => item.event);
+
+    const showEmptyUpcomingBanner =
+      showUpcomingSection &&
+      activeEvents.length === 0 &&
+      inactiveEvents.length !== 0;
+
+    return (
+      <div className="mb-10">
+        {showEmptyUpcomingBanner && (
+          <div className="mb-8">
+            <Heading
+              className="mb-4 text-center text-3xl title lg:text-4xl lg:text-left"
+              size="h2"
+            >
+              Upcoming Events
+            </Heading>
+            <div className="space-y-4">
+              <Text className="text-lg text-center secondary lg:text-left">
+                No upcoming events at this time.
+              </Text>
+            </div>
+            <Divider margins="lg" />
+          </div>
+        )}
+
+        {!showEmptyUpcomingBanner && activeEvents.length !== 0 && (
+          <>
+            <EventsSection
+              title="Upcoming Events"
+              events={activeEvents}
+              eventType={eventType}
+              showChapters={false}
+            />
+            {inactiveEvents.length !== 0 && <Divider margins="lg" />}
+          </>
+        )}
+
+        {inactiveEvents.length !== 0 && (
+          <EventsSection
+            title="Past Events"
+            events={inactiveEvents}
+            eventType={eventType}
+            hidePastEvents={hidePastEvents}
+            showChapters={false}
+          />
+        )}
+      </div>
+    );
+  }
 
   const now = Date.now();
   const mainEvents: RyanEvent[] = [];
@@ -86,7 +148,9 @@ const EventsContainer = (props: EventsContainerProps) => {
               title="Upcoming Events"
               events={activeEvents}
               eventType={eventType}
-              showChapters={chapterEvents.length !== 0}
+              showChapters={showChapters && chapterEvents.length !== 0}
+              chapterEventCount={chapterEvents.length}
+              mainEventCount={activeEvents.length}
             />
             {inactiveEvents.length !== 0 && <Divider margins="lg" />}
           </>
