@@ -4,7 +4,7 @@ import { useMemo } from "react";
 
 // Components
 import { Text, Divider, Heading } from "@/components/global";
-import { Event, EventsSection } from "@/components/events";
+import { EventsSection } from "@/components/events";
 import NextLink from "next/link";
 
 // Types

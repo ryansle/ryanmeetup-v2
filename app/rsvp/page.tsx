@@ -38,9 +38,12 @@ export const metadata: Metadata = {
 
 const RSVPPage = async () => {
   const events = (await fetchEvents()) as RyanEvent[];
+  const now = Date.now();
 
   const upcoming = events.filter(
-    (event) => event.active && event.chapter?.includes("Main"),
+    (event) =>
+      event.chapter?.includes("Main") &&
+      new Date(event.date as unknown as string).getTime() >= now,
   );
 
   return (
