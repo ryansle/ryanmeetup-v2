@@ -17,6 +17,7 @@ type FloatingCtaProps = {
   href: string;
   label: string;
   sublabel?: string;
+  secondarySublabel?: string;
   icon?: ReactNode;
   hiddenRoutes?: string[];
   dismissDurationMs?: number;
@@ -30,6 +31,7 @@ const FloatingCta = (props: FloatingCtaProps) => {
     href,
     label,
     sublabel,
+    secondarySublabel,
     icon,
     hiddenRoutes = [],
     dismissDurationMs = 1000 * 60 * 60 * 24 * 7,
@@ -82,10 +84,19 @@ const FloatingCta = (props: FloatingCtaProps) => {
                 <Heading className="text-sm text-[#f4e7c1] sm:text-2xl" size="h4">
                   {label}
                 </Heading>
-                {sublabel && (
-                  <Text className="text-[8px] uppercase text-[#ad8f4f]/90 sm:text-xs">
-                    {sublabel}
-                  </Text>
+                {(sublabel || secondarySublabel) && (
+                  <div className="space-y-0.5">
+                    {sublabel && (
+                      <Text className="text-[8px] uppercase text-[#ad8f4f]/90 sm:text-xs">
+                        {sublabel}
+                      </Text>
+                    )}
+                    {secondarySublabel && (
+                      <Text className="text-[8px] uppercase text-[#ad8f4f]/90 sm:text-xs">
+                        {secondarySublabel}
+                      </Text>
+                    )}
+                  </div>
                 )}
               </div>
             </div>

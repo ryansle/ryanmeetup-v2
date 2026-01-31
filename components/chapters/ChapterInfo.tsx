@@ -1,7 +1,8 @@
 "use client";
 
 // Components
-import { Heading, Text, Card, Pill, Button } from "@/components/global";
+import { Heading, Text, Card, Pill } from "@/components/global";
+import NextLink from "next/link";
 import NextImage from "next/image";
 import { FaInstagram as Instagram } from "react-icons/fa";
 
@@ -78,16 +79,18 @@ const ChapterInfo = (props: ChapterInfoProps) => {
             </Text>
           </div>
 
-          <div className="col-span-4 -ml-10">
-            <Button.Link
+          <div className="col-span-4">
+            <NextLink
               href={instagram}
-              leftIcon={<Instagram className="h-4 w-4" />}
-              variant="ghost"
-              size="sm"
-              className="w-full justify-start overflow-hidden"
+              target="_blank"
+              rel="noreferrer"
+              className="relative inline-flex w-full items-center justify-start gap-2 overflow-hidden rounded-lg bg-transparent p-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:text-black/70 dark:text-white dark:hover:text-white/70 hover:underline"
             >
+              <span className="text-base">
+                <Instagram className="h-4 w-4" />
+              </span>
               <span className="truncate">{filterInstagram(instagram)}</span>
-            </Button.Link>
+            </NextLink>
           </div>
         </div>
 

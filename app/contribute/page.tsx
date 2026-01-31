@@ -8,12 +8,16 @@ import {
   FaPenNib as Pen,
   FaLaptopCode as Code,
   FaBullhorn as Bullhorn,
-  FaPrint as Print,
+  FaGlobe as Globe,
 } from "react-icons/fa";
 import { FaGear as Gear } from "react-icons/fa6";
 import { RiFilePaper2Line as Flyer } from "react-icons/ri";
 import { IoPersonAdd as Socials } from "react-icons/io5";
-import { MdMovie as Video, MdDesignServices as Design } from "react-icons/md";
+import { 
+  MdMovie as Video, 
+  MdDesignServices as Design,
+  MdBusinessCenter as Business 
+} from "react-icons/md";
 
 // Types
 import type { Metadata } from "next";
@@ -98,12 +102,16 @@ const ContributePage = async () => {
       icon: <Design className="h-5 w-5" />,
     },
     {
-      title: "Printing",
-      icon: <Print className="h-5 w-5" />,
+      title: "Social Media",
+      icon: <Globe className="h-5 w-5" />,
     },
     {
       title: "Logistics",
       icon: <Gear className="h-5 w-5" />,
+    },
+    { 
+      title: "Business Development", 
+      icon: <Business className="h-5 w-5" /> 
     },
   ];
 

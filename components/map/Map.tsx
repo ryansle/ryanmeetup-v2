@@ -17,6 +17,7 @@ import type { Location } from "@/lib/types";
 // Utilities
 import "mapbox-gl/dist/mapbox-gl.css";
 import { convertImageUrl } from "@/utils/convert";
+import { formatEventDate } from "@/utils/date";
 
 type MapboxProps = {
   locations: Location[];
@@ -395,7 +396,7 @@ const Mapbox = (props: MapboxProps) => {
                 )}
                 {selectedLocation.eventDate && (
                   <span className="-mt-1 text-black/70 dark:text-white/70">
-                    {new Date(selectedLocation.eventDate).toLocaleDateString()}{" "}
+                    {formatEventDate(selectedLocation.eventDate)}{" "}
                     •
                   </span>
                 )}{" "}
