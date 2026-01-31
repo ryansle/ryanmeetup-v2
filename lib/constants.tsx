@@ -10,7 +10,7 @@ import {
   FaDollarSign as Dollar,
   FaScroll as Scroll,
   FaTiktok as TikTok,
-  FaAddressCard as Card,
+  // FaAddressCard as Card,
 } from "react-icons/fa";
 import {
   FaPeopleGroup as Community,
@@ -22,11 +22,14 @@ import {
 } from "react-icons/fa6";
 import {
   IoCalendarNumber as Calendar,
-  IoPersonAdd as Socials,
+  // IoPersonAdd as Socials,
 } from "react-icons/io5";
 import { RiFilePaper2Line as Flyer } from "react-icons/ri";
 import { HiOutlineMail as Email } from "react-icons/hi";
-import { MdGroup as Group } from "react-icons/md";
+import { 
+  MdGroup as Group,
+  MdHowToVote as Suggestion,
+} from "react-icons/md";
 import { GoSponsorTiers as Sponsor } from "react-icons/go";
 import { PiLetterCirclePBold as Party } from "react-icons/pi";
 
@@ -99,7 +102,7 @@ export const routes = [
       },
       {
         icon: <FileLines />,
-        text: "Name Change",
+        text: "Name Change Forms",
         href: "/name-change",
       },
     ],
@@ -139,6 +142,11 @@ export const routes = [
         text: "Charity",
         href: "/charity",
       },
+      { 
+        icon: <Suggestion />,
+        text: "Submit a Rycommendation",
+        href: "https://forms.gle/FH4vSc3ngFgqziTg9"
+      }
       // {
       //   icon: <Card />,
       //   text: "Buy Card",
