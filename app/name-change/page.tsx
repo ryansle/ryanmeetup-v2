@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Download name change paperwork by state. All 50 states in one place.",
   openGraph: {
     url: "https://ryanmeetup.com/name-change",
-    title: "Ryan Meetup - Name Change",
+    title: "Ryan Meetup - Change Your Name to Ryan",
     description:
       "Download name change paperwork by state. All 50 states in one place.",
     siteName: "Ryan Meetup",
@@ -54,11 +54,6 @@ const NameChangePage = () => {
     <Layout fullscreen>
       <div className="relative">
         <AnchorNav items={anchors} />
-        <div className="fixed top-[120px] -left-[52px] lg:top-12 lg:-left-[40px] -rotate-45 z-20 lg:z-40">
-          <div className="px-2 text-center rounded-lg font-semibold uppercase w-[200px] h-6 flex items-center justify-center bg-red-500 text-sm">
-            Coming Soon
-          </div>
-        </div>
         <section className={`pb-20 pt-8 ${layoutPaddingX}`}>
           <NameChangeHero />
 
