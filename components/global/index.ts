@@ -3,6 +3,7 @@ export * from "./Text";
 export * from "./Button";
 export * from "./Divider";
 export * from "./Input";
+export * from "./FloatingCta";
 export * from "./Textarea";
 export * from "./Modal";
 export * from "./404";

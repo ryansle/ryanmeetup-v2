@@ -65,7 +65,7 @@ const FollowUs = () => {
           <NextLink
             href={outlet.href}
             key={outlet.text}
-            className="flex space-x-4 timing hover:scale-102"
+            className="flex space-x-4 timing hover:-translate-y-1 hover:underline"
           >
             {renderIcon(outlet.text)}
 
@@ -81,7 +81,7 @@ const FollowUs = () => {
       <Button.Link
         href="/newsletter"
         leftIcon={<News />}
-        variant="secondary"
+        variant="primary"
         className="w-full"
       >
         <span className="sm:hidden">Join newsletter</span>

@@ -74,8 +74,6 @@ const ContactPage = async () => {
           </Card>
         </div>
       </section>
-
-      <Divider margins="lg" />
     </Layout>
   );
 };
