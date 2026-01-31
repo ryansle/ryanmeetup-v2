@@ -10,6 +10,9 @@ import NextLink from "next/link";
 // Types
 import type { RyanEvent } from "@/lib/types";
 
+// Utilities
+import { toEndOfDayTime } from "@/utils/date";
+
 type EventsContainerProps = {
   events: RyanEvent[];
   eventType?: string;
@@ -33,7 +36,7 @@ const EventsContainer = (props: EventsContainerProps) => {
     () =>
       events.map((event) => ({
         event,
-        time: new Date(event.date as unknown as string).getTime(),
+        time: toEndOfDayTime(event.date),
         isMain: event.chapter.includes(eventType),
       })),
     [events, eventType],

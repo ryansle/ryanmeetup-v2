@@ -48,7 +48,7 @@ const Event = (props: EventProps) => {
         <div className="flex flex-1 flex-col px-5 py-4">
           <div className="flex items-center justify-between mb-4">
             <div className="space-y-1">
-              <Text className="text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+              <Text className="text-sm uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
                 {dateTime}
               </Text>
               <Heading className="text-2xl title" size="h3">
@@ -60,17 +60,18 @@ const Event = (props: EventProps) => {
             {description}
           </Text>
 
-          <div className="mt-auto grid grid-cols-2 gap-2 pt-5 text-black/60 dark:text-white/60">
+          {/* <div className="mt-auto grid grid-cols-2 gap-2 pt-5 text-black/60 dark:text-white/60"> */}
+          <div className="mt-auto gap-2 pt-5 text-black/60 dark:text-white/60">
             <div className="flex items-center gap-2">
-              <City />
-              <Text className="text-xs uppercase tracking-[0.2em]">
+              <City className="w-4 h-4" />
+              <Text className="text-sm uppercase tracking-[0.2em]">
                 {city}
               </Text>
             </div>
 
             <div className="flex items-center gap-2">
-              <Pin />
-              <Text className="text-xs uppercase tracking-[0.2em]">
+              <Pin className="w-4 h-4"/>
+              <Text className="text-sm uppercase tracking-[0.2em]">
                 {venue}
               </Text>
             </div>

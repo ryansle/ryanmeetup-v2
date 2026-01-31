@@ -2,15 +2,16 @@
 import { Layout } from "@/components/navigation";
 import { Heading, Divider, Text, Pill } from "@/components/global";
 import { FAQ } from "@/components/home";
-import { ChapterDirectory, CalendarButton } from "@/components/chapters";
+import { ChapterDirectory } from "@/components/chapters";
 
 // Types
-import type { FrequentlyAskedQuestion, RyanChapter } from "@/lib/types";
+import type { FrequentlyAskedQuestion, RyanChapter, RyanEvent } from "@/lib/types";
 import type { Metadata } from "next";
 
 // Utilities
 import { fetchChapters, fetchFAQs, fetchEvents } from "@/actions/fetchContent";
 import { getChaptersFixture } from "@/lib/test-fixtures/chapters";
+import { isEventUpcoming } from "@/utils/date";
 
 export const metadata: Metadata = {
   title: "Ryan Meetup - Chapters",
@@ -58,15 +59,15 @@ const ChaptersPage = async ({
 
   const faqs = fixture?.faqs ?? (await fetchFAQs());
   const chapters = fixture?.chapters ?? (await fetchChapters());
-  const events = fixture?.events ?? (await fetchEvents());
+  const events = (fixture?.events ?? (await fetchEvents())) as RyanEvent[];
 
-  const chapterEvents = events.filter(
-    (event) =>
-      // @ts-ignore
-      !event?.chapter?.includes("Main") &&
-      new Date(event.date as unknown as string).getTime() >=
-        new Date().getTime(),
-  );
+  const chapterEvents = events.filter((event) => {
+    if (event.chapter?.includes("Main")) {
+      return false;
+    }
+
+    return isEventUpcoming(event.date);
+  });
 
   const chapterFaqs = faqs
     .filter((faq) => faq.type === "chapter")
@@ -76,7 +77,6 @@ const ChaptersPage = async ({
 
   const upcomingEvents = new Set(
     chapterEvents
-      //@ts-ignore
       .map((event) => event.city?.split(",")[0].trim())
       .filter(Boolean),
   );
@@ -102,7 +102,7 @@ const ChaptersPage = async ({
           upcomingCities={Array.from(upcomingEvents)}
         />
 
-        <CalendarButton />
+        {/* <CalendarButton /> */}
       </div>
 
       <Divider margins="lg" />

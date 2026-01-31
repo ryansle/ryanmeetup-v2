@@ -4,6 +4,9 @@ import { Event } from "@/components/events";
 // Types
 import type { RyanEvent } from "@/lib/types";
 
+// Utilities
+import { isEventUpcoming } from "@/utils/date";
+
 type DoubleHeaderProps = {
   events: RyanEvent[];
 };
@@ -11,10 +14,8 @@ type DoubleHeaderProps = {
 const DoubleHeader = (props: DoubleHeaderProps) => {
   const { events } = props;
 
-  const activeEvents = events?.filter(
-    (event) =>
-      new Date(event.date as unknown as string).getTime() >=
-      new Date().getTime(),
+  const activeEvents = events?.filter((event) =>
+    isEventUpcoming(event.date),
   );
 
   return (
