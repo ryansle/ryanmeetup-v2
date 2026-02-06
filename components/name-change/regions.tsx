@@ -76,6 +76,9 @@ const AVAILABLE_FORMS = new Set([
   "OhioNameChange.pdf",
 ]);
 
+const AVAILABLE_FORMS_COUNT = AVAILABLE_FORMS.size;
+const AVAILABLE_CANADA_FORMS_COUNT = 0;
+
 const getNameChangeFormPath = (name: string) => {
   const sanitized = name.replace(/[^A-Za-z]/g, "");
   const filename = `${sanitized}NameChange.pdf`;
@@ -151,4 +154,8 @@ export const CANADA_PROVINCES: RegionItem[] = [
   { name: "Saskatchewan", icon: FaWheatAwn },
 ];
 
-export { getNameChangeFormPath };
+export {
+  AVAILABLE_FORMS_COUNT,
+  AVAILABLE_CANADA_FORMS_COUNT,
+  getNameChangeFormPath,
+};

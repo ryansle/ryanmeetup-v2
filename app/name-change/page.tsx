@@ -6,6 +6,8 @@ import {
   RegionSection,
   US_STATES,
   CANADA_PROVINCES,
+  AVAILABLE_FORMS_COUNT,
+  AVAILABLE_CANADA_FORMS_COUNT,
 } from "@/components/name-change";
 import { FaCanadianMapleLeaf, FaFlagUsa } from "react-icons/fa6";
 import { layoutPaddingX } from "@/lib/constants";
@@ -37,6 +39,10 @@ export const metadata: Metadata = {
 
 const NameChangePage = () => {
   const anchorIconStyle = "h-5 w-5";
+  const formatRegionSubtitle = (available: number, total: number) =>
+    available === 0
+      ? `${total} forms coming soon`
+      : `${available} forms available`;
   const anchors = [
     {
       icon: <FaFlagUsa className={anchorIconStyle} />,
@@ -62,7 +68,10 @@ const NameChangePage = () => {
           <RegionSection
             id="united-states"
             title="United States"
-            subtitle="All 50 states"
+            subtitle={formatRegionSubtitle(
+              AVAILABLE_FORMS_COUNT,
+              US_STATES.length,
+            )}
             items={US_STATES}
           />
 
@@ -71,7 +80,10 @@ const NameChangePage = () => {
           <RegionSection
             id="canada"
             title="Canada"
-            subtitle="10 provinces"
+            subtitle={formatRegionSubtitle(
+              AVAILABLE_CANADA_FORMS_COUNT,
+              CANADA_PROVINCES.length,
+            )}
             items={CANADA_PROVINCES}
           />
         </section>
