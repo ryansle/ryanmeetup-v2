@@ -1,7 +1,9 @@
 // Components
 import { Heading, Card, Button } from "@/components/global";
+import { FaDownload } from "react-icons/fa";
 
 // Types
+import { getNameChangeFormPath } from "@/components/name-change/regions";
 import type { RegionItem } from "@/components/name-change/regions";
 
 type RegionGridProps = {
@@ -15,6 +17,7 @@ const RegionGrid = (props: RegionGridProps) => {
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {items.map((item) => {
         const Icon = item.icon;
+        const formPath = getNameChangeFormPath(item.name);
 
         return (
           <Card
@@ -34,15 +37,29 @@ const RegionGrid = (props: RegionGridProps) => {
                 {item.name}
               </Heading>
             </div>
-            <Button.Link
-              href="#"
-              disabled
-              size="sm"
-              variant="secondary"
-              className="w-full justify-center whitespace-nowrap"
-            >
-              Coming soon
-            </Button.Link>
+            {formPath ? (
+              <Button.Link
+                href={formPath}
+                size="sm"
+                variant="primary"
+                className="w-full justify-center whitespace-nowrap"
+                newTab={false}
+                download
+                leftIcon={<FaDownload className="h-4 w-4" />}
+              >
+                Download form
+              </Button.Link>
+            ) : (
+              <Button.Link
+                href="#"
+                disabled
+                size="sm"
+                variant="secondary"
+                className="w-full justify-center whitespace-nowrap"
+              >
+                Coming soon
+              </Button.Link>
+            )}
           </Card>
         );
       })}

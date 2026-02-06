@@ -13,6 +13,7 @@ type ButtonLinkProps = {
   disabled?: boolean;
   href: string;
   newTab?: boolean;
+  download?: boolean | string;
   variant?: ButtonVariant;
   size?: ButtonSize;
   fullWidth?: boolean;
@@ -88,6 +89,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     disabled = false,
     href,
     newTab = true,
+    download,
     variant = "primary",
     size = "md",
     fullWidth = false,
@@ -102,6 +104,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
       target={newTab ? "_blank" : "_self"}
       aria-disabled={disabled}
       tabIndex={disabled ? -1 : 0}
+      download={download}
     >
       {variant === "primary" && !disabled && (
         <>

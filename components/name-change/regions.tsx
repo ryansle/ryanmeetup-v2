@@ -40,6 +40,51 @@ export type RegionItem = {
   icon: IconType;
 };
 
+const AVAILABLE_FORMS = new Set([
+  "AlabamaNameChange.pdf",
+  "AlaskaNameChange.pdf",
+  "ArizonaNameChange.pdf",
+  "ArkansasNameChange.pdf",
+  "CaliforniaNameChange.pdf",
+  "ColoradoNameChange.pdf",
+  "DelawareNameChange.pdf",
+  "FloridaNameChange.pdf",
+  "GeorgiaNameChange.pdf",
+  "IdahoNameChange.pdf",
+  "IllinoisNameChange.pdf",
+  "IndianaNameChange.pdf",
+  "IowaNameChange.pdf",
+  "KansasNameChange.pdf",
+  "KentuckyNameChange.pdf",
+  "LouisianaNameChange.pdf",
+  "MaineNameChange.pdf",
+  "MarylandNameChange.pdf",
+  "MassachusettsNameChange.pdf",
+  "MichiganNameChange.pdf",
+  "MinnesotaNameChange.pdf",
+  "MississippiNameChange.pdf",
+  "MissouriNameChange.pdf",
+  "MontanaNameChange.pdf",
+  "NebraskaNameChange.pdf",
+  "NevadaNameChange.pdf",
+  "NewHampshireNameChange.pdf",
+  "NewJerseyNameChange.pdf",
+  "NewMexicoNameChange.pdf",
+  "NewYorkNameChange.pdf",
+  "NorthCarolinaNameChange.pdf",
+  "NorthDakotaNameChange.pdf",
+  "OhioNameChange.pdf",
+]);
+
+const getNameChangeFormPath = (name: string) => {
+  const sanitized = name.replace(/[^A-Za-z]/g, "");
+  const filename = `${sanitized}NameChange.pdf`;
+  if (!AVAILABLE_FORMS.has(filename)) {
+    return null;
+  }
+  return `/name-change-forms/${filename}`;
+};
+
 export const US_STATES: RegionItem[] = [
   { name: "Alabama", icon: FaSeedling },
   { name: "Alaska", icon: FaSnowflake },
@@ -105,3 +150,5 @@ export const CANADA_PROVINCES: RegionItem[] = [
   { name: "Quebec", icon: FaLandmarkDome },
   { name: "Saskatchewan", icon: FaWheatAwn },
 ];
+
+export { getNameChangeFormPath };
