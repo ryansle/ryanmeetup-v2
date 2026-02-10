@@ -47,9 +47,12 @@ const AVAILABLE_FORMS = new Set([
   "ArkansasNameChange.pdf",
   "CaliforniaNameChange.pdf",
   "ColoradoNameChange.pdf",
+  "ConnecticutNameChange.pdf",
   "DelawareNameChange.pdf",
+  "DistrictOfColumbiaNameChangeForm.pdf",
   "FloridaNameChange.pdf",
   "GeorgiaNameChange.pdf",
+  "HawaiiNameChange.pdf",
   "IdahoNameChange.pdf",
   "IllinoisNameChange.pdf",
   "IndianaNameChange.pdf",
@@ -74,10 +77,23 @@ const AVAILABLE_FORMS = new Set([
   "NorthCarolinaNameChange.pdf",
   "NorthDakotaNameChange.pdf",
   "OhioNameChange.pdf",
+  "OklahomaNameChange.pdf",
+  "OregonNameChange.pdf",
+  "PennsylvaniaNameChange.pdf",
+  "RhodeIslandNameChange.pdf",
+  "SouthCarolinaNameChange.pdf",
+  "SouthDakotaNameChange.pdf",
+  "TennesseeNameChange.pdf",
+  "TexasNameChange.pdf",
+  "UtahNameChange.pdf",
+  "VermontNameChange.pdf",
+  "VirginiaNameChange.pdf",
+  "WashingtonNameChange.pdf",
+  "WestVirginiaNameChange.pdf",
+  "WisconsinNameChange.pdf",
+  "WyomingNameChange.pdf",
 ]);
 
-const AVAILABLE_FORMS_COUNT = AVAILABLE_FORMS.size;
-const AVAILABLE_CANADA_FORMS_COUNT = 0;
 
 const getNameChangeFormPath = (name: string) => {
   const sanitized = name.replace(/[^A-Za-z]/g, "");
@@ -153,6 +169,11 @@ export const CANADA_PROVINCES: RegionItem[] = [
   { name: "Quebec", icon: FaLandmarkDome },
   { name: "Saskatchewan", icon: FaWheatAwn },
 ];
+
+const AVAILABLE_FORMS_COUNT = US_STATES.filter((state) =>
+  Boolean(getNameChangeFormPath(state.name)),
+).length;
+const AVAILABLE_CANADA_FORMS_COUNT = 0;
 
 export {
   AVAILABLE_FORMS_COUNT,

@@ -9,7 +9,7 @@ import {
 const NameChangeHero = () => {
   return (
     <Blurb
-      tag="Name Changes"
+      tag="Change your name to Ryan"
       fullHeadline="Name Change Paperwork"
       smallHeadline="Name Change Paperwork"
       href="/contact"
