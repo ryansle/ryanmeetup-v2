@@ -143,8 +143,8 @@ export const routes = [
         href: "/charity",
       },
       { 
-        icon: <Suggestion />,
-        text: "Submit a Rycommendation",
+        icon: <Suggestion className="shrink-0" />,
+        text: "Submit Rycommendations",
         href: "https://forms.gle/FH4vSc3ngFgqziTg9"
       }
       // {
