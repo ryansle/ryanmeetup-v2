@@ -9,11 +9,12 @@ type RegionSectionProps = {
   title: string;
   subtitle: string;
   items: RegionItem[];
+  region: "usa" | "canada";
   id?: string;
 };
 
 const RegionSection = (props: RegionSectionProps) => {
-  const { title, subtitle, items, id } = props;
+  const { title, subtitle, items, region, id } = props;
 
   return (
     <section id={id} className="scroll-mt-24">
@@ -25,7 +26,7 @@ const RegionSection = (props: RegionSectionProps) => {
           {subtitle}
         </Text>
       </div>
-      <RegionGrid items={items} />
+      <RegionGrid items={items} region={region} />
     </section>
   );
 };

@@ -101,8 +101,8 @@ export const routes = [
         href: "/awards",
       },
       {
-        icon: <FileLines />,
-        text: "Name Change Forms",
+        icon: <FileLines className="shrink-0" />,
+        text: "Change Name",
         href: "/name-change",
       },
     ],

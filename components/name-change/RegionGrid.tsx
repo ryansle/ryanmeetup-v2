@@ -8,16 +8,17 @@ import type { RegionItem } from "@/components/name-change/regions";
 
 type RegionGridProps = {
   items: RegionItem[];
+  region: "usa" | "canada";
 };
 
 const RegionGrid = (props: RegionGridProps) => {
-  const { items } = props;
+  const { items, region } = props;
 
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {items.map((item) => {
         const Icon = item.icon;
-        const formPath = getNameChangeFormPath(item.name);
+        const formPath = getNameChangeFormPath(item.name, region);
 
         return (
           <Card

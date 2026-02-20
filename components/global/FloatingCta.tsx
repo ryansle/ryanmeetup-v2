@@ -81,18 +81,18 @@ const FloatingCta = (props: FloatingCtaProps) => {
                 </div>
               )}
               <div>
-                <Heading className="text-sm text-[#f4e7c1] sm:text-2xl" size="h4">
+                <Heading className="text-lg text-[#f4e7c1] sm:text-2xl" size="h4">
                   {label}
                 </Heading>
                 {(sublabel || secondarySublabel) && (
                   <div className="space-y-0.5">
                     {sublabel && (
-                      <Text className="text-[8px] uppercase text-[#ad8f4f]/90 sm:text-xs">
+                      <Text className="text-xs md:text-sm uppercase text-[#ad8f4f]/90">
                         {sublabel}
                       </Text>
                     )}
                     {secondarySublabel && (
-                      <Text className="text-[8px] uppercase text-[#ad8f4f]/90 sm:text-xs">
+                      <Text className="text-xs md:text-sm uppercase text-[#ad8f4f]/90">
                         {secondarySublabel}
                       </Text>
                     )}

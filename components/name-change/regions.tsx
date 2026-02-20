@@ -40,7 +40,7 @@ export type RegionItem = {
   icon: IconType;
 };
 
-const AVAILABLE_FORMS = new Set([
+const AVAILABLE_USA_FORMS = new Set([
   "AlabamaNameChange.pdf",
   "AlaskaNameChange.pdf",
   "ArizonaNameChange.pdf",
@@ -94,14 +94,47 @@ const AVAILABLE_FORMS = new Set([
   "WyomingNameChange.pdf",
 ]);
 
+const AVAILABLE_CANADA_FORMS = new Set([
+  "AlbertaNameChange.pdf",
+  "BritishColumbiaNameChange.pdf",
+  "ManitobaNameChange.pdf",
+  "NewBrunswickNameChange.pdf",
+  "NewfoundlandNameChange.pdf",
+  "NovaScotiaNameChange.pdf",
+  "OntarioNameChange.pdf",
+  "PrinceEdwardIslandNameChange.pdf",
+  "QuebecNameChange.pdf",
+  "SaskatchewanNameChange.pdf",
+]);
 
-const getNameChangeFormPath = (name: string) => {
-  const sanitized = name.replace(/[^A-Za-z]/g, "");
-  const filename = `${sanitized}NameChange.pdf`;
-  if (!AVAILABLE_FORMS.has(filename)) {
+const CANADA_FILENAME_OVERRIDES: Record<string, string> = {
+  Alberta: "AlbertaNameChange.pdf",
+  "British Columbia": "BritishColumbiaNameChange.pdf",
+  Manitoba: "ManitobaNameChange.pdf",
+  "New Brunswick": "NewBrunswickNameChange.pdf",
+  "Newfoundland and Labrador": "NewfoundlandNameChange.pdf",
+  "Nova Scotia": "NovaScotiaNameChange.pdf",
+  Ontario: "OntarioNameChange.pdf",
+  "Prince Edward Island": "PrinceEdwardIslandNameChange.pdf",
+  Quebec: "QuebecNameChange.pdf",
+  Saskatchewan: "SaskatchewanNameChange.pdf",
+};
+
+const getNameChangeFormPath = (name: string, region: "usa" | "canada") => {
+  const filename =
+    region === "canada"
+      ? CANADA_FILENAME_OVERRIDES[name] ??
+        `${name.replace(/[^A-Za-z]/g, "")}NameChange.pdf`
+      : `${name.replace(/[^A-Za-z]/g, "")}NameChange.pdf`;
+
+  const availableSet =
+    region === "canada" ? AVAILABLE_CANADA_FORMS : AVAILABLE_USA_FORMS;
+
+  if (!availableSet.has(filename)) {
     return null;
   }
-  return `/name-change-forms/${filename}`;
+
+  return `/name-change-forms/${region}/${filename}`;
 };
 
 export const US_STATES: RegionItem[] = [
@@ -171,9 +204,11 @@ export const CANADA_PROVINCES: RegionItem[] = [
 ];
 
 const AVAILABLE_FORMS_COUNT = US_STATES.filter((state) =>
-  Boolean(getNameChangeFormPath(state.name)),
+  Boolean(getNameChangeFormPath(state.name, "usa")),
 ).length;
-const AVAILABLE_CANADA_FORMS_COUNT = 0;
+const AVAILABLE_CANADA_FORMS_COUNT = CANADA_PROVINCES.filter((province) =>
+  Boolean(getNameChangeFormPath(province.name, "canada")),
+).length;
 
 export {
   AVAILABLE_FORMS_COUNT,

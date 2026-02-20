@@ -73,6 +73,7 @@ const NameChangePage = () => {
               US_STATES.length,
             )}
             items={US_STATES}
+            region="usa"
           />
 
           <Divider margins="xl" />
@@ -85,6 +86,7 @@ const NameChangePage = () => {
               CANADA_PROVINCES.length,
             )}
             items={CANADA_PROVINCES}
+            region="canada"
           />
         </section>
       </div>

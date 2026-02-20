@@ -46,10 +46,10 @@ const Layout = (props: LayoutProps) => {
         href="/rsvp"
         label="RSVP"
         sublabel="To St. Ryan's Day"
-        secondarySublabel="3/21/26 • Philadelphia"
+        secondarySublabel="3/21/26 &nbsp;•&nbsp; Philadelphia"
         ariaLabel="RSVP to upcoming events"
         hiddenRoutes={["/rsvp", "/awards", "/name-change"]}
-        icon={<Clover className="text-lg fill-[#ad8f4f] w-8 h-8" />}
+        icon={<Clover className="fill-[#ad8f4f] w-4 h-4 lg:w-8 lg:h-8" />}
       />
 
       <NewFooter />
