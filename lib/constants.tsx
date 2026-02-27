@@ -79,31 +79,37 @@ export const routes = [
         icon: <Scroll />,
         text: "About",
         href: "/about",
+        description: "Learn more about the Ryan Meetup.",
       },
       {
         icon: <Calendar />,
         text: "Events",
         href: "/events",
+        description: "Check out upcoming meetups and RSVP details.",
       },
       {
         icon: <Group />,
         text: "Chapters",
         href: "/chapters",
+        description: "Find local chapters and connect with your Ryans in your city.",
       },
       {
         icon: <Gallery />,
         text: "Gallery",
         href: "/gallery",
+        description: "Photos and recaps from past Ryan Meetups.",
       },
       {
         icon: <Trophy />,
         text: "Awards",
         href: "/awards",
+        description: "Celebrating standout Ryans and community moments.",
       },
       {
         icon: <FileLines className="shrink-0" />,
         text: "Change Name",
         href: "/name-change",
+        description: "Official process and guidance for a Ryan name change.",
       },
     ],
   },
@@ -121,31 +127,37 @@ export const routes = [
         icon: <Flyer />,
         text: "Flyers",
         href: "/flyers",
+        description: "Download and share promotional flyer designs.",
       },
       {
         icon: <Help />,
         text: "Contribute",
         href: "/contribute",
+        description: "Check out ways to volunteer, create, and build with our team.",
       },
       {
         icon: <Dollar />,
         text: "Donate",
         href: "/donate",
+        description: "Support the Ryan Meetup as we continue to grow our community.",
       },
       {
         icon: <Sponsor />,
         text: "Sponsors",
         href: "/sponsors",
+        description: "Partner with us and see current sponsors.",
       },
       {
         icon: <Charity />,
         text: "Charity",
         href: "/charity",
+        description: "Give back through Ryan-led charitable efforts.",
       },
       { 
         icon: <Suggestion className="shrink-0" />,
-        text: "Submit Rycommendations",
-        href: "https://forms.gle/FH4vSc3ngFgqziTg9"
+        text: "Rycommendations",
+        href: "https://forms.gle/FH4vSc3ngFgqziTg9",
+        description: "Have a suggestion or idea? We'd love to hear it.",
       }
       // {
       //   icon: <Card />,

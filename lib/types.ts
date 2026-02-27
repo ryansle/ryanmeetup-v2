@@ -198,6 +198,7 @@ type Route = {
   icon: ReactNode;
   text: string;
   href: string;
+  description?: string;
 };
 
 type ContactFormFields = {

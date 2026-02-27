@@ -1,3 +1,5 @@
+"use client";
+
 // Components
 import {
   Transition,
@@ -5,12 +7,13 @@ import {
   PopoverButton,
   PopoverPanel,
 } from "@headlessui/react";
-import { Divider } from "@/components/global";
+import { Text } from "@/components/global";
 import { FaChevronDown as ChevronDown } from "react-icons/fa6";
 import NextLink from "next/link";
 
 // Types
 import type { Route } from "@/lib/types";
+import { useRef } from "react";
 import type { ReactNode } from "react";
 
 type RouteMenuProps = {
@@ -22,6 +25,7 @@ type RouteMenuProps = {
 
 const RouteMenu = (props: RouteMenuProps) => {
   const { icon, title, routes, pathname } = props;
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const isSelected = (pathname: string) => {
     if (
@@ -43,7 +47,7 @@ const RouteMenu = (props: RouteMenuProps) => {
         pathname === "/charity" ||
         pathname === "/sponsors" ||
         pathname === "/donate") &&
-      title === "Support"
+      title === "Get Involved"
     ) {
       return "bg-black/15 text-black shadow-sm ring-1 ring-black/10 dark:bg-white/25 dark:text-white dark:ring-white/20";
     }
@@ -51,9 +55,21 @@ const RouteMenu = (props: RouteMenuProps) => {
 
   return (
     <Popover className="relative">
-      {({ open }) => (
-        <>
+      {({ open, close }) => (
+        <div
+          onMouseEnter={() => {
+            if (!open) {
+              buttonRef.current?.click();
+            }
+          }}
+          onMouseLeave={() => {
+            if (open) {
+              close();
+            }
+          }}
+        >
           <PopoverButton
+            ref={buttonRef}
             className={`flex items-center gap-x-2 rounded-full px-3 py-2 text-xs font-semibold tracking-wide text-black transition hover:bg-black/5 hover:shadow-sm dark:text-white dark:hover:bg-white/10 2xl:px-4 2xl:text-sm ${
               isSelected(pathname) ?? ""
             }`}
@@ -73,28 +89,35 @@ const RouteMenu = (props: RouteMenuProps) => {
             leaveTo="opacity-0 translate-y-1"
           >
             <PopoverPanel
-              className="z-50 w-fit rounded-xl border border-black/10 bg-white/95 p-3 shadow-xl backdrop-blur dark:border-white/10 dark:bg-black/95"
+              className="z-50 w-[720px] rounded-2xl border border-black/10 bg-white/95 p-4 shadow-xl backdrop-blur dark:border-white/10 dark:bg-black/95"
               anchor="bottom"
             >
-              {routes.map((route, index) => (
-                <div key={route.text}>
+              <div className="grid grid-cols-3 grid-rows-2 gap-3">
+                {routes.map((route) => (
                   <NextLink
-                    className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-xs font-semibold tracking-wide text-black transition hover:bg-black/5 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10 xl:text-sm"
+                    key={route.text}
+                    className="group cursor-pointer rounded-xl border border-transparent px-3 py-2 transition hover:border-black/10 hover:bg-black/5 dark:hover:border-white/10 dark:hover:bg-white/10"
                     href={route.href}
                   >
-                    <span className="flex items-center gap-2">
-                      {route.icon} {route.text}
-                    </span>
-                    <span className="text-[10px] opacity-0 transition group-hover:opacity-100 xl:text-xs">
-                      →
-                    </span>
+                    <div className="flex items-center justify-between gap-3 text-sm font-semibold tracking-wide text-black dark:text-white xl:text-base">
+                      <span className="flex items-center gap-2">
+                        {route.icon} {route.text}
+                      </span>
+                      <span className="text-xs opacity-0 transition group-hover:opacity-100">
+                        →
+                      </span>
+                    </div>
+                    {route.description && (
+                      <Text className="mt-1 text-sm leading-relaxed text-black/60 dark:text-white/60">
+                        {route.description}
+                      </Text>
+                    )}
                   </NextLink>
-                  {index !== routes.length - 1 && <Divider margins="sm" />}
-                </div>
-              ))}
+                ))}
+              </div>
             </PopoverPanel>
           </Transition>
-        </>
+        </div>
       )}
     </Popover>
   );
