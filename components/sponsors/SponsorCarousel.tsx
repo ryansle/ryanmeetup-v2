@@ -20,7 +20,7 @@ type SponsorCarousel = {
 };
 
 const SponsorCarousel = (props: SponsorCarousel) => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const { sponsors } = props;
 
@@ -30,11 +30,11 @@ const SponsorCarousel = (props: SponsorCarousel) => {
         href: sponsor.href,
         name: sponsor.name,
         src:
-          theme === "light"
+          (resolvedTheme ?? "dark") === "light"
             ? (convertImageUrl(sponsor.lightModeImage) as string)
             : (convertImageUrl(sponsor.darkModeImage) as string),
       })),
-    [sponsors, theme],
+    [sponsors, resolvedTheme],
   );
   const [topRow, bottomRow] = useMemo(() => {
     const top: typeof sponsorLogos = [];

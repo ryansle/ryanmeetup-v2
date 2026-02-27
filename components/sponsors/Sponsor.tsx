@@ -23,7 +23,7 @@ const Sponsor = (props: SponsorProps) => {
   const { className, imageWrapperClassName } = props;
 
   const { resolvedTheme } = useTheme();
-  const isLight = (resolvedTheme ?? "light") === "light";
+  const isLight = (resolvedTheme ?? "dark") === "light";
   
   return (
     <NextLink
