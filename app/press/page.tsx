@@ -81,7 +81,7 @@ const PressPage = async () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    itemListElement: (articles as RyanArticle[]).map((article, index) => ({
+    itemListElement: (articles as unknown as RyanArticle[]).map((article, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {
