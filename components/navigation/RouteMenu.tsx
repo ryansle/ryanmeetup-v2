@@ -30,6 +30,7 @@ const RouteMenu = (props: RouteMenuProps) => {
   const isSelected = (pathname: string) => {
     if (
       (pathname === "/events" ||
+        pathname === "/upcoming" ||
         pathname.includes("/gallery") ||
         pathname === "/awards" ||
         pathname === "/about" ||

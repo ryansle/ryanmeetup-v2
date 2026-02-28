@@ -2,8 +2,9 @@
 import { Layout } from "@/components/navigation";
 import { Divider, Text } from "@/components/global";
 import { Blurb, EventsContainer } from "@/components/events";
-import { FaRegNewspaper as News } from "react-icons/fa";
+import { FaRegNewspaper as News, FaListUl as List } from "react-icons/fa";
 import { FaUserPlus as Join } from "react-icons/fa6";
+import NextLink from "next/link";
 
 // Types
 import type { RyanEvent } from "@/lib/types";
@@ -161,7 +162,18 @@ const EventsPage = async ({
 
       <Divider />
 
-      <EventsContainer events={events as unknown as RyanEvent[]} />
+      <EventsContainer
+        events={events as unknown as RyanEvent[]}
+        upcomingHeaderAction={
+          <NextLink
+            href="/upcoming"
+            className="inline-flex items-center gap-2 rounded-full border border-black/70 bg-black px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white shadow-sm transition hover:border-black/90 hover:bg-black/90 dark:border-white/60 dark:bg-white dark:text-black dark:hover:border-white/80 dark:hover:bg-white/90"
+          >
+            <List className="h-3 w-3" />
+            See all upcoming
+          </NextLink>
+        }
+      />
     </Layout>
   );
 };

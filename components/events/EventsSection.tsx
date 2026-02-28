@@ -25,6 +25,7 @@ type EventsSectionProps = {
   showChapters: boolean;
   chapterEventCount?: number;
   mainEventCount?: number;
+  headerAction?: React.ReactNode;
 };
 
 type ContainerProps = {
@@ -71,6 +72,7 @@ const EventsSection = (props: EventsSectionProps) => {
     showChapters,
     chapterEventCount = 0,
     mainEventCount = events.length,
+    headerAction,
   } = props;
 
   const isUpcomingMainSection =
@@ -79,7 +81,7 @@ const EventsSection = (props: EventsSectionProps) => {
     isUpcomingMainSection && showChapters && chapterEventCount > 0 && mainEventCount === 0;
   const displayCount =
     isUpcomingMainSection && showChapters
-      ? chapterEventCount + mainEventCount
+      ? mainEventCount
       : events.length;
   const eventCountLabel = hasOnlyChapterUpcoming
     ? `${chapterEventCount} chapter event${
@@ -98,9 +100,12 @@ const EventsSection = (props: EventsSectionProps) => {
                   <Heading className="text-3xl title lg:text-4xl" size="h2">
                     {title}
                   </Heading>
-                  <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-                    {eventCountLabel}
-                  </Text>
+                  <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-end">
+                    <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
+                      {eventCountLabel}
+                    </Text>
+                    {headerAction}
+                  </div>
                 </div>
 
                 <div className="flex justify-end">
@@ -136,9 +141,12 @@ const EventsSection = (props: EventsSectionProps) => {
             <Heading className="text-3xl title lg:text-4xl" size="h2">
               {title}
             </Heading>
-            <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-              {eventCountLabel}
-            </Text>
+            <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-end">
+              <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
+                {eventCountLabel}
+              </Text>
+              {headerAction}
+            </div>
           </div>
 
           <Container

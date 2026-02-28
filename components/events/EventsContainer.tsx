@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { ReactNode } from "react";
 
 // Components
 import { Text, Divider, Heading, Input } from "@/components/global";
@@ -20,6 +21,8 @@ type EventsContainerProps = {
   showUpcomingSection?: boolean;
   showChapters?: boolean;
   displayMode?: "sectioned" | "flat";
+  upcomingHeaderAction?: ReactNode;
+  showSearch?: boolean;
 };
 
 const EventsContainer = (props: EventsContainerProps) => {
@@ -30,6 +33,8 @@ const EventsContainer = (props: EventsContainerProps) => {
     showUpcomingSection = false,
     showChapters = true,
     displayMode = "sectioned",
+    upcomingHeaderAction,
+    showSearch = true,
   } = props;
 
   const [query, setQuery] = useState("");
@@ -80,16 +85,18 @@ const EventsContainer = (props: EventsContainerProps) => {
 
     return (
       <div className="mb-10">
-        <div className="mb-6">
-          <Input
-            label="Search events"
-            name="event-search"
-            placeholder="Search by city, venue, or event name..."
-            inputClassName="pr-4"
-            onChange={(event) => setQuery(event.target.value)}
-            value={query}
-          />
-        </div>
+        {showSearch && (
+          <div className="mb-6">
+            <Input
+              label="Search events"
+              name="event-search"
+              placeholder="Search by city, venue, or event name..."
+              inputClassName="pr-4"
+              onChange={(event) => setQuery(event.target.value)}
+              value={query}
+            />
+          </div>
+        )}
         {showEmptyUpcomingBanner && (
           <div className="mb-8">
             <Heading
@@ -114,6 +121,7 @@ const EventsContainer = (props: EventsContainerProps) => {
               events={activeEvents}
               eventType={eventType}
               showChapters={false}
+              headerAction={upcomingHeaderAction}
             />
             {inactiveEvents.length !== 0 && <Divider margins="lg" />}
           </>
@@ -160,16 +168,18 @@ const EventsContainer = (props: EventsContainerProps) => {
     inactiveEvents.length !== 0;
   return (
     <div className="mb-10">
-      <div className="mb-6">
-        <Input
-          label="Search events"
-          name="event-search"
-          placeholder="Search by city, venue, or event name..."
-          inputClassName="pr-4"
-          onChange={(event) => setQuery(event.target.value)}
-          value={query}
-        />
-      </div>
+      {showSearch && (
+        <div className="mb-6">
+          <Input
+            label="Search events"
+            name="event-search"
+            placeholder="Search by city, venue, or event name..."
+            inputClassName="pr-4"
+            onChange={(event) => setQuery(event.target.value)}
+            value={query}
+          />
+        </div>
+      )}
       {showEmptyUpcomingBanner && (
         <div className="mb-8">
           <Heading
@@ -192,12 +202,13 @@ const EventsContainer = (props: EventsContainerProps) => {
         (activeEvents.length !== 0 || chapterEvents.length !== 0) && (
           <>
             <EventsSection
-              title={activeEvents.length !== 0 ? "All Upcoming Events" : "Upcoming Events"}
+              title="Upcoming Events"
               events={activeEvents}
               eventType={eventType}
               showChapters={showChapters && chapterEvents.length !== 0}
               chapterEventCount={chapterEvents.length}
               mainEventCount={activeEvents.length}
+              headerAction={upcomingHeaderAction}
             />
             {inactiveEvents.length !== 0 && <Divider margins="lg" />}
           </>

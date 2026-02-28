@@ -123,6 +123,7 @@ const ChapterPage = async ({
                 eventType={convertSlug(params.slug)}
                 // hidePastEvents
                 showUpcomingSection
+                showSearch={false}
               />
             </div>
           </div>

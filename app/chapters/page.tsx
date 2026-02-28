@@ -1,8 +1,9 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Divider, Text, Pill } from "@/components/global";
+import { Divider, Text } from "@/components/global";
 import { FAQ } from "@/components/home";
 import { ChapterDirectory } from "@/components/chapters";
+import { Blurb } from "@/components/events";
 
 // Types
 import type { FrequentlyAskedQuestion, RyanChapter, RyanEvent } from "@/lib/types";
@@ -131,18 +132,17 @@ const ChaptersPage = async ({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div className="space-y-6">
-        <div className="flex justify-center">
-          <Pill>Chapters</Pill>
-        </div>
-        <Heading className="text-center text-5xl title" size="h1">
-          Ryan Meetup Chapters
-        </Heading>
-
-        <Text className="text-lg text-center secondary xl:mx-40">
-          Introducing Ryan Meetup chapters - a new way to keep connected with
-          your local Ryans, and continue building that sense of community even
-          closer to home.
-        </Text>
+        <Blurb
+          fullHeadline="Ryan Meetup Chapters"
+          smallHeadline="Ryan Meetup Chapters"
+          tag="Chapters"
+        >
+          <Text className="secondary text-xl mb-6 xl:mx-40">
+            Introducing Ryan Meetup chapters — a new way to keep connected with
+            your local Ryans, and continue building that sense of community even
+            closer to home.
+          </Text>
+        </Blurb>
 
         <ChapterDirectory
           chapters={activeChapters as RyanChapter[]}
