@@ -10,11 +10,12 @@ import { landingGallery } from "@/lib/constants";
 import { Transition } from "@headlessui/react";
 import {
   FaArrowRight as ArrowRight,
+  FaShirt,
   FaRegNewspaper as Newsletter,
-  FaShirt as Shirt,
 } from "react-icons/fa6";
-import { MdGroups as Community } from "react-icons/md";
+import { FaPeopleGroup as Chapter } from "react-icons/fa6";
 import { BiParty as Party } from "react-icons/bi";
+import { IoCalendarNumber as Calendar } from "react-icons/io5";
 
 // Types
 import type { ReactNode } from "react";
@@ -62,19 +63,36 @@ const Info = () => {
 
 const Actions = () => {
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-      <Button.Link
-        href="/newsletter"
-        leftIcon={<Newsletter className="h-5 w-5" />}
-        variant="primary"
-        size="md"
-        fullWidth
-        className="w-full"
-        newTab={false}
-      >
-        <span className="sm:hidden">Join newsletter</span>
-        <span className="hidden sm:inline">Sign up for our newsletter</span>
-      </Button.Link>
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Button.Link
+          href="/events"
+          leftIcon={<Calendar className="h-5 w-5" />}
+          variant="primary"
+          size="md"
+          fullWidth
+          className="w-full"
+          newTab={false}
+        >
+          <span className="sm:hidden">upcoming events</span>
+          <span className="hidden sm:inline">upcoming events</span>
+        </Button.Link>
+        <Button.Link
+          href="/chapters"
+          leftIcon={<Chapter className="h-5 w-5" />}
+          variant="secondary"
+          size="md"
+          fullWidth
+          className="w-full"
+          newTab={false}
+        >
+          <span className="sm:hidden">Find your chapter</span>
+          <span className="hidden sm:inline">Find your chapter</span>
+        </Button.Link>
+      </div>
+      <Text className="text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+        RSVP on the event page to get your invite.
+      </Text>
     </div>
   );
 };
@@ -234,22 +252,22 @@ const Landing = (props: LandingProps) => {
   const highlights = [
     {
       icon: <Party className="h-5 w-5" />,
-      title: "Ryan Meetup Events",
-      body: "Don\'t miss the chance to attend the only party where everyone knows your name.",
-      href: "/events",
-      cta: "Explore events",
+      title: "Why join Ryan Meetup",
+      body: "Meet Ryans in your city, get invited to events, and help shape the community.",
+      href: "/about",
+      cta: "Learn more",
     },
     {
-      icon: <Community className="h-5 w-5" />,
-      title: "Local Chapters",
-      body: "Find Ryans near you and build community in your own city.",
-      href: "/chapters",
-      cta: "Find a chapter",
+      icon: <Newsletter className="h-5 w-5" />,
+      title: "Press & recognition",
+      body: "See media coverage and the stories that made Ryan Meetup go viral.",
+      href: "/press",
+      cta: "View press",
     },
     {
-      icon: <Shirt className="h-5 w-5" />,
-      title: "Support With Merch",
-      body: "Grab official Ryan Meetup gear and help power our next gatherings.",
+      icon: <FaShirt className="h-5 w-5" />,
+      title: "Support with merch",
+      body: "Grab official Ryan Meetup gear and help power upcoming gatherings.",
       href: "/merch",
       cta: "Shop the store",
     },
