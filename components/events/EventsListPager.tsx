@@ -12,34 +12,79 @@ import {
   FaAnglesRight as AnglesRight,
 } from "react-icons/fa6";
 
-type UpcomingEventsPagerProps = {
+type EventsListPagerProps = {
   events: RyanEvent[];
+  view?: "upcoming" | "past";
+  pageSize?: number;
+  perPageOptions?: number[];
+  defaultPerPage?: number;
+  showPerPageSelector?: boolean;
+  listTitle?: string;
+  ctaLabel?: string;
+  sortOrder?: "asc" | "desc";
+  emptyStateVariant?: "text" | "table";
+  resetKey?: string | number;
 };
 
-const PAGE_OPTIONS = [5, 10, 25];
+const EventsListPager = (props: EventsListPagerProps) => {
+  const {
+    events,
+    view = "upcoming",
+    pageSize = 5,
+    perPageOptions,
+    defaultPerPage,
+    showPerPageSelector = false,
+    listTitle,
+    ctaLabel,
+    sortOrder,
+    emptyStateVariant = "text",
+    resetKey,
+  } = props;
 
-const UpcomingEventsPager = (props: UpcomingEventsPagerProps) => {
-  const { events } = props;
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(10);
+  const [perPage, setPerPage] = useState(
+    defaultPerPage ?? perPageOptions?.[0] ?? pageSize,
+  );
 
-  const upcomingEvents = useMemo(() => {
+  const effectivePerPage = showPerPageSelector ? perPage : pageSize;
+
+  const filteredEvents = useMemo(() => {
     const now = Date.now();
-    return events
-      .filter((event) => toEndOfDayTime(event.date) >= now)
-      .sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
-  }, [events]);
+    return events.filter((event) =>
+      view === "upcoming"
+        ? toEndOfDayTime(event.date) >= now
+        : toEndOfDayTime(event.date) < now,
+    );
+  }, [events, view]);
 
-  const totalPages = Math.max(1, Math.ceil(upcomingEvents.length / perPage));
+  const sortedEvents = useMemo(() => {
+    const order =
+      sortOrder ?? (view === "upcoming" ? "asc" : "desc");
+    return [...filteredEvents].sort((a, b) =>
+      order === "asc"
+        ? toEndOfDayTime(a.date) - toEndOfDayTime(b.date)
+        : toEndOfDayTime(b.date) - toEndOfDayTime(a.date),
+    );
+  }, [filteredEvents, sortOrder, view]);
+
+  const totalPages = Math.max(1, Math.ceil(sortedEvents.length / effectivePerPage));
   const currentPage = Math.min(page, totalPages);
-  const pagedItems = upcomingEvents.slice(
-    (currentPage - 1) * perPage,
-    currentPage * perPage,
+  const pagedItems = sortedEvents.slice(
+    (currentPage - 1) * effectivePerPage,
+    currentPage * effectivePerPage,
   );
 
   useEffect(() => {
+    if (showPerPageSelector && perPageOptions?.length) {
+      if (!perPageOptions.includes(perPage)) {
+        setPerPage(perPageOptions[0]);
+      }
+    }
+  }, [perPage, perPageOptions, showPerPageSelector]);
+
+  useEffect(() => {
     setPage(1);
-  }, [perPage]);
+  }, [effectivePerPage, resetKey]);
 
   useEffect(() => {
     if (page > totalPages) {
@@ -62,51 +107,68 @@ const UpcomingEventsPager = (props: UpcomingEventsPagerProps) => {
     return Array.from(pages).sort((a, b) => a - b);
   }, [currentPage, totalPages]);
 
+  const resolvedTitle =
+    listTitle ?? (view === "upcoming" ? "Upcoming Events" : "Past Events");
+  const resolvedCta =
+    ctaLabel ?? (view === "upcoming" ? "RSVP" : "View event");
+  const emptyMessage =
+    view === "upcoming"
+      ? "No upcoming events right now. Check back soon!"
+      : "No past events yet.";
+
   return (
     <div className="space-y-4">
-      <div className="flex justify-center sm:justify-end">
-        <label className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
-          Results per page
-          <select
-            value={perPage}
-            onChange={(event) => setPerPage(Number(event.target.value))}
-            className="h-9 rounded-full border border-black/20 bg-white/80 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 shadow-sm transition hover:border-black/40 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40"
-          >
-            {PAGE_OPTIONS.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
-
-      {upcomingEvents.length === 0 ? (
-        <div className="mb-10 rounded-2xl border border-black/10 bg-white/90 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
-          <div className="mb-4 flex flex-col gap-2 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
-            <Heading className="text-3xl title lg:text-4xl" size="h2">
-              Upcoming Events
-            </Heading>
-            <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-              0 events
-            </Text>
-          </div>
-          <div className="rounded-2xl border border-dashed border-black/20 p-6 text-center dark:border-white/20">
-            <Text className="text-sm text-black/70 dark:text-white/70">
-              No upcoming events right now. Check back soon!
-            </Text>
-          </div>
+      {showPerPageSelector && perPageOptions?.length ? (
+        <div className="flex justify-center sm:justify-end">
+          <label className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
+            Results per page
+            <select
+              value={effectivePerPage}
+              onChange={(event) => setPerPage(Number(event.target.value))}
+              className="h-9 rounded-full border border-black/20 bg-white/80 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 shadow-sm transition hover:border-black/40 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40"
+            >
+              {perPageOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </label>
         </div>
+      ) : null}
+
+      {sortedEvents.length === 0 ? (
+        emptyStateVariant === "table" ? (
+          <div className="mb-10 rounded-2xl border border-black/10 bg-white/90 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+            <div className="mb-4 flex flex-col gap-2 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
+              <Heading className="text-3xl title lg:text-4xl" size="h2">
+                {resolvedTitle}
+              </Heading>
+              <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
+                0 events
+              </Text>
+            </div>
+            <div className="rounded-2xl border border-dashed border-black/20 p-6 text-center dark:border-white/20">
+              <Text className="text-sm text-black/70 dark:text-white/70">
+                {emptyMessage}
+              </Text>
+            </div>
+          </div>
+        ) : (
+          <Text className="text-center text-sm text-black/70 dark:text-white/70">
+            {emptyMessage}
+          </Text>
+        )
       ) : (
         <UpcomingEventsList
           events={pagedItems}
-          title="Upcoming Events"
-          sortOrder="asc"
-          ctaLabel="RSVP"
+          title={resolvedTitle}
+          sortOrder={sortOrder ?? (view === "upcoming" ? "asc" : "desc")}
+          ctaLabel={resolvedCta}
         />
       )}
 
-      {upcomingEvents.length > perPage && (
+      {sortedEvents.length > effectivePerPage && (
         <div className="mt-4 flex items-center justify-center">
           <div className="mx-2 inline-flex items-center gap-1.5">
             <button
@@ -182,4 +244,4 @@ const UpcomingEventsPager = (props: UpcomingEventsPagerProps) => {
   );
 };
 
-export { UpcomingEventsPager };
+export { EventsListPager };

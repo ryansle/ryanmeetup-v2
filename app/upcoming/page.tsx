@@ -1,7 +1,7 @@
 import { Layout } from "@/components/navigation";
 import { Blurb } from "@/components/events";
 import { Text } from "@/components/global";
-import { UpcomingEventsPager } from "@/components/events/UpcomingEventsPager";
+import { EventsListPager } from "@/components/events/EventsListPager";
 import { fetchEvents } from "@/actions/fetchContent";
 import { getTestEvents } from "@/lib/test-fixtures/events";
 import type { RyanEvent } from "@/lib/types";
@@ -48,15 +48,22 @@ const UpcomingPage = async ({
 
   return (
     <Layout>
-      <Blurb
-        fullHeadline="Upcoming Events"
-        tag="Upcoming"
-      >
+      <Blurb fullHeadline="Upcoming Events" tag="Upcoming">
         <Text className="secondary text-xl mb-6 xl:mx-40">
           Browse upcoming Ryan Meetups and join in on the fun.
         </Text>
       </Blurb>
-      <UpcomingEventsPager events={events as RyanEvent[]} />
+      <EventsListPager
+        events={events as RyanEvent[]}
+        view="upcoming"
+        perPageOptions={[5, 10, 25]}
+        defaultPerPage={10}
+        showPerPageSelector
+        listTitle="Upcoming Events"
+        ctaLabel="RSVP"
+        sortOrder="asc"
+        emptyStateVariant="table"
+      />
     </Layout>
   );
 };
