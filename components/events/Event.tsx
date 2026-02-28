@@ -54,15 +54,7 @@ const Event = (props: EventProps) => {
               </Heading>
             </div>
           </div>
-          <Text
-            className="min-h-[85px] text-sm text-black/70 dark:text-white/70"
-            style={{
-              display: "-webkit-box",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 3,
-              overflow: "hidden",
-            }}
-          >
+          <Text className="min-h-[85px] text-sm text-black/70 dark:text-white/70 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] overflow-hidden">
             {description}
           </Text>
 
