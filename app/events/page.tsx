@@ -70,6 +70,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  alternates: {
+    canonical: "https://ryanmeetup.com/events",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryan Meetup - Events",
+    description: "Keep up to date with Ryan Meetups near you!",
+    images: ["https://ryanmeetup.com/group-photos/rockies.jpg"],
+  },
 };
 
 const EventsPage = async ({
@@ -82,8 +91,47 @@ const EventsPage = async ({
       ? getTestEvents(searchParams?.fixture)
       : await fetchEvents();
 
+  const eventSchema = (events as RyanEvent[]).map((event) => ({
+    "@type": "Event",
+    name: event.title,
+    description: event.description,
+    startDate: typeof event.date === "string" ? event.date : event.dateTime,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: event.venue,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: event.city,
+      },
+    },
+    image: [],
+    url: event.href,
+    organizer: {
+      "@type": "Organization",
+      name: "Ryan Meetup",
+      url: "https://ryanmeetup.com",
+    },
+  }));
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: eventSchema.map((event, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: event,
+    })),
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Blurb
         fullHeadline="Join the Ryan Meetup"
         smallHeadline="Our Events"

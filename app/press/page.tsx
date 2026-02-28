@@ -63,14 +63,52 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  alternates: {
+    canonical: "https://ryanmeetup.com/press",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryan Meetup - Press",
+    description: "Read all about the Ryan Meetup in the news.",
+    images: ["https://ryanmeetup.com/meta/press.png"],
+  },
 };
 
 const PressPage = async () => {
   const articles = await fetchArticles();
   const outlets = await fetchOutlets();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: (articles as RyanArticle[]).map((article, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "NewsArticle",
+        headline: article.title,
+        datePublished: new Date(article.publishDate).toISOString(),
+        author: {
+          "@type": "Person",
+          name: article.author,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: article.outlet,
+        },
+        mainEntityOfPage: article.href,
+        url: article.href,
+      },
+    })),
+  };
+
   return (
     <Layout fullscreen>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <div className={`pt-8 ${layoutPaddingX}`}>
         <div className="mb-4 flex justify-center">
           <Pill>Press</Pill>

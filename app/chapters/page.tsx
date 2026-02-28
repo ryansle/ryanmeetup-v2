@@ -45,6 +45,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  alternates: {
+    canonical: "https://ryanmeetup.com/chapters",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryan Meetup - Chapters",
+    description:
+      "Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.",
+    images: ["https://ryanmeetup.com/meta/chapters.png"],
+  },
 };
 
 const ChaptersPage = async ({
@@ -81,8 +91,45 @@ const ChaptersPage = async ({
       .filter(Boolean),
   );
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        name: "Ryan Meetup Chapters",
+        itemListElement: (activeChapters as RyanChapter[]).map(
+          (chapter, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "Organization",
+              name: `${chapter.city} Ryan Meetup Chapter`,
+              url: `https://ryanmeetup.com/chapters/${chapter.slug}`,
+            },
+          }),
+        ),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: (chapterFaqs as FrequentlyAskedQuestion[]).map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <div className="space-y-6">
         <div className="flex justify-center">
           <Pill>Chapters</Pill>

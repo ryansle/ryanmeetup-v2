@@ -45,6 +45,10 @@ const Info = () => {
           Ryans as possible.
         </Text>
         <Text>
+          A meetup for people named Ryan, with events and chapters across the
+          country.
+        </Text>
+        <Text>
             One day, we aim to host RyanCon, and break the world record for
             the{" "}
             <NextLink

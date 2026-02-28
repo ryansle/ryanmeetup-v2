@@ -16,7 +16,7 @@ const TestimonyContainer = (props: TestimonyContainerProps) => {
     <section className="relative overflow-hidden xl:p-6">
       <div className="relative">
         <div className="mx-auto mb-8 text-center">
-          <Heading className="text-4xl title" size="h4">
+          <Heading className="text-4xl title" size="h2">
             Hear what Ryans have to say about the Ryan Meetup:
           </Heading>
         </div>

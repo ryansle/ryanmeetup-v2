@@ -24,6 +24,7 @@ import type {
   Testimonial,
   Charity,
 } from "@/lib/types";
+import type { Metadata } from "next";
 
 // Utilities
 import {
@@ -36,6 +37,38 @@ import {
   fetchDonations,
 } from "@/actions/fetchContent";
 import { formatCount } from "@/utils/stats";
+
+export const metadata: Metadata = {
+  title: "Ryan Meetup | Events for People Named Ryan",
+  description:
+    "Ryan Meetup is a community and meetup series for people named Ryan. Find upcoming Ryan events, join local chapters, and RSVP today.",
+  alternates: {
+    canonical: "https://ryanmeetup.com",
+  },
+  openGraph: {
+    url: "https://ryanmeetup.com",
+    title: "Ryan Meetup | Events for People Named Ryan",
+    description:
+      "Find upcoming Ryan Meetup events, local chapters, and a community built for Ryans.",
+    siteName: "Ryan Meetup",
+    images: [
+      {
+        url: "https://ryanmeetup.com/group-photos/rockies.jpg",
+        width: 3490,
+        height: 2328,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryan Meetup | Events for People Named Ryan",
+    description:
+      "Find upcoming Ryan Meetup events, local chapters, and a community built for Ryans.",
+    images: ["https://ryanmeetup.com/group-photos/rockies.jpg"],
+  },
+};
 
 const HomePage = async () => {
   const faqs = (await fetchFAQs()) as FrequentlyAskedQuestion[];
@@ -102,8 +135,50 @@ const HomePage = async () => {
     },
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "Ryan Meetup",
+        url: "https://ryanmeetup.com",
+        logo: "https://ryanmeetup.com/meta/sponsors.png",
+        sameAs: [
+          "https://www.instagram.com/ryanmeetup/",
+          "https://www.youtube.com/@ryanmeetup",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        name: "Ryan Meetup",
+        url: "https://ryanmeetup.com",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://ryanmeetup.com/events",
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: homeFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <Layout fullscreen>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <section className="mb-12">
         <div className={`py-8 ${layoutPaddingX}`}>
           <Landing stats={stats} />
@@ -121,7 +196,7 @@ const HomePage = async () => {
 
         <Divider margins="xl" />
 
-        <Heading className="text-center text-4xl title" size="h4">
+        <Heading className="text-center text-4xl title" size="h2">
           We&apos;re supported by Ryans at:
         </Heading>
         </div>
