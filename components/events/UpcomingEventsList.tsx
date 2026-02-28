@@ -7,6 +7,9 @@ import type { RyanEvent } from "@/lib/types";
 
 type UpcomingEventsListProps = {
   events: RyanEvent[];
+  title?: string;
+  sortOrder?: "asc" | "desc";
+  ctaLabel?: string;
 };
 
 const getEventTime = (value: RyanEvent["date"]) => {
@@ -23,41 +26,50 @@ const getEventTime = (value: RyanEvent["date"]) => {
   return new Date(value as unknown as string).getTime();
 };
 
-const formatMonthDay = (value: RyanEvent["date"]) => {
-  if (typeof value === "string") {
-    const dateOnlyMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (dateOnlyMatch) {
-      const year = Number(dateOnlyMatch[1]);
-      const monthIndex = Number(dateOnlyMatch[2]) - 1;
-      const day = Number(dateOnlyMatch[3]);
-      const date = new Date(year, monthIndex, day);
-      return {
-        month: date.toLocaleDateString("en-US", { month: "short" }),
-        day: date.toLocaleDateString("en-US", { day: "2-digit" }),
-      };
+  const formatMonthDay = (value: RyanEvent["date"]) => {
+    if (typeof value === "string") {
+      const dateOnlyMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (dateOnlyMatch) {
+        const year = Number(dateOnlyMatch[1]);
+        const monthIndex = Number(dateOnlyMatch[2]) - 1;
+        const day = Number(dateOnlyMatch[3]);
+        const date = new Date(year, monthIndex, day);
+        return {
+          month: date.toLocaleDateString("en-US", { month: "short" }),
+          day: date.toLocaleDateString("en-US", { day: "2-digit" }),
+          year: date.toLocaleDateString("en-US", { year: "numeric" }),
+        };
+      }
     }
-  }
 
-  const date = new Date(value as unknown as string);
-  return {
-    month: date.toLocaleDateString("en-US", { month: "short" }),
-    day: date.toLocaleDateString("en-US", { day: "2-digit" }),
+    const date = new Date(value as unknown as string);
+    return {
+      month: date.toLocaleDateString("en-US", { month: "short" }),
+      day: date.toLocaleDateString("en-US", { day: "2-digit" }),
+      year: date.toLocaleDateString("en-US", { year: "numeric" }),
+    };
   };
-};
 
 const UpcomingEventsList = (props: UpcomingEventsListProps) => {
-  const { events } = props;
+  const {
+    events,
+    title = "Upcoming Events",
+    sortOrder = "asc",
+    ctaLabel = "RSVP",
+  } = props;
 
   if (events.length === 0) return null;
-  const sortedEvents = [...events].sort(
-    (a, b) => getEventTime(a.date) - getEventTime(b.date),
+  const sortedEvents = [...events].sort((a, b) =>
+    sortOrder === "asc"
+      ? getEventTime(a.date) - getEventTime(b.date)
+      : getEventTime(b.date) - getEventTime(a.date),
   );
 
   return (
     <div className="mb-10 rounded-2xl border border-black/10 bg-white/90 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
       <div className="mb-4 flex flex-col gap-2 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
         <Heading className="text-3xl title lg:text-4xl" size="h2">
-          Upcoming Events
+          {title}
         </Heading>
         <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
           {events.length} event{events.length === 1 ? "" : "s"}
@@ -98,12 +110,12 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
                     )}
                   </div>
                   <Text className="text-xs uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
-                    {event.city} • {event.venue}
+                    {event.city} • {event.venue} • {date.year}
                   </Text>
                 </div>
               </div>
               <span className="inline-flex w-full items-center justify-center rounded-full border border-black/20 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition group-hover:border-black/40 group-hover:bg-black/5 dark:border-white/20 dark:text-white dark:group-hover:border-white/40 dark:group-hover:bg-white/10 sm:w-auto">
-                RSVP
+                {ctaLabel}
               </span>
             </NextLink>
           );

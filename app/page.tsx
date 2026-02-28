@@ -3,7 +3,7 @@ import { Layout } from "@/components/navigation";
 import { Landing, FAQ, TestimonyContainer } from "@/components/home";
 import { Divider, Heading } from "@/components/global";
 import { SponsorCarousel } from "@/components/sponsors";
-import { UpcomingEventsList } from "@/components/events";
+import { EventsPreview } from "@/components/events";
 import { 
   FaCommentDollar as Dollar,
   FaRegNewspaper as Press,
@@ -185,12 +185,8 @@ const HomePage = async () => {
 
         <Divider margins="xl" />
 
-        {upcomingEvents.length !== 0 && (
-          <>
-            <UpcomingEventsList events={upcomingEvents} />
-            <Divider margins="xl" />
-          </>
-        )}
+        <EventsPreview events={events as RyanEvent[]} />
+        <Divider margins="xl" />
 
         <Heading className="text-center text-4xl title" size="h2">
           We&apos;re supported by Ryans at:
