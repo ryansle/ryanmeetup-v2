@@ -46,10 +46,12 @@ const EventsContainer = (props: EventsContainerProps) => {
     const now = Date.now();
     const activeEvents = eventsWithMeta
       .filter((item) => item.time >= now)
-      .map((item) => item.event);
+      .map((item) => item.event)
+      .sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
     const inactiveEvents = eventsWithMeta
       .filter((item) => item.time < now)
-      .map((item) => item.event);
+      .map((item) => item.event)
+      .sort((a, b) => toEndOfDayTime(b.date) - toEndOfDayTime(a.date));
 
     const showEmptyUpcomingBanner =
       showUpcomingSection &&
@@ -118,6 +120,9 @@ const EventsContainer = (props: EventsContainerProps) => {
       chapterEvents.push(item.event);
     }
   }
+  activeEvents.sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
+  chapterEvents.sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
+  inactiveEvents.sort((a, b) => toEndOfDayTime(b.date) - toEndOfDayTime(a.date));
 
   const showEmptyUpcomingBanner =
     showUpcomingSection &&

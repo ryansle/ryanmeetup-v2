@@ -228,7 +228,7 @@ const HomePage = async () => {
         <div className={`${layoutPaddingX}`}>
           <Divider margins="xl" />
 
-          {/* <TestimonyContainer testimonies={testimonies} /> */}
+          <TestimonyContainer testimonies={testimonies} />
 
           <Divider margins="xl" />
 

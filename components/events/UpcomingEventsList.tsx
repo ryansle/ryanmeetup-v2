@@ -66,6 +66,7 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
       <div className="grid gap-3">
         {sortedEvents.map((event) => {
           const date = formatMonthDay(event.date);
+          const isNationalEvent = event.chapter.includes("Main");
           const chapterTag = event.chapter.find((item) => item !== "Main");
           return (
             <NextLink
@@ -85,6 +86,11 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
                     <Heading className="text-lg title" size="h3">
                       {event.title}
                     </Heading>
+                    {isNationalEvent && (
+                      <span className="inline-flex items-center rounded-full border border-amber-500/50 bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-700 shadow-sm dark:border-amber-300/60 dark:bg-amber-300/20 dark:text-amber-200">
+                        National Event
+                      </span>
+                    )}
                     {chapterTag && (
                       <span className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700 shadow-sm dark:border-emerald-300/40 dark:bg-emerald-300/15 dark:text-emerald-200">
                         {chapterTag} Chapter
