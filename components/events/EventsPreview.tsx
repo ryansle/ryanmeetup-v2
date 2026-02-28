@@ -39,7 +39,7 @@ const EventsPreview = (props: EventsPreviewProps) => {
       <div className="flex flex-col gap-3 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
         <div>
           <Heading className="text-3xl title lg:text-4xl" size="h2">
-            Events
+            Events Overview
           </Heading>
           <Text className="text-sm text-black/70 dark:text-white/70">
             See what&apos;s coming up — or browse past meetups.

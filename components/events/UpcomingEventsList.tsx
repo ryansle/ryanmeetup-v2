@@ -90,31 +90,37 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
               href={event.href}
               className="group flex flex-col gap-4 rounded-2xl border border-black/10 bg-white px-4 py-3 transition hover:-translate-y-0.5 hover:border-black/30 hover:bg-black/5 hover:shadow-md dark:border-white/15 dark:bg-white/5 dark:hover:border-white/30 dark:hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between"
             >
-              <div className="flex items-center gap-4">
-                <div className="flex min-h-[44px] min-w-[44px] flex-col items-center justify-center rounded-xl border border-black/10 bg-black/5 px-2 py-1.5 text-black dark:border-white/10 dark:bg-white/10 dark:text-white sm:h-12 sm:w-12 sm:px-0 sm:py-0">
+              <div className="flex items-start gap-3 sm:items-center sm:gap-4">
+                <div className="mt-0.5 flex min-h-[44px] min-w-[44px] flex-col items-center justify-center rounded-xl border border-black/10 bg-black/5 px-2 py-1.5 text-black dark:border-white/10 dark:bg-white/10 dark:text-white sm:mt-0 sm:h-12 sm:w-12 sm:px-0 sm:py-0">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
                     {date.month}
                   </span>
                   <span className="text-lg font-semibold">{date.day}</span>
                 </div>
                 <div className="space-y-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Heading className="text-lg title" size="h3">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
+                    <Heading className="order-2 text-base title sm:order-1 sm:text-lg" size="h3">
                       {event.title}
                     </Heading>
-                    {isNationalEvent && (
-                      <span className="inline-flex items-center rounded-full border border-amber-500/50 bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-700 shadow-sm dark:border-amber-300/60 dark:bg-amber-300/20 dark:text-amber-200">
-                        National Event
-                      </span>
-                    )}
-                    {chapterTag && (
-                      <span className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700 shadow-sm dark:border-emerald-300/40 dark:bg-emerald-300/15 dark:text-emerald-200">
-                        {chapterTag} Chapter
-                      </span>
+                    {(isNationalEvent || chapterTag) && (
+                      <div className="order-1 flex flex-wrap items-center gap-2 sm:order-2">
+                        {isNationalEvent && (
+                          <span className="inline-flex items-center rounded-full border border-amber-500/50 bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-700 shadow-sm dark:border-amber-300/60 dark:bg-amber-300/20 dark:text-amber-200">
+                            National Event
+                          </span>
+                        )}
+                        {chapterTag && (
+                          <span className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700 shadow-sm dark:border-emerald-300/40 dark:bg-emerald-300/15 dark:text-emerald-200">
+                            {chapterTag} Chapter
+                          </span>
+                        )}
+                      </div>
                     )}
                   </div>
-                  <Text className="text-xs uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
-                    {event.city} • {event.venue} • {date.year}
+                  <Text className="text-xs uppercase tracking-[0.14em] text-black/70 dark:text-white/70 sm:tracking-[0.2em]">
+                    <span>{event.city}</span>
+                    <span className="hidden sm:inline"> • {event.venue}</span>
+                    <span> • {date.year}</span>
                   </Text>
                 </div>
               </div>
