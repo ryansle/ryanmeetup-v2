@@ -45,7 +45,7 @@ const Event = (props: EventProps) => {
         <div className="flex flex-1 flex-col px-5 py-4">
           <div className="mb-4 flex items-center justify-between">
             <div className="space-y-1">
-              <Text className="flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+              <Text className="flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
                 <Calendar className="h-4 w-4" />
                 {dateTime}
               </Text>
@@ -66,7 +66,7 @@ const Event = (props: EventProps) => {
             {description}
           </Text>
 
-          <div className="mt-auto gap-2 pt-5 text-black/60 dark:text-white/60">
+          <div className="mt-auto gap-2 pt-5 text-black/70 dark:text-white/70">
             <div className="flex items-center gap-2">
               <City className="w-4 h-4" />
               <Text className="text-sm uppercase tracking-[0.2em]">

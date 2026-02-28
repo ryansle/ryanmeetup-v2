@@ -28,7 +28,7 @@ const NewFooter = () => {
 
         <div className="grid gap-8 sm:grid-cols-2">
           <div>
-            <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
               Follow us
             </h2>
             <ul className="text-sm font-medium text-black/70 dark:text-white/70 space-y-2">
@@ -42,7 +42,7 @@ const NewFooter = () => {
             </ul>
           </div>
           <div>
-            <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
               Built with
             </h2>
             <div className="grid grid-cols-2 gap-4 text-sm font-medium text-black/70 dark:text-white/70">
@@ -93,7 +93,7 @@ const NewFooter = () => {
       <Divider margins="lg" />
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <span className="text-sm text-black/60 dark:text-white/60 sm:text-center">
+        <span className="text-sm text-black/70 dark:text-white/70 sm:text-center">
           Website designed and developed by{" "}
           <NextLink
             href="https://ryanle.dev/"

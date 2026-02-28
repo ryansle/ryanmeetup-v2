@@ -113,7 +113,7 @@ const FloatingCta = (props: FloatingCtaProps) => {
               // Ignore storage access errors.
             }
           }}
-          className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full border border-[#ad8f4f] bg-[#073326] text-[10px] font-semibold text-[#f4e7c1] shadow-md transition group-hover:-translate-y-1 hover:-translate-y-0.5 hover:border-[#c8a45a] sm:-top-2 sm:-right-2 sm:h-7 sm:w-7 sm:text-xs"
+          className="absolute -top-1.5 -right-1.5 flex h-7 w-7 items-center justify-center rounded-full border border-[#ad8f4f] bg-[#073326] text-[10px] font-semibold text-[#f4e7c1] shadow-md transition group-hover:-translate-y-1 hover:-translate-y-0.5 hover:border-[#c8a45a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4e7c1]/70 sm:-top-2 sm:-right-2 sm:h-8 sm:w-8 sm:text-xs"
           aria-label="Dismiss"
         >
           ×

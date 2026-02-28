@@ -49,7 +49,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         </label>
         <div className="relative">
           {leadingIcon && (
-            <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-black/50 dark:text-white/50">
+            <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-black/70 dark:text-white/70">
               {leadingIcon}
             </span>
           )}
@@ -59,7 +59,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             </div>
           )}
           <input
-            className={`w-full rounded-lg border border-black/20 bg-white px-4 py-2.5 text-sm text-black shadow-sm transition placeholder:text-black/50 focus:border-black/40 focus:outline-none focus:ring-2 focus:ring-black/20 dark:border-white/20 dark:bg-white/10 dark:text-white dark:placeholder:text-white/50 dark:focus:border-white/50 dark:focus:ring-white/20 ${iconPadding} ${actionPadding} ${inputClassName ?? ""}`}
+            className={`w-full rounded-lg border border-black/20 bg-white px-4 py-2.5 text-sm text-black shadow-sm transition placeholder:text-black/70 focus:border-black/40 focus:outline-none focus:ring-2 focus:ring-black/20 dark:border-white/20 dark:bg-white/10 dark:text-white dark:placeholder:text-white/70 dark:focus:border-white/50 dark:focus:ring-white/20 ${iconPadding} ${actionPadding} ${inputClassName ?? ""}`}
             id={name}
             name={name}
             placeholder={placeholder}

@@ -13,7 +13,7 @@ type LeaderboardProps = {
 };
 
 const TableHeader = () => (
-  <thead className="uppercase tracking-[0.3em] text-[10px] text-black/60 dark:text-white/60">
+  <thead className="uppercase tracking-[0.3em] text-[10px] text-black/70 dark:text-white/70">
     <tr className="border-b border-black/10 dark:border-white/10">
       <th scope="col" className="w-16 pb-3" aria-label="Headshot" />
       <th scope="col" className="w-48 pb-3">

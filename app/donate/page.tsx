@@ -75,7 +75,7 @@ const DonateOptionCard = (props: DonateOptionCardProps) => {
           {value}
         </Text>
       )}
-      <Text className="mt-1 text-xs uppercase tracking-[0.3em] text-black/50 dark:text-white/50">
+      <Text className="mt-1 text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
         {method}
       </Text>
     </Card>
@@ -228,7 +228,7 @@ const DonatePage = async () => {
             <Heading className="text-2xl title text-center sm:text-3xl" size="h2">
               Two easy ways to donate
             </Heading>
-            <Text className="hidden text-xs font-semibold uppercase tracking-[0.3em] text-black/50 dark:text-white/50 sm:inline-block">
+            <Text className="hidden text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70 sm:inline-block">
               2 options
             </Text>
           </div>

@@ -108,9 +108,9 @@ const RouteMenu = (props: RouteMenuProps) => {
                       </span>
                     </div>
                     {route.description && (
-                      <Text className="mt-1 text-sm leading-relaxed text-black/60 dark:text-white/60">
-                        {route.description}
-                      </Text>
+                        <Text className="mt-1 text-sm leading-relaxed text-black/70 dark:text-white/70">
+                          {route.description}
+                        </Text>
                     )}
                   </NextLink>
                 ))}

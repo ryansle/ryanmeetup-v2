@@ -53,7 +53,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
           </NextLink>
         )}
       </div>
-      <Text className="mt-3 text-sm uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+      <Text className="mt-3 text-sm uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
         {milesTraveled} miles traveled
       </Text>
       <Text className="mt-2 text-black/70 dark:text-white/70">

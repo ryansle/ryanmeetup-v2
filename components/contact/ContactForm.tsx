@@ -178,7 +178,7 @@ const ContactForm = () => {
         </div>
 
         <div className="col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <Text className="text-xs uppercase tracking-[0.3em] text-black/50 dark:text-white/50">
+          <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
             All fields required
           </Text>
           <Button

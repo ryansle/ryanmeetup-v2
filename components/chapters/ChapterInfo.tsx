@@ -52,7 +52,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
       <div className="mt-6 space-y-5">
         <div className="grid grid-cols-9 gap-3">
           <div className="col-span-4">
-            <Text className="text-sm font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-sm font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
               Chapter Lead{leaders.length > 1 && "s"}
             </Text>
           </div>
@@ -65,7 +65,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
             ))}
 
             {leaders.length === 0 && (
-              <Text className="text-base text-black/50 dark:text-white/50">
+              <Text className="text-base text-black/70 dark:text-white/70">
                 No active lead.
               </Text>
             )}
@@ -74,7 +74,7 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
         <div className="grid grid-cols-7 gap-3 flex items-center">
           <div className="col-span-3">
-            <Text className="text-sm font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-sm font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
               Instagram
             </Text>
           </div>

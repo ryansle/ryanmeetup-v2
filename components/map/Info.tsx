@@ -81,7 +81,7 @@ const Info = (props: InfoProps) => {
           </span>{" "}
           worldwide.
         </Text>
-        <Text className="mt-3 text-base text-black/60 dark:text-white/60">
+        <Text className="mt-3 text-base text-black/70 dark:text-white/70">
           Help us expand as we gear up for RyanCon, the soon-to-be largest same
           name gathering in history.
         </Text>
@@ -100,7 +100,7 @@ const Info = (props: InfoProps) => {
               >
                 {stat.value}
               </Heading>
-              <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+              <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
                 {stat.label}
               </Text>
             </Card>

@@ -28,7 +28,7 @@ const SponsorSection = (props: SponsorSectionProps) => {
         <Heading className="text-3xl title sm:text-4xl lg:text-5xl" size="h2">
           {tier} Sponsors
         </Heading>
-        <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+        <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
           {sorted.length} partners
         </Text>
       </div>

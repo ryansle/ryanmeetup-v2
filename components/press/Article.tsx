@@ -48,10 +48,10 @@ const Article = (props: ArticleProps) => {
     <NextLink href={href} target="_blank" className="block">
       <Card variant="soft" size="md" hover className="group relative">
         <div className="absolute left-6 top-6 flex items-center gap-2">
-          <span className="rounded-full border border-black/10 bg-white/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60 dark:border-white/10 dark:bg-white/10 dark:text-white/60">
+          <span className="rounded-full border border-black/10 bg-white/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
             Featured
           </span>
-          <span className="rounded-full border border-black/10 bg-white/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60 dark:border-white/10 dark:bg-white/10 dark:text-white/60">
+          <span className="rounded-full border border-black/10 bg-white/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
             {outlet}
           </span>
         </div>
@@ -62,7 +62,7 @@ const Article = (props: ArticleProps) => {
 
           <div className="flex h-full flex-col">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:border-white/10 dark:bg-white/10 dark:text-white/60">
+              <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
                 {publishedOn}
               </span>
               {isNew && (
@@ -83,7 +83,7 @@ const Article = (props: ArticleProps) => {
               </Text>
             </div>
 
-            <div className="mt-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-black/60 transition group-hover:text-black dark:text-white/60 dark:group-hover:text-white">
+            <div className="mt-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-black/70 transition group-hover:text-black dark:text-white/70 dark:group-hover:text-white">
               Read
               <span className="text-base">→</span>
             </div>

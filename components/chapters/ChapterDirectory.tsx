@@ -119,7 +119,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
                 onClick={() => setShowFilters((value) => !value)}
                 aria-label="Toggle filters"
                 aria-expanded={showFilters}
-                className="lg:hidden inline-flex h-8 w-8 items-center justify-center rounded-md border border-black/20 bg-white text-black/70 transition hover:border-black/40 hover:bg-black/5 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40 dark:hover:bg-white/10"
+                className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/20 bg-white text-black/70 transition hover:border-black/40 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40 dark:hover:bg-white/10 dark:focus-visible:ring-white/30"
               >
                 <Filters className="h-4 w-4" />
               </button>
@@ -161,7 +161,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
                   </option>
                 ))}
               </select>
-              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-black/60 dark:text-white/60">
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-black/70 dark:text-white/70">
                 <ChevronDown className="h-3.5 w-3.5" />
               </span>
             </div>
@@ -202,7 +202,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
         </div>
       ) : sortedChapters.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-black/20 p-6 text-center dark:border-white/20">
-          <Text className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+          <Text className="text-sm uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
             No chapters match your search.
           </Text>
         </div>

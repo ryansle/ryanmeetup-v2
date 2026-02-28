@@ -100,7 +100,7 @@ const StorePage = () => {
                 Get drop alerts
               </Button.Link>
             </div>
-            <Text className="text-sm uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+            <Text className="text-sm uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
               Orders are fulfilled through Etsy.
             </Text>
           </div>

@@ -50,7 +50,7 @@ const ContactPage = async () => {
             <Heading className="text-4xl title sm:text-5xl lg:text-6xl" size="h1">
               Contact the Ryans
             </Heading>
-            <Text className="text-lg text-black/70 dark:text-white/70">
+            <Text className="text-lg text-black/80 dark:text-white/80">
               One of our Ryans will get back to you as soon as we can.
             </Text>
 
@@ -65,7 +65,7 @@ const ContactPage = async () => {
             <Heading className="text-2xl title" size="h2">
               Send a message
             </Heading>
-            <Text className="mt-2 text-sm text-black/60 dark:text-white/60">
+            <Text className="mt-2 text-sm text-black/70 dark:text-white/70">
               We read every note, even if a Ryan takes a moment to reply.
             </Text>
             <div className="mt-6">

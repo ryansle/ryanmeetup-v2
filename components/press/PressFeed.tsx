@@ -67,13 +67,13 @@ const PressFeed = (props: PressFeedProps) => {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+        <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
           Filter articles
         </Text>
         <button
           type="button"
           onClick={() => setShowFilters((prev) => !prev)}
-          className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/60 transition hover:border-black/30 dark:border-white/10 dark:bg-white/10 dark:text-white/60 dark:hover:border-white/40"
+          className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/70 transition hover:border-black/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:border-white/10 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40 dark:focus-visible:ring-white/30"
           aria-expanded={showFilters}
         >
           {showFilters ? "Hide filters" : "Show filters"}
@@ -83,7 +83,7 @@ const PressFeed = (props: PressFeedProps) => {
       {showFilters && (
         <Card variant="soft" size="sm" className="mt-4 space-y-4">
           <div className="flex flex-wrap items-center gap-3">
-            <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
               Filter by outlet
             </Text>
             <div className="flex flex-wrap gap-2">
@@ -95,10 +95,10 @@ const PressFeed = (props: PressFeedProps) => {
                     key={outlet}
                     type="button"
                     onClick={() => setActiveOutlet(outlet)}
-                    className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] transition ${
+                    className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30 ${
                       isActive
                         ? "border-black/80 bg-black text-white dark:border-white/80 dark:bg-white dark:text-black"
-                        : "border-black/10 bg-white/80 text-black/60 hover:border-black/30 dark:border-white/10 dark:bg-white/10 dark:text-white/60 dark:hover:border-white/40"
+                        : "border-black/10 bg-white/80 text-black/70 hover:border-black/30 dark:border-white/10 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40"
                     }`}
                     aria-pressed={isActive}
                   >
@@ -110,7 +110,7 @@ const PressFeed = (props: PressFeedProps) => {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
               Filter by year
             </Text>
             <div className="flex flex-wrap gap-2">
@@ -122,10 +122,10 @@ const PressFeed = (props: PressFeedProps) => {
                     key={year}
                     type="button"
                     onClick={() => setActiveYear(year)}
-                    className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] transition ${
+                    className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30 ${
                       isActive
                         ? "border-black/80 bg-black text-white dark:border-white/80 dark:bg-white dark:text-black"
-                        : "border-black/10 bg-white/80 text-black/60 hover:border-black/30 dark:border-white/10 dark:bg-white/10 dark:text-white/60 dark:hover:border-white/40"
+                        : "border-black/10 bg-white/80 text-black/70 hover:border-black/30 dark:border-white/10 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40"
                     }`}
                     aria-pressed={isActive}
                   >
@@ -149,7 +149,7 @@ const PressFeed = (props: PressFeedProps) => {
                   <Heading className="text-5xl title" size="h3">
                     {year}
                   </Heading>
-                  <span className="flex items-center rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:border-white/10 dark:bg-white/10 dark:text-white/60">
+                  <span className="flex items-center rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
                     {groupedByYear[year].length} articles
                   </span>
                 </div>
@@ -167,7 +167,7 @@ const PressFeed = (props: PressFeedProps) => {
         </div>
       </div>
       {filtered.length === 0 && (
-        <Text className="mt-6 text-center text-sm text-black/60 dark:text-white/60">
+        <Text className="mt-6 text-center text-sm text-black/70 dark:text-white/70">
           No articles match these filters yet.
         </Text>
       )}

@@ -73,7 +73,7 @@ const PartnershipPerks = () => {
         className="mx-auto hidden w-full gap-4 text-left sm:grid sm:grid-cols-2 lg:grid-cols-3"
       >
         <div className="sm:col-span-3">
-          <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+          <Text className="text-xs font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
             Partnership perks
           </Text>
         </div>

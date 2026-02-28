@@ -81,7 +81,7 @@ const MobileMenu = (props: MobileMenuProps) => {
                   className="relative flex h-full w-[92vw] max-w-sm flex-col border-l border-black/10 bg-white/95 p-4 pb-0 shadow-2xl backdrop-blur dark:border-white/10 dark:bg-black/95"
                 >
                   <div className="sticky top-0 z-10 -mx-4 mb-4 flex items-center justify-between border-b border-black/10 bg-white/95 px-4 pb-3 pt-0 backdrop-blur dark:border-white/10 dark:bg-black/95">
-                    <div className="text-sm font-semibold uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+                    <div className="text-sm font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
                       Menu
                     </div>
                     <button
@@ -119,7 +119,7 @@ const MobileMenu = (props: MobileMenuProps) => {
                                 {row.icon} {row.text}
                               </span>
                               {row.description && (
-                                <span className="text-[12px] font-normal leading-relaxed text-black/60 dark:text-white/60">
+                                <span className="text-[12px] font-normal leading-relaxed text-black/70 dark:text-white/70">
                                   {row.description}
                                 </span>
                               )}
@@ -138,7 +138,7 @@ const MobileMenu = (props: MobileMenuProps) => {
                                       {row.icon} {row.text}
                                     </span>
                                     {row.description && (
-                                      <span className="text-[12px] font-normal leading-relaxed text-black/60 dark:text-white/60">
+                                      <span className="text-[12px] font-normal leading-relaxed text-black/70 dark:text-white/70">
                                         {row.description}
                                       </span>
                                     )}

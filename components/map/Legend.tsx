@@ -121,7 +121,7 @@ const Legend = (props: LegendProps) => {
           {onToggleCollapse && (
             <button
               type="button"
-              className="text-xs font-semibold text-black/60 transition hover:text-black dark:text-white/70 dark:hover:text-white"
+              className="text-xs font-semibold text-black/70 transition hover:text-black dark:text-white/80 dark:hover:text-white"
               onClick={onToggleCollapse}
             >
               {isCollapsed ? "Expand" : "Minimize"}

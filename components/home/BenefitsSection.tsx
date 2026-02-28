@@ -20,7 +20,7 @@ const BenefitsSection = () => {
       <Card className="p-6 lg:p-8" hover={false} size="md" variant="soft">
         <div className="space-y-4">
           <div className="space-y-2">
-            <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
               Why join
             </Text>
             <Heading className="text-4xl title" size="h3">

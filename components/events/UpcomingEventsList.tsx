@@ -59,7 +59,7 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
         <Heading className="text-3xl title lg:text-4xl" size="h2">
           Upcoming Events
         </Heading>
-        <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+        <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
           {events.length} event{events.length === 1 ? "" : "s"}
         </Text>
       </div>
@@ -75,7 +75,7 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
             >
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 flex-col items-center justify-center rounded-xl border border-black/10 bg-black/5 text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
                     {date.month}
                   </span>
                   <span className="text-lg font-semibold">{date.day}</span>
@@ -91,7 +91,7 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
                       </span>
                     )}
                   </div>
-                  <Text className="text-xs uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
+                  <Text className="text-xs uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
                     {event.city} • {event.venue}
                   </Text>
                 </div>

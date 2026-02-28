@@ -46,7 +46,7 @@ const Modal = (props: ModalProps) => {
 
             {closable && (
               <button
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-black transition hover:bg-black/5 dark:border-white/10 dark:text-white dark:hover:bg-white/10"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-black transition hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:border-white/10 dark:text-white dark:hover:bg-white/10 dark:focus-visible:ring-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 <Close className="h-5 w-5" />

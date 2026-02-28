@@ -172,8 +172,8 @@ const Mapbox = (props: MapboxProps) => {
   }, []);
 
   const markerWrapClass =
-    "flex h-6 w-6 items-center justify-center rounded-full border border-black/15 bg-white shadow-md transition hover:scale-110 dark:border-white/20 dark:bg-white";
-  const markerImageClass = "h-4 w-4 object-contain";
+    "flex h-9 w-9 items-center justify-center rounded-full border border-black/15 bg-white shadow-md transition hover:scale-110 dark:border-white/20 dark:bg-white";
+  const markerImageClass = "h-5 w-5 object-contain";
 
   if (isTestMode) {
     return (

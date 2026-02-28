@@ -128,7 +128,7 @@ const ContributePage = async () => {
           We have an army of Ryans at our disposal. The more Ryans who pitch in,
           the faster we&apos;ll grow.
         </Text>
-        <Text className="text-lg text-black/60 dark:text-white/60">
+        <Text className="text-lg text-black/70 dark:text-white/70">
           Our entire team is 100% volunteer-based.
         </Text>
       </section>

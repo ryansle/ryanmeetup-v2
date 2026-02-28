@@ -47,18 +47,18 @@ const TotalCount = (props: TotalCountProps) => {
       </Heading>
       <div className="inline-flex items-center justify-center rounded-2xl bg-white/80 ring-1 ring-black/10 px-6 py-4 md:p-8 dark:bg-white/5 dark:ring-white/10">
         <div className="text-left">
-          <div className="block xl:hidden text-lg xl:text-xl uppercase tracking-widest text-black/60 mb-4 text-center dark:text-white/70">
+          <div className="block xl:hidden text-lg xl:text-xl uppercase tracking-widest text-black/70 mb-4 text-center dark:text-white/80">
             HAS RAISED
           </div>
           <div className="mt-2 text-6xl md:text-[10rem] font-black text-center leading-none text-black/90 dark:text-white">
             {fmt(animatedGrand)}
           </div>
-          <div className="text-lg xl:text-xl uppercase tracking-widest text-black/60 mt-4 xl:mt-10 text-center dark:text-white/70">
+          <div className="text-lg xl:text-xl uppercase tracking-widest text-black/70 mt-4 xl:mt-10 text-center dark:text-white/80">
             FOR CHARITABLE CAUSES WORLDWIDE
           </div>
         </div>
       </div>
-      <Text className="mt-4 text-sm text-black/60 dark:text-white/60">
+      <Text className="mt-4 text-sm text-black/70 dark:text-white/70">
         Last updated: {new Date().toLocaleDateString()}
       </Text>
     </div>

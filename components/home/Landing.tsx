@@ -122,7 +122,7 @@ const Overview = (props: { stats: StatItem[] }) => {
           Established 2023
         </div>
       </div>
-      <Text className="mt-2 text-sm uppercase tracking-widest text-black/60 dark:text-white/60">
+      <Text className="mt-2 text-sm uppercase tracking-widest text-black/70 dark:text-white/70">
         What this community has grown into
       </Text>
 
@@ -141,7 +141,7 @@ const Overview = (props: { stats: StatItem[] }) => {
                 {stat.value}
               </Heading>
             </div>
-            <Text className="w-full text-left text-xs sm:w-auto md:text-sm lg:text-[10px] xl:text-sm uppercase tracking-[0.12em] sm:tracking-[0.2em] whitespace-nowrap text-black/60 dark:text-white/60">
+            <Text className="w-full text-left text-xs sm:w-auto md:text-sm lg:text-[10px] xl:text-sm uppercase tracking-[0.12em] sm:tracking-[0.2em] whitespace-nowrap text-black/70 dark:text-white/70">
               {stat.label}
             </Text>
           </NextLink>
@@ -276,7 +276,7 @@ const Landing = (props: LandingProps) => {
 
   const slides = landingGallery.map((photo) => ({
     src: photo.imageUrl,
-    alt: photo.title,
+    alt: `${photo.title} - Ryan Meetup`,
     title: photo.title,
     city: photo.city,
   }));

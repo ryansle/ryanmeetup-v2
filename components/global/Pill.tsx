@@ -16,7 +16,7 @@ const Pill = (props: PillProps) => {
     default:
       "border-black/20 bg-white/90 px-4 py-1 font-semibold tracking-[0.3em] text-black/80 shadow-sm dark:border-white/25 dark:bg-white/15 dark:text-white/85",
     subtle:
-      "border-black/10 bg-white/80 px-3 py-1 font-normal tracking-[0.2em] text-black/60 shadow-none dark:border-white/15 dark:bg-white/5 dark:text-white/60",
+      "border-black/10 bg-white/80 px-3 py-1 font-normal tracking-[0.2em] text-black/70 shadow-none dark:border-white/15 dark:bg-white/5 dark:text-white/70",
   };
 
   return (

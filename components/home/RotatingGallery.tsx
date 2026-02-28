@@ -134,7 +134,7 @@ const RotatingGallery = (props: RotatingGalleryProps) => {
         type="button"
         onClick={() => setActiveSlide((current) => (current - 1 + items.length) % items.length)}
         aria-label="Show previous photo"
-        className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/60 text-white shadow-lg backdrop-blur transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+        className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-black/70 text-white shadow-lg backdrop-blur transition hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
       >
         <ChevronLeft className="h-4 w-4" aria-hidden="true" />
       </button>
@@ -142,7 +142,7 @@ const RotatingGallery = (props: RotatingGalleryProps) => {
         type="button"
         onClick={() => setActiveSlide((current) => (current + 1) % items.length)}
         aria-label="Show next photo"
-        className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/60 text-white shadow-lg backdrop-blur transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+        className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-black/70 text-white shadow-lg backdrop-blur transition hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
       >
         <ChevronRight className="h-4 w-4" aria-hidden="true" />
       </button>
@@ -153,10 +153,17 @@ const RotatingGallery = (props: RotatingGalleryProps) => {
             type="button"
             onClick={() => setActiveSlide(index)}
             aria-label={`Show slide ${index + 1}`}
-            className={`h-2 w-2 rounded-full transition ${
-              activeSlide === index ? "bg-white" : "bg-white/40 hover:bg-white/70"
-            }`}
-          />
+            aria-current={activeSlide === index}
+            className="group flex h-3 w-3 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          >
+            <span
+              className={`h-2 w-2 rounded-full transition ${
+                activeSlide === index
+                  ? "bg-white"
+                  : "bg-white/40 group-hover:bg-white/70"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>

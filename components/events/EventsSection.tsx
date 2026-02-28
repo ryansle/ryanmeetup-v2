@@ -98,7 +98,7 @@ const EventsSection = (props: EventsSectionProps) => {
                   <Heading className="text-3xl title lg:text-4xl" size="h2">
                     {title}
                   </Heading>
-                  <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+                  <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
                     {eventCountLabel}
                   </Text>
                 </div>
@@ -136,7 +136,7 @@ const EventsSection = (props: EventsSectionProps) => {
             <Heading className="text-3xl title lg:text-4xl" size="h2">
               {title}
             </Heading>
-            <Text className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
+            <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
               {eventCountLabel}
             </Text>
           </div>

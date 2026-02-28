@@ -53,7 +53,7 @@ const Donation = (props: DonationProps) => {
             <span className={`whitespace-nowrap text-4xl ${color}`}>
               {fmt(parseCurrency(amount))}
             </span>
-            <span className="text-black/60 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0 dark:text-white/70">
+            <span className="text-black/70 text-sm font-normal text-lg whitespace-nowrap mt-4 xl:mt-0 dark:text-white/80">
               Raised to date
             </span>
           </Text>

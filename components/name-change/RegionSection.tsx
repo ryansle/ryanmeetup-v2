@@ -22,7 +22,7 @@ const RegionSection = (props: RegionSectionProps) => {
         <Heading className="text-2xl title sm:text-3xl" size="h2">
           {title}
         </Heading>
-        <Text className="text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+        <Text className="text-xs uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
           {subtitle}
         </Text>
       </div>
