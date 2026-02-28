@@ -148,7 +148,7 @@ const EventsContainer = (props: EventsContainerProps) => {
         (activeEvents.length !== 0 || chapterEvents.length !== 0) && (
           <>
             <EventsSection
-              title="Upcoming Events"
+              title={activeEvents.length !== 0 ? "All Upcoming Events" : "Upcoming Events"}
               events={activeEvents}
               eventType={eventType}
               showChapters={showChapters && chapterEvents.length !== 0}

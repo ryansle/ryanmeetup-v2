@@ -3,6 +3,8 @@ import NextLink from "next/link";
 import NextImage from "next/image";
 import { Heading, Text } from "@/components/global";
 import { FaCity as City } from "react-icons/fa";
+import { FaCalendarDays as Calendar } from "react-icons/fa6";
+import { FaCalendarCheck as CalendarCheck, FaArrowRight as ArrowRight } from "react-icons/fa6";
 import { MdLocationPin as Pin } from "react-icons/md";
 
 // Types
@@ -10,14 +12,16 @@ import type { ContentfulImage, RyanEvent } from "@/lib/types";
 
 // Utilities
 import { convertImageUrl } from "@/utils/convert";
+import { isEventUpcoming } from "@/utils/date";
 
 type EventProps = {
   event: RyanEvent;
 };
 
 const Event = (props: EventProps) => {
-  const { title, coverImage, description, href, city, dateTime, venue } =
+  const { title, coverImage, description, href, city, dateTime, venue, date } =
     props.event;
+  const isUpcoming = isEventUpcoming(date);
 
   const imageUrl =
     typeof coverImage === "string"
@@ -39,9 +43,10 @@ const Event = (props: EventProps) => {
 
         {/* Event Description */}
         <div className="flex flex-1 flex-col px-5 py-4">
-          <div className="flex items-center justify-between mb-4">
+          <div className="mb-4 flex items-center justify-between">
             <div className="space-y-1">
-              <Text className="text-sm uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+              <Text className="flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+                <Calendar className="h-4 w-4" />
                 {dateTime}
               </Text>
               <Heading className="text-2xl title" size="h3">
@@ -53,7 +58,6 @@ const Event = (props: EventProps) => {
             {description}
           </Text>
 
-          {/* <div className="mt-auto grid grid-cols-2 gap-2 pt-5 text-black/60 dark:text-white/60"> */}
           <div className="mt-auto gap-2 pt-5 text-black/60 dark:text-white/60">
             <div className="flex items-center gap-2">
               <City className="w-4 h-4" />
@@ -68,6 +72,28 @@ const Event = (props: EventProps) => {
                 {venue}
               </Text>
             </div>
+          </div>
+
+          <div className="mt-4 flex items-center justify-end gap-3 border-t border-black/10 pt-4 text-black/70 dark:border-white/10 dark:text-white/70">
+            <span
+              className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition ${
+                isUpcoming
+                  ? "border border-black/70 bg-black text-white shadow-md group-hover:-translate-y-0.5 group-hover:border-black/90 group-hover:bg-black/90 dark:border-white/40 dark:bg-white dark:text-black dark:group-hover:border-white/70 dark:group-hover:bg-white/90"
+                  : "border border-black/30 bg-black/5 text-black group-hover:-translate-y-0.5 group-hover:border-black/50 group-hover:bg-black/10 dark:border-white/30 dark:bg-white/10 dark:text-white dark:group-hover:border-white/60 dark:group-hover:bg-white/20"
+              }`}
+            >
+              {isUpcoming ? (
+                <>
+                  <CalendarCheck className="h-4 w-4" />
+                  RSVP
+                </>
+              ) : (
+                <>
+                  View event
+                  <ArrowRight className="h-4 w-4" />
+                </>
+              )}
+            </span>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Layout } from "@/components/navigation";
 import { Landing, FAQ, TestimonyContainer } from "@/components/home";
 import { Divider, Heading } from "@/components/global";
 import { SponsorCarousel } from "@/components/sponsors";
+import { UpcomingEventsList } from "@/components/events";
 import { 
   FaCommentDollar as Dollar,
   FaRegNewspaper as Press,
@@ -12,6 +13,7 @@ import { MdGroups as Community, MdVolunteerActivism as Heart } from "react-icons
 import { Button } from "@/components/global";
 import { GoSponsorTiers as SponsorIcon } from "react-icons/go";
 import { layoutPaddingX } from "@/lib/constants";
+import { toEndOfDayTime } from "@/utils/date";
 
 // Types
 import type {
@@ -47,6 +49,10 @@ const HomePage = async () => {
   const homeFaqs = faqs.filter((faq) => faq.type === "home");
   const activeChapters = chapters.filter((chapter) => chapter.active);
   const mainEvents = events.filter((event) => event.chapter.includes("Main"));
+  const now = Date.now();
+  const upcomingEvents = events
+    .filter((event) => toEndOfDayTime(event.date) >= now)
+    .sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
 
   const totalRaised = donations.reduce((sum, item) => {
     const amount = parseFloat(item.amount.replace(/[^0-9.-]+/g, ""));
@@ -103,6 +109,13 @@ const HomePage = async () => {
           <Landing stats={stats} />
 
         <Divider margins="xl" />
+
+        {upcomingEvents.length !== 0 && (
+          <>
+            <UpcomingEventsList events={upcomingEvents} />
+            <Divider margins="xl" />
+          </>
+        )}
 
         <Heading className="text-center text-4xl title" size="h4">
           We&apos;re supported by Ryans at:

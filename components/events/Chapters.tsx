@@ -5,7 +5,7 @@ import { Heading, Text } from "@/components/global";
 
 const Chapters = () => {
   return (
-    <NextLink href="/chapters">
+    <NextLink href="/chapters" className="group">
       <div className="border flex flex-col items-center justify-center shadow-xl border-gray-700 rounded-2xl min-h-96 h-full timing hover:border-white hover:scale-102">
         <div className="relative w-full flex items-center justify-center rounded-2xl h-full overflow-hidden bg-center">
           <div className="w-full h-96 md:h-full brightness-30">
@@ -26,6 +26,9 @@ const Chapters = () => {
             <Text className="text-white text-xl mt-4">
               Check out our local chapters and join the community in your city.
             </Text>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white transition group-hover:bg-white group-hover:text-black">
+              Explore chapters
+            </div>
           </div>
         </div>
       </div>
