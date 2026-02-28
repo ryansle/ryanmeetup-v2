@@ -224,7 +224,7 @@ const HomePage = async () => {
 
           <Divider margins="xl" />
 
-          <FAQ showTitle data={homeFaqs} />
+          <FAQ showTitle columns={2} data={homeFaqs} toggleable />
         </div>
       </section>
     </Layout>
