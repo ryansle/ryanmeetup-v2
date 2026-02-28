@@ -51,7 +51,7 @@ const AllEventsPage = async () => {
         tag="Events"
         href="/newsletter"
         icon={<News />}
-         hrefText="Sign up for emails"
+        hrefText="Sign up for emails"
         secondaryHref="/join"
         secondaryIcon={<Join />}
         secondaryHrefText="Follow us on Partiful"
