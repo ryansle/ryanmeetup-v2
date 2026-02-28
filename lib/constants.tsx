@@ -74,6 +74,7 @@ export const routes = [
     icon: <Community />,
     text: "Community",
     href: "",
+    description: "Events, chapters, and the story behind Ryan Meetups.",
     subroutes: [
       {
         icon: <Scroll />,
@@ -117,11 +118,13 @@ export const routes = [
     icon: <Shirt />,
     text: "Merch",
     href: "https://ryanmeetup.etsy.com",
+    description: "Official Ryan Meetup merch and essentials.",
   },
   {
     icon: <Handshake />,
     text: "Get Involved",
     href: "",
+    description: "Support the mission through donating, sponsoring, or helping.",
     subroutes: [
       {
         icon: <Flyer />,
@@ -170,16 +173,19 @@ export const routes = [
     icon: <Map />,
     text: "Map",
     href: "/map",
+    description: "Explore Ryan hubs and meetup locations.",
   },
   {
     icon: <News />,
     text: "Press",
     href: "/press",
+    description: "Media coverage and press highlights.",
   },
   {
     icon: <Email />,
     text: "Contact Us",
     href: "/contact",
+    description: "Get in touch with the Ryan Meetup team.",
   },
 ];
 

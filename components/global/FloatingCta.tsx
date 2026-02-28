@@ -87,12 +87,12 @@ const FloatingCta = (props: FloatingCtaProps) => {
                 {(sublabel || secondarySublabel) && (
                   <div className="space-y-0.5">
                     {sublabel && (
-                      <Text className="text-xs md:text-sm uppercase text-[#ad8f4f]/90">
+                      <Text className="text-xs md:text-sm uppercase text-white dark:text-[#ad8f4f]/90">
                         {sublabel}
                       </Text>
                     )}
                     {secondarySublabel && (
-                      <Text className="text-xs md:text-sm uppercase text-[#ad8f4f]/90">
+                      <Text className="text-xs md:text-sm uppercase text-white dark:text-[#ad8f4f]/90">
                         {secondarySublabel}
                       </Text>
                     )}
