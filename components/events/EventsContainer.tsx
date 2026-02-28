@@ -123,7 +123,6 @@ const EventsContainer = (props: EventsContainerProps) => {
     showUpcomingSection &&
     activeEvents.length === 0 &&
     inactiveEvents.length !== 0;
-
   return (
     <div className="mb-10">
       {showEmptyUpcomingBanner && (

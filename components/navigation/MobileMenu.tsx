@@ -44,7 +44,10 @@ const MobileMenu = (props: MobileMenuProps) => {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-3 py-1.5 transition hover:shadow-sm hover:bg-black/5 text-black dark:text-white dark:hover:text-white dark:hover:bg-white/10"
+          className="text-sm flex items-center font-semibold rounded-lg tracking-wide gap-x-2 px-3 py-1.5 transition hover:shadow-sm hover:bg-black/5 text-black dark:text-white dark:hover:text-white dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30"
+          aria-label="Open menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu-drawer"
         >
           <Hamburger />
           Menu
@@ -73,15 +76,18 @@ const MobileMenu = (props: MobileMenuProps) => {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <DialogPanel className="relative flex h-full w-[92vw] max-w-sm flex-col border-l border-black/10 bg-white/95 p-4 pb-0 shadow-2xl backdrop-blur dark:border-white/10 dark:bg-black/95">
-                  <div className="flex items-center justify-between">
+                <DialogPanel
+                  id="mobile-menu-drawer"
+                  className="relative flex h-full w-[92vw] max-w-sm flex-col border-l border-black/10 bg-white/95 p-4 pb-0 shadow-2xl backdrop-blur dark:border-white/10 dark:bg-black/95"
+                >
+                  <div className="sticky top-0 z-10 -mx-4 mb-4 flex items-center justify-between border-b border-black/10 bg-white/95 px-4 pb-3 pt-0 backdrop-blur dark:border-white/10 dark:bg-black/95">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
                       Menu
                     </div>
                     <button
                       type="button"
                       onClick={() => setOpen(false)}
-                      className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-black transition hover:bg-black/5 dark:border-white/10 dark:text-white dark:hover:bg-white/10"
+                      className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-black transition hover:bg-black/5 dark:border-white/10 dark:text-white dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30"
                       aria-label="Close menu"
                     >
                       <Close className="h-5 w-5" />

@@ -117,6 +117,10 @@ const HomePage = async () => {
           </>
         )}
 
+        <TestimonyContainer testimonies={testimonies} />
+
+        <Divider margins="xl" />
+
         <Heading className="text-center text-4xl title" size="h4">
           We&apos;re supported by Ryans at:
         </Heading>
@@ -149,7 +153,7 @@ const HomePage = async () => {
         <div className={`${layoutPaddingX}`}>
           <Divider margins="xl" />
 
-          <TestimonyContainer testimonies={testimonies} />
+          {/* <TestimonyContainer testimonies={testimonies} /> */}
 
           <Divider margins="xl" />
 

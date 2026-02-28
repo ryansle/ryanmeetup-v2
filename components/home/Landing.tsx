@@ -90,9 +90,6 @@ const Actions = () => {
           <span className="hidden sm:inline">Find your chapter</span>
         </Button.Link>
       </div>
-      <Text className="text-xs uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
-        RSVP on the event page to get your invite.
-      </Text>
     </div>
   );
 };

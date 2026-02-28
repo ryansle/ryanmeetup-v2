@@ -2,6 +2,7 @@
 import { Layout } from "@/components/navigation";
 import { Text, Divider, HeroCard } from "@/components/global";
 import { Moments } from "@/components/about";
+import { BenefitsSection } from "@/components/home";
 
 // Types
 import type { Metadata } from "next";
@@ -67,6 +68,10 @@ const AboutPage = () => {
             </Text>
           ))}
         </section>
+
+        <Divider />
+
+        <BenefitsSection />
 
         <Divider />
 
