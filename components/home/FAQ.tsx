@@ -76,10 +76,10 @@ const FAQ = (props: FAQProps) => {
                 key={index}
                 className="rounded-2xl border border-black/10 bg-white/80 p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
               >
-                <div className="text-xl font-semibold tracking-wider text-black dark:text-white">
+                <div className="text-base font-semibold tracking-wider text-black dark:text-white sm:text-lg">
                   {pair.question}
                 </div>
-                <div className="mt-2 text-lg text-black/70 dark:text-white/70">
+                <div className="mt-2 text-sm text-black/70 dark:text-white/70 sm:text-base">
                   {pair.answer}
                 </div>
               </div>
