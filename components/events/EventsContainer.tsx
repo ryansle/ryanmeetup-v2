@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 // Components
-import { Text, Divider, Heading } from "@/components/global";
+import { Text, Divider, Heading, Input } from "@/components/global";
 import { EventsSection } from "@/components/events";
 import NextLink from "next/link";
 
@@ -32,6 +32,8 @@ const EventsContainer = (props: EventsContainerProps) => {
     displayMode = "sectioned",
   } = props;
 
+  const [query, setQuery] = useState("");
+
   const eventsWithMeta = useMemo(
     () =>
       events.map((event) => ({
@@ -42,13 +44,31 @@ const EventsContainer = (props: EventsContainerProps) => {
     [events, eventType],
   );
 
+  const filteredEventsWithMeta = useMemo(() => {
+    if (!query.trim()) return eventsWithMeta;
+    const needle = query.trim().toLowerCase();
+    return eventsWithMeta.filter(({ event }) => {
+      const haystack = [
+        event.title,
+        event.city,
+        event.venue,
+        event.description,
+        event.chapter?.join(" "),
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(needle);
+    });
+  }, [eventsWithMeta, query]);
+
   if (displayMode === "flat") {
     const now = Date.now();
-    const activeEvents = eventsWithMeta
+    const activeEvents = filteredEventsWithMeta
       .filter((item) => item.time >= now)
       .map((item) => item.event)
       .sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
-    const inactiveEvents = eventsWithMeta
+    const inactiveEvents = filteredEventsWithMeta
       .filter((item) => item.time < now)
       .map((item) => item.event)
       .sort((a, b) => toEndOfDayTime(b.date) - toEndOfDayTime(a.date));
@@ -60,6 +80,16 @@ const EventsContainer = (props: EventsContainerProps) => {
 
     return (
       <div className="mb-10">
+        <div className="mb-6">
+          <Input
+            label="Search events"
+            name="event-search"
+            placeholder="Search by city, venue, or event name..."
+            inputClassName="pr-4"
+            onChange={(event) => setQuery(event.target.value)}
+            value={query}
+          />
+        </div>
         {showEmptyUpcomingBanner && (
           <div className="mb-8">
             <Heading
@@ -108,7 +138,7 @@ const EventsContainer = (props: EventsContainerProps) => {
   const activeEvents: RyanEvent[] = [];
   const inactiveEvents: RyanEvent[] = [];
 
-  for (const item of eventsWithMeta) {
+  for (const item of filteredEventsWithMeta) {
     if (item.isMain) {
       mainEvents.push(item.event);
       if (item.time >= now) {
@@ -130,6 +160,16 @@ const EventsContainer = (props: EventsContainerProps) => {
     inactiveEvents.length !== 0;
   return (
     <div className="mb-10">
+      <div className="mb-6">
+        <Input
+          label="Search events"
+          name="event-search"
+          placeholder="Search by city, venue, or event name..."
+          inputClassName="pr-4"
+          onChange={(event) => setQuery(event.target.value)}
+          value={query}
+        />
+      </div>
       {showEmptyUpcomingBanner && (
         <div className="mb-8">
           <Heading

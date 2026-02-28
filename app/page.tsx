@@ -192,10 +192,6 @@ const HomePage = async () => {
           </>
         )}
 
-        <TestimonyContainer testimonies={testimonies} />
-
-        <Divider margins="xl" />
-
         <Heading className="text-center text-4xl title" size="h2">
           We&apos;re supported by Ryans at:
         </Heading>
