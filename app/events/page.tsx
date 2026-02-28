@@ -138,10 +138,10 @@ const EventsPage = async ({
         tag="Events"
         href="/newsletter"
         icon={<News />}
-        hrefText="Get event updates"
+        hrefText="Sign up for emails"
         secondaryHref="/join"
         secondaryIcon={<Join />}
-        secondaryHrefText="Join the Ryan Meetup"
+        secondaryHrefText="Follow us on Partiful"
       >
         <Text className="secondary text-xl mb-6 xl:mx-32">
           <span className="hidden md:inline-block">
