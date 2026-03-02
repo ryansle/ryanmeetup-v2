@@ -1,9 +1,8 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Divider, Text } from "@/components/global";
+import { Blurb, Divider, Text } from "@/components/global";
 import { FAQ } from "@/components/home";
 import { ChapterDirectory } from "@/components/chapters";
-import { Blurb } from "@/components/events";
 
 // Types
 import type { FrequentlyAskedQuestion, RyanChapter, RyanEvent } from "@/lib/types";

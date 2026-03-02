@@ -1,6 +1,7 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Blurb, Event } from "@/components/events";
+import { Event } from "@/components/events";
+import { Blurb } from "@/components/global";
 import { Divider, Text } from "@/components/global";
 
 // Types

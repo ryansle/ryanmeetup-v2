@@ -1,6 +1,6 @@
 // Components
 import { Text } from "@/components/global";
-import { Blurb } from "@/components/events";
+import { Blurb } from "@/components/global";
 import {
   FaRegFileLines as FormIcon,
   FaRegNewspaper as NewsIcon,

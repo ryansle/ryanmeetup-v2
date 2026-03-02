@@ -2,7 +2,7 @@
 import { Layout } from "@/components/navigation";
 import { Divider, Text } from "@/components/global";
 import { PosterContainer } from "@/components/flyers";
-import { Blurb } from "@/components/events";
+import { Blurb } from "@/components/global";
 
 // Types
 import type { Metadata } from "next";

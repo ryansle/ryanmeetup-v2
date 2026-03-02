@@ -1,7 +1,7 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Divider, Text } from "@/components/global";
-import { Blurb, EventsContainer } from "@/components/events";
+import { Blurb, Divider, Text } from "@/components/global";
+import { EventsContainer } from "@/components/events";
 import { FaRegNewspaper as News, FaListUl as List } from "react-icons/fa";
 import { FaUserPlus as Join } from "react-icons/fa6";
 import NextLink from "next/link";

@@ -1,10 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Heading, Text } from "@/components/global";
 import { EventsListPager } from "@/components/events/EventsListPager";
 import type { RyanEvent } from "@/lib/types";
-import { toEndOfDayTime } from "@/utils/date";
 
 type EventsPreviewProps = {
   events: RyanEvent[];
@@ -14,16 +13,6 @@ const EventsPreview = (props: EventsPreviewProps) => {
   const { events } = props;
   const [view, setView] = useState<"upcoming" | "past">("upcoming");
   const pageSize = 5;
-
-  const { upcoming, past } = useMemo(() => {
-    const now = Date.now();
-    const upcomingEvents = events.filter((event) => toEndOfDayTime(event.date) >= now);
-    const pastEvents = events.filter((event) => toEndOfDayTime(event.date) < now);
-    return { upcoming: upcomingEvents, past: pastEvents };
-  }, [events]);
-
-  const hasUpcoming = upcoming.length > 0;
-  const hasPast = past.length > 0;
 
   return (
     <section className="space-y-4">
@@ -68,29 +57,18 @@ const EventsPreview = (props: EventsPreviewProps) => {
         </div>
       </div>
 
-      {(view === "upcoming" && hasUpcoming) || (view === "past" && hasPast) ? (
-        <EventsListPager
-          events={events}
-          view={view}
-          pageSize={pageSize}
-          listTitle={view === "upcoming" ? "Upcoming Events" : "Past Events"}
-          ctaLabel={view === "upcoming" ? "RSVP" : "View event"}
-          sortOrder={view === "upcoming" ? "asc" : "desc"}
-          resetKey={view}
-        />
-      ) : null}
-
-      {view === "upcoming" && !hasUpcoming && (
-        <Text className="text-center text-sm text-black/70 dark:text-white/70">
-          No upcoming events right now. Check back soon!
-        </Text>
-      )}
-
-      {view === "past" && !hasPast && (
-        <Text className="text-center text-sm text-black/70 dark:text-white/70">
-          No past events yet.
-        </Text>
-      )}
+      <EventsListPager
+        events={events}
+        view={view}
+        pageSize={pageSize}
+        perPageOptions={[5, 10, 25]}
+        defaultPerPage={pageSize}
+        showPerPageSelector
+        listTitle={view === "upcoming" ? "Upcoming Events" : "Past Events"}
+        ctaLabel={view === "upcoming" ? "RSVP" : "View event"}
+        sortOrder={view === "upcoming" ? "asc" : "desc"}
+        resetKey={view}
+      />
     </section>
   );
 };

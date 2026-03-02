@@ -14,6 +14,9 @@ type UpcomingEventsListProps = {
   sortOrder?: "asc" | "desc";
   ctaLabel?: string;
   isLoading?: boolean;
+  headerAction?: React.ReactNode;
+  showCount?: boolean;
+  footerAction?: React.ReactNode;
 };
 
 const getEventTime = (value: RyanEvent["date"]) => {
@@ -61,6 +64,9 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
     sortOrder = "asc",
     ctaLabel = "RSVP",
     isLoading = false,
+    headerAction,
+    showCount = true,
+    footerAction,
   } = props;
 
   if (isLoading) {
@@ -104,9 +110,13 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
         <Heading className="text-3xl title lg:text-4xl" size="h2">
           {title}
         </Heading>
-        <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-          {events.length} event{events.length === 1 ? "" : "s"}
-        </Text>
+        {headerAction ? (
+          <div className="flex justify-center lg:justify-end">{headerAction}</div>
+        ) : showCount ? (
+          <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
+            {events.length} event{events.length === 1 ? "" : "s"}
+          </Text>
+        ) : null}
       </div>
       <div className="grid gap-3">
         {sortedEvents.map((event, index) => {
@@ -192,6 +202,9 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
           );
         })}
       </div>
+      {footerAction && (
+        <div className="mt-4 flex justify-end">{footerAction}</div>
+      )}
     </div>
   );
 };

@@ -1,7 +1,6 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Blurb } from "@/components/events";
-import { Text } from "@/components/global";
+import { Blurb, Breadcrumbs, Divider, Text } from "@/components/global";
 import { EventsListPager } from "@/components/events/EventsListPager";
 
 // Utilities
@@ -9,6 +8,8 @@ import { fetchEvents } from "@/actions/fetchContent";
 import { getTestEvents } from "@/lib/test-fixtures/events";
 import type { RyanEvent } from "@/lib/types";
 import type { Metadata } from "next";
+import { IoCalendarNumber as Calendar } from "react-icons/io5";
+import { FaListUl as List } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Ryan Meetup - Upcoming Events",
@@ -56,12 +57,49 @@ const UpcomingPage = async ({
           Browse upcoming Ryan Meetups and join in on the fun.
         </Text>
       </Blurb>
+
+      <Divider />
+
       <EventsListPager
         events={events as RyanEvent[]}
         view="upcoming"
         perPageOptions={[5, 10, 25]}
         defaultPerPage={10}
         showPerPageSelector
+        breadcrumbNode={
+          <>
+            <Breadcrumbs
+              className="flex sm:hidden"
+              crumbs={[
+                {
+                  icon: <Calendar className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
+                  href: "/events",
+                  title: "Events",
+                },
+                {
+                  icon: <List className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
+                  href: "/events/upcoming",
+                  title: "Upcoming",
+                },
+              ]}
+            />
+            <Breadcrumbs
+              className="hidden sm:flex"
+              crumbs={[
+                {
+                  icon: <Calendar className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
+                  href: "/events",
+                  title: "Events",
+                },
+                {
+                  icon: <List className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
+                  href: "/events/upcoming",
+                  title: "Upcoming",
+                },
+              ]}
+            />
+          </>
+        }
         listTitle="Upcoming Events"
         ctaLabel="RSVP"
         sortOrder="asc"
