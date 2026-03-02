@@ -5,15 +5,22 @@ import { TotalCount, Donation } from "@/components/charity";
 
 // Types
 import { Charity } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchDonations } from "@/actions/fetchContent";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Charity",
   description:
     "Ryan Meetup has raised money for various charitable organizations over the years.",
+  canonical: "https://ryanmeetup.com/charity",
+  siteName: "Ryan Meetup - Charity",
+  image: {
+    url: "https://ryanmeetup.com/meta/charity.png",
+    width: 2056,
+    height: 1162,
+  },
   keywords: [
     "Ryan meetup charity",
     "ryan meetup donations",
@@ -28,23 +35,7 @@ export const metadata: Metadata = {
     "ryan meetup fundraising partners",
     "ryan meetup philanthropy",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/charity",
-    title: "Ryan Meetup - Charity",
-    description:
-      "Ryan Meetup has raised money for various charitable organizations over the years.",
-    siteName: "Ryan Meetup - Charity",
-    images: [
-      {
-        url: "https://ryanmeetup.com/meta/charity.png",
-        width: 2056,
-        height: 1162,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const CharityPage = async () => {
   const donations = await fetchDonations();

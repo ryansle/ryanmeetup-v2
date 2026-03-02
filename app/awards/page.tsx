@@ -7,7 +7,7 @@ import { FaTrophy as Trophy, FaPlaneArrival as Plane } from "react-icons/fa";
 
 // Types
 import type { TravelingRyan, ChampionRyan, RepeatRyan } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import {
@@ -17,10 +17,17 @@ import {
 } from "@/actions/fetchContent";
 import { getAwardsFixture } from "@/lib/test-fixtures/awards";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Awards",
   description:
     "The Hall of Ryans honors farthest traveling Ryans, Ryan Meetup champions, and more.",
+  canonical: "https://ryanmeetup.com/awards",
+  siteName: "Ryan Meetup - Awards",
+  image: {
+    url: "https://ryanmeetup.com/trophy.png",
+    width: 1000,
+    height: 667,
+  },
   keywords: [
     "award winners",
     "hall of ryans",
@@ -36,23 +43,7 @@ export const metadata: Metadata = {
     "ryan meetup winners",
     "ryan meetup leaderboard",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/awards",
-    title: "Ryan Meetup - Awards",
-    description:
-      "The Hall of Ryans honors farthest traveling Ryans, Ryan Meetup champions, and more.",
-    siteName: "Ryan Meetup - Awards",
-    images: [
-      {
-        url: "https://ryanmeetup.com/trophy.png",
-        width: 1000,
-        height: 667,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const AwardsPage = async () => {
   const fixture =

@@ -7,38 +7,20 @@ import { EventsListPager } from "@/components/events/EventsListPager";
 import { fetchEvents } from "@/actions/fetchContent";
 import { getTestEvents } from "@/lib/test-fixtures/events";
 import type { RyanEvent } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 import { IoCalendarNumber as Calendar } from "react-icons/io5";
 import { FaListUl as List } from "react-icons/fa";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Upcoming Events",
   description: "See upcoming Ryan Meetups.",
-  alternates: {
-    canonical: "https://ryanmeetup.com/events/upcoming",
+  canonical: "https://ryanmeetup.com/events/upcoming",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/rockies.jpg",
+    width: 3490,
+    height: 2328,
   },
-  openGraph: {
-    url: "https://ryanmeetup.com/events/upcoming",
-    title: "Ryan Meetup - Upcoming Events",
-    description: "See upcoming Ryan Meetups.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/rockies.jpg",
-        width: 3490,
-        height: 2328,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ryan Meetup - Upcoming Events",
-    description: "See upcoming Ryan Meetups.",
-    images: ["https://ryanmeetup.com/group-photos/rockies.jpg"],
-  },
-};
+});
 
 const UpcomingPage = async ({
   searchParams,

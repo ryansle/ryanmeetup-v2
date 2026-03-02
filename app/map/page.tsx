@@ -4,15 +4,21 @@ import { Mapbox, Info } from "@/components/map";
 
 // Types
 import type { Location } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchLocations } from "@/actions/fetchContent";
 import { getMapFixtures } from "@/lib/test-fixtures/map";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Map",
   description: "Ryan Meetup around the world.",
+  canonical: "https://ryanmeetup.com/map",
+  image: {
+    url: "https://ryanmeetup.com/meta/map.png",
+    width: 1355,
+    height: 692,
+  },
   keywords: [
     "ryan meetup world map",
     "ryan meetup worldwide",
@@ -27,22 +33,7 @@ export const metadata: Metadata = {
     "ryan meetup locations",
     "ryan meetup cities",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/map",
-    title: "Ryan Meetup - Map",
-    description: "Ryan Meetup around the world.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/meta/map.png",
-        width: 1355,
-        height: 692,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 type MapPageProps = {
   searchParams?: Record<string, string | string[] | undefined>;

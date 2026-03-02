@@ -24,7 +24,7 @@ import type {
   Testimonial,
   Charity,
 } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import {
@@ -38,37 +38,17 @@ import {
 } from "@/actions/fetchContent";
 import { formatCount } from "@/utils/stats";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup | Events for People Named Ryan",
   description:
     "Ryan Meetup is a community and meetup series for people named Ryan. Find upcoming Ryan events, join local chapters, and RSVP today.",
-  alternates: {
-    canonical: "https://ryanmeetup.com",
+  canonical: "https://ryanmeetup.com",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/rockies.jpg",
+    width: 3490,
+    height: 2328,
   },
-  openGraph: {
-    url: "https://ryanmeetup.com",
-    title: "Ryan Meetup | Events for People Named Ryan",
-    description:
-      "Find upcoming Ryan Meetup events, local chapters, and a community built for Ryans.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/rockies.jpg",
-        width: 3490,
-        height: 2328,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ryan Meetup | Events for People Named Ryan",
-    description:
-      "Find upcoming Ryan Meetup events, local chapters, and a community built for Ryans.",
-    images: ["https://ryanmeetup.com/group-photos/rockies.jpg"],
-  },
-};
+});
 
 const HomePage = async () => {
   const faqs = (await fetchFAQs()) as FrequentlyAskedQuestion[];

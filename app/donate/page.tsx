@@ -7,12 +7,18 @@ import NextImage from "next/image";
 import { FaShirt as Shirt } from "react-icons/fa6";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Donate to the Ryan Meetup",
   description: "Donate to the Ryan Meetup to help keep events funded.",
+  canonical: "https://ryanmeetup.com/donate",
+  image: {
+    url: "https://ryanmeetup.com/meta/donate.webp",
+    width: 1000,
+    height: 714,
+  },
   keywords: [
     "donate to ryan meetup",
     "ryan meetup donation",
@@ -21,22 +27,7 @@ export const metadata: Metadata = {
     "ryan meetup zelle",
     "ryan meetup support",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/donate",
-    title: "Donate to the Ryan Meetup",
-    description: "Donate to the Ryan Meetup to help keep events funded.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/meta/donate.webp",
-        width: 1000,
-        height: 714,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 type DonateOptionCardProps = {
   visual: ReactNode;

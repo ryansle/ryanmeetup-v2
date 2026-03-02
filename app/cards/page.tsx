@@ -6,35 +6,25 @@ import { CardInfo } from "@/components/cards";
 import { layoutPaddingX } from "@/lib/constants";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Buy Membership Card",
   description:
     "You've always been a member, and now you have the card to prove it.",
+  canonical: "https://ryanmeetup.com/cards",
+  image: {
+    url: "https://ryanmeetup.com/meta/cards.png",
+    width: 4032,
+    height: 3024,
+  },
   keywords: [
     "ryan meetup membership card",
     "ryan meetup card",
     "ryan meetup merch card",
     "ryan meetup membership",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/cards",
-    title: "Buy Membership Card",
-    description:
-      "You've always been a member, and now you have the card to prove it.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/meta/cards.png",
-        width: 4032,
-        height: 3024,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const BuyCardsPage = () => {
   return (

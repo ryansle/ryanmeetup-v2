@@ -5,37 +5,28 @@ import { Blurb } from "@/components/global";
 import { Divider, Text } from "@/components/global";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 import type { RyanEvent } from "@/lib/types";
 
 // Utilities
 import { fetchEvents } from "@/actions/fetchContent";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - RSVP",
   description: "Ryan Meetup is coming to Philadelphia! RSVP to St. Ryan's Day III today.",
+  canonical: "https://ryanmeetup.com/rsvp",
+  image: {
+    url: "https://ryanmeetup.com/logos/stryan3.PNG",
+    width: 5761,
+    height: 3240,
+  },
   keywords: [
     "ryan meetup rsvp",
     "ryan meetup tickets",
     "ryan meetup event registration",
     "ryan meetup signup",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/rsvp",
-    title: "Ryan Meetup - RSVP",
-    description: "RSVP to St. Ryan's Day III in Philadelphia!",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/logos/stryan3.PNG",
-        width: 5761,
-        height: 3240,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const RSVPPage = async () => {
   const events = (await fetchEvents()) as RyanEvent[];

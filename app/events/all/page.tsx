@@ -8,36 +8,27 @@ import { FaUserPlus as Join } from "react-icons/fa6";
 
 // Types
 import type { RyanEvent } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchEvents } from "@/actions/fetchContent";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - All Events",
   description: "All Ryan Meetup events in one place.",
+  canonical: "https://ryanmeetup.com/events/all",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/rockies.jpg",
+    width: 3490,
+    height: 2328,
+  },
   keywords: [
     "ryan meetup events",
     "ryan meetup all events",
     "ryan meetup schedule",
     "ryan meetup calendar",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/events/all",
-    title: "Ryan Meetup - All Events",
-    description: "All Ryan Meetup events in one place.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/rockies.jpg",
-        width: 3490,
-        height: 2328,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const AllEventsPage = async () => {
   const events = await fetchEvents();

@@ -8,15 +8,21 @@ import NextLink from "next/link";
 
 // Types
 import type { RyanEvent } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchEvents } from "@/actions/fetchContent";
 import { getTestEvents } from "@/lib/test-fixtures/events";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Events",
   description: "Keep up to date with Ryan Meetups near you!",
+  canonical: "https://ryanmeetup.com/events",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/rockies.jpg",
+    width: 3490,
+    height: 2328,
+  },
   keywords: [
     "when is the next ryan meetup?",
     "ryan meetup",
@@ -56,31 +62,7 @@ export const metadata: Metadata = {
     "ryan meetup calendar",
     "ryan meetup upcoming events",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/events",
-    title: "Ryan Meetup - Events",
-    description: "Keep up to date with Ryan Meetups near you!",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/rockies.jpg",
-        width: 3490,
-        height: 2328,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://ryanmeetup.com/events",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ryan Meetup - Events",
-    description: "Keep up to date with Ryan Meetups near you!",
-    images: ["https://ryanmeetup.com/group-photos/rockies.jpg"],
-  },
-};
+});
 
 const EventsPage = async ({
   searchParams,

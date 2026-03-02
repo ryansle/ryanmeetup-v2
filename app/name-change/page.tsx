@@ -13,29 +13,19 @@ import { FaCanadianMapleLeaf, FaFlagUsa } from "react-icons/fa6";
 import { layoutPaddingX } from "@/lib/constants";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Name Change",
   description:
     "Download name change paperwork by state. All 50 states in one place.",
-  openGraph: {
-    url: "https://ryanmeetup.com/name-change",
-    title: "Ryan Meetup - Change Your Name to Ryan",
-    description:
-      "Download name change paperwork by state. All 50 states in one place.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/meta/name-change.jpg",
-        width: 1341,
-        height: 958,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
+  canonical: "https://ryanmeetup.com/name-change",
+  image: {
+    url: "https://ryanmeetup.com/meta/name-change.jpg",
+    width: 1341,
+    height: 958,
   },
-};
+});
 
 const NameChangePage = () => {
   const anchorIconStyle = "h-5 w-5";

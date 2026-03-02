@@ -20,11 +20,17 @@ import {
 } from "react-icons/md";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Contribute",
   description: "Learn how you can contribute to the Ryan Meetup.",
+  canonical: "https://ryanmeetup.com/contribute",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
+    width: 1600,
+    height: 800,
+  },
   keywords: [
     "donate to the ryan meetup",
     "ryan meetup venmo",
@@ -35,22 +41,7 @@ export const metadata: Metadata = {
     "ryan meetup team",
     "ryan meetup contributions",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/contribute",
-    title: "Ryan Meetup - Contribute",
-    description: "Learn how you can contribute to the Ryan Meetup.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
-        width: 1600,
-        height: 800,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const ContributePage = async () => {
   const waysToSupport = [

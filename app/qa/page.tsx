@@ -1,12 +1,18 @@
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Q&A",
   description: "Documenting the shared history of the Ryan Meetup.",
+  canonical: "https://ryanmeetup.com/qa",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
+    width: 1600,
+    height: 800,
+  },
   keywords: [
     "ryan meetup qa",
     "ryan meetup",
@@ -14,22 +20,7 @@ export const metadata: Metadata = {
     "ryan meetup questions",
     "ryan meetup answers",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/qa",
-    title: "Ryan Meetup - Q&A",
-    description: "Documenting the shared history of the Ryan Meetup..",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
-        width: 1600,
-        height: 800,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const QAPage = () => {
   redirect(

@@ -6,17 +6,23 @@ import { ChapterDirectory } from "@/components/chapters";
 
 // Types
 import type { FrequentlyAskedQuestion, RyanChapter, RyanEvent } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchChapters, fetchFAQs, fetchEvents } from "@/actions/fetchContent";
 import { getChaptersFixture } from "@/lib/test-fixtures/chapters";
 import { isEventUpcoming } from "@/utils/date";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Chapters",
   description:
     "Introducing Ryan Meetup chapters - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.",
+  canonical: "https://ryanmeetup.com/chapters",
+  image: {
+    url: "https://ryanmeetup.com/meta/chapters.png",
+    width: 2056,
+    height: 1162,
+  },
   keywords: [
     "ryan meetup chapters",
     "local ryan meetup",
@@ -29,33 +35,7 @@ export const metadata: Metadata = {
     "ryan meetup chapter near me",
     "ryan meetup local chapters",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/chapters",
-    title: "Ryan Meetup - Chapters",
-    description:
-      "Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/meta/chapters.png",
-        width: 2056,
-        height: 1162,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://ryanmeetup.com/chapters",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ryan Meetup - Chapters",
-    description:
-      "Introducing local chapters of Ryan Meetup - a new way to keep connected with your local Ryans, and continue building that sense of community even closer to home.",
-    images: ["https://ryanmeetup.com/meta/chapters.png"],
-  },
-};
+});
 
 const ChaptersPage = async ({
   searchParams,

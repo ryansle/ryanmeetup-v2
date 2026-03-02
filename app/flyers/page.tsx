@@ -5,16 +5,22 @@ import { PosterContainer } from "@/components/flyers";
 import { Blurb } from "@/components/global";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchFlyers } from "@/actions/fetchContent";
 import { EventFlyer, Flyer } from "@/lib/types";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Flyers",
   description:
     "Download our official Ryan Meetup flyers here and help bring the Ryan Meetup to your city!",
+  canonical: "https://ryanmeetup.com/flyers",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
+    width: 1600,
+    height: 800,
+  },
   keywords: [
     "ryan meetup",
     "ryan meetup posters",
@@ -36,23 +42,7 @@ export const metadata: Metadata = {
     "ryan meetup poster download",
     "ryan meetup printable flyer",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/flyers",
-    title: "Ryan Meetup - Flyers",
-    description:
-      "Download our official Ryan Meetup flyers here and help bring the Ryan Meetup to your city!",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
-        width: 1600,
-        height: 800,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const flyers: Flyer[] = [
   { title: "OG Ryan Meetup Poster", src: "/posters/ogposter.png" },

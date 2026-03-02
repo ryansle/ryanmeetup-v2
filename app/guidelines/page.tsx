@@ -1,34 +1,25 @@
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Guidelines",
   description: "Guidelines for starting your own chapter of the Ryan Meetup.",
+  canonical: "https://ryanmeetup.com/guidelines",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
+    width: 1600,
+    height: 800,
+  },
   keywords: [
     "ryan meetup guidelines",
     "ryan meetup chapter guide",
     "ryan meetup rules",
     "start a ryan meetup chapter",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/guidelines",
-    title: "Ryan Meetup - Guidelines",
-    description: "Guidelines for starting your own chapter of the Ryan Meetup.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
-        width: 1600,
-        height: 800,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const GuidelinesPageRedirect = () => {
   redirect(

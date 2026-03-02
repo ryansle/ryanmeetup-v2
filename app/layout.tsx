@@ -3,7 +3,7 @@ import { BryanChecker } from "@/components/global";
 import { ThemeProvider } from "next-themes";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { Inter } from "next/font/google";
@@ -12,10 +12,16 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://v2.ryanmeetup.com"),
+export const metadata = buildPageMetadata({
+  metadataBase: "https://v2.ryanmeetup.com",
   title: "Ryan Meetup",
   description: "Wanna meet other Ryans? Join the Ryan Meetup!",
+  canonical: "https://ryanmeetup.com",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/rockies.jpg",
+    width: 3490,
+    height: 2328,
+  },
   keywords: [
     "ryan gathering",
     "ryan meetup",
@@ -60,22 +66,7 @@ export const metadata: Metadata = {
     "meet other ryans",
     "ryan meetup organization",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com",
-    title: "Ryan Meetup",
-    description: "Wanna meet other Ryans? Join the Ryan Meetup!",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/rockies.jpg",
-        width: 3490,
-        height: 2328,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 export default function RootLayout({
   children,

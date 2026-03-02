@@ -3,9 +3,6 @@ import { Layout } from "@/components/navigation";
 import { Heading, Text, Divider, Pill, Card, Button } from "@/components/global";
 import NextImage from "next/image";
 
-// Types
-import type { Metadata } from "next";
-
 // export const metadata: Metadata = {
 //   title: "Ryan Meetup - Store",
 //   description: "Store highlights and merch drops from the Ryan Meetup shop.",

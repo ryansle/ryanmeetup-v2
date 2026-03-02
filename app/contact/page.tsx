@@ -4,11 +4,17 @@ import { Text, Divider, Pill, Heading, Card } from "@/components/global";
 import { ContactForm, FollowUs } from "@/components/contact";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Contact Us",
   description: "Get in contact with one of the Ryans here.",
+  canonical: "https://ryanmeetup.com/contact",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
+    width: 1600,
+    height: 800,
+  },
   keywords: [
     "contact ryan",
     "contact ryan meetup",
@@ -21,22 +27,7 @@ export const metadata: Metadata = {
     "ryan meetup email",
     "ryan meetup message",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/contact",
-    title: "Ryan Meetup - Contact Us",
-    description: "Get in contact with one of the Ryans here.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
-        width: 1600,
-        height: 800,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const ContactPage = async () => {
   return (

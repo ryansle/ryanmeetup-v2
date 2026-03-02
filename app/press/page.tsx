@@ -6,14 +6,20 @@ import { layoutPaddingX } from "@/lib/constants";
 
 // Types
 import type { Article as RyanArticle, Outlet } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchArticles, fetchOutlets } from "@/actions/fetchContent";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Press",
   description: "Read all about the Ryan Meetup in the news.",
+  canonical: "https://ryanmeetup.com/press",
+  image: {
+    url: "https://ryanmeetup.com/meta/press.png",
+    width: 2056,
+    height: 1161,
+  },
   keywords: [
     "ryans only",
     "ryans only at the ryan meetup",
@@ -48,31 +54,7 @@ export const metadata: Metadata = {
     "ryan meetup media coverage",
     "ryan meetup news coverage",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/press",
-    title: "Ryan Meetup - Press",
-    description: "Read all about the Ryan Meetup in the news.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/meta/press.png",
-        width: 2056,
-        height: 1161,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://ryanmeetup.com/press",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ryan Meetup - Press",
-    description: "Read all about the Ryan Meetup in the news.",
-    images: ["https://ryanmeetup.com/meta/press.png"],
-  },
-};
+});
 
 const PressPage = async () => {
   const articles = await fetchArticles();

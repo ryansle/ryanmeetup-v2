@@ -2,33 +2,24 @@
 import { Heading } from "@/components/global";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - No Bryans Allowed!",
   description: "No Bryans allowed at the Ryan Meetup!",
+  canonical: "https://ryanmeetup.com/goodbye",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/ryanroundup.png",
+    width: 3284,
+    height: 2189,
+  },
   keywords: [
     "no bryans allowed",
     "ryan meetup rules",
     "ryan meetup bryan",
     "ryan meetup policy",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/goodbye",
-    title: "Ryan Meetup - No Bryans Allowed!",
-    description: "No Bryans allowed at the Ryan Meetup!",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/ryanroundup.png",
-        width: 3284,
-        height: 2189,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const GoodbyePage = () => {
   return (

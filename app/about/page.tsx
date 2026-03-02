@@ -5,11 +5,17 @@ import { Moments } from "@/components/about";
 import { BenefitsSection } from "@/components/home";
 
 // Types
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Ryan Meetup - About",
   description: "Learn how the Ryan Meetup got its start.",
+  canonical: "https://ryanmeetup.com/about",
+  image: {
+    url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
+    width: 1600,
+    height: 800,
+  },
   keywords: [
     "ryan meetup",
     "ryan meetup",
@@ -19,22 +25,7 @@ export const metadata: Metadata = {
     "ryan meetup history",
     "ryan meetup founders",
   ],
-  openGraph: {
-    url: "https://ryanmeetup.com/about",
-    title: "Ryan Meetup - About",
-    description: "Learn how the Ryan Meetup got its start.",
-    siteName: "Ryan Meetup",
-    images: [
-      {
-        url: "https://ryanmeetup.com/group-photos/ryankickoff.png",
-        width: 1600,
-        height: 800,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+});
 
 const AboutPage = () => {
   const story = [
