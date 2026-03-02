@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa6";
 
 // Utilities
-import { toEndOfDayTime } from "@/utils/date";
+import { sortEventsByDate, splitEventsByTime } from "@/utils/date";
 import type { RyanEvent } from "@/lib/types";
 
 type EventsListPagerProps = {
@@ -56,22 +56,14 @@ const EventsListPager = (props: EventsListPagerProps) => {
   const effectivePerPage = showPerPageSelector ? perPage : pageSize;
 
   const filteredEvents = useMemo(() => {
-    const now = Date.now();
-    return events.filter((event) =>
-      view === "upcoming"
-        ? toEndOfDayTime(event.date) >= now
-        : toEndOfDayTime(event.date) < now,
-    );
+    const { upcoming, past } = splitEventsByTime(events);
+    return view === "upcoming" ? upcoming : past;
   }, [events, view]);
 
   const sortedEvents = useMemo(() => {
     const order =
       sortOrder ?? (view === "upcoming" ? "asc" : "desc");
-    return [...filteredEvents].sort((a, b) =>
-      order === "asc"
-        ? toEndOfDayTime(a.date) - toEndOfDayTime(b.date)
-        : toEndOfDayTime(b.date) - toEndOfDayTime(a.date),
-    );
+    return sortEventsByDate(filteredEvents, order);
   }, [filteredEvents, sortOrder, view]);
 
   const totalPages = Math.max(1, Math.ceil(sortedEvents.length / effectivePerPage));

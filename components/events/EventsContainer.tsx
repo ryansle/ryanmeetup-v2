@@ -12,7 +12,7 @@ import NextLink from "next/link";
 import type { RyanEvent } from "@/lib/types";
 
 // Utilities
-import { toEndOfDayTime } from "@/utils/date";
+import { sortEventsByDate, splitEventsByTime, toEndOfDayTime } from "@/utils/date";
 
 type EventsContainerProps = {
   events: RyanEvent[];
@@ -68,15 +68,11 @@ const EventsContainer = (props: EventsContainerProps) => {
   }, [eventsWithMeta, query]);
 
   if (displayMode === "flat") {
-    const now = Date.now();
-    const activeEvents = filteredEventsWithMeta
-      .filter((item) => item.time >= now)
-      .map((item) => item.event)
-      .sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
-    const inactiveEvents = filteredEventsWithMeta
-      .filter((item) => item.time < now)
-      .map((item) => item.event)
-      .sort((a, b) => toEndOfDayTime(b.date) - toEndOfDayTime(a.date));
+    const { upcoming, past } = splitEventsByTime(
+      filteredEventsWithMeta.map((item) => item.event),
+    );
+    const activeEvents = sortEventsByDate(upcoming, "asc");
+    const inactiveEvents = sortEventsByDate(past, "desc");
 
     const showEmptyUpcomingBanner =
       showUpcomingSection &&
@@ -140,7 +136,6 @@ const EventsContainer = (props: EventsContainerProps) => {
     );
   }
 
-  const now = Date.now();
   const mainEvents: RyanEvent[] = [];
   const chapterEvents: RyanEvent[] = [];
   const activeEvents: RyanEvent[] = [];
@@ -149,18 +144,30 @@ const EventsContainer = (props: EventsContainerProps) => {
   for (const item of filteredEventsWithMeta) {
     if (item.isMain) {
       mainEvents.push(item.event);
-      if (item.time >= now) {
+      const { upcoming } = splitEventsByTime([item.event]);
+      if (upcoming.length) {
         activeEvents.push(item.event);
       } else {
         inactiveEvents.push(item.event);
       }
-    } else if (item.time >= now) {
-      chapterEvents.push(item.event);
+    } else {
+      const { upcoming } = splitEventsByTime([item.event]);
+      if (upcoming.length) {
+        chapterEvents.push(item.event);
+      }
     }
   }
-  activeEvents.sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
-  chapterEvents.sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
-  inactiveEvents.sort((a, b) => toEndOfDayTime(b.date) - toEndOfDayTime(a.date));
+  activeEvents.splice(0, activeEvents.length, ...sortEventsByDate(activeEvents, "asc"));
+  chapterEvents.splice(
+    0,
+    chapterEvents.length,
+    ...sortEventsByDate(chapterEvents, "asc"),
+  );
+  inactiveEvents.splice(
+    0,
+    inactiveEvents.length,
+    ...sortEventsByDate(inactiveEvents, "desc"),
+  );
 
   const showEmptyUpcomingBanner =
     showUpcomingSection &&

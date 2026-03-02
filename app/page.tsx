@@ -13,7 +13,7 @@ import { MdGroups as Community, MdVolunteerActivism as Heart } from "react-icons
 import { Button } from "@/components/global";
 import { GoSponsorTiers as SponsorIcon } from "react-icons/go";
 import { layoutPaddingX } from "@/lib/constants";
-import { toEndOfDayTime } from "@/utils/date";
+import { sortEventsByDate, splitEventsByTime } from "@/utils/date";
 
 // Types
 import type {
@@ -82,10 +82,8 @@ const HomePage = async () => {
   const homeFaqs = faqs.filter((faq) => faq.type === "home");
   const activeChapters = chapters.filter((chapter) => chapter.active);
   const mainEvents = events.filter((event) => event.chapter.includes("Main"));
-  const now = Date.now();
-  const upcomingEvents = events
-    .filter((event) => toEndOfDayTime(event.date) >= now)
-    .sort((a, b) => toEndOfDayTime(a.date) - toEndOfDayTime(b.date));
+  const { upcoming } = splitEventsByTime(events);
+  const upcomingEvents = sortEventsByDate(upcoming, "asc");
 
   const totalRaised = donations.reduce((sum, item) => {
     const amount = parseFloat(item.amount.replace(/[^0-9.-]+/g, ""));

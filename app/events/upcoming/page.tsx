@@ -50,9 +50,23 @@ const UpcomingPage = async ({
       ? getTestEvents(searchParams?.fixture)
       : await fetchEvents();
 
+  const iconStyle = "mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white";
+  const breadcrumbs = [
+    {
+      icon: <Calendar className={iconStyle} />,
+      href: "/events",
+      title: "Events",
+    },
+    {
+      icon: <List className={iconStyle} />,
+      href: "/events/upcoming",
+      title: "Upcoming",
+    },
+  ];
+
   return (
     <Layout>
-      <Blurb fullHeadline="Upcoming Events" tag="Upcoming">
+      <Blurb fullHeadline="Upcoming Events" tag="Coming Soon">
         <Text className="secondary text-xl mb-6 xl:mx-40">
           Browse upcoming Ryan Meetups and join in on the fun.
         </Text>
@@ -67,38 +81,7 @@ const UpcomingPage = async ({
         defaultPerPage={10}
         showPerPageSelector
         breadcrumbNode={
-          <>
-            <Breadcrumbs
-              className="flex sm:hidden"
-              crumbs={[
-                {
-                  icon: <Calendar className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
-                  href: "/events",
-                  title: "Events",
-                },
-                {
-                  icon: <List className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
-                  href: "/events/upcoming",
-                  title: "Upcoming",
-                },
-              ]}
-            />
-            <Breadcrumbs
-              className="hidden sm:flex"
-              crumbs={[
-                {
-                  icon: <Calendar className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
-                  href: "/events",
-                  title: "Events",
-                },
-                {
-                  icon: <List className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
-                  href: "/events/upcoming",
-                  title: "Upcoming",
-                },
-              ]}
-            />
-          </>
+          <Breadcrumbs className="flex" crumbs={breadcrumbs} />
         }
         listTitle="Upcoming Events"
         ctaLabel="RSVP"

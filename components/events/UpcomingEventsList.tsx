@@ -5,6 +5,7 @@ import NextLink from "next/link";
 import { Transition } from "@headlessui/react";
 import { Heading, Text } from "@/components/global";
 import { FaArrowRight as ArrowRight } from "react-icons/fa6";
+import { formatEventCount, formatMonthDay, sortEventsByDate } from "@/utils/date";
 
 import type { RyanEvent } from "@/lib/types";
 
@@ -18,44 +19,6 @@ type UpcomingEventsListProps = {
   showCount?: boolean;
   footerAction?: React.ReactNode;
 };
-
-const getEventTime = (value: RyanEvent["date"]) => {
-  if (typeof value === "string") {
-    const dateOnlyMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (dateOnlyMatch) {
-      const year = Number(dateOnlyMatch[1]);
-      const monthIndex = Number(dateOnlyMatch[2]) - 1;
-      const day = Number(dateOnlyMatch[3]);
-      return new Date(year, monthIndex, day).getTime();
-    }
-  }
-
-  return new Date(value as unknown as string).getTime();
-};
-
-  const formatMonthDay = (value: RyanEvent["date"]) => {
-    if (typeof value === "string") {
-      const dateOnlyMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-      if (dateOnlyMatch) {
-        const year = Number(dateOnlyMatch[1]);
-        const monthIndex = Number(dateOnlyMatch[2]) - 1;
-        const day = Number(dateOnlyMatch[3]);
-        const date = new Date(year, monthIndex, day);
-        return {
-          month: date.toLocaleDateString("en-US", { month: "short" }),
-          day: date.toLocaleDateString("en-US", { day: "2-digit" }),
-          year: date.toLocaleDateString("en-US", { year: "numeric" }),
-        };
-      }
-    }
-
-    const date = new Date(value as unknown as string);
-    return {
-      month: date.toLocaleDateString("en-US", { month: "short" }),
-      day: date.toLocaleDateString("en-US", { day: "2-digit" }),
-      year: date.toLocaleDateString("en-US", { year: "numeric" }),
-    };
-  };
 
 const UpcomingEventsList = (props: UpcomingEventsListProps) => {
   const {
@@ -98,11 +61,7 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
   }
 
   if (events.length === 0) return null;
-  const sortedEvents = [...events].sort((a, b) =>
-    sortOrder === "asc"
-      ? getEventTime(a.date) - getEventTime(b.date)
-      : getEventTime(b.date) - getEventTime(a.date),
-  );
+  const sortedEvents = sortEventsByDate(events, sortOrder);
 
   return (
     <div className="mb-10 rounded-2xl border border-black/10 bg-white/90 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
@@ -114,7 +73,7 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
           <div className="flex justify-center lg:justify-end">{headerAction}</div>
         ) : showCount ? (
           <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-            {events.length} event{events.length === 1 ? "" : "s"}
+            {formatEventCount(events.length)}
           </Text>
         ) : null}
       </div>

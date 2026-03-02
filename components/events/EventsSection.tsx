@@ -16,6 +16,7 @@ import type { RyanEvent } from "@/lib/types";
 
 // Utilities
 import { usePathname } from "next/navigation";
+import { formatEventCount } from "@/utils/date";
 
 type EventsSectionProps = {
   events: RyanEvent[];
@@ -84,10 +85,8 @@ const EventsSection = (props: EventsSectionProps) => {
       ? mainEventCount
       : events.length;
   const eventCountLabel = hasOnlyChapterUpcoming
-    ? `${chapterEventCount} chapter event${
-        chapterEventCount === 1 ? "" : "s"
-      }`
-    : `${displayCount} event${displayCount === 1 ? "" : "s"}`;
+    ? formatEventCount(chapterEventCount, "chapter event")
+    : formatEventCount(displayCount);
 
   return (
     <div className="mb-10">
