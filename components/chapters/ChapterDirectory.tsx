@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useTransition } from "react";
-import { EmptyState, Input, Text } from "@/components/global";
+import { EmptyState, FilterRow, Input, Text } from "@/components/global";
 import {
   FaMagnifyingGlass as Search,
   FaSliders as Filters,
@@ -105,7 +105,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
 
   return (
     <div className="space-y-6">
-      <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-end">
+      <FilterRow>
         <div className="flex-1">
           <Input
             label="Search chapters"
@@ -189,7 +189,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
             Clear
           </button>
         </div>
-      </div>
+      </FilterRow>
 
       {showSkeleton ? (
         <div className="grid grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-3 xl:grid-cols-4">

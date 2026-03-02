@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
 
 // Components
-import { Text, Divider, Heading, Input } from "@/components/global";
+import { FilterRow, Text, Divider, Heading, Input } from "@/components/global";
 import { EventsSection } from "@/components/events";
 import NextLink from "next/link";
 
@@ -67,6 +67,23 @@ const EventsContainer = (props: EventsContainerProps) => {
     });
   }, [eventsWithMeta, query]);
 
+  const renderEmptyUpcomingBanner = () => (
+    <div className="mb-8">
+      <Heading
+        className="mb-4 text-center text-3xl title lg:text-4xl lg:text-left"
+        size="h2"
+      >
+        Upcoming Events
+      </Heading>
+      <div className="space-y-4">
+        <Text className="text-lg text-center secondary lg:text-left">
+          No upcoming events at this time.
+        </Text>
+      </div>
+      <Divider margins="lg" />
+    </div>
+  );
+
   if (displayMode === "flat") {
     const { upcoming, past } = splitEventsByTime(
       filteredEventsWithMeta.map((item) => item.event),
@@ -82,33 +99,20 @@ const EventsContainer = (props: EventsContainerProps) => {
     return (
       <div className="mb-10">
         {showSearch && (
-          <div className="mb-6">
-            <Input
-              label="Search events"
-              name="event-search"
-              placeholder="Search by city, venue, or event name..."
-              inputClassName="pr-4"
-              onChange={(event) => setQuery(event.target.value)}
-              value={query}
-            />
-          </div>
-        )}
-        {showEmptyUpcomingBanner && (
-          <div className="mb-8">
-            <Heading
-              className="mb-4 text-center text-3xl title lg:text-4xl lg:text-left"
-              size="h2"
-            >
-              Upcoming Events
-            </Heading>
-            <div className="space-y-4">
-              <Text className="text-lg text-center secondary lg:text-left">
-                No upcoming events at this time.
-              </Text>
+          <FilterRow className="mb-6">
+            <div className="flex-1">
+              <Input
+                label="Search events"
+                name="event-search"
+                placeholder="Search by city, venue, or event name..."
+                inputClassName="pr-4"
+                onChange={(event) => setQuery(event.target.value)}
+                value={query}
+              />
             </div>
-            <Divider margins="lg" />
-          </div>
+          </FilterRow>
         )}
+        {showEmptyUpcomingBanner && renderEmptyUpcomingBanner()}
 
         {!showEmptyUpcomingBanner && activeEvents.length !== 0 && (
           <>
@@ -176,33 +180,20 @@ const EventsContainer = (props: EventsContainerProps) => {
   return (
     <div className="mb-10">
       {showSearch && (
-        <div className="mb-6">
-          <Input
-            label="Search events"
-            name="event-search"
-            placeholder="Search by city, venue, or event name..."
-            inputClassName="pr-4"
-            onChange={(event) => setQuery(event.target.value)}
-            value={query}
-          />
-        </div>
-      )}
-      {showEmptyUpcomingBanner && (
-        <div className="mb-8">
-          <Heading
-            className="mb-4 text-center text-3xl title lg:text-4xl lg:text-left"
-            size="h2"
-          >
-            Upcoming Events
-          </Heading>
-          <div className="space-y-4">
-            <Text className="text-lg text-center secondary lg:text-left">
-              No upcoming events at this time.
-            </Text>
+        <FilterRow className="mb-6">
+          <div className="flex-1">
+            <Input
+              label="Search events"
+              name="event-search"
+              placeholder="Search by city, venue, or event name..."
+              inputClassName="pr-4"
+              onChange={(event) => setQuery(event.target.value)}
+              value={query}
+            />
           </div>
-          <Divider margins="lg" />
-        </div>
+        </FilterRow>
       )}
+      {showEmptyUpcomingBanner && renderEmptyUpcomingBanner()}
 
       {/* Only render the second block if we are NOT in the “empty banner” case */}
       {!showEmptyUpcomingBanner &&

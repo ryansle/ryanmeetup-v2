@@ -33,8 +33,6 @@ export const metadata = buildPageMetadata({
 const AllEventsPage = async () => {
   const events = await fetchEvents();
 
-  console.log(events);
-
   return (
     <Layout>
       <Blurb

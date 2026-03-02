@@ -1,14 +1,17 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Blurb, Breadcrumbs, Divider, Text } from "@/components/global";
+import { Blurb, Breadcrumbs, Text, Divider } from "@/components/global";
 import { EventsListPager } from "@/components/events/EventsListPager";
+import { FaListUl as List } from "react-icons/fa";
+
+// Types
+import type { RyanEvent } from "@/lib/types";
 
 // Utilities
 import { fetchEvents } from "@/actions/fetchContent";
 import { getTestEvents } from "@/lib/test-fixtures/events";
-import type { RyanEvent } from "@/lib/types";
 import { buildPageMetadata } from "@/utils/metadata";
-import { getUpcomingEventsBreadcrumbs } from "@/utils/breadcrumbs";
+import { IoCalendarNumber as Calendar } from "react-icons/io5";
 
 export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Upcoming Events",
@@ -31,7 +34,19 @@ const UpcomingPage = async ({
       ? getTestEvents(searchParams?.fixture)
       : await fetchEvents();
 
-  const breadcrumbs = getUpcomingEventsBreadcrumbs();
+  const iconStyle = "mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white";
+  const breadcrumbs = [
+    {
+      icon: <Calendar className={iconStyle} />,
+      href: "/events",
+      title: "Events",
+    },
+    {
+      icon: <List className={iconStyle} />,
+      href: "/events/upcoming",
+      title: "Upcoming",
+    },
+  ];
 
   return (
     <Layout>

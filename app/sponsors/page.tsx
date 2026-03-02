@@ -5,18 +5,24 @@ import { SponsorSection, PartnershipPerks } from "@/components/sponsors";
 
 // Types
 import { Sponsor } from "@/lib/types";
-import { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchSponsors } from "@/actions/fetchContent";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata() {
   const sponsors = await fetchSponsors();
 
-  return {
-    title: `Ryan Meetup - Sponsors`,
+  return buildPageMetadata({
+    title: "Ryan Meetup - Sponsors",
     description:
       "Ryan Meetups wouldn't be possible without our amazing sponsors. Explore the organizations supporting our events and learn how your brand can join the movement.",
+    canonical: "https://ryanmeetup.com/sponsors",
+    image: {
+      url: "https://ryanmeetup.com/meta/sponsors.png",
+      width: 2056,
+      height: 1162,
+    },
     keywords: [
       "ryan meetup",
       ...sponsors.map(
@@ -26,23 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "ryan meetup sponsorship",
       "ryan meetup partners",
     ],
-    openGraph: {
-      url: "https://ryanmeetup.com/sponsors",
-      title: `Ryan Meetup - Sponsors`,
-      description:
-        "Ryan Meetups wouldn't be possible without our amazing sponsors. Explore the organizations supporting our events and learn how your brand can join the movement.",
-      siteName: "Ryan Meetup",
-      images: [
-        {
-          url: "https://ryanmeetup.com/meta/sponsors.png",
-          width: 2056,
-          height: 1162,
-        },
-      ],
-      locale: "en_US",
-      type: "website",
-    },
-  };
+  });
 }
 
 const SponsorsPage = async () => {

@@ -9,6 +9,7 @@ import type { TravelingRyan } from "@/lib/types";
 
 // Utilities
 import { convertImageUrl } from "@/utils/convert";
+import { formatEventLabel } from "@/utils/date";
 
 type FarthestRyanProps = {
   ryan: TravelingRyan;
@@ -23,8 +24,10 @@ const FarthestRyan = (props: FarthestRyanProps) => {
     milesTraveled,
     event,
     eventDate,
+    date,
     instagram,
   } = props.ryan;
+  const displayDate = formatEventLabel({ date, eventDate });
 
   const imageUrl = convertImageUrl(headshot);
 
@@ -66,7 +69,7 @@ const FarthestRyan = (props: FarthestRyanProps) => {
         </span>
       </Text>
       <Text className="mt-2 text-black/70 dark:text-white/70">
-        <span className="font-cooper text-black dark:text-white">{event}</span> • {eventDate}
+        <span className="font-cooper text-black dark:text-white">{event}</span> • {displayDate}
       </Text>
     </div>
   );

@@ -3,11 +3,12 @@ import { Layout } from "@/components/navigation";
 import { Heading, Breadcrumbs, PageNotFound } from "@/components/global";
 import { ChapterInfo } from "@/components/chapters";
 import { EventsContainer } from "@/components/events";
-import { getChapterBreadcrumbs } from "@/utils/breadcrumbs";
+import { FaCity as City } from "react-icons/fa";
+import { MdGroup as Group } from "react-icons/md";
 
 // Types
 import type { RyanEvent, ContentfulImage } from "@/lib/types";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchEvents, fetchSingleChapter } from "@/actions/fetchContent";
@@ -18,7 +19,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Promise<Metadata | undefined> {
+}) {
   const fixture =
     process.env.E2E_TESTS === "true"
       ? getChapterSlugFixture(params.slug)
@@ -28,9 +29,15 @@ export async function generateMetadata({
   if (content) {
     const { city, state } = content;
 
-    return {
+    return buildPageMetadata({
       title: `Ryan Meetup - ${city} Chapter`,
       description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
+      canonical: `https://ryanmeetup.com/chapters/${params.slug}`,
+      image: {
+        url: `https://ryanmeetup.com/chapters/${params.slug}.png`,
+        width: 3360,
+        height: 1854,
+      },
       keywords: [
         "ryan meetup",
         `ryan meetup ${city}`,
@@ -39,22 +46,7 @@ export async function generateMetadata({
         `ryan meetup ${city} events`,
         `ryan meetup ${city} chapter`,
       ],
-      openGraph: {
-        url: `https://ryanmeetup.com/chapters/${params.slug}`,
-        title: `Ryan Meetup - ${city} Chapter`,
-        description: `Keep up to date with Ryan Meetups in ${city}, ${state}.`,
-        siteName: "Ryan Meetup",
-        images: [
-          {
-            url: `https://ryanmeetup.com/chapters/${params.slug}.png`,
-            width: 3360,
-            height: 1854,
-          },
-        ],
-        locale: "en_US",
-        type: "website",
-      },
-    };
+    });
   }
 }
 
@@ -79,7 +71,20 @@ const ChapterPage = async ({
   const avatar = content?.avatar;
   const isActive = content?.active;
 
-  const breadcrumbs = getChapterBreadcrumbs(params.slug, city as string);
+  const iconStyle = "mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white";
+
+  const breadcrumbs = [
+    {
+      icon: <Group className={iconStyle} />,
+      href: "/chapters",
+      title: "Chapters",
+    },
+    {
+      icon: <City className={iconStyle} />,
+      href: `/chapters/${params.slug}`,
+      title: city as string,
+    },
+  ];
 
   return (
     <Layout>

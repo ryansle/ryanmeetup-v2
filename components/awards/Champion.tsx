@@ -9,6 +9,7 @@ import type { ChampionRyan } from "@/lib/types";
 
 // Utilities
 import { convertImageUrl } from "@/utils/convert";
+import { formatEventLabel } from "@/utils/date";
 
 type ChampionProps = {
   ryan: ChampionRyan;
@@ -20,12 +21,14 @@ const Champion = (props: ChampionProps) => {
     fullName2,
     headshot,
     eventDate,
+    date,
     instagram,
     instagram2,
     title,
     location,
     location2,
   } = props.ryan;
+  const displayDate = formatEventLabel({ date, eventDate });
 
   const imageUrl = convertImageUrl(headshot);
 
@@ -72,7 +75,7 @@ const Champion = (props: ChampionProps) => {
         {title}
       </Heading>
       <Text className="mt-2 text-sm text-black/70 dark:text-white/70">
-        {location} {location2 && `, & ${location2} `}• {eventDate}
+        {location} {location2 && `, & ${location2} `}• {displayDate}
       </Text>
     </div>
   );

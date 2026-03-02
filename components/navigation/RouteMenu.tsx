@@ -15,6 +15,7 @@ import NextLink from "next/link";
 import type { Route } from "@/lib/types";
 import { useRef } from "react";
 import type { ReactNode } from "react";
+import { getRouteMenuActiveClass } from "@/utils/navigation";
 
 type RouteMenuProps = {
   icon: ReactNode;
@@ -27,32 +28,8 @@ const RouteMenu = (props: RouteMenuProps) => {
   const { icon, title, routes, pathname } = props;
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  const isSelected = (pathname: string) => {
-    if (
-      (pathname === "/events" ||
-        pathname === "/events/upcoming" ||
-        pathname.includes("/gallery") ||
-        pathname === "/awards" ||
-        pathname === "/about" ||
-        pathname === "/name-change" ||
-        pathname === "/holidays" ||
-        pathname === "/rsvp" ||
-        pathname.includes("/chapters")) &&
-      title === "Community"
-    ) {
-      return "bg-black/15 text-black shadow-sm ring-1 ring-black/10 dark:bg-white/25 dark:text-white dark:ring-white/20";
-    } else if (
-      (pathname === "/flyers" ||
-        pathname === "/contribute" ||
-        pathname === "/cards" ||
-        pathname === "/charity" ||
-        pathname === "/sponsors" ||
-        pathname === "/donate") &&
-      title === "Get Involved"
-    ) {
-      return "bg-black/15 text-black shadow-sm ring-1 ring-black/10 dark:bg-white/25 dark:text-white dark:ring-white/20";
-    }
-  };
+  const isSelected = (pathname: string) =>
+    getRouteMenuActiveClass(title, pathname);
 
   return (
     <Popover className="relative">
@@ -71,8 +48,8 @@ const RouteMenu = (props: RouteMenuProps) => {
         >
           <PopoverButton
             ref={buttonRef}
-            className={`flex items-center gap-x-2 rounded-full px-3 py-2 text-xs font-semibold tracking-wide text-black transition hover:bg-black/5 hover:shadow-sm dark:text-white dark:hover:bg-white/10 2xl:px-4 2xl:text-sm ${
-              isSelected(pathname) ?? ""
+              className={`flex items-center gap-x-2 rounded-full px-3 py-2 text-xs font-semibold tracking-wide text-black transition hover:bg-black/5 hover:shadow-sm dark:text-white dark:hover:bg-white/10 2xl:px-4 2xl:text-sm ${
+              isSelected(pathname)
             }`}
           >
             {icon} {title}{" "}

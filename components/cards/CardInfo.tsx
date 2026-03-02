@@ -1,18 +1,8 @@
-"use client";
-
 // Components
-import { Heading, Text, Button, Card, Pill } from "@/components/global";
-import NextImage from "next/image";
+import { Heading, Text, Button, Card } from "@/components/global";
 import { FaDollarSign as Dollar } from "react-icons/fa";
-import { useTheme } from "next-themes";
 
 const CardInfo = () => {
-  const { resolvedTheme } = useTheme();
-  const isLight = (resolvedTheme ?? "light") === "light";
-  const transitionLogoSrc = isLight
-    ? "/logos/transition-marketing-light.png"
-    : "/logos/transition-marketing-dark.png";
-
   return (
     <Card
       variant="solid"
@@ -71,9 +61,8 @@ const CardInfo = () => {
         variant="primary"
         size="md"
         disabled
-        onClick={() => console.log( "Orders are temporarily paused" )}
       >
-        ORDERS ARE TEMPORARILY PAUSED
+        ORDERS PAUSED UNTIL FURTHER NOTICE
       </Button>
     </Card>
   );

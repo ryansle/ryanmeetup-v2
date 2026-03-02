@@ -10,6 +10,7 @@ import type { Charity } from "@/lib/types";
 
 // Utilities
 import useCounter from "@/hooks/useCounter";
+import { formatEventDate } from "@/utils/date";
 
 type TotalCountProps = {
   donations: Charity[];
@@ -59,7 +60,7 @@ const TotalCount = (props: TotalCountProps) => {
         </div>
       </div>
       <Text className="mt-4 text-sm text-black/70 dark:text-white/70">
-        Last updated: {new Date().toLocaleDateString()}
+        Last updated: {formatEventDate(new Date())}
       </Text>
     </div>
   );

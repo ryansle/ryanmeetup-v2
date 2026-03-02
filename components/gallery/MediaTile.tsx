@@ -8,6 +8,7 @@ import type { MediaEvent } from "@/lib/types";
 
 // Utilities
 import { convertImageUrl } from "@/utils/convert";
+import { formatEventLabel } from "@/utils/date";
 
 type MediaTileProps = {
   id: string;
@@ -15,7 +16,8 @@ type MediaTileProps = {
 };
 
 const MediaTile = (props: MediaTileProps) => {
-  const { title, eventDate, bgImage, photoUrl, credits } = props.data;
+  const { title, eventDate, date, bgImage, photoUrl, credits } = props.data;
+  const displayDate = formatEventLabel({ date, eventDate });
 
   return (
     <NextLink href={photoUrl} className="group">
@@ -34,7 +36,7 @@ const MediaTile = (props: MediaTileProps) => {
               {title}
             </Heading>
             <Heading className="text-xl text-white" size="h3">
-              {eventDate}
+              {displayDate}
             </Heading>
           </div>
           {credits && (

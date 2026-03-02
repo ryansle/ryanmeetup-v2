@@ -58,6 +58,21 @@ const formatMonthDay = (value: RyanEvent["date"], locale = "en-US") => {
   };
 };
 
+const formatEventDisplayDate = (
+  event: Pick<RyanEvent, "date" | "dateTime">,
+  locale?: string,
+) => {
+  if (event.dateTime) {
+    return event.dateTime;
+  }
+  return formatEventDate(event.date as unknown as string, locale);
+};
+
+const formatEventLabel = (
+  event: { date: Date | string; eventDate?: string },
+  locale?: string,
+) => event.eventDate ?? formatEventDate(event.date, locale);
+
 const formatEventCount = (count: number, label = "event") =>
   `${count} ${label}${count === 1 ? "" : "s"}`;
 
@@ -82,6 +97,8 @@ const sortEventsByDate = (
 export {
   formatEventCount,
   formatEventDate,
+  formatEventDisplayDate,
+  formatEventLabel,
   formatMonthDay,
   isEventUpcoming,
   sortEventsByDate,

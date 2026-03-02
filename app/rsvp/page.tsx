@@ -10,6 +10,7 @@ import type { RyanEvent } from "@/lib/types";
 
 // Utilities
 import { fetchEvents } from "@/actions/fetchContent";
+import { splitEventsByTime } from "@/utils/date";
 
 export const metadata = buildPageMetadata({
   title: "Ryan Meetup - RSVP",
@@ -30,13 +31,8 @@ export const metadata = buildPageMetadata({
 
 const RSVPPage = async () => {
   const events = (await fetchEvents()) as RyanEvent[];
-  const now = Date.now();
-
-  const upcoming = events.filter(
-    (event) =>
-      event.chapter?.includes("Main") &&
-      new Date(event.date as unknown as string).getTime() >= now,
-  );
+  const mainEvents = events.filter((event) => event.chapter?.includes("Main"));
+  const { upcoming } = splitEventsByTime(mainEvents);
 
   return (
     <Layout>

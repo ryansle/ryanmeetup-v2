@@ -22,7 +22,7 @@ type ButtonLinkProps = {
 type ButtonProps = {
   children: ReactNode;
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   disabled?: boolean;

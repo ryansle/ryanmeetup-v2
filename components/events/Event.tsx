@@ -12,7 +12,7 @@ import type { ContentfulImage, RyanEvent } from "@/lib/types";
 
 // Utilities
 import { convertImageUrl } from "@/utils/convert";
-import { isEventUpcoming } from "@/utils/date";
+import { formatEventDisplayDate, isEventUpcoming } from "@/utils/date";
 
 type EventProps = {
   event: RyanEvent;
@@ -22,6 +22,7 @@ const Event = (props: EventProps) => {
   const { title, coverImage, description, href, city, dateTime, venue, date } =
     props.event;
   const isUpcoming = isEventUpcoming(date);
+  const displayDate = formatEventDisplayDate({ date, dateTime });
 
   const imageUrl =
     typeof coverImage === "string"
@@ -47,7 +48,7 @@ const Event = (props: EventProps) => {
             <div className="space-y-1">
               <Text className="flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
                 <Calendar className="h-4 w-4" />
-                {dateTime}
+                {displayDate}
               </Text>
               <Heading className="text-2xl title" size="h3">
                 {title}
