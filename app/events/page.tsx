@@ -166,7 +166,7 @@ const EventsPage = async ({
         events={events as unknown as RyanEvent[]}
         upcomingHeaderAction={
           <NextLink
-            href="/upcoming"
+            href="/events/upcoming"
             className="inline-flex items-center gap-2 rounded-full border border-black/70 bg-black px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white shadow-sm transition hover:border-black/90 hover:bg-black/90 dark:border-white/60 dark:bg-white dark:text-black dark:hover:border-white/80 dark:hover:bg-white/90"
           >
             <List className="h-3 w-3" />

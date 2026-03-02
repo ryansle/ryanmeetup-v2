@@ -1,7 +1,10 @@
+// Components
 import { Layout } from "@/components/navigation";
 import { Blurb } from "@/components/events";
 import { Text } from "@/components/global";
 import { EventsListPager } from "@/components/events/EventsListPager";
+
+// Utilities
 import { fetchEvents } from "@/actions/fetchContent";
 import { getTestEvents } from "@/lib/test-fixtures/events";
 import type { RyanEvent } from "@/lib/types";
@@ -11,10 +14,10 @@ export const metadata: Metadata = {
   title: "Ryan Meetup - Upcoming Events",
   description: "See upcoming Ryan Meetups.",
   alternates: {
-    canonical: "https://ryanmeetup.com/upcoming",
+    canonical: "https://ryanmeetup.com/events/upcoming",
   },
   openGraph: {
-    url: "https://ryanmeetup.com/upcoming",
+    url: "https://ryanmeetup.com/events/upcoming",
     title: "Ryan Meetup - Upcoming Events",
     description: "See upcoming Ryan Meetups.",
     siteName: "Ryan Meetup",

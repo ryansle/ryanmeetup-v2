@@ -1,16 +1,22 @@
 "use client";
 
 import { useMemo, useState, useEffect } from "react";
-import { Heading, Text } from "@/components/global";
+
+// Components
+import { Breadcrumbs, Heading, Text } from "@/components/global";
 import { UpcomingEventsList } from "@/components/events";
-import { toEndOfDayTime } from "@/utils/date";
-import type { RyanEvent } from "@/lib/types";
+import { IoCalendarNumber as Calendar } from "react-icons/io5";
+import { FaListUl as List } from "react-icons/fa";
 import {
   FaArrowLeft as ArrowLeft,
   FaArrowRight as ArrowRight,
   FaAnglesLeft as AnglesLeft,
   FaAnglesRight as AnglesRight,
 } from "react-icons/fa6";
+
+// Utilities
+import { toEndOfDayTime } from "@/utils/date";
+import type { RyanEvent } from "@/lib/types";
 
 type EventsListPagerProps = {
   events: RyanEvent[];
@@ -119,7 +125,24 @@ const EventsListPager = (props: EventsListPagerProps) => {
   return (
     <div className="space-y-4">
       {showPerPageSelector && perPageOptions?.length ? (
-        <div className="flex justify-center sm:justify-end">
+        <div className="flex flex-col gap-3 sm:flex-row items-center justify-between">
+          <div className="flex justify-center sm:justify-start">
+            <Breadcrumbs
+              className="hidden sm:flex"
+              crumbs={[
+                {
+                  icon: <Calendar className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
+                  href: "/events",
+                  title: "Events",
+                },
+                {
+                  icon: <List className="mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white" />,
+                  href: "/events/upcoming",
+                  title: "Upcoming Events",
+                },
+              ]}
+            />
+          </div>
           <label className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
             Results per page
             <select
