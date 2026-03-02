@@ -4,7 +4,7 @@ import { useMemo, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
 // Components
-import { Heading, Text } from "@/components/global";
+import { EmptyState, Heading, Text } from "@/components/global";
 import { UpcomingEventsList } from "@/components/events";
 import {
   FaArrowLeft as ArrowLeft,
@@ -132,16 +132,10 @@ const EventsListPager = (props: EventsListPagerProps) => {
                 0 events
               </Text>
             </div>
-            <div className="rounded-2xl border border-dashed border-black/20 p-6 text-center dark:border-white/20">
-              <Text className="text-sm text-black/70 dark:text-white/70">
-                {emptyMessage}
-              </Text>
-            </div>
+            <EmptyState message={emptyMessage} />
           </div>
         ) : (
-          <Text className="text-center text-sm text-black/70 dark:text-white/70">
-            {emptyMessage}
-          </Text>
+          <EmptyState message={emptyMessage} />
         )
       ) : (
         <UpcomingEventsList

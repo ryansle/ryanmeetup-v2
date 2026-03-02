@@ -2,7 +2,7 @@
 import { Layout } from "@/components/navigation";
 import { Event } from "@/components/events";
 import { Blurb } from "@/components/global";
-import { Divider, Text } from "@/components/global";
+import { Divider, EmptyState, Text } from "@/components/global";
 
 // Types
 import { buildPageMetadata } from "@/utils/metadata";
@@ -53,15 +53,13 @@ const RSVPPage = async () => {
       <Divider />
 
       <div className="mx-auto w-full max-w-5xl">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {upcoming.map((event, index) => (
-            <Event key={index} event={event} />
-          ))}
-        </div>
-
-        {upcoming.length === 0 && (
-          <div className="flex items-center justify-center">
-            <code>[events not uploaded yet]</code>
+        {upcoming.length === 0 ? (
+          <EmptyState message="Events not uploaded yet." />
+        ) : (
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {upcoming.map((event, index) => (
+              <Event key={index} event={event} />
+            ))}
           </div>
         )}
       </div>

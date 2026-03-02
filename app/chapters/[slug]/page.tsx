@@ -3,8 +3,7 @@ import { Layout } from "@/components/navigation";
 import { Heading, Breadcrumbs, PageNotFound } from "@/components/global";
 import { ChapterInfo } from "@/components/chapters";
 import { EventsContainer } from "@/components/events";
-import { FaCity as City } from "react-icons/fa";
-import { MdGroup as Group } from "react-icons/md";
+import { getChapterBreadcrumbs } from "@/utils/breadcrumbs";
 
 // Types
 import type { RyanEvent, ContentfulImage } from "@/lib/types";
@@ -80,20 +79,7 @@ const ChapterPage = async ({
   const avatar = content?.avatar;
   const isActive = content?.active;
 
-  const iconStyle = "mr-2 fill-black h-4 w-4 shrink-0 dark:fill-white";
-
-  const breadcrumbs = [
-    {
-      icon: <Group className={iconStyle} />,
-      href: "/chapters",
-      title: "Chapters",
-    },
-    {
-      icon: <City className={iconStyle} />,
-      href: `/chapters/${params.slug}`,
-      title: city as string,
-    },
-  ];
+  const breadcrumbs = getChapterBreadcrumbs(params.slug, city as string);
 
   return (
     <Layout>
@@ -121,7 +107,6 @@ const ChapterPage = async ({
               <EventsContainer
                 events={events as unknown as RyanEvent[]}
                 eventType={convertSlug(params.slug)}
-                // hidePastEvents
                 showUpcomingSection
                 showSearch={false}
               />

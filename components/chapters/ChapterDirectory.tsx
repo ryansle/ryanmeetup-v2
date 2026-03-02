@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useTransition } from "react";
-import { Input, Text } from "@/components/global";
+import { EmptyState, Input, Text } from "@/components/global";
 import {
   FaMagnifyingGlass as Search,
   FaSliders as Filters,
@@ -201,11 +201,7 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
           ))}
         </div>
       ) : sortedChapters.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-black/20 p-6 text-center dark:border-white/20">
-          <Text className="text-sm uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
-            No chapters match your search.
-          </Text>
-        </div>
+        <EmptyState message="No chapters match your search." />
       ) : (
         <div className="grid grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-3 xl:grid-cols-4">
           {sortedChapters.map((chapter, index) => (
