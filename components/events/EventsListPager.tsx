@@ -14,7 +14,8 @@ import {
 } from "react-icons/fa6";
 
 // Utilities
-import { sortEventsByDate, splitEventsByTime } from "@/utils/date";
+import { getEventEmptyMessage, getSortedEventsByView } from "@/utils/events";
+import { formatEventCount } from "@/utils/date";
 import type { RyanEvent } from "@/lib/types";
 
 type EventsListPagerProps = {
@@ -55,16 +56,10 @@ const EventsListPager = (props: EventsListPagerProps) => {
 
   const effectivePerPage = showPerPageSelector ? perPage : pageSize;
 
-  const filteredEvents = useMemo(() => {
-    const { upcoming, past } = splitEventsByTime(events);
-    return view === "upcoming" ? upcoming : past;
-  }, [events, view]);
-
-  const sortedEvents = useMemo(() => {
-    const order =
-      sortOrder ?? (view === "upcoming" ? "asc" : "desc");
-    return sortEventsByDate(filteredEvents, order);
-  }, [filteredEvents, sortOrder, view]);
+  const sortedEvents = useMemo(
+    () => getSortedEventsByView(events, view, sortOrder),
+    [events, sortOrder, view],
+  );
 
   const totalPages = Math.max(1, Math.ceil(sortedEvents.length / effectivePerPage));
   const currentPage = Math.min(page, totalPages);
@@ -110,10 +105,7 @@ const EventsListPager = (props: EventsListPagerProps) => {
     listTitle ?? (view === "upcoming" ? "Upcoming Events" : "Past Events");
   const resolvedCta =
     ctaLabel ?? (view === "upcoming" ? "RSVP" : "View event");
-  const emptyMessage =
-    view === "upcoming"
-      ? "No upcoming events right now. Check back soon!"
-      : "No past events yet.";
+  const emptyMessage = getEventEmptyMessage(view);
   const footerAction =
     showPerPageSelector && perPageOptions?.length ? (
       <label className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
@@ -146,7 +138,7 @@ const EventsListPager = (props: EventsListPagerProps) => {
                 {resolvedTitle}
               </Heading>
               <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-                0 events
+                {formatEventCount(0)}
               </Text>
             </div>
             <EmptyState message={emptyMessage} />

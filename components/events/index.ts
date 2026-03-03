@@ -1,4 +1,5 @@
 export * from "./Event";
+export * from "./EventRow";
 export * from "./EventsContainer";
 export * from "./EventsSection";
 export * from "./UpcomingEventsList";

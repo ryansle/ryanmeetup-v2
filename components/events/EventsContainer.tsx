@@ -13,6 +13,7 @@ import type { RyanEvent } from "@/lib/types";
 
 // Utilities
 import { sortEventsByDate, splitEventsByTime, toEndOfDayTime } from "@/utils/date";
+import { filterEventsByQuery, getEventEmptyMessage } from "@/utils/events";
 
 type EventsContainerProps = {
   events: RyanEvent[];
@@ -39,33 +40,20 @@ const EventsContainer = (props: EventsContainerProps) => {
 
   const [query, setQuery] = useState("");
 
+  const filteredEvents = useMemo(
+    () => filterEventsByQuery(events, query),
+    [events, query],
+  );
+
   const eventsWithMeta = useMemo(
     () =>
-      events.map((event) => ({
+      filteredEvents.map((event) => ({
         event,
         time: toEndOfDayTime(event.date),
         isMain: event.chapter.includes(eventType),
       })),
-    [events, eventType],
+    [filteredEvents, eventType],
   );
-
-  const filteredEventsWithMeta = useMemo(() => {
-    if (!query.trim()) return eventsWithMeta;
-    const needle = query.trim().toLowerCase();
-    return eventsWithMeta.filter(({ event }) => {
-      const haystack = [
-        event.title,
-        event.city,
-        event.venue,
-        event.description,
-        event.chapter?.join(" "),
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      return haystack.includes(needle);
-    });
-  }, [eventsWithMeta, query]);
 
   const renderEmptyUpcomingBanner = () => (
     <div className="mb-8">
@@ -77,7 +65,7 @@ const EventsContainer = (props: EventsContainerProps) => {
       </Heading>
       <div className="space-y-4">
         <Text className="text-lg text-center secondary lg:text-left">
-          No upcoming events at this time.
+          {getEventEmptyMessage("upcoming")}
         </Text>
       </div>
       <Divider margins="lg" />
@@ -86,7 +74,7 @@ const EventsContainer = (props: EventsContainerProps) => {
 
   if (displayMode === "flat") {
     const { upcoming, past } = splitEventsByTime(
-      filteredEventsWithMeta.map((item) => item.event),
+      eventsWithMeta.map((item) => item.event),
     );
     const activeEvents = sortEventsByDate(upcoming, "asc");
     const inactiveEvents = sortEventsByDate(past, "desc");
@@ -146,7 +134,7 @@ const EventsContainer = (props: EventsContainerProps) => {
   const activeEvents: RyanEvent[] = [];
   const inactiveEvents: RyanEvent[] = [];
 
-  for (const item of filteredEventsWithMeta) {
+  for (const item of eventsWithMeta) {
     if (item.isMain) {
       mainEvents.push(item.event);
       const { upcoming } = splitEventsByTime([item.event]);
