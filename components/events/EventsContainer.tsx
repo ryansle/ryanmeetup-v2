@@ -212,20 +212,15 @@ const EventsContainer = (props: EventsContainerProps) => {
       )}
 
       {inactiveEvents.length === 0 && activeEvents.length === 0 && (
-        <div className="space-y-4">
-          <Text className="text-center text-lg secondary lg:text-left">
-            There have not been any local Ryan Meetups in {eventType} yet.
-          </Text>
-          <Text className="text-center text-lg secondary lg:text-left">
-            Reach out to Ryan via Instagram or at{" "}
-            <NextLink
-              className="font-semibold text-blue-700 dark:text-blue-500 hover:cursor"
-              href="mailto:ryan@ryanmeetup.com"
-            >
-              ryan@ryanmeetup.com
-            </NextLink>{" "}
-            about scheduling one today!
-          </Text>
+        <div className="rounded-2xl border -mt-8 border-black/10 bg-white/90 p-6 text-center shadow-sm dark:border-white/10 dark:bg-white/5 lg:text-left">
+          <div className="space-y-3">
+            <Text className="text-lg secondary">
+              There have not been any local Ryan Meetups in {eventType} yet.
+            </Text>
+            <Text className="text-lg secondary">
+              Check back later once we officially launch this chapter!
+            </Text>
+          </div>
         </div>
       )}
     </div>

@@ -1,10 +1,11 @@
 "use client";
 
 // Components
-import { Heading, Text, Card, Pill } from "@/components/global";
+import { Heading, Text, Card, Divider, Button } from "@/components/global";
 import NextLink from "next/link";
 import NextImage from "next/image";
 import { FaInstagram as Instagram } from "react-icons/fa";
+import { FaEnvelope as Email } from "react-icons/fa6";
 
 // Types
 import type { ContentfulImage } from "@/lib/types";
@@ -26,10 +27,10 @@ const ChapterInfo = (props: ChapterInfoProps) => {
   return (
     <Card variant="soft" size="lg" className="relative overflow-hidden">
       {!isActive && (
-        <div className="absolute right-4 top-4 z-10">
-          <Pill className="border-red-500/40 bg-red-500/10 text-red-600 dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-300">
+        <div className="absolute left-[-40px] top-8 z-10 -rotate-45">
+          <span className="block bg-red-600/90 px-10 py-1 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-md dark:bg-red-500/80">
             Inactive
-          </Pill>
+          </span>
         </div>
       )}
 
@@ -53,18 +54,18 @@ const ChapterInfo = (props: ChapterInfoProps) => {
         <div className="grid grid-cols-9 gap-3">
           <div className="col-span-4">
             <Text className="text-sm font-semibold uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-              Chapter Lead{leaders.length > 1 && "s"}
+              Chapter Lead{leaders?.length > 1 && "s"}
             </Text>
           </div>
 
           <div className="col-span-5 space-y-1">
-            {leaders.map((ryan, index) => (
+            {leaders?.map((ryan, index) => (
               <Text key={index} className="text-base text-black/70 dark:text-white/70">
                 {ryan}
               </Text>
             ))}
 
-            {leaders.length === 0 && (
+            {(leaders?.length === 0 || !leaders) && (
               <Text className="text-base text-black/70 dark:text-white/70">
                 No active lead.
               </Text>
@@ -96,12 +97,22 @@ const ChapterInfo = (props: ChapterInfoProps) => {
 
         <div className="rounded-2xl border border-black/10 bg-white/90 p-4 text-center shadow-sm dark:border-white/10 dark:bg-white/5">
           <Heading className="text-lg title" size="h4">
-            Need to get in contact?
+            Need to get in touch with us?
           </Heading>
 
-          <Text className="mt-2 text-sm text-black/70 dark:text-white/70">
-            Our Instagram inbox is open for all inquiries.
-          </Text>
+          <div className="mt-3">
+            <Button.Link
+              href={`mailto:chapters@ryanmeetup.com?subject=${encodeURIComponent(
+                `Chapter Inquiry: ${city}`,
+              )}`}
+              variant="primary"
+              size="sm"
+              fullWidth
+              leftIcon={<Email className="h-4 w-4" />}
+            >
+              Contact Us Directly
+            </Button.Link>
+          </div>
         </div>
       </div>
     </Card>
