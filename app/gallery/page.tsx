@@ -11,6 +11,7 @@ import { buildPageMetadata } from "@/utils/metadata";
 
 // Utilities
 import { fetchMedia } from "@/actions/fetchContent";
+import { sortByEventDateLabel } from "@/utils/date";
 
 export const metadata = buildPageMetadata({
   title: "Ryan Meetup - Gallery",
@@ -37,10 +38,9 @@ export const metadata = buildPageMetadata({
 const GalleryPage = async () => {
   const media = await fetchMedia();
 
-  const tiles = media.sort(
-    (a, b) =>
-      new Date(b.fields.eventDate as string).getTime() -
-      new Date(a.fields.eventDate as string).getTime(),
+  const tiles = sortByEventDateLabel(
+    media.map((item) => item.fields),
+    "desc",
   );
 
   return (
@@ -85,9 +85,9 @@ const GalleryPage = async () => {
         <div className="grid grid-cols-1 gap-4 mt-10 md:grid-cols-2 xl:grid-cols-3">
           {tiles?.map((content, index) => (
             <MediaTile
-              key={index}
-              id={content.sys.id}
-              data={content.fields as unknown as MediaEvent}
+              key={`${content.title}-${index}`}
+              id={content.title as string}
+              data={content as unknown as MediaEvent}
             />
           ))}
         </div>

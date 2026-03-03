@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useTransition } from "react";
-import { EmptyState, FilterRow, Input, Text } from "@/components/global";
+import { EmptyState, FilterBar, Input, Text } from "@/components/global";
 import {
   FaMagnifyingGlass as Search,
   FaSliders as Filters,
@@ -105,8 +105,8 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
 
   return (
     <div className="space-y-6">
-      <FilterRow>
-        <div className="flex-1">
+      <FilterBar
+        search={
           <Input
             label="Search chapters"
             name="chapter-search"
@@ -132,64 +132,66 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
             }}
             value={query}
           />
-        </div>
-        <div className={`grid w-full grid-cols-2 gap-3 lg:w-auto lg:flex lg:flex-wrap lg:items-end lg:justify-end ${showFilters ? "" : "hidden lg:flex"}`}>
-          <div className="col-span-2 flex flex-col gap-2 lg:col-auto">
-            <label
-              className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70"
-              htmlFor="chapter-state"
-            >
-              State
-            </label>
-            <div className="relative">
-              <select
-                id="chapter-state"
-                name="chapter-state"
-                value={stateFilter}
-                onChange={(event) => {
-                  const value = event.target.value;
-                  startTransition(() => {
-                    setStateFilter(value);
-                  });
-                }}
-                className="h-11 w-full appearance-none rounded-lg border border-black/20 bg-white px-3 pr-10 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/70 shadow-sm transition focus:border-black/40 focus:outline-none focus:ring-2 focus:ring-black/20 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:focus:border-white/50 dark:focus:ring-white/20"
+        }
+        actions={
+          <div className={`grid w-full grid-cols-2 gap-3 lg:w-auto lg:flex lg:flex-wrap lg:items-end lg:justify-end ${showFilters ? "" : "hidden lg:flex"}`}>
+            <div className="col-span-2 flex flex-col gap-2 lg:col-auto">
+              <label
+                className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70"
+                htmlFor="chapter-state"
               >
-                <option value="all">All states</option>
-                {stateOptions.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
-                  </option>
-                ))}
-              </select>
-              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-black/70 dark:text-white/70">
-                <ChevronDown className="h-3.5 w-3.5" />
-              </span>
+                State
+              </label>
+              <div className="relative">
+                <select
+                  id="chapter-state"
+                  name="chapter-state"
+                  value={stateFilter}
+                  onChange={(event) => {
+                    const value = event.target.value;
+                    startTransition(() => {
+                      setStateFilter(value);
+                    });
+                  }}
+                  className="h-11 w-full appearance-none rounded-lg border border-black/20 bg-white px-3 pr-10 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/70 shadow-sm transition focus:border-black/40 focus:outline-none focus:ring-2 focus:ring-black/20 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:focus:border-white/50 dark:focus:ring-white/20"
+                >
+                  <option value="all">All states</option>
+                  {stateOptions.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-black/70 dark:text-white/70">
+                  <ChevronDown className="h-3.5 w-3.5" />
+                </span>
+              </div>
             </div>
+            <button
+              type="button"
+              onClick={() =>
+                startTransition(() => setOnlyUpcoming((value) => !value))
+              }
+              aria-pressed={onlyUpcoming}
+              className={`h-11 w-full rounded-lg border px-4 text-[11px] font-semibold uppercase tracking-[0.2em] transition lg:w-auto ${
+                onlyUpcoming
+                  ? "border-black/50 bg-black text-white dark:border-white/30 dark:bg-white dark:text-black"
+                  : "border-black/20 bg-white text-black/70 hover:border-black/40 hover:bg-black/5 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40 dark:hover:bg-white/10"
+              }`}
+            >
+              <span className="sm:hidden">Upcoming</span>
+              <span className="hidden sm:inline">Upcoming Event(s)</span>
+            </button>
+            <button
+              type="button"
+              onClick={handleClear}
+              className="h-11 w-full rounded-lg border border-black/20 bg-white px-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/70 transition hover:border-black/40 hover:bg-black/5 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40 dark:hover:bg-white/10 lg:w-auto"
+            >
+              Clear
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={() =>
-              startTransition(() => setOnlyUpcoming((value) => !value))
-            }
-            aria-pressed={onlyUpcoming}
-            className={`h-11 w-full rounded-lg border px-4 text-[11px] font-semibold uppercase tracking-[0.2em] transition lg:w-auto ${
-              onlyUpcoming
-                ? "border-black/50 bg-black text-white dark:border-white/30 dark:bg-white dark:text-black"
-                : "border-black/20 bg-white text-black/70 hover:border-black/40 hover:bg-black/5 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40 dark:hover:bg-white/10"
-            }`}
-          >
-            <span className="sm:hidden">Upcoming</span>
-            <span className="hidden sm:inline">Upcoming Event(s)</span>
-          </button>
-          <button
-            type="button"
-            onClick={handleClear}
-            className="h-11 w-full rounded-lg border border-black/20 bg-white px-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/70 transition hover:border-black/40 hover:bg-black/5 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40 dark:hover:bg-white/10 lg:w-auto"
-          >
-            Clear
-          </button>
-        </div>
-      </FilterRow>
+        }
+      />
 
       {showSkeleton ? (
         <div className="grid grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-3 xl:grid-cols-4">

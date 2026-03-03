@@ -5,7 +5,12 @@ import NextLink from "next/link";
 import { Transition } from "@headlessui/react";
 import { Heading, Text } from "@/components/global";
 import { FaArrowRight as ArrowRight } from "react-icons/fa6";
-import { formatEventCount, formatMonthDay, sortEventsByDate } from "@/utils/date";
+import {
+  formatEventCount,
+  formatEventLocationLabel,
+  formatMonthDay,
+  sortEventsByDate,
+} from "@/utils/date";
 
 import type { RyanEvent } from "@/lib/types";
 
@@ -15,8 +20,7 @@ type UpcomingEventsListProps = {
   sortOrder?: "asc" | "desc";
   ctaLabel?: string;
   isLoading?: boolean;
-  headerAction?: React.ReactNode;
-  showCount?: boolean;
+  headerMeta?: React.ReactNode;
   footerAction?: React.ReactNode;
 };
 
@@ -27,8 +31,7 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
     sortOrder = "asc",
     ctaLabel = "RSVP",
     isLoading = false,
-    headerAction,
-    showCount = true,
+    headerMeta,
     footerAction,
   } = props;
 
@@ -69,13 +72,13 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
         <Heading className="text-3xl title lg:text-4xl" size="h2">
           {title}
         </Heading>
-        {headerAction ? (
-          <div className="flex justify-center lg:justify-end">{headerAction}</div>
-        ) : showCount ? (
-          <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-            {formatEventCount(events.length)}
-          </Text>
-        ) : null}
+        <div className="flex justify-center lg:justify-end">
+          {headerMeta ?? (
+            <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
+              {formatEventCount(events.length)}
+            </Text>
+          )}
+        </div>
       </div>
       <div className="grid gap-3">
         {sortedEvents.map((event, index) => {
@@ -135,9 +138,11 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
                       )}
                     </div>
                     <Text className="text-xs uppercase tracking-[0.14em] text-black/70 dark:text-white/70 sm:tracking-[0.2em]">
-                      <span>{event.city}</span>
-                      <span className="hidden sm:inline"> • {event.venue}</span>
-                      <span> • {date.year}</span>
+                      {formatEventLocationLabel(event, "en-US", false)}
+                      <span className="hidden sm:inline">
+                        {" "}
+                        • {event.venue}
+                      </span>
                     </Text>
                   </div>
                 </div>

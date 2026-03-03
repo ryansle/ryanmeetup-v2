@@ -73,6 +73,37 @@ const formatEventLabel = (
   locale?: string,
 ) => event.eventDate ?? formatEventDate(event.date, locale);
 
+const formatEventLocationLabel = (
+  event: { city?: string; venue?: string; date: RyanEvent["date"] },
+  locale = "en-US",
+  includeVenue = true,
+) => {
+  const date = formatMonthDay(event.date, locale);
+  const parts = [];
+
+  if (event.city) {
+    parts.push(event.city);
+  }
+
+  if (includeVenue && event.venue) {
+    parts.push(event.venue);
+  }
+
+  parts.push(date.year);
+
+  return parts.filter(Boolean).join(" • ");
+};
+
+const sortByEventDateLabel = <T extends { eventDate?: string }>(
+  items: T[],
+  order: "asc" | "desc" = "desc",
+) =>
+  [...items].sort((a, b) => {
+    const aTime = a.eventDate ? new Date(a.eventDate).getTime() : 0;
+    const bTime = b.eventDate ? new Date(b.eventDate).getTime() : 0;
+    return order === "asc" ? aTime - bTime : bTime - aTime;
+  });
+
 const formatEventCount = (count: number, label = "event") =>
   `${count} ${label}${count === 1 ? "" : "s"}`;
 
@@ -99,7 +130,9 @@ export {
   formatEventDate,
   formatEventDisplayDate,
   formatEventLabel,
+  formatEventLocationLabel,
   formatMonthDay,
+  sortByEventDateLabel,
   isEventUpcoming,
   sortEventsByDate,
   splitEventsByTime,

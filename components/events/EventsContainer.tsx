@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
 
 // Components
-import { FilterRow, Text, Divider, Heading, Input } from "@/components/global";
+import { FilterBar, Text, Divider, Heading, Input } from "@/components/global";
 import { EventsSection } from "@/components/events";
 import NextLink from "next/link";
 
@@ -99,8 +99,9 @@ const EventsContainer = (props: EventsContainerProps) => {
     return (
       <div className="mb-10">
         {showSearch && (
-          <FilterRow className="mb-6">
-            <div className="flex-1">
+          <FilterBar
+            className="mb-6"
+            search={
               <Input
                 label="Search events"
                 name="event-search"
@@ -109,8 +110,8 @@ const EventsContainer = (props: EventsContainerProps) => {
                 onChange={(event) => setQuery(event.target.value)}
                 value={query}
               />
-            </div>
-          </FilterRow>
+            }
+          />
         )}
         {showEmptyUpcomingBanner && renderEmptyUpcomingBanner()}
 
@@ -180,8 +181,9 @@ const EventsContainer = (props: EventsContainerProps) => {
   return (
     <div className="mb-10">
       {showSearch && (
-        <FilterRow className="mb-6">
-          <div className="flex-1">
+        <FilterBar
+          className="mb-6"
+          search={
             <Input
               label="Search events"
               name="event-search"
@@ -190,8 +192,8 @@ const EventsContainer = (props: EventsContainerProps) => {
               onChange={(event) => setQuery(event.target.value)}
               value={query}
             />
-          </div>
-        </FilterRow>
+          }
+        />
       )}
       {showEmptyUpcomingBanner && renderEmptyUpcomingBanner()}
 
