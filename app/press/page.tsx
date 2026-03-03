@@ -1,8 +1,13 @@
 // Components
 import { Layout } from "@/components/navigation";
-import { Heading, Text, Divider, Pill } from "@/components/global";
+import { Blurb, Button, Divider } from "@/components/global";
 import { FeaturedIn, PressFeed } from "@/components/press";
 import { layoutPaddingX } from "@/lib/constants";
+import {
+  FaArrowRight as ArrowRight,
+  FaBookOpen as LearnMore,
+  FaEnvelope as Email,
+} from "react-icons/fa6";
 
 // Types
 import type { Article as RyanArticle, Outlet } from "@/lib/types";
@@ -92,24 +97,41 @@ const PressPage = async () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div className={`pt-8 ${layoutPaddingX}`}>
-        <div className="mb-4 flex justify-center">
-          <Pill>Press</Pill>
-        </div>
-        <Heading
-          className="mb-3 text-center title text-4xl md:text-7xl"
-          size="h1"
-        >
-          RYAN MEETUP
-        </Heading>
-
-        <Text className="text-center text-lg italic text-black/70 dark:text-white/70">
-          has been proudly featured in:
-        </Text>
+        <Blurb tag="Press" fullHeadline="RYAN MEETUP" smallHeadline="RYAN MEETUP">
+          <p className="mb-6 text-center text-lg italic text-black/70 dark:text-white/70">
+            has been proudly featured in:
+          </p>
+        </Blurb>
       </div>
 
       <FeaturedIn outlets={outlets as Outlet[]} />
 
       <div className={`${layoutPaddingX}`}>
+        <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
+          <Button.Link
+            href="/about"
+            newTab={false}
+            variant="secondary"
+            size="md"
+            leftIcon={<LearnMore className="h-4 w-4" />}
+            fullWidth
+            className="sm:min-w-[220px]"
+          >
+            Learn More
+          </Button.Link>
+          <Button.Link
+            href="/contact"
+            newTab={false}
+            variant="primary"
+            size="md"
+            leftIcon={<Email className="h-4 w-4" />}
+            fullWidth
+            className="sm:min-w-[220px]"
+          >
+            Get In Touch
+          </Button.Link>
+        </div>
+
         <Divider />
 
         <PressFeed articles={articles as unknown as RyanArticle[]} />

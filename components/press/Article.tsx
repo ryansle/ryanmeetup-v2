@@ -47,14 +47,6 @@ const Article = (props: ArticleProps) => {
   return (
     <NextLink href={href} target="_blank" className="block">
       <Card variant="soft" size="md" hover className="group relative">
-        <div className="absolute left-6 top-6 flex items-center gap-2">
-          <span className="rounded-full border border-black/10 bg-white/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-            Featured
-          </span>
-          <span className="rounded-full border border-black/10 bg-white/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-black/70 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-            {outlet}
-          </span>
-        </div>
         <div className="grid gap-6 xl:grid-cols-[1.4fr_2fr] xl:items-stretch">
           <div className="xl:self-center">
             <ArticleImage imageSrc={imageUrl ?? "/trophy.png"} title={title} />

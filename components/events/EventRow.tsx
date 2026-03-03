@@ -17,7 +17,12 @@ const EventRow = (props: EventRowProps) => {
   const { event, ctaLabel, className } = props;
   const date = formatMonthDay(event.date);
   const isNationalEvent = event.chapter.includes("Main");
-  const chapterTag = event.chapter.find((item) => item !== "Main");
+  const chapterTags = Array.from(
+    new Set(event.chapter.filter((item) => item !== "Main")),
+  );
+  const maxChapterBadges = 1;
+  const visibleChapterTags = chapterTags.slice(0, maxChapterBadges);
+  const remainingChapterCount = Math.max(0, chapterTags.length - maxChapterBadges);
   const isPartiful = typeof event.href === "string" && event.href.includes("partiful.com");
   const isViewEvent = ctaLabel.toLowerCase() === "view event";
 
@@ -40,16 +45,24 @@ const EventRow = (props: EventRowProps) => {
             <Heading className="order-2 text-base title sm:order-1 sm:text-lg" size="h3">
               {event.title}
             </Heading>
-            {(isNationalEvent || chapterTag) && (
+            {(isNationalEvent || chapterTags.length > 0) && (
               <div className="order-1 flex flex-wrap items-center gap-2 sm:order-2">
                 {isNationalEvent && (
                   <span className="inline-flex items-center rounded-full border border-amber-500/50 bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-700 shadow-sm dark:border-amber-300/60 dark:bg-amber-300/20 dark:text-amber-200">
                     National Event
                   </span>
                 )}
-                {chapterTag && (
-                  <span className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700 shadow-sm dark:border-emerald-300/40 dark:bg-emerald-300/15 dark:text-emerald-200">
-                    {chapterTag} Chapter
+                {visibleChapterTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700 shadow-sm dark:border-emerald-300/40 dark:bg-emerald-300/15 dark:text-emerald-200"
+                  >
+                    {tag} Chapter
+                  </span>
+                ))}
+                {remainingChapterCount > 0 && (
+                  <span className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/5 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700/80 shadow-sm dark:border-emerald-300/30 dark:bg-emerald-300/10 dark:text-emerald-200/80">
+                    +{remainingChapterCount} more
                   </span>
                 )}
               </div>
