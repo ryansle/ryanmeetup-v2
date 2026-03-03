@@ -10,6 +10,7 @@ import {
   FaDollarSign as Dollar,
   FaScroll as Scroll,
   FaTiktok as TikTok,
+  FaHome as Home,
   // FaAddressCard as Card,
 } from "react-icons/fa";
 import {
@@ -71,10 +72,16 @@ export const socials = [
 
 export const routes = [
   {
+    icon: <Home />,
+    text: "Home",
+    href: "/",
+    description: "Back to the Ryan Meetup homepage.",
+  },
+  {
     icon: <Community />,
     text: "Community",
     href: "",
-    description: "Events, chapters, and the story behind Ryan Meetups.",
+    description: "Events, chapters, and the story behind Ryan Meetup.",
     subroutes: [
       {
         icon: <Scroll />,

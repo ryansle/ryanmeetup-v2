@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import type { ReactNode } from "react";
 
 // Components
@@ -13,7 +13,8 @@ import type { RyanEvent } from "@/lib/types";
 
 // Utilities
 import { sortEventsByDate, splitEventsByTime, toEndOfDayTime } from "@/utils/date";
-import { filterEventsByQuery, getEventEmptyMessage } from "@/utils/events";
+import { buildEventSearchText, getEventEmptyMessage } from "@/utils/events";
+import { useSearchFilter } from "@/hooks/useSearchFilter";
 
 type EventsContainerProps = {
   events: RyanEvent[];
@@ -38,12 +39,10 @@ const EventsContainer = (props: EventsContainerProps) => {
     showSearch = true,
   } = props;
 
-  const [query, setQuery] = useState("");
-
-  const filteredEvents = useMemo(
-    () => filterEventsByQuery(events, query),
-    [events, query],
-  );
+  const { query, setQuery, filtered: filteredEvents } = useSearchFilter({
+    data: events,
+    buildHaystack: buildEventSearchText,
+  });
 
   const eventsWithMeta = useMemo(
     () =>

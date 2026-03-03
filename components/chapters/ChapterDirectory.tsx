@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa6";
 import { ChapterTile } from "@/components/chapters";
 import type { RyanChapter } from "@/lib/types";
+import { useSearchFilter } from "@/hooks/useSearchFilter";
 
 type ChapterDirectoryProps = {
   chapters: RyanChapter[];
@@ -17,7 +18,6 @@ type ChapterDirectoryProps = {
 
 const ChapterDirectory = (props: ChapterDirectoryProps) => {
   const { chapters, upcomingCities } = props;
-  const [query, setQuery] = useState("");
   const [stateFilter, setStateFilter] = useState("all");
   const [onlyUpcoming, setOnlyUpcoming] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
@@ -49,9 +49,20 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
     return Array.from(unique).sort();
   }, [chapters]);
 
+  const { query, setQuery, filtered: queryFilteredChapters } = useSearchFilter({
+    data: chapters,
+    buildHaystack: (chapter) => {
+      const city = chapter.city ?? "";
+      const state = chapter.state ?? "";
+      const combined = state ? `${city}, ${state}` : city;
+      return [city, state, combined, chapter.slug]
+        .join(" ")
+        .toLowerCase();
+    },
+  });
+
   const filteredChapters = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
-    return chapters.filter((chapter) => {
+    return queryFilteredChapters.filter((chapter) => {
       if (stateFilter !== "all" && chapter.state !== stateFilter) {
         return false;
       }
@@ -63,20 +74,9 @@ const ChapterDirectory = (props: ChapterDirectoryProps) => {
         return false;
       }
 
-      if (!normalizedQuery) {
-        return true;
-      }
-
-      const city = chapter.city ?? "";
-      const state = chapter.state ?? "";
-      const combined = state ? `${city}, ${state}` : city;
-      const haystack = [city, state, combined, chapter.slug]
-        .join(" ")
-        .toLowerCase();
-
-      return haystack.includes(normalizedQuery);
+      return true;
     });
-  }, [chapters, normalizedUpcoming, onlyUpcoming, query, stateFilter]);
+  }, [normalizedUpcoming, onlyUpcoming, queryFilteredChapters, stateFilter]);
 
   const sortedChapters = useMemo(() => {
     const withUpcoming = filteredChapters.map((chapter, index) => ({

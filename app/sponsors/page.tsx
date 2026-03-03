@@ -16,7 +16,7 @@ export async function generateMetadata() {
   return buildPageMetadata({
     title: "Ryan Meetup - Sponsors",
     description:
-      "Ryan Meetups wouldn't be possible without our amazing sponsors. Explore the organizations supporting our events and learn how your brand can join the movement.",
+      "Ryan Meetup wouldn't be possible without our amazing sponsors. Explore the organizations supporting our events and learn how your brand can join the movement.",
     canonical: "https://ryanmeetup.com/sponsors",
     image: {
       url: "https://ryanmeetup.com/meta/sponsors.png",

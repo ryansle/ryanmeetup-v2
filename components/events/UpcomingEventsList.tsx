@@ -93,8 +93,10 @@ const UpcomingEventsList = (props: UpcomingEventsListProps) => {
               enter="transition duration-700 ease-out"
               enterFrom="opacity-0 translate-y-4"
               enterTo="opacity-100 translate-y-0"
+              as="div"
+              className={delayClass}
             >
-              <EventRow event={event} ctaLabel={ctaLabel} className={delayClass} />
+              <EventRow event={event} ctaLabel={ctaLabel} />
             </Transition>
           );
         })}
