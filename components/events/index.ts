@@ -5,5 +5,8 @@ export * from "./EventsSection";
 export * from "./UpcomingEventsList";
 export * from "./EventsPreview";
 export * from "./EventsListPager";
+export * from "./EventsPagination";
+export * from "./EventsEmptyTable";
+export * from "./ResultsPerPage";
 export * from "./DoubleHeader";
 export * from "./Chapters";

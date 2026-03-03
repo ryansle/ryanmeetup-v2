@@ -4,8 +4,11 @@ import { useMemo, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
 // Components
-import { EmptyState, Heading, Text } from "@/components/global";
+import { EmptyState } from "@/components/global";
 import { UpcomingEventsList } from "@/components/events";
+import { EventsEmptyTable } from "@/components/events/EventsEmptyTable";
+import { EventsPagination } from "@/components/events/EventsPagination";
+import { ResultsPerPage } from "@/components/events/ResultsPerPage";
 import {
   FaArrowLeft as ArrowLeft,
   FaArrowRight as ArrowRight,
@@ -108,20 +111,11 @@ const EventsListPager = (props: EventsListPagerProps) => {
   const emptyMessage = getEventEmptyMessage(view);
   const footerAction =
     showPerPageSelector && perPageOptions?.length ? (
-      <label className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 dark:text-white/70">
-        Results per page
-        <select
-          value={effectivePerPage}
-          onChange={(event) => setPerPage(Number(event.target.value))}
-          className="h-9 rounded-full border border-black/20 bg-white/80 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/70 shadow-sm transition hover:border-black/40 dark:border-white/20 dark:bg-white/10 dark:text-white/70 dark:hover:border-white/40"
-        >
-          {perPageOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </label>
+      <ResultsPerPage
+        value={effectivePerPage}
+        options={perPageOptions}
+        onChange={setPerPage}
+      />
     ) : null;
 
   return (
@@ -132,17 +126,11 @@ const EventsListPager = (props: EventsListPagerProps) => {
 
       {sortedEvents.length === 0 ? (
         emptyStateVariant === "table" ? (
-          <div className="mb-10 rounded-2xl border border-black/10 bg-white/90 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
-            <div className="mb-4 flex flex-col gap-2 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
-              <Heading className="text-3xl title lg:text-4xl" size="h2">
-                {resolvedTitle}
-              </Heading>
-              <Text className="text-xs uppercase tracking-[0.3em] text-black/70 dark:text-white/70">
-                {formatEventCount(0)}
-              </Text>
-            </div>
-            <EmptyState message={emptyMessage} />
-          </div>
+          <EventsEmptyTable
+            title={resolvedTitle}
+            countLabel={formatEventCount(0)}
+            message={emptyMessage}
+          />
         ) : (
           <EmptyState message={emptyMessage} />
         )
@@ -156,78 +144,20 @@ const EventsListPager = (props: EventsListPagerProps) => {
         />
       )}
 
-      {sortedEvents.length > effectivePerPage && (
-        <div className="mt-4 flex items-center justify-center">
-          <div className="mx-2 inline-flex items-center gap-1.5">
-            <button
-              type="button"
-              onClick={() => setPage(1)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/20 text-black/70 transition hover:border-black/40 hover:text-black dark:border-white/20 dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"
-              disabled={currentPage === 1}
-              aria-disabled={currentPage === 1}
-              aria-label="First page"
-            >
-              <AnglesLeft className="h-3.5 w-3.5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setPage((prev) => Math.max(1, prev - 1))}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/20 text-black/70 transition hover:border-black/40 hover:text-black dark:border-white/20 dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"
-              disabled={currentPage === 1}
-              aria-disabled={currentPage === 1}
-              aria-label="Previous page"
-            >
-              <ArrowLeft className="h-3.5 w-3.5" />
-            </button>
-            {pageButtons.map((pageNumber, index) => {
-              const isActive = pageNumber === currentPage;
-              const prevPage = pageButtons[index - 1];
-              const showEllipsis = index > 0 && pageNumber - prevPage > 1;
-              return (
-                <div key={pageNumber} className="inline-flex items-center gap-1.5">
-                  {showEllipsis && (
-                    <span className="px-1 text-xs text-black/40 dark:text-white/40">
-                      …
-                    </span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => setPage(pageNumber)}
-                    className={`h-8 w-8 rounded-full border text-[10px] font-semibold uppercase tracking-[0.2em] transition sm:h-9 sm:w-9 sm:text-xs ${
-                      isActive
-                        ? "border-black/70 bg-black text-white dark:border-white/50 dark:bg-white dark:text-black"
-                        : "border-black/20 text-black/70 hover:border-black/40 hover:text-black dark:border-white/20 dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"
-                    }`}
-                    aria-current={isActive}
-                  >
-                    {pageNumber}
-                  </button>
-                </div>
-              );
-            })}
-            <button
-              type="button"
-              onClick={() => setPage((prev) => Math.min(totalPages, prev + 1))}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/20 text-black/70 transition hover:border-black/40 hover:text-black dark:border-white/20 dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"
-              disabled={currentPage === totalPages}
-              aria-disabled={currentPage === totalPages}
-              aria-label="Next page"
-            >
-              <ArrowRight className="h-3.5 w-3.5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setPage(totalPages)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/20 text-black/70 transition hover:border-black/40 hover:text-black dark:border-white/20 dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"
-              disabled={currentPage === totalPages}
-              aria-disabled={currentPage === totalPages}
-              aria-label="Last page"
-            >
-              <AnglesRight className="h-3.5 w-3.5" />
-            </button>
-          </div>
-        </div>
-      )}
+      <EventsPagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        pageButtons={pageButtons}
+        onFirst={() => setPage(1)}
+        onPrevious={() => setPage((prev) => Math.max(1, prev - 1))}
+        onNext={() => setPage((prev) => Math.min(totalPages, prev + 1))}
+        onLast={() => setPage(totalPages)}
+        onPage={setPage}
+        firstIcon={<AnglesLeft className="h-3.5 w-3.5" />}
+        previousIcon={<ArrowLeft className="h-3.5 w-3.5" />}
+        nextIcon={<ArrowRight className="h-3.5 w-3.5" />}
+        lastIcon={<AnglesRight className="h-3.5 w-3.5" />}
+      />
 
     </div>
   );
